@@ -1,0 +1,7 @@
+The extra files can be used on there own as tile textures i guess. 
+but the main reason i added them is for using blend mode in layers to get differnt effects\looks to the textures in potoshop.
+exaples would be using blend mode with pleuge02_ground_dif.dds and pleuge02_ground_EXTRA.dds to get 
+pleuge02_ground_dif_PIN_LIGHT_100_opacity.dds and pleuge02_ground_dif_PIN_LIGHT_46_opacity.dds
+
+
+its some thing you dont need to do but you can get some cool results sometime   
