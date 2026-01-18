@@ -51,6 +51,11 @@
     <CSound id="WZsplash" parent="WZWeaponLaunch" sound="splash"/>
     <CSound id="WZweld1" parent="WZWeaponLaunch" sound="weld1"/>
     <CSound id="WZweld2" parent="WZWeaponLaunch" sound="weld2"/>
+    <CSound id="WZplasflm" parent="WZWeaponLaunch" sound="plasflm"/>
+    <CSound id="WZhevlsr"  parent="WZWeaponLaunch" sound="hevlsr"/>
+    <CSound id="WZemp"  parent="WZWeaponLaunch" sound="emp"/>
+    <CSound id="WZcybgrnd"  parent="WZWeaponLaunch" sound="cybgrnd"/>
+
 
     <CSound default="1" id="WZExplosion" parent="Combat">
         <DupeDestroyCount value="5"/>

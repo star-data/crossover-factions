@@ -1265,7 +1265,7 @@
     <CActorAction id="WZVtolSunburstAA" parent="WZWeapon">
         <Missile value="FXMflare"/>
         <LaunchAssets Model="WZFXATMiss" Sound="WZrocket"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolMachinegun" parent="WZWeapon">
         <Missile value="FXTracer"/>
@@ -1275,7 +1275,7 @@
     <CActorAction id="WZVtolCannon" parent="WZWeapon">
         <Missile value="FXcam20"/>
         <LaunchAssets Model="WZFXCan20m" Sound="WZsmlcan"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolTwinMachinegun" parent="WZWeapon">
         <Missile value="fxtracer_twin"/>
@@ -1285,7 +1285,7 @@
     <CActorAction id="WZVtolMiniRocket" parent="WZWeapon">
         <Missile value="FXMflare"/>
         <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolHeavyMachinegun" parent="WZWeapon">
         <Missile value="fxtracerh"/>
@@ -1295,22 +1295,22 @@
     <CActorAction id="WZVtolLancer" parent="WZWeapon">
         <Missile value="FXMPLME"/>
         <LaunchAssets Model="WZFXMRocAt" Sound="WZrocket"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolHyperVelocityCannon" parent="WZWeapon">
         <Missile value="FXTracer"/>
         <LaunchAssets Model="WZFXCan20A" Sound="WZhivelcan"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolBunkerBuster" parent="WZWeapon">
         <Missile value="FXSPLME"/>
         <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolAssaultGun" parent="WZWeapon">
         <Missile value="FXTracer"/>
         <LaunchAssets Model="WZFXVulCan" Sound="WZrapdcan"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolAssaultCannon" parent="WZWeapon">
         <Missile value="fxtracerh"/>
@@ -1320,37 +1320,37 @@
     <CActorAction id="WZVtolTankKiller" parent="WZWeapon">
         <Missile value="FXMPLME"/>
         <LaunchAssets Model="WZFXMRocAt" Sound="WZrocket"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="lrgexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolFlashlight" parent="WZWeapon">
         <Missile value="FXLFLSH"/>
         <LaunchAssets Model="WZFXHBLas" Sound="WZbemlsr"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="lsrexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlsrexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolNeedleGun" parent="WZWeapon">
         <Missile value="FXGAmmo"/>
         <LaunchAssets Model="WZFXLGauss" Sound="WZgaussgun"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolScourgeMissile" parent="WZWeapon">
         <Missile value="FXMPLME"/>
         <LaunchAssets Model="WZFXMRocAt" Sound="WZrocket"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolPulseLaser" parent="WZWeapon">
         <Missile value="FXPLAmmo"/>
         <LaunchAssets Model="WZFXLasRot" Sound="WZplslsr"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="lsrexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlsrexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolHeavyLaser" parent="WZWeapon">
         <Missile value="FXPLAmmo"/>
         <LaunchAssets Model="WZFXLasRot" Sound="WZhevlsr"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="lsrexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlsrexpl"/>
     </CActorAction>
     <CActorAction id="WZVtolRailGun" parent="WZWeapon">
         <Missile value="FXGammoM"/>
         <LaunchAssets Model="WZFXMGauss" Sound="WZgaussgun"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="lrgexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
     </CActorAction>
     <CActorAction id="ScavVtolMachinegun" parent="WZWeapon">
         <Missile value="FXTracer"/>
@@ -1360,12 +1360,12 @@
     <CActorAction id="ScavVtolMiniRocket" parent="WZWeapon">
         <Missile value="FXMflare"/>
         <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
     </CActorAction>
     <CActorAction id="WZHeavyRocketBastion" parent="WZWeapon">
         <Missile value="FXMPLME"/>
         <LaunchAssets Model="WZFXMRocAt" Sound="WZrocket"/>
-        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="lrgexpl"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
     </CActorAction>
     <CActorTurret id="WZTurret">
         <On Terms="TurretEnable.WZStaticTurret" Send="Create"/>
