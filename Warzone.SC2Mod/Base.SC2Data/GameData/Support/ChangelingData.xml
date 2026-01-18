@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectSwitch id="DisguiseEx3">
+        <CaseArray Validator="IsWZRace" Effect="DisguiseAsWZSwitch"/>
+    </CEffectSwitch>
+    <CEffectSwitch id="DisguiseAsWZSwitch">
+        <CaseArray Validator="isWZPRace" Effect="DisguiseAsWZCyborgCombatEngineerCU"/>
+        <CaseDefault value="DisguiseAsWZCyborgCombatEngineerCU"/>
+    </CEffectSwitch>
+    <CEffectCreateUnit id="DisguiseAsWZCyborgCombatEngineerCU" parent="DisguiseEx3CU">
+        <SpawnUnit value="ChangelingWZCyborgCombatEngineer"/>
+    </CEffectCreateUnit>
+    <CAbilMorph id="DisguiseAsWZCyborgCombatEngineer" parent="DisguiseChangeling">
+        <Name value="Abil/Name/DisguiseAsWZCyborgCombatEngineer"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace=""/>
+        <InfoArray Unit="ChangelingWZCyborgCombatEngineer">
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="0.5"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CActorUnit id="ChangelingWZCyborgCombatEngineer" parent="WZCyborgCombatEngineer" unitName="ChangelingWZCyborgCombatEngineer">
+        <AcceptedHostedPropTransfers index="Scale" value="0"/>
+        <On index="0" Terms="UnitBirth.ChangelingWZCyborgCombatEngineer" Send="Create SoundEmitter ChangelingVolt_Ambience"/>
+        <On index="1" Terms="UnitBirth.ChangelingWZCyborgCombatEngineer"/>
+        <On index="2" Terms="UnitRevive.ChangelingWZCyborgCombatEngineer"/>
+        <On index="3" Terms="UnitRevive.ChangelingWZCyborgCombatEngineer"/>
+        <On index="4" Terms="UnitConstruction.ChangelingWZCyborgCombatEngineer"/>
+        <On index="5" Terms="UnitConstruction.ChangelingWZCyborgCombatEngineer"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo ChangelingWZCyborgCombatEngineer" Send="Create"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom ChangelingWZCyborgCombatEngineer" Send="Destroy"/>
+        <SoundArray index="Ready" value="Changeling_Ready"/>
+        <SoundArray index="What" value="Changeling_What"/>
+        <SoundArray index="Yes" value="Changeling_Yes"/>
+        <DeathArray index="Normal" ModelLink="ChangelingDeath" SoundLink="Changeling_Death"/>
+    </CActorUnit>
+    <CUnit id="ChangelingWZCyborgCombatEngineer" parent="WZCyborgCombatEngineer">
+        <Name value="Unit/Name/ChangelingWZCyborgCombatEngineer"/>
+        <Race value="Zerg"/>
+        <BehaviorArray Link="ChangelingDisable"/>
+        <LeaderAlias value="Changeling"/>
+        <HotkeyAlias value="Changeling"/>
+        <SelectAlias value="Changeling"/>
+        <SubgroupAlias value="Changeling"/>
+        <RepairTime value="30.4"/>
+        <WeaponArray index="0" removed="1"/>
+    </CUnit>
+
+
+
+</Catalog>

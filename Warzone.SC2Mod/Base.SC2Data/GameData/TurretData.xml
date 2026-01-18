@@ -1,0 +1,50 @@
+<Catalog>
+
+    <CTurret id="WZTankTurret">
+        <YawArc value="360"/>
+        <YawRate value="720"/>
+        <YawIdleRate value="45"/>
+        <Fidget DelayMax="30" DelayMin="10"/>
+    </CTurret>
+    <CTurret id="WZSensorTurret">
+        <Idle value="Spin"/>
+        <YawArc value="360"/>
+        <YawRate value="720"/>
+        <YawIdleRate value="45"/>
+        <Fidget DelayMax="30" DelayMin="10"/>
+    </CTurret>
+
+    <CTurret id="WZCyborgTurret">
+        <YawArc value="120"/>
+        <YawRate value="720"/>
+        <YawIdleRate value="45"/>
+        <Fidget DelayMax="30" DelayMin="10"/>
+    </CTurret>
+    <CTurret id="WZCyborgTurretSecondary">
+        <YawArc value="120"/>
+        <YawRate value="720"/>
+        <YawIdleRate value="45"/>
+        <Fidget DelayMax="30" DelayMin="10"/>
+    </CTurret>
+
+    <CTurret id="WZStaticTurret">
+        <YawArc value="360"/>
+        <YawRate value="720"/>
+        <YawIdleRate value="45"/>
+        <Fidget DelayMax="30" DelayMin="10"/>
+    </CTurret>
+    <CTurret id="WZSpinningTurret">
+        <Idle value="Spin"/>
+        <YawArc value="360"/>
+        <YawRate value="720"/>
+        <YawIdleRate value="45"/>
+        <Fidget DelayMax="30" DelayMin="10"/>
+    </CTurret>
+    <CTurret id="WZGuardTurret">
+        <YawArc value="360"/>
+        <YawRate value="720"/>
+        <YawIdleRate value="45"/>
+        <Fidget DelayMax="30" DelayMin="10"/>
+    </CTurret>
+
+</Catalog>

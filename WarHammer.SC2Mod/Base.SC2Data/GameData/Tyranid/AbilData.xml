@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAbilBehavior id="AdrenalRush">
+        <Alignment value="Positive"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Tyranid"/>
+        <CmdButtonArray index="On" DefaultButtonFace="AdrenalRush">
+            <Flags index="AllowSelfCast" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="Off" DefaultButtonFace="AdrenalRush2">
+            <Flags index="AllowSelfCast" value="1"/>
+            <Flags index="ShowInGlossary" value="1"/>
+        </CmdButtonArray>
+        <Flags index="Toggle" value="1"/>
+        <Cost>
+            <VitalFraction index="Life" value="0.2"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <OffCost>
+            <VitalFraction index="Life" value="0.2"/>
+            <Cooldown TimeUse="30"/>
+        </OffCost>
+        <ExpireCost/>
+        <BehaviorArray value="AdrenalRushBuff"/>
+    </CAbilBehavior>
+    <CAbilEffectTarget id="BioPlasma">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:Units"/>
+        <Effect index="0" value="BioPlasmaLaunchMissile"/>
+        <Cost>
+            <Vital index="Energy" value="150"/>
+            <Charge Link="Abil/LeviathanCharge"/>
+            <Cooldown Link="Abil/BioPlasmidDischarge" TimeUse="25"/>
+        </Cost>
+        <TargetFilters value="-;Self,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="14"/>
+        <RangeSlop value="10"/>
+        <PrepTime value="0"/>
+        <CastIntroTime value="2.5"/>
+        <CastOutroTime value="0"/>
+        <FinishTime value="0"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <AINotifyEffect value="BioPlasmidDischargeLaunchMissile"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="BioPlasma"/>
+    </CAbilEffectTarget>
+    <CAbilEffectInstant id="PsychicScream">
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:Units"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+            <Cooldown Location="Unit" TimeUse="50"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="PsychicScream"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="FleshHooks">
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:Units"/>
+        <Effect index="0" value="FleshHooksLaunchMissile"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="25"/>
+            <Charge Link="Abil/Drag"/>
+            <Cooldown Link="Drag" TimeUse="3"/>
+        </Cost>
+        <TargetFilters value="Visible;Self,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="7"/>
+        <PrepTime value="0"/>
+        <FinishTime value="1"/>
+        <CancelableArray index="Prep" value="1"/>
+        <CancelableArray index="Cast" value="1"/>
+        <CancelableArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <AINotifyEffect value="FaceEmbrace"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="FleshHooks"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="LictorLeap">
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:Units"/>
+        <Effect index="0" value="LictorLeapLaunchMissile"/>
+        <Flags index="AbortOnAllianceChange" value="0"/>
+        <Cost>
+            <Vital index="Energy" value="40"/>
+            <Charge Link="Abil/GiantYetiLeap"/>
+            <Cooldown Link="GiantYetiLeap" TimeUse="10"/>
+        </Cost>
+        <Range value="7"/>
+        <RangeSlop value="7"/>
+        <PrepTime value="0.5"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <CursorEffect value="GiantYetiLeapSearch"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="TestZerg"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
+    </CAbilEffectTarget>
+    <CAbilBehavior id="InfiltrateLictor">
+        <Alignment value="Positive"/>
+        <AbilSetId value="Clok"/>
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="On" DefaultButtonFace="CloakOnGhost">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="Off" DefaultButtonFace="CloakOff">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <Flags index="Toggle" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="25"/>
+            <Charge Link="Abil/GhostCloak"/>
+            <Cooldown Link="Abil/GhostCloak"/>
+        </Cost>
+        <BehaviorArray value="InfiltrateLictor"/>
+    </CAbilBehavior>
+    <CAbilEffectInstant id="Terrify">
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:Units"/>
+        <Effect index="0" value="TerrifySearch"/>
+        <AINotifyEffect value=""/>
+        <Cost>
+            <Vital index="Energy" value="30"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Terrify"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="SeismicRoar">
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:Units"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="75"/>
+            <Cooldown Location="Unit" TimeUse="65"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SeismicRoar"/>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="RampagingChargeAbility">
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:Units"/>
+        <Effect index="0" value="RampagingChargePersistent"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Cost>
+            <Cooldown TimeUse="25"/>
+        </Cost>
+        <Range value="20"/>
+        <PrepTime value="2.5"/>
+        <FinishTime value="0.3"/>
+        <ShowProgressArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <AINotifyEffect value="RampagingChargePersistent"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RampagingCharge"/>
+        <OrderArray index="0">
+            <DisplayType value="Confirm"/>
+            <Color value="255,0,255,0"/>
+            <Model value="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
+            <Scale value="2.000000"/>
+            <LineTexture value="Assets\Textures\WayPointLine.dds"/>
+        </OrderArray>
+        <DefaultError value="Error"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="RavenerTunnel">
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:Units"/>
+        <Flags index="BestUnit" value="0"/>
+        <Range value="500"/>
+        <CastIntroTime value="1"/>
+        <FinishTime value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RavenerTunnel">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <Cost>
+            <Cooldown TimeUse="5"/>
+        </Cost>
+        <RefundArray index="Approach" value="0"/>
+        <UseMarkerArray index="Approach" value="0"/>
+        <PauseableArray index="Approach" value="0"/>
+        <PreemptableArray index="Approach" value="0"/>
+        <ValidatedArray index="Approach" value="0"/>
+    </CAbilEffectTarget>
+    <CAbilMorph id="RavenerUnburrow">
+        <AbilSetId value="BrwU"/>
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:MorphsandBurrows"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="LurkerBurrowUp">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <ActorKey value="BurrowUp"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <InfoArray Unit="Ravener" RandomDelayMax="0.1">
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0.5441"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Duration" value="0.5441"/>
+            </SectionArray>
+        </InfoArray>
+        <AutoCastFilters value="Ground,Visible;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden"/>
+        <AutoCastValidatorArray value="TargetNotChangeling"/>
+        <AutoCastRange value="2"/>
+        <AutoCastCountMin value="1"/>
+    </CAbilMorph>
+    <CAbilMorph id="RavenerBurrow">
+        <AbilSetId value="BrwD"/>
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:MorphsandBurrows"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="BurrowLurker">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
+        <ActorKey value="BurrowDown"/>
+        <Flags index="Interruptible" value="1"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="IgnorePlacement" value="0"/>
+        <RefundFraction>
+            <Resource index="Minerals" value="0"/>
+            <Resource index="Vespene" value="0"/>
+            <Resource index="Terrazine" value="0"/>
+            <Resource index="Custom" value="0"/>
+        </RefundFraction>
+        <InfoArray Unit="RavenerBurrowed" RandomDelayMax="0.1">
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0.5556"/>
+            </SectionArray>
+            <SectionArray index="Collide">
+                <DurationArray index="Delay" value="0.5556"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0.5556"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilTrain id="GrowUnit">
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:Structures"/>
+        <InfoArray index="Train1">
+            <Button DefaultButtonFace="TrainRipper"/>
+            <Unit value="Ripper"/>
+        </InfoArray>
+        <InfoArray index="Train2" Time="25">
+            <Button DefaultButtonFace="TrainTermagant"/>
+            <Unit value="Termagant"/>
+        </InfoArray>
+        <InfoArray index="Train3" Time="45">
+            <Button DefaultButtonFace="TrainWarrior"/>
+            <Unit value="TyranidWarrior"/>
+        </InfoArray>
+        <InfoArray index="Train4" Time="40">
+            <Button DefaultButtonFace="TrainGenestealer"/>
+            <Unit value="Genestealer"/>
+        </InfoArray>
+        <InfoArray index="Train5" Time="30">
+            <Button DefaultButtonFace="TrainRavener"/>
+            <Unit value="Ravener"/>
+        </InfoArray>
+        <InfoArray index="Train6">
+            <Button DefaultButtonFace="TrainGargoyle"/>
+            <Unit value="Gargoyle"/>
+        </InfoArray>
+        <InfoArray index="Train7" Time="25">
+            <Button DefaultButtonFace="TrainLictor"/>
+            <Unit value="Lictor"/>
+        </InfoArray>
+        <InfoArray index="Train8" Time="50">
+            <Button DefaultButtonFace="TrainTyrantGuard"/>
+            <Unit value="TyrantGuard"/>
+        </InfoArray>
+        <InfoArray index="Train9">
+            <Button DefaultButtonFace="TrainBiovore"/>
+            <Unit value="Biovore"/>
+        </InfoArray>
+        <InfoArray index="Train10">
+            <Button DefaultButtonFace="TrainCarnifex"/>
+            <Unit value="Carnifex"/>
+        </InfoArray>
+        <InfoArray index="Train11">
+            <Button DefaultButtonFace="TrainSpinegaunt"/>
+            <Unit value="Spinegaunt"/>
+        </InfoArray>
+        <InfoArray index="Train12">
+            <Button DefaultButtonFace="TrainHormagaunt"/>
+            <Unit value="Hormagaunt"/>
+        </InfoArray>
+        <InfoArray index="Train13">
+            <Button DefaultButtonFace="TrainZoanthrope"/>
+            <Unit value="Zoanthrope"/>
+        </InfoArray>
+        <InfoArray index="Train14">
+            <Button DefaultButtonFace="TrainSwarmlord"/>
+            <Unit value="Swarmlord"/>
+        </InfoArray>
+        <InfoArray index="Train15">
+            <Button DefaultButtonFace="TrainHiveTyrant"/>
+            <Unit value="HiveTyrant"/>
+        </InfoArray>
+        <InfoArray index="Train16">
+            <Button DefaultButtonFace="TrainHierophant"/>
+            <Unit value="Hierophant"/>
+        </InfoArray>
+        <InfoArray index="Train17">
+            <Button DefaultButtonFace="TrainGenestealerBroodlord"/>
+            <Unit value="GenestealerBroodlord"/>
+        </InfoArray>
+        <InfoArray index="Train18">
+            <Button DefaultButtonFace="TrainTermagantMotyxia"/>
+            <Unit value="TermagantMotyxia"/>
+        </InfoArray>
+        <InfoArray index="Train19">
+            <Button DefaultButtonFace="TrainTermagantReaper"/>
+            <Unit value="TermagantReaper"/>
+        </InfoArray>
+    </CAbilTrain>
+    <CAbilMorph id="Shieldwall">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Tyranid"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Shieldwall">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <Flags index="IgnoreCollision" value="0"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="IgnorePlacement" value="0"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <InfoArray Unit="TyrantGuardSieldwall" RandomDelayMax="0.1">
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0.7"/>
+            </SectionArray>
+            <SectionArray index="Collide">
+                <DurationArray index="Delay" value="0.7"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
+        </InfoArray>
+        <AbilSetId value="Shwll"/>
+    </CAbilMorph>
+    <CAbilBuild id="TyranidBuild">
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:Units"/>
+        <FlagArray index="PeonHide" value="1"/>
+        <FlagArray index="PeonKillFinish" value="1"/>
+        <FlagArray index="RangeIncludesBuilding" value="0"/>
+        <InfoArray index="Build1" Unit="NornQueensNest" Time="100">
+            <Button DefaultButtonFace="NornQueensNest"/>
+        </InfoArray>
+        <InfoArray index="Build2" Unit="BroodNest" Time="100">
+            <Button DefaultButtonFace="BroodNest"/>
+        </InfoArray>
+        <InfoArray index="Build3" Unit="CapillaryTower" Time="100">
+            <Button DefaultButtonFace="CapillaryTower"/>
+        </InfoArray>
+        <InfoArray index="Build4" Unit="ForwardBase" Time="100">
+            <Button DefaultButtonFace="ForwardBase"/>
+        </InfoArray>
+        <InfoArray index="Build5" Unit="HiveNode" Time="100">
+            <Button DefaultButtonFace="HiveNode"/>
+        </InfoArray>
+        <InfoArray index="Build6" Unit="PowerGenerator" Time="100">
+            <Button DefaultButtonFace="PowerGenerator"/>
+        </InfoArray>
+    </CAbilBuild>
+    <CAbilMorph id="Unshieldwall">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Tyranid"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Cancel"/>
+        <Flags index="IgnoreCollision" value="0"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="IgnorePlacement" value="0"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <InfoArray Unit="TyrantGuard" RandomDelayMax="0.1">
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="1"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Duration" value="1"/>
+            </SectionArray>
+        </InfoArray>
+        <AbilSetId value="UnShwll"/>
+    </CAbilMorph>
+    <CAbilBehavior id="VolatileBurstBuilding2">
+        <EditorCategories value="Race:Tyranid,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="On" DefaultButtonFace="EnableBuildingAttack">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="Off" DefaultButtonFace="DisableBuildingAttack">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <Flags index="Toggle" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <BehaviorArray value="VolatileBurstBuilding"/>
+    </CAbilBehavior>
+</Catalog>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CValidatorUnitCompareBehaviorCount id="WZ_E"><Compare value="NE"/><Behavior value="WZWallEast"/></CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="WZ_W"><Compare value="NE"/><Behavior value="WZWallWest"/></CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="WZ_N"><Compare value="NE"/><Behavior value="WZWallNorth"/></CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="WZ_S"><Compare value="NE"/><Behavior value="WZWallSouth"/></CValidatorUnitCompareBehaviorCount>
+
+    <CValidatorUnitCompareBehaviorCount id="WZ_NO_E"><Behavior value="WZWallEast"/></CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="WZ_NO_W"><Behavior value="WZWallWest"/></CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="WZ_NO_N"><Behavior value="WZWallNorth"/></CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="WZ_NO_S"><Behavior value="WZWallSouth"/></CValidatorUnitCompareBehaviorCount>
+
+    <CValidatorCombine id="IsWZWall">
+        <CombineArray value="IsWZHardcreteWall"/>
+        <CombineArray value="IsScavWall"/>
+        <CombineArray value="IsWZHardcreteGate"/>
+    </CValidatorCombine>
+
+    <CValidatorCombine id="isWZWallNULL"><Type value="And"/><CombineArray value="WZ_NO_S"/><CombineArray value="WZ_NO_E"/><CombineArray value="WZ_NO_N"/><CombineArray value="WZ_NO_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallEW">  <Type value="And"/><CombineArray value="WZ_NO_S"/><CombineArray value="WZ_E"/><CombineArray value="WZ_NO_N"/><CombineArray value="WZ_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallSN">  <Type value="And"/><CombineArray value="WZ_S"/><CombineArray value="WZ_NO_E"/><CombineArray value="WZ_N"/><CombineArray value="WZ_NO_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallE">   <Type value="And"/><CombineArray value="WZ_NO_S"/><CombineArray value="WZ_E"/><CombineArray value="WZ_NO_N"/><CombineArray value="WZ_NO_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallN">   <Type value="And"/><CombineArray value="WZ_NO_S"/><CombineArray value="WZ_NO_E"/><CombineArray value="WZ_N"/><CombineArray value="WZ_NO_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallNE">  <Type value="And"/><CombineArray value="WZ_NO_S"/><CombineArray value="WZ_E"/><CombineArray value="WZ_N"/><CombineArray value="WZ_NO_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallNEW"> <Type value="And"/><CombineArray value="WZ_NO_S"/><CombineArray value="WZ_E"/><CombineArray value="WZ_N"/><CombineArray value="WZ_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallNW">  <Type value="And"/><CombineArray value="WZ_NO_S"/><CombineArray value="WZ_NO_E"/><CombineArray value="WZ_N"/><CombineArray value="WZ_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallS">   <Type value="And"/><CombineArray value="WZ_S"/><CombineArray value="WZ_NO_E"/><CombineArray value="WZ_NO_N"/><CombineArray value="WZ_NO_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallSE">  <Type value="And"/><CombineArray value="WZ_S"/><CombineArray value="WZ_E"/><CombineArray value="WZ_NO_N"/><CombineArray value="WZ_NO_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallSEW"> <Type value="And"/><CombineArray value="WZ_S"/><CombineArray value="WZ_E"/><CombineArray value="WZ_NO_N"/><CombineArray value="WZ_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallSNE"> <Type value="And"/><CombineArray value="WZ_S"/><CombineArray value="WZ_E"/><CombineArray value="WZ_N"/><CombineArray value="WZ_NO_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallSNW"> <Type value="And"/><CombineArray value="WZ_S"/><CombineArray value="WZ_NO_E"/><CombineArray value="WZ_N"/><CombineArray value="WZ_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallSW">  <Type value="And"/><CombineArray value="WZ_S"/><CombineArray value="WZ_NO_E"/><CombineArray value="WZ_NO_N"/><CombineArray value="WZ_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallW">   <Type value="And"/><CombineArray value="WZ_NO_S"/><CombineArray value="WZ_NO_E"/><CombineArray value="WZ_NO_N"/><CombineArray value="WZ_W"/></CValidatorCombine>
+    <CValidatorCombine id="isWZWallSENW"><Type value="And"/><CombineArray value="WZ_S"/><CombineArray value="WZ_E"/><CombineArray value="WZ_N"/><CombineArray value="WZ_W"/></CValidatorCombine>
+
+    <CValidatorUnitType id="IsWZHardcreteWall"><Value value="WZHardcreteWall"/></CValidatorUnitType>
+    <CValidatorUnitType id="IsWZHardcreteGateV"><Value value="WZHardcreteGateV"/></CValidatorUnitType>
+    <CValidatorUnitType id="IsWZHardcreteGateH"><Value value="WZHardcreteGateH"/></CValidatorUnitType>
+    <CValidatorCombine id="IsWZHardcreteGate">
+        <CombineArray value="IsWZHardcreteGateV"/>
+        <CombineArray value="IsWZHardcreteGateH"/>
+    </CValidatorCombine>
+    <CValidatorUnitType id="IsScavWall"><Value value="ScavWall"/></CValidatorUnitType>
+
+    <CValidatorUnitOrderQueue id="WZCasterIsNotMoving">
+        <AbilLink value="move"/>
+        <Find value="0"/>
+    </CValidatorUnitOrderQueue>
+    <CValidatorLocationCompareRange id="WZRangeCheckLE4">
+        <WhichLocation Value="TargetUnit"/>
+        <Compare value="LE"/>
+        <Range value="4"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorLocationCompareRange id="WZRangeCheckLE6">
+        <WhichLocation Value="TargetUnit"/>
+        <Compare value="LE"/>
+        <Range value="6"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorLocationCompareRange id="WZRangeCheckGT6">
+        <WhichLocation Value="TargetUnit"/>
+        <Compare value="GT"/>
+        <Range value="6"/>
+    </CValidatorLocationCompareRange>
+
+    <CValidatorCombine id="TheBestPrecision">
+        <Type value="And"/>
+        <CombineArray value="WZRangeCheckLE4"/>
+        <CombineArray value="WZCasterIsNotMoving"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="NormalPrecision">
+        <CombineArray value="NormalPrecisionMoving"/>
+        <CombineArray value="NormalPrecisionNotMoving"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="NormalPrecisionMoving">
+        <Type value="And"/>
+        <CombineArray value="WZRangeCheckLE4"/>
+        <CombineArray value="CasterIsMoving"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="NormalPrecisionNotMoving">
+        <Type value="And"/>
+        <CombineArray value="WZRangeCheckLE6"/>
+        <CombineArray value="WZCasterIsNotMoving"/>
+    </CValidatorCombine>
+
+
+</Catalog>

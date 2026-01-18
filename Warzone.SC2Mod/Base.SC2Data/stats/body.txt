@@ -1,0 +1,15 @@
+id            name         armourHeat armourKinetic buildPoints  buildPower   hitpoints   powerOutput   size      weight
+Body1REC      Viper        4          10            150          30           65          5000          1     600
+Body2SUP      Leopard      6          14            170          37           120         6500          1     750
+Body3MBT      Retaliation  15         20            170          45           150         5000          1     450
+Body4ABT      Bug          8          8             100          25           55          5000          1     450
+Body5REC      Cobra        6          15            250          46           130         15000         2     2000
+Body6SUPP     Panther      9          18            300          57           193         18000         2     2500
+Body7ABT      Retribution  20         24            330          64           230         15000         2     1500
+Body8MBT      Scorpion     12         12            250          39           125         15000         2     1500
+Body9REC      Tiger        15         22            420          71           284         18000         3     3300
+Body10MBT     Vengeance    25         28            470          80           300         23000         3     2500
+Body11ABT     Python       9          20            350          60           200         20000         3     2700
+Body12SUP     Mantis       18         18            350          52           180         20000         3     2100
+Body13SUP     Wyvern       28         28            470          86           350         25000         3     3500
+Body14SUP     Dragon       30         30            500          90           350         30000         4     4500

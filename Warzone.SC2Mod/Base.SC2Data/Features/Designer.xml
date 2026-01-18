@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+
+
+
+
+    <CUnit id="WZDesignCyborg" parent="WZCyborg">
+        <BehaviorArray Link="WZPLightCyborg"/>
+        <BehaviorArray Link="WZBLightCyborg"/>
+        <!--        <BehaviorArray Link="WZMachinegunnerWeapon"/>-->
+        <!--        <BehaviorArray Link="WZSuperPulseLaserWeaponSecondary"/>-->
+        <!--        <WeaponArray Link="WZMachinegunnerWeapon" Turret="WZCyborgTurret"/>-->
+        <!--        <WeaponArray Link="WZSuperPulseLaserWeaponSecondary" Turret="WZCyborgTurretSecondary"/>-->
+        <AbilArray Link="CyborgMorph"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="WZPLightCyborg"              Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="CYB1" Row="2" Column="0"/>
+            <LayoutButtons Face="WZPHeavyCyborg"   Type="Submenu" SubmenuIsSticky="1"   SubmenuCardId="CYB2" Row="2" Column="1"/>
+        </CardLayouts>
+        <CardLayouts CardId="CYB1">
+            <LayoutButtons Face="WZCHeavyGunner"                 Type="AbilCmd" AbilCmd="CyborgMorph,Specialize1"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZCMachinegunner"               Type="AbilCmd" AbilCmd="CyborgMorph,Specialize2"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZCFlamer"                      Type="AbilCmd" AbilCmd="CyborgMorph,Specialize3"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZCGrenadier"                   Type="AbilCmd" AbilCmd="CyborgMorph,Specialize4"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZCLancer"                      Type="AbilCmd" AbilCmd="CyborgMorph,Specialize5"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZCThermiteFlamer"              Type="AbilCmd" AbilCmd="CyborgMorph,Specialize6"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZCAssaultGunner"               Type="AbilCmd" AbilCmd="CyborgMorph,Specialize7"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZCFlashlightGunner"            Type="AbilCmd" AbilCmd="CyborgMorph,Specialize8"  Row="1" Column="2"/>
+            <LayoutButtons Face="WZCNeedleGunner"                Type="AbilCmd" AbilCmd="CyborgMorph,Specialize9"  Row="1" Column="3"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="CYB2" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="CYB2">
+            <LayoutButtons Face="WZSuperHeavyGunner"            Type="AbilCmd" AbilCmd="CyborgMorph,Specialize11"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZSuperAutoCannon"             Type="AbilCmd" AbilCmd="CyborgMorph,Specialize12"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZSuperHVC"                    Type="AbilCmd" AbilCmd="CyborgMorph,Specialize13"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZSuperTankKiller"             Type="AbilCmd" AbilCmd="CyborgMorph,Specialize14"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZSuperScourge"                Type="AbilCmd" AbilCmd="CyborgMorph,Specialize15"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZSuperPulseLaser"             Type="AbilCmd" AbilCmd="CyborgMorph,Specialize16"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZSuperRailGunner"             Type="AbilCmd" AbilCmd="CyborgMorph,Specialize17"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="CYB1" Row="2" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+    </CUnit>
+
+    <!--    <CAbilSpecialize id="CyborgMorph">-->
+    <!--        <InfoArray index="Specialize1" Effect="WZLightCyborgSet"><Button DefaultButtonFace="WZBLightCyborg"/></InfoArray>-->
+    <!--        <InfoArray index="Specialize2" Effect="WZHeavyCyborgSet"><Button DefaultButtonFace="WZBHeavyCyborg"/></InfoArray>-->
+    <!--    </CAbilSpecialize>-->
+    <CActorUnit unitName="WZDesignTank" id="WZDesignTank" parent="WZTank" icon="Weapons\Machinegun" wireframe="WZTank"/>
+
+
+
+
+    <CUnit id="WZDesignTank" parent="WZGround">
+        <BehaviorArray Link="WZTank"/>
+        <BehaviorArray Link="WZPWheels"/>
+        <BehaviorArray Link="WZBViper"/>
+        <BehaviorArray Link="WZTankLightMachinegun"/>
+        <WeaponArray Link="WZTankLightMachinegun" Turret="WZStaticTurret"/>
+        <AbilArray Link="PropulsionMorph"/>
+        <AbilArray Link="BodyMorph"/>
+        <AbilArray Link="TurretMorphSyst"/>
+        <AbilArray Link="TurretMorphWeap1"/>
+        <AbilArray Link="TurretMorphWeap2"/>
+        <AbilArray Link="TurretMorphWeap3"/>
+        <AbilArray Link="TurretMorphVtolBombs"/>
+        <AbilArray Link="TurretMorphVtolWeapons"/>
+        <AbilArray Link="TurretMorphFortressWeapons"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="WZPropulsion" Type="Submenu" SubmenuCardId="PROP" Row="2" Column="0"/>
+            <LayoutButtons Face="WZBody"   Type="Submenu"   SubmenuCardId="BODY" Row="2" Column="1"/>
+            <LayoutButtons Face="WZTurret" Type="Submenu" SubmenuCardId="SYST" Row="2" Column="2"/>
+
+
+            <LayoutButtons Face="WZPWheels"        Type="Passive" Row="1" Column="0" Requirements="DUHasPWheels"/>
+            <LayoutButtons Face="WZPHalftracks"    Type="Passive" Row="1" Column="0" Requirements="DUHasPHalftracks"/>
+            <LayoutButtons Face="WZPTracks"        Type="Passive" Row="1" Column="0" Requirements="DUHasPTracks"/>
+            <LayoutButtons Face="WZPHover"         Type="Passive" Row="1" Column="0" Requirements="DUHasPHover"/>
+            <LayoutButtons Face="WZPVtol"          Type="Passive" Row="1" Column="0" Requirements="DUHasPVtol"/>
+            <LayoutButtons Face="WZPHeli"          Type="Passive" Row="1" Column="0" Requirements="DUHasPHeli"/>
+            <LayoutButtons Face="WZPNaval"         Type="Passive" Row="1" Column="0" Requirements="DUHasPNaval"/>
+            <LayoutButtons Face="WZBViper"         Type="Passive" Row="1" Column="1" Requirements="DUHasBViper"/>
+            <LayoutButtons Face="WZBCobra"         Type="Passive" Row="1" Column="1" Requirements="DUHasBCobra"/>
+            <LayoutButtons Face="WZBPython"        Type="Passive" Row="1" Column="1" Requirements="DUHasBPython"/>
+            <LayoutButtons Face="WZBBug"           Type="Passive" Row="1" Column="1" Requirements="DUHasBBug"/>
+            <LayoutButtons Face="WZBScorpion"      Type="Passive" Row="1" Column="1" Requirements="DUHasBScorpion"/>
+            <LayoutButtons Face="WZBMantis"        Type="Passive" Row="1" Column="1" Requirements="DUHasBMantis"/>
+            <LayoutButtons Face="WZBPanther"       Type="Passive" Row="1" Column="1" Requirements="DUHasBPanther"/>
+            <LayoutButtons Face="WZBTiger"         Type="Passive" Row="1" Column="1" Requirements="DUHasBTiger"/>
+            <LayoutButtons Face="WZBLeopard"       Type="Passive" Row="1" Column="1" Requirements="DUHasBLeopard"/>
+            <LayoutButtons Face="WZBRetaliation"   Type="Passive" Row="1" Column="1" Requirements="DUHasBRetaliation"/>
+            <LayoutButtons Face="WZBRetribution"   Type="Passive" Row="1" Column="1" Requirements="DUHasBRetribution"/>
+            <LayoutButtons Face="WZBVengeance"     Type="Passive" Row="1" Column="1" Requirements="DUHasBVengeance"/>
+            <LayoutButtons Face="WZBWyvern"        Type="Passive" Row="1" Column="1" Requirements="DUHasBWyvern"/>
+            <LayoutButtons Face="WZBDragon"        Type="Passive" Row="1" Column="1" Requirements="DUHasBDragon"/>
+
+            <LayoutButtons Face="WZTankLightMachinegun" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankLightMachinegun"/>
+            <LayoutButtons Face="WZTankTwinMachinegun" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankTwinMachinegun"/>
+            <LayoutButtons Face="WZTankHeavyMachinegun" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankHeavyMachinegun"/>
+            <LayoutButtons Face="WZTankAssaultGun" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankAssaultGun"/>
+            <LayoutButtons Face="WZTankTwinAssaultGun" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankTwinAssaultGun"/>
+            <LayoutButtons Face="WZTankFlamer" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankFlamer"/>
+            <LayoutButtons Face="WZTankInferno" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankInferno"/>
+            <LayoutButtons Face="WZTankPlasmiteFlamer" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankPlasmiteFlamer"/>
+            <LayoutButtons Face="WZTankHeavyPlasmaLauncher" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankHeavyPlasmaLauncher"/>
+            <LayoutButtons Face="WZTankLightCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankLightCannon"/>
+            <LayoutButtons Face="WZTankMediumCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankMediumCannon"/>
+            <LayoutButtons Face="WZTankHyperVelocityCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankHyperVelocityCannon"/>
+            <LayoutButtons Face="WZTankAACycloneFlakCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankAACycloneFlakCannon"/>
+            <LayoutButtons Face="WZTankAssaultCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankAssaultCannon"/>
+            <LayoutButtons Face="WZTankHeavyCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankHeavyCannon"/>
+            <LayoutButtons Face="WZTankTwinAssaultCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankTwinAssaultCannon"/>
+            <LayoutButtons Face="WZTankPlasmaCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankPlasmaCannon"/>
+            <LayoutButtons Face="WZTankAATornadoFlakCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankAATornadoFlakCannon"/>
+            <LayoutButtons Face="WZTankMiniRocketPod" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankMiniRocketPod"/>
+            <LayoutButtons Face="WZTankMiniRocketArray" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankMiniRocketArray"/>
+            <LayoutButtons Face="WZTankLancer" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankLancer"/>
+            <LayoutButtons Face="WZTankBunkerBuster" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankBunkerBuster"/>
+            <LayoutButtons Face="WZTankSunburstAA" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankSunburstAA"/>
+            <LayoutButtons Face="WZTankRippleRockets" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankRippleRockets"/>
+            <LayoutButtons Face="WZTankHeavyRocketArray" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankHeavyRocketArray"/>
+            <LayoutButtons Face="WZTankTankKiller" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankTankKiller"/>
+            <LayoutButtons Face="WZTankMortar" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankMortar"/>
+            <LayoutButtons Face="WZTankBombard" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankBombard"/>
+            <LayoutButtons Face="WZTankPepperpot" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankPepperpot"/>
+            <LayoutButtons Face="WZTankIncendiaryMortar" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankIncendiaryMortar"/>
+            <LayoutButtons Face="WZTankHurricaneAA" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankHurricaneAA"/>
+            <LayoutButtons Face="WZTankWhirlwindAA" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankWhirlwindAA"/>
+            <LayoutButtons Face="WZTankHowitzer" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankHowitzer"/>
+            <LayoutButtons Face="WZTankIncendiaryHowitzer" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankIncendiaryHowitzer"/>
+            <LayoutButtons Face="WZTankHellstorm" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankHellstorm"/>
+            <LayoutButtons Face="WZTankGroundShaker" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankGroundShaker"/>
+            <LayoutButtons Face="WZTankFlashlight" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankFlashlight"/>
+            <LayoutButtons Face="WZTankPulseLaser" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankPulseLaser"/>
+            <LayoutButtons Face="WZTankStormbringerAALaser" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankStormbringerAALaser"/>
+            <LayoutButtons Face="WZTankHeavyLaser" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankHeavyLaser"/>
+            <LayoutButtons Face="WZTankNeedleGun" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankNeedleGun"/>
+            <LayoutButtons Face="WZTankRailGun" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankRailGun"/>
+            <LayoutButtons Face="WZTankGaussCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankGaussCannon"/>
+            <LayoutButtons Face="WZTankScourgeMissile" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankScourgeMissile"/>
+            <LayoutButtons Face="WZTankAvengerSAM" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankAvengerSAM"/>
+            <LayoutButtons Face="WZTankSeraphMissileArray" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankSeraphMissileArray"/>
+            <LayoutButtons Face="WZTankArchangelMissile" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankArchangelMissile"/>
+            <LayoutButtons Face="WZTankVindicatorSAM" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankVindicatorSAM"/>
+            <LayoutButtons Face="WZTankNexusLink" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankNexusLink"/>
+            <LayoutButtons Face="WZTankEMPCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankEMPCannon"/>
+            <LayoutButtons Face="WZTankEMPMortar" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankEMPMortar"/>
+            <LayoutButtons Face="WZTankSpade" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankSpade"/>
+            <LayoutButtons Face="WZTankCommand" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankCommand"/>
+            <LayoutButtons Face="WZTankCBRadar" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankCBRadar"/>
+            <LayoutButtons Face="WZTankRadarDetector" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankRadarDetector"/>
+            <LayoutButtons Face="WZTankSensor" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankSensor"/>
+            <LayoutButtons Face="WZTankVtolCBRadar" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankVtolCBRadar"/>
+            <LayoutButtons Face="WZTankVtolStrike" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankVtolStrike"/>
+            <LayoutButtons Face="WZTankWideSpectrumSensor" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankWideSpectrumSensor"/>
+            <LayoutButtons Face="WZTankHeavyRepair" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankHeavyRepair"/>
+            <LayoutButtons Face="WZTankRepair" Type="Passive" Row="1" Column="2" Requirements="DUHasTTankRepair"/>
+            <LayoutButtons Face="WZVtolClusterBombBay" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolClusterBombBay"/>
+            <LayoutButtons Face="WZVtolHeapBombBay" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolHeapBombBay"/>
+            <LayoutButtons Face="WZVtolEMPMissileLauncher" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolEMPMissileLauncher"/>
+            <LayoutButtons Face="WZVtolPlasmiteBombBay" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolPlasmiteBombBay"/>
+            <LayoutButtons Face="WZVtolPhosphorBombBay" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolPhosphorBombBay"/>
+            <LayoutButtons Face="WZVtolThermiteBombBay" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolThermiteBombBay"/>
+            <LayoutButtons Face="WZVtolSunburstAA" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolSunburstAA"/>
+            <LayoutButtons Face="WZVtolMachinegun" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolMachinegun"/>
+            <LayoutButtons Face="WZVtolCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolCannon"/>
+            <LayoutButtons Face="WZVtolTwinMachinegun" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolTwinMachinegun"/>
+            <LayoutButtons Face="WZVtolMiniRocket" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolMiniRocket"/>
+            <LayoutButtons Face="WZVtolHeavyMachinegun" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolHeavyMachinegun"/>
+            <LayoutButtons Face="WZVtolLancer" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolLancer"/>
+            <LayoutButtons Face="WZVtolHyperVelocityCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolHyperVelocityCannon"/>
+            <LayoutButtons Face="WZVtolBunkerBuster" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolBunkerBuster"/>
+            <LayoutButtons Face="WZVtolAssaultGun" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolAssaultGun"/>
+            <LayoutButtons Face="WZVtolAssaultCannon" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolAssaultCannon"/>
+            <LayoutButtons Face="WZVtolTankKiller" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolTankKiller"/>
+            <LayoutButtons Face="WZVtolFlashlight" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolFlashlight"/>
+            <LayoutButtons Face="WZVtolNeedleGun" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolNeedleGun"/>
+            <LayoutButtons Face="WZVtolScourgeMissile" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolScourgeMissile"/>
+            <LayoutButtons Face="WZVtolPulseLaser" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolPulseLaser"/>
+            <LayoutButtons Face="WZVtolHeavyLaser" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolHeavyLaser"/>
+            <LayoutButtons Face="WZVtolRailGun" Type="Passive" Row="1" Column="2" Requirements="DUHasTVtolRailGun"/>
+<!--            <LayoutButtons Face="WZHeavyGunnerWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTHeavyGunnerWeapon"/>-->
+<!--            <LayoutButtons Face="WZMachinegunnerWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTMachinegunnerWeapon"/>-->
+<!--            <LayoutButtons Face="WZFlamerWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTFlamerWeapon"/>-->
+<!--            <LayoutButtons Face="WZGrenadierWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTGrenadierWeapon"/>-->
+<!--            <LayoutButtons Face="WZLancerWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTLancerWeapon"/>-->
+<!--            <LayoutButtons Face="WZThermiteFlamerWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTThermiteFlamerWeapon"/>-->
+<!--            <LayoutButtons Face="WZAssaultGunnerWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTAssaultGunnerWeapon"/>-->
+<!--            <LayoutButtons Face="WZFlashlightGunnerWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTFlashlightGunnerWeapon"/>-->
+<!--            <LayoutButtons Face="WZNeedleGunnerWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTNeedleGunnerWeapon"/>-->
+<!--            <LayoutButtons Face="WZSuperHeavyGunnerWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTSuperHeavyGunnerWeapon"/>-->
+<!--            <LayoutButtons Face="WZSuperAutoCannonWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTSuperAutoCannonWeapon"/>-->
+<!--            <LayoutButtons Face="WZSuperHVCWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTSuperHVCWeapon"/>-->
+<!--            <LayoutButtons Face="WZSuperTankKillerWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTSuperTankKillerWeapon"/>-->
+<!--            <LayoutButtons Face="WZSuperScourgeWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTSuperScourgeWeapon"/>-->
+<!--            <LayoutButtons Face="WZSuperPulseLaserWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTSuperPulseLaserWeapon"/>-->
+<!--            <LayoutButtons Face="WZSuperRailGunnerWeapon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTSuperRailGunnerWeapon"/>-->
+<!--            <LayoutButtons Face="ScavMG"             Type="Passive" Row="1" Column="2" Requirements="DUHasTavMG"/>-->
+<!--            <LayoutButtons Face="ScavCannon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTavCannon"/>-->
+<!--            <LayoutButtons Face="ScavFlamer"             Type="Passive" Row="1" Column="2" Requirements="DUHasTavFlamer"/>-->
+<!--            <LayoutButtons Face="ScavRocket"             Type="Passive" Row="1" Column="2" Requirements="DUHasTavRocket"/>-->
+<!--            <LayoutButtons Face="WZFortressCannon"             Type="Passive" Row="1" Column="2" Requirements="DUHasTFortressCannon"/>-->
+<!--            <LayoutButtons Face="WZFortressMassDriver"             Type="Passive" Row="1" Column="2" Requirements="DUHasTFortressMassDriver"/>-->
+<!--            <LayoutButtons Face="WZFortressMissile"             Type="Passive" Row="1" Column="2" Requirements="DUHasTFortressMissile"/>-->
+<!--            <LayoutButtons Face="WZHeavyRocketBastion"             Type="Passive" Row="1" Column="2" Requirements="DUHasTHeavyRocketBastion"/>-->
+<!--            <LayoutButtons Face="ScavVtolMachinegun"             Type="Passive" Row="1" Column="2" Requirements="DUHasTavVtolMachinegun"/>-->
+<!--            <LayoutButtons Face="ScavVtolMiniRocket"             Type="Passive" Row="1" Column="2" Requirements="DUHasTavVtolMiniRocket"/>-->
+
+        </CardLayouts>
+        <CardLayouts CardId="PROP">
+            <LayoutButtons Face="WZPWheels"      Type="AbilCmd" AbilCmd="PropulsionMorph,Specialize1" Row="0" Column="0"/>
+            <LayoutButtons Face="WZPHalftracks"  Type="AbilCmd" AbilCmd="PropulsionMorph,Specialize2" Row="0" Column="1"/>
+            <LayoutButtons Face="WZPTracks"      Type="AbilCmd" AbilCmd="PropulsionMorph,Specialize3" Row="0" Column="2"/>
+            <LayoutButtons Face="WZPHover"       Type="AbilCmd" AbilCmd="PropulsionMorph,Specialize4" Row="0" Column="3"/>
+            <LayoutButtons Face="WZPVtol"        Type="AbilCmd" AbilCmd="PropulsionMorph,Specialize5" Row="0" Column="4"/>
+            <LayoutButtons Face="WZPHeli"        Type="AbilCmd" AbilCmd="PropulsionMorph,Specialize6" Row="1" Column="0"/>
+            <LayoutButtons Face="WZPNaval"       Type="AbilCmd" AbilCmd="PropulsionMorph,Specialize7" Row="1" Column="1"/>
+            <LayoutButtons Face="WZPLightCyborg" Type="AbilCmd" AbilCmd="PropulsionMorph,Specialize8" Row="1" Column="2"/>
+            <LayoutButtons Face="WZPHeavyCyborg" Type="AbilCmd" AbilCmd="PropulsionMorph,Specialize9" Row="1" Column="3"/>
+            <LayoutButtons Face="Cancel"         Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="BODY">
+            <LayoutButtons Face="WZBViper"       Type="AbilCmd" AbilCmd="BodyMorph,Specialize1" Row="0" Column="0"/>
+            <LayoutButtons Face="WZBCobra"       Type="AbilCmd" AbilCmd="BodyMorph,Specialize2" Row="1" Column="0"/>
+            <LayoutButtons Face="WZBPython"      Type="AbilCmd" AbilCmd="BodyMorph,Specialize3" Row="2" Column="0"/>
+            <LayoutButtons Face="WZBBug"         Type="AbilCmd" AbilCmd="BodyMorph,Specialize4" Row="0" Column="1"/>
+            <LayoutButtons Face="WZBScorpion"    Type="AbilCmd" AbilCmd="BodyMorph,Specialize8" Row="1" Column="1"/>
+            <LayoutButtons Face="WZBMantis"      Type="AbilCmd" AbilCmd="BodyMorph,Specialize9" Row="2" Column="1"/>
+            <LayoutButtons Face="WZBPanther"     Type="AbilCmd" AbilCmd="BodyMorph,Specialize5" Row="1" Column="2"/>
+            <LayoutButtons Face="WZBTiger"       Type="AbilCmd" AbilCmd="BodyMorph,Specialize6" Row="2" Column="2"/>
+            <LayoutButtons Face="WZBLeopard"     Type="AbilCmd" AbilCmd="BodyMorph,Specialize7" Row="0" Column="2"/>
+            <LayoutButtons Face="WZBRetaliation" Type="AbilCmd" AbilCmd="BodyMorph,Specialize10" Row="0" Column="3"/>
+            <LayoutButtons Face="WZBRetribution" Type="AbilCmd" AbilCmd="BodyMorph,Specialize11" Row="1" Column="3"/>
+            <LayoutButtons Face="WZBVengeance"   Type="AbilCmd" AbilCmd="BodyMorph,Specialize12" Row="2" Column="3"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="BOD2" Row="0" Column="4"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="BOD2">
+            <LayoutButtons Face="WZBWyvern"                 Type="AbilCmd" AbilCmd="BodyMorph,Specialize13" Row="0" Column="0"/>
+            <LayoutButtons Face="WZBDragon"                 Type="AbilCmd" AbilCmd="BodyMorph,Specialize14" Row="0" Column="1"/>
+            <LayoutButtons Face="WZBLightCyborg"            Type="AbilCmd" AbilCmd="BodyMorph,Specialize15" Row="1" Column="0"/>
+            <LayoutButtons Face="WZBHeavyCyborg"            Type="AbilCmd" AbilCmd="BodyMorph,Specialize16" Row="1" Column="1"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="BODY" Row="1" Column="4"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="SYST">
+            <LayoutButtons Face="WZTankSpade"              Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize1" Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankSensor"             Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize2" Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankRepair"             Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize3" Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankHeavyRepair"        Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize4" Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankCommand"            Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize5" Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankRadarDetector"      Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize6" Row="1" Column="0"/>
+            <LayoutButtons Face="WZTankCBRadar"            Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize7" Row="1" Column="1"/>
+            <LayoutButtons Face="WZTankVtolCBRadar"        Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize8" Row="1" Column="2"/>
+            <LayoutButtons Face="WZTankVtolStrike"         Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize9" Row="1" Column="3"/>
+            <LayoutButtons Face="WZTankWideSpectrumSensor" Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize10" Row="1" Column="4"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="Vtol" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="WEP1">
+            <LayoutButtons Face="WZTankLightMachinegun"               Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize1"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankTwinMachinegun"           Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize2"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankHeavyMachinegun"          Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize3"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankAssaultGun"               Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize4"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankTwinAssaultGun"           Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize5"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankFlamer"                   Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize6"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZTankInferno"                  Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize7"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZTankPlasmiteFlamer"           Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize8"  Row="1" Column="2"/>
+            <LayoutButtons Face="WZTankHeavyPlasmaLauncher"      Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize9"  Row="1" Column="3"/>
+            <LayoutButtons Face="WZTankLightCannon"              Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize10" Row="1" Column="4"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="SYST" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP2" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="WEP2">
+            <LayoutButtons Face="WZTankMediumCannon"            Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize11"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankHyperVelocityCannon"     Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize12"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankAACycloneFlakCannon"     Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize13"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankAssaultCannon"           Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize14"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankHeavyCannon"             Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize15"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankTwinAssaultCannon"       Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize16"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZTankPlasmaCannon"            Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize17"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZTankAATornadoFlakCannon"     Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize18"  Row="1" Column="2"/>
+            <LayoutButtons Face="WZTankMiniRocketPod"           Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize19"  Row="1" Column="3"/>
+            <LayoutButtons Face="WZTankMiniRocketArray"         Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize20"  Row="1" Column="4"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP3" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="WEP3">
+            <LayoutButtons Face="WZTankLancer"                   Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize1"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankBunkerBuster"             Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize2"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankSunburstAA"               Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize3"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankRippleRockets"            Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize4"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankHeavyRocketArray"         Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize5"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankTankKiller"               Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize6"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZTankMortar"                   Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize7"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZTankBombard"                  Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize8"  Row="1" Column="2"/>
+            <LayoutButtons Face="WZTankPepperpot"                Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize9"  Row="1" Column="3"/>
+            <LayoutButtons Face="WZTankIncendiaryMortar"         Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize10"  Row="1" Column="4"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP2" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP4" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="WEP4">
+            <LayoutButtons Face="WZTankHurricaneAA"             Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize11"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankWhirlwindAA"             Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize12"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankHowitzer"                 Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize13"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankIncendiaryHowitzer"       Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize14"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankHellstorm"                Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize15"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankGroundShaker"             Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize16"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZTankFlashlight"               Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize17"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZTankPulseLaser"               Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize18"  Row="1" Column="2"/>
+            <LayoutButtons Face="WZTankStormbringerAALaser"      Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize19"  Row="1" Column="3"/>
+            <LayoutButtons Face="WZTankHeavyLaser"               Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize20"  Row="1" Column="4"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP3" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP5" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="WEP5">
+            <LayoutButtons Face="WZTankNeedleGun"                Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize1"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankRailGun"                  Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize2"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankGaussCannon"              Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize3"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankScourgeMissile"           Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize4"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankAvengerSAM"               Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize5"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankSeraphMissileArray"       Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize6"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZTankArchangelMissile"         Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize7"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZTankVindicatorSAM"            Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize8"  Row="1" Column="2"/>
+            <LayoutButtons Face="WZTankEMPCannon"                Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize9"  Row="1" Column="3"/>
+            <LayoutButtons Face="WZTankEMPMortar"                Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize10"  Row="1" Column="4"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP4" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP6" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="WEP6">
+            <LayoutButtons Face="WZTankNexusLink"          Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize11"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP5" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="VTW1" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="VTW1">
+            <LayoutButtons Face="WZVtolSunburstAA"          Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize1"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZVtolMachinegun"          Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize2"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZVtolCannon"              Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize3"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZVtolTwinMachinegun"      Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize4"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZVtolMiniRocket"          Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize5"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZVtolHeavyMachinegun"     Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize6"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZVtolLancer"              Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize7"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZVtolHyperVelocityCannon" Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize8"  Row="1" Column="2"/>
+            <LayoutButtons Face="WZVtolBunkerBuster"        Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize9"  Row="1" Column="3"/>
+            <LayoutButtons Face="WZVtolAssaultGun"          Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize10" Row="1" Column="4"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP6" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="VTW2" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="VTW2">
+            <LayoutButtons Face="WZVtolAssaultCannon"      Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize11"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZVtolTankKiller"         Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize12"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZVtolFlashlight"         Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize13"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZVtolNeedleGun"          Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize14"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZVtolScourgeMissile"     Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize15"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZVtolPulseLaser"         Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize16"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZVtolHeavyLaser"         Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize17"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZVtolRailGun"            Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize18"  Row="1" Column="2"/>
+            <LayoutButtons Face="ScavVtolMachinegun"       Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize19"  Row="1" Column="3"/>
+            <LayoutButtons Face="ScavVtolMiniRocket"       Type="AbilCmd" AbilCmd="TurretMorphVtolWeapons,Specialize20"  Row="1" Column="4"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="VTW1" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="VTW3" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="VTW3">
+            <LayoutButtons Face="WZVtolClusterBombBay"           Type="AbilCmd" AbilCmd="TurretMorphVtolBombs,Specialize1" Row="0" Column="0"/>
+            <LayoutButtons Face="WZVtolHeapBombBay"              Type="AbilCmd" AbilCmd="TurretMorphVtolBombs,Specialize2" Row="0" Column="1"/>
+            <LayoutButtons Face="WZVtolEMPMissileLauncher"       Type="AbilCmd" AbilCmd="TurretMorphVtolBombs,Specialize3" Row="0" Column="2"/>
+            <LayoutButtons Face="WZVtolPlasmiteBombBay"          Type="AbilCmd" AbilCmd="TurretMorphVtolBombs,Specialize4" Row="0" Column="3"/>
+            <LayoutButtons Face="WZVtolPhosphorBombBay"          Type="AbilCmd" AbilCmd="TurretMorphVtolBombs,Specialize5" Row="0" Column="4"/>
+            <LayoutButtons Face="WZVtolThermiteBombBay"          Type="AbilCmd" AbilCmd="TurretMorphVtolBombs,Specialize6" Row="1" Column="0"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="VTW2" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="SYST" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="ScavDesignVehicle">
+        <AbilArray Link="TurretMorphScavWeapons"/>
+        <CardLayouts CardId="SCAV">
+            <LayoutButtons Face="ScavMG"                        Type="AbilCmd" AbilCmd="TurretMorphScavWeapons,Specialize11"  Row="0" Column="0"/>
+            <LayoutButtons Face="ScavCannon"                    Type="AbilCmd" AbilCmd="TurretMorphScavWeapons,Specialize12"  Row="0" Column="1"/>
+            <LayoutButtons Face="ScavFlamer"                    Type="AbilCmd" AbilCmd="TurretMorphScavWeapons,Specialize13"  Row="0" Column="2"/>
+            <LayoutButtons Face="ScavRocket"                    Type="AbilCmd" AbilCmd="TurretMorphScavWeapons,Specialize14"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="CYB2" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="FORT" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="WZDesignScavBunkerGuard" parent="WZStructure">
+        <BehaviorArray Link="WZWallGuard"/>
+        <AbilArray Link="TurretMorphWeap1"/>
+        <AbilArray Link="TurretMorphWeap2"/>
+        <AbilArray Link="TurretMorphWeap3"/>
+        <AbilArray Link="TurretMorphScavWeapons"/>
+        <WeaponArray Link="ScavMG" Turret="WZGuardTurret"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="WZTurret" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="2"/>
+        </CardLayouts>
+        <!-- blbrbbnk-->
+        <CardLayouts CardId="WEP1">
+            <LayoutButtons Face="ScavMG"                        Type="AbilCmd" AbilCmd="TurretMorphScavWeapons,Specialize11"  Row="0" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="WZDesignScavEmplacementGuard" parent="WZStructure">
+        <BehaviorArray Link="WZWallGuard"/>
+        <AbilArray Link="TurretMorphWeap1"/>
+        <AbilArray Link="TurretMorphWeap2"/>
+        <AbilArray Link="TurretMorphWeap3"/>
+        <AbilArray Link="TurretMorphScavWeapons"/>
+        <WeaponArray Link="ScavMG" Turret="WZGuardTurret"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="WZTurret" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="2"/>
+        </CardLayouts>
+        <!-- EXROCKET-->
+        <CardLayouts CardId="WEP1">
+            <LayoutButtons Face="WZTankMiniRocketArray"       Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize20" Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankTankKiller"               Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize6"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP2" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <!-- BLBRMRTP-->
+        <CardLayouts CardId="WEP2">
+            <LayoutButtons Face="WZTankMortar"                   Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize7"  Row="1" Column="1"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="WZDesignScavWallGuard" parent="WZStructure">
+        <BehaviorArray Link="WZWallGuard"/>
+        <AbilArray Link="TurretMorphWeap1"/>
+        <AbilArray Link="TurretMorphWeap2"/>
+        <AbilArray Link="TurretMorphWeap3"/>
+        <AbilArray Link="TurretMorphScavWeapons"/>
+        <WeaponArray Link="ScavMG" Turret="WZGuardTurret"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="WZTurret" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="2"/>
+        </CardLayouts>
+        <!-- BLBRTOWR-->
+        <CardLayouts CardId="WEP1">
+            <LayoutButtons Face="ScavMG"                        Type="AbilCmd" AbilCmd="TurretMorphScavWeapons,Specialize11"  Row="0" Column="0"/>
+            <LayoutButtons Face="ScavCannon"                    Type="AbilCmd" AbilCmd="TurretMorphScavWeapons,Specialize12"  Row="0" Column="1"/>
+            <LayoutButtons Face="ScavFlamer"                    Type="AbilCmd" AbilCmd="TurretMorphScavWeapons,Specialize13"  Row="0" Column="2"/>
+
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP2" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="WZDesignEmplacementGuard" parent="WZStructure">
+        <BehaviorArray Link="WZWallGuard"/>
+        <AbilArray Link="TurretMorphWeap1"/>
+        <AbilArray Link="TurretMorphWeap2"/>
+        <AbilArray Link="TurretMorphWeap3"/>
+        <WeaponArray Link="WZTankLightMachinegun" Turret="WZGuardTurret"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="WZTurret" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="2"/>
+        </CardLayouts>
+        <!-- wall guard BLHARDPT-->
+        <CardLayouts CardId="WEP1">
+            <LayoutButtons Face="WZTankInferno"               Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize7"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankHeavyLaser"            Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize20" Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankArchangelMissile"      Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize7"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankMiniRocketArray"       Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize20" Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankHeavyRocketArray"      Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize5"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankSeraphMissileArray"    Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize6"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZTankPlasmaCannon"          Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize17" Row="1" Column="1"/>
+            <LayoutButtons Face="WZTankFlashlight"            Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize17" Row="1" Column="2"/>
+            <LayoutButtons Face="WZTankPulseLaser"            Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize18" Row="1" Column="3"/>
+            <LayoutButtons Face="WZTankRailGun"               Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize2"  Row="1" Column="4"/>
+
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP2" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <!-- BLHARDPT-->
+        <CardLayouts CardId="WEP2">
+            <LayoutButtons Face="WZTankGaussCannon"          Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize3"   Row="0" Column="0"/>
+
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <!--Heavy AA Site Bricks Blaamnt2-->
+        <CardLayouts CardId="WEP3">
+            <LayoutButtons Face="WZTankAACycloneFlakCannon"  Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize13"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankAATornadoFlakCannon"  Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize18"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankHeavyPlasmaLauncher"  Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize9"   Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankStormbringerAALaser"  Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize19"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankVindicatorSAM"        Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize8"   Row="0" Column="4"/>
+
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP2" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <!--AA Site Bricks Blaamnt1-->
+        <CardLayouts CardId="WEP4">
+            <LayoutButtons Face="WZTankHurricaneAA"          Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize11"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankWhirlwindAA"          Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize12"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankAvengerSAM"           Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize5"   Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankSunburstAA"           Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize3"   Row="0" Column="3"/>
+
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <!--BLMRTPIT-->
+        <CardLayouts CardId="MORT">
+
+            <LayoutButtons Face="WZTankEMPMortar"                Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize10"  Row="1" Column="4"/>
+            <LayoutButtons Face="WZTankIncendiaryMortar"         Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize10"  Row="1" Column="4"/>
+            <LayoutButtons Face="WZTankMortar"                   Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize7"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZTankBombard"                  Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize8"  Row="1" Column="2"/>
+            <LayoutButtons Face="WZTankPepperpot"                Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize9"  Row="1" Column="3"/>
+
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <!--BLHOWMNT-->
+        <CardLayouts CardId="HOWI">
+            <LayoutButtons Face="WZTankHyperVelocityCannon" Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize12"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankIncendiaryHowitzer"  Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize14"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankHowitzer"            Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize13"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankGroundShaker"        Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize16"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankTankKiller"          Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize6"   Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankRippleRockets"       Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize4"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZTankHellstorm"           Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize15"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="WZDesignBunkerGuard" parent="WZStructure">
+        <BehaviorArray Link="WZWallGuard"/>
+        <AbilArray Link="TurretMorphWeap1"/>
+        <AbilArray Link="TurretMorphWeap2"/>
+        <AbilArray Link="TurretMorphWeap3"/>
+        <WeaponArray Link="WZTankLightMachinegun" Turret="WZGuardTurret"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="WZTurret" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="2"/>
+        </CardLayouts>
+        <!-- Blcanpil-->
+        <CardLayouts CardId="WEP1">
+            <LayoutButtons Face="WZTankTwinAssaultGun"   Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize5"   Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankLightCannon"      Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize10"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankFlamer"           Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize6"   Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankLancer"           Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize1"   Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankPlasmiteFlamer"   Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize8"   Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankInferno"          Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize7"   Row="1" Column="0"/>
+            <LayoutButtons Face="WZTankAssaultGun"       Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize4"   Row="1" Column="1"/>
+
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP2" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <!--        blpilbox-->
+        <CardLayouts CardId="WEP2">
+            <LayoutButtons Face="WZTankHeavyMachinegun"    Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize3"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankTwinMachinegun"           Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize2"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankAssaultGun"         Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize4"  Row="0" Column="3"/>
+
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="WZDesignSteelTowerGuard" parent="WZStructure">
+        <BehaviorArray Link="WZWallGuard"/>
+        <AbilArray Link="TurretMorphWeap1"/>
+        <AbilArray Link="TurretMorphWeap2"/>
+        <AbilArray Link="TurretMorphWeap3"/>
+        <WeaponArray Link="WZTankLightMachinegun" Turret="WZGuardTurret"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="WZTurret" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="2"/>
+        </CardLayouts>
+        <!--        BLGUARDM-->
+        <CardLayouts CardId="WEP1">
+            <LayoutButtons Face="WZTankHeavyMachinegun"   Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize3"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankTwinMachinegun"    Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize2"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankSensor"            Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize2"   Row="0" Column="2"/>
+
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="WZDesignTowerGuard" parent="WZStructure">
+        <BehaviorArray Link="WZWallGuard"/>
+        <AbilArray Link="TurretMorphWeap1"/>
+        <AbilArray Link="TurretMorphWeap2"/>
+        <AbilArray Link="TurretMorphWeap3"/>
+        <WeaponArray Link="WZTankLightMachinegun" Turret="WZGuardTurret"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="WZTurret" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="2"/>
+        </CardLayouts>
+        <!--        BLGUARDR-->
+        <CardLayouts CardId="WEP1">
+            <LayoutButtons Face="WZTankScourgeMissile"     Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize4"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankPulseLaser"         Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize18" Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankNeedleGun"          Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize1"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankAssaultGun"         Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize4"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankHeavyMachinegun"    Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize3"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankFlamer"             Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize6"  Row="1" Column="0"/>
+            <LayoutButtons Face="WZTankLancer"             Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize1"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZTankMiniRocketPod"      Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize19" Row="1" Column="2"/>
+            <LayoutButtons Face="WZTankNexusLink"          Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize11" Row="1" Column="3"/>
+            <LayoutButtons Face="WZTankAssaultCannon"      Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize14" Row="1" Column="4"/>
+
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP2" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="WEP2">
+            <LayoutButtons Face="WZTankSensor"             Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize2"   Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankVtolCBRadar"        Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize8"   Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankVtolStrike"         Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize9"   Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankWideSpectrumSensor" Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize10"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankRadarDetector"      Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize6"   Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankCBRadar"            Type="AbilCmd" AbilCmd="TurretMorphSyst,Specialize7"   Row="1" Column="0"/>
+
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="WZDesignFortress" parent="WZStructure">
+        <BehaviorArray Link="WZWallGuard"/>
+        <AbilArray Link="TurretMorphFortressWeapons"/>
+        <WeaponArray Link="WZTankLightMachinegun" Turret="WZGuardTurret"/>
+
+        <CardLayouts index="0">
+            <LayoutButtons Face="WZTurret" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="2"/>
+        </CardLayouts>
+        <!--        FORTRESS-->
+        <CardLayouts CardId="WEP1">
+            <LayoutButtons Face="WZFortressCannon"             Type="AbilCmd" AbilCmd="TurretMorphFortressWeapons,Specialize11"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZFortressMassDriver"         Type="AbilCmd" AbilCmd="TurretMorphFortressWeapons,Specialize12"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZFortressMissile"            Type="AbilCmd" AbilCmd="TurretMorphFortressWeapons,Specialize13"  Row="0" Column="2"/>
+            <LayoutButtons Face="WZHeavyRocketBastion"         Type="AbilCmd" AbilCmd="TurretMorphFortressWeapons,Specialize14"  Row="0" Column="3"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="WZDesignWallGuard" parent="WZStructure">
+        <BehaviorArray Link="WZWallGuard"/>
+        <AbilArray Link="TurretMorphWeap1"/>
+        <AbilArray Link="TurretMorphWeap2"/>
+        <AbilArray Link="TurretMorphWeap3"/>
+        <WeaponArray Link="WZTankLightMachinegun" Turret="WZGuardTurret"/>
+
+        <CardLayouts index="0">
+            <LayoutButtons Face="WZTurret" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="SYST" Row="2" Column="2"/>
+        </CardLayouts>
+        <!--        BLGUARD1-->
+        <CardLayouts CardId="WEP1">
+            <LayoutButtons Face="WZTankAssaultGun"           Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize4"   Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankAssaultCannon"        Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize14"  Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankScourgeMissile"       Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize4"   Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankAACycloneFlakCannon"  Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize13"  Row="0" Column="3"/>
+            <LayoutButtons Face="WZTankAATornadoFlakCannon"  Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize18"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankEMPCannon"            Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize9"   Row="1" Column="0"/>
+            <LayoutButtons Face="WZTankHyperVelocityCannon"  Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize12"  Row="1" Column="1"/>
+            <LayoutButtons Face="WZTankTankKiller"           Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize6"   Row="1" Column="2"/>
+            <LayoutButtons Face="WZTankPulseLaser"           Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize18"  Row="1" Column="3"/>
+            <LayoutButtons Face="WZTankWhirlwindAA"          Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize12"  Row="1" Column="4"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP3" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP2" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="WEP2">
+            <LayoutButtons Face="WZTankRailGun"              Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize2"   Row="0" Column="1"/>
+            <LayoutButtons Face="WZTankGaussCannon"          Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize3"   Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankVindicatorSAM"        Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize8"   Row="1" Column="2"/>
+            <LayoutButtons Face="WZTankAvengerSAM"           Type="AbilCmd" AbilCmd="TurretMorphWeap3,Specialize5"   Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankTwinAssaultGun"       Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize5"   Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankHeavyMachinegun"      Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize3"   Row="0" Column="2"/>
+            <LayoutButtons Face="WZTankLightCannon"          Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize10"  Row="1" Column="4"/>
+            <LayoutButtons Face="WZTankMediumCannon"         Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize11"  Row="0" Column="0"/>
+            <LayoutButtons Face="WZTankHeavyCannon"          Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize15"  Row="0" Column="4"/>
+            <LayoutButtons Face="WZTankFlamer"               Type="AbilCmd" AbilCmd="TurretMorphWeap1,Specialize6"   Row="1" Column="0"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP3" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="WEP3">
+            <LayoutButtons Face="WZTankLancer"               Type="AbilCmd" AbilCmd="TurretMorphWeap2,Specialize1"   Row="0" Column="0"/>
+            <LayoutButtons Face="WZPrev" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP2" Row="2" Column="0"/>
+            <LayoutButtons Face="WZNext" Type="Submenu" SubmenuIsSticky="1" SubmenuCardId="WEP1" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+    </CUnit>
+
+
+
+
+
+
+
+</Catalog>

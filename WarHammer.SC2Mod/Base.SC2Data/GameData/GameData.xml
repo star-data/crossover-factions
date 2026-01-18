@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CGame id="Dflt">
+        <TriggerLibs Id="NECR"/>
+        <!--  <TriggerLibsScionOld Id="VdMp" IncludePath="TriggerLibsScionOld/VoidMultiLib"/>-->
+    </CGame>
+</Catalog>

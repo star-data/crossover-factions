@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <!--UNIT Complete-->
+    <CRequirementCountUnit default="1" id="UC">
+        <?token id="unit" type="CUnitLink"?>
+        <Count Link="##unit##" State="CompleteOnly"/>
+    </CRequirementCountUnit>
+    <!--UNIT Queued-->
+    <CRequirementCountUnit default="1" id="UQ">
+        <?token id="unit" type="CUnitLink" value="CBaseNecron"?>
+        <Count Link="##unit##" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
+    <!--Unit NOT QUEUED and NOT EXIST-->
+    <CRequirementEq default="1" id="UN">
+        <?token id="unit" type="CUnitLink" value="CBaseNecron"?>
+        <OperandArray index="0" value="UQ_##unit##"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <!--Research Complete-->
+    <CRequirementCountUpgrade default="1" id="RC">
+        <?token id="upgrade" type="CUpgradeLink"?>
+        <Count Link="##upgrade##" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <!--Research Queued-->
+    <CRequirementCountUpgrade default="1" id="RQ">
+        <?token id="upgrade" type="CUpgradeLink" value="NecronUpgrade"?>
+        <Count Link="##upgrade##" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <!--Research NOT QUEUED and NOT EXIST-->
+    <CRequirementNot default="1" id="RN">
+        <?token id="unit" type="CUpgradeLink" value="NecronUpgrade"?>
+        <OperandArray index="0" value="RQ_##upgrade##"/>
+    </CRequirementNot>
+</Catalog>

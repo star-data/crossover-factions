@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CSoundtrack id="Music_WZEarly" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="GameMusicWZearly"/>
+        </CueArray>
+    </CSoundtrack>
+
+</Catalog>

@@ -1,0 +1,1551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CActorUnit default="1" id="WZSmall" parent="GenericUnitStandard">
+        <?token id="icon" value="##id##"?>
+        <?token id="wireframe" value="##icon##"?>
+        <HeroIcon value="Assets\icons\##icon##.dds"/>
+        <UnitIcon value="Assets\icons\##icon##.dds"/>
+        <Wireframe>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </Wireframe>
+        <GroupIcon>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </GroupIcon>
+        <Aliases value="_UnitSmall"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="UnitDeath.##id##; AnimPlaying Cover" Target="_DeathModel" Send="AnimPlay Cover Cover PlayForever 0.000000"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="ModelEvent; ModelEventName SquibStart" Send="Create ##id##CheerSquib"/>
+        <On Terms="ModelEvent; ModelEventName SquibStop" Target="##id##CheerSquib" Send="Destroy"/>
+        <On Terms="ModelEvent; ModelEventName SquibStop" Target="##id##CheerSquibSound" Send="Destroy"/>
+        <On Terms="AnimDone; AnimName Cheer" Target="##id##CheerSquib" Send="Destroy"/>
+        <On Terms="AnimDone; AnimName Cheer" Target="##id##CheerSquibSound" Send="Destroy"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create ##id##_Land"/>
+        <On Terms="UnitDeathCustomize; PassChance 100.000000; ValidateUnit IsNotNeuralParasited" Send="Create ##id##_Death"/>
+        <On Terms="UnitDeathCustomize; PassChance 100.000000; !ValidateUnit IsNotNeuralParasited" Send="Create ##id##_Death_NP"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <DeathArray index="Normal" ModelLink="##id##Death" SoundLink="##id##_DeathFXBloodSpray"/>
+        <DeathArray index="Blast" ModelLink="##id##DeathBlast"/>
+        <DeathArray index="Disintegrate" ModelLink="##id##DeathAcid" SoundLink="Uni_DeathFXAcid"/>
+        <DeathArray index="Eat" AnimProps="Stand" ModelLink="##id##DeathEat" SoundLink="##id##_DeathFXEat"/>
+        <DeathArray index="Eviscerate" ModelLink="##id##DeathEviscerate" SoundLink="##id##_DeathFXEviscerate"/>
+        <DeathArray index="Fire" ModelLink="##id##DeathFire" SoundLink="##id##_DeathFXFire"/>
+        <DeathArray index="Silentkill" SoundLink="Uni_DeathFXSilentKill"/>
+        <DeathArray index="Squish" SoundLink="##id##_DeathFXBloodSpray"/>
+        <DeathCustoms ModelLink="TerranSmallBiologicalUnitDeathLow" Name="AntiGravTerran"/>
+        <DeathCustoms ModelLink="##id##DeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="None"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ActorModel="SpineCrawlerHurlDeathRagdollBloodPrevent" ModelLink="##id##DeathRagdoll" Name="RagdollSpineCrawlerHurl">
+            <BodySquibs Name="None"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PortraitModel value="SCVPortrait"/>
+        <StandAnimTurnTime value="4"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="0.600000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleSmall"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="2.25"/>
+        <BarOffset value="40"/>
+        <BarWidth value="36"/>
+        <GlossaryAnim value="Spell"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
+    </CActorUnit>
+    <CActorUnit default="1" id="WZLarge" parent="GenericUnitStandard">
+        <?token id="icon" value="##id##"?>
+        <?token id="wireframe" value="##icon##"?>
+        <HeroIcon value="Assets\icons\##icon##.dds"/>
+        <UnitIcon value="Assets\icons\##icon##.dds"/>
+        <Wireframe>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </Wireframe>
+        <GroupIcon>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </GroupIcon>
+        <Aliases value="_UnitLarge"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <Inherits index="ModelMaterials" value="1"/>
+        <AcceptedTransfers index="ModelMaterials" value="1"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create SiegeTank_Land"/>
+        <Model value="##id##"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <CreepHeightClass value="Tiny"/>
+        <BuildModel value="##id##"/>
+        <DeathArray index="Normal" ModelLink="##id##DeathRagdoll" SoundLink="SiegeTank_Explode"/>
+        <DeathCustomData Name="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="##id##"/>
+        <PortraitModel value="SCVPortrait"/>
+        <StandAnimTurnTime value="3.33"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleSiegeTank"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="1"/>
+        <BarOffset value="80"/>
+        <BarWidth value="102"/>
+        <ErrorArray Error="CantSeeBuildLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantSeeLandLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantBuildLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantLandLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CouldntReachTarget" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <HighlightTooltip value="Unit/Name/##id##"/>
+        <LifeArmorIcon value="Assets\textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+    </CActorUnit>
+    <CActorUnit default="1" id="WZStructure" parent="GenericUnitStandard">
+        <?token id="icon" value="Structures\##id##"?>
+        <?token id="wireframe" value="##icon##"?>
+        <HeroIcon value="Assets\icons\##icon##.dds"/>
+        <UnitIcon value="Assets\icons\##icon##.dds"/>
+        <Wireframe>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </Wireframe>
+        <GroupIcon>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </GroupIcon>
+        <Aliases value="_UnitHuge"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <Inherits index="ModelMaterials" value="1"/>
+        <AcceptedTransfers index="ModelMaterials" value="1"/>
+        <Model value="##id##"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <CreepHeightClass value="Tiny"/>
+        <BuildModel value="##id##"/>
+        <PlacementModel value="##id##"/>
+        <PortraitModel value="SCVPortrait"/>
+        <BarOffset value="80"/>
+        <BarWidth value="102"/>
+        <ErrorArray Error="CantSeeBuildLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantSeeLandLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantBuildLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantLandLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CouldntReachTarget" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <HighlightTooltip value="Unit/Name/##id##"/>
+        <LifeArmorIcon value="Assets\textures\btn-upgrade-terran-buildingarmor.dds"/>
+    </CActorUnit>
+    <CActorUnit default="1" id="WZVehicle" parent="GenericUnitStandard">
+        <?token id="icon" value="Units\##id##"?>
+        <?token id="wireframe" value="##icon##"?>
+        <HeroIcon value="Assets\icons\##icon##.dds"/>
+        <UnitIcon value="Assets\icons\##icon##.dds"/>
+        <Wireframe>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </Wireframe>
+        <GroupIcon>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </GroupIcon>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <DeathArray index="Normal" ModelLink="TerranSmallUnitDeathLow" SoundLink="Hellion_Explode"/>
+        <PortraitModel value="HellionPortrait"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Hellion_Land"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <BarOffset value="50"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <Aliases value="_UnitMedium"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <UnitFlags index="StandAnimBirthVariation" value="0"/>
+        <PortraitActor value="HellionPortrait"/>
+        <DeathCustoms ModelLink="TerranSmallUnitDeathLow" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLargeVehicle"/>
+        </TerrainSquibs>
+        <SoundArray index="Ready" value=""/>
+        <SoundArray index="Help" value=""/>
+        <SoundArray index="What" value=""/>
+        <SoundArray index="Yes" value=""/>
+        <SoundArray index="Attack" value=""/>
+        <SoundArray index="Pissed" value=""/>
+        <SoundArray index="Movement" value="WheeledMove"/>
+    </CActorUnit>
+    <CActorUnit default="1" id="ScavVehicle" parent="GenericUnitStandard">
+        <?token id="icon" value="Units\##id##"?>
+        <?token id="wireframe" value="##icon##"?>
+        <HeroIcon value="Assets\icons\##icon##.dds"/>
+        <UnitIcon value="Assets\icons\##icon##.dds"/>
+        <Wireframe>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </Wireframe>
+        <GroupIcon>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </GroupIcon>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <DeathArray index="Normal" ModelLink="TerranSmallUnitDeathLow" SoundLink="Hellion_Explode"/>
+        <PortraitModel value="HellionPortrait"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Hellion_Land"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <BarOffset value="50"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <Aliases value="_UnitMedium"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <UnitFlags index="StandAnimBirthVariation" value="0"/>
+        <PortraitActor value="HellionPortrait"/>
+        <DeathCustoms ModelLink="TerranSmallUnitDeathLow" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLargeVehicle"/>
+        </TerrainSquibs>
+        <SoundArray index="Ready" value="Hellion_Ready"/>
+        <SoundArray index="Help" value="Hellion_Help"/>
+        <SoundArray index="What" value="Hellion_What"/>
+        <SoundArray index="Yes" value="Hellion_Yes"/>
+        <SoundArray index="Attack" value="Hellion_Attack"/>
+        <SoundArray index="Pissed" value="Hellion_What"/>
+        <SoundArray index="Movement" value="Hellion_VulturePath_Movement"/>
+    </CActorUnit>
+    <CActorUnit default="1" id="WZCyborg" parent="WZSmall">
+        <SoundArray index="Movement" value="CyberMove"/>
+        <Model value="WZPLightCyborg"/>
+        <WalkAnimMoveSpeed value="1.5"/>
+        <On Terms="Behavior.WZPHeavyCyborg.On" Send="ModelSwap WZPHeavyCyborg"/>
+        <On Terms="Behavior.WZPLightCyborg.On" Send="ModelSwap WZPLightCyborg"/>
+        <Scale value="0.800000"/>
+    </CActorUnit>
+    <!--Splatts-->
+    <CActorModel default="1" id="WZSplat" parent="ModelAddition">
+        <Inherits index="BaseModelScale" value="0"/>
+        <Inherits index="Scale" value="0"/>
+    </CActorModel>
+    <!--Tanks-->
+    <CActorUnit default="1" id="WZTank" parent="WZVehicle">
+        <Model value="WZPNull"/>
+        <On Terms="Behavior.WZPWheels.On" Send="ModelSwap WZPWheelsLight"/>
+        <On Terms="Behavior.WZPHalftracks.On" Send="ModelSwap WZPHalftracksLight"/>
+        <On Terms="Behavior.WZPTracks.On" Send="ModelSwap WZPTracksLight"/>
+        <On Terms="Behavior.WZPHover.On" Send="ModelSwap WZPHoverLight"/>
+        <On Terms="Behavior.WZPVtol.On" Send="ModelSwap WZPVtolLight"/>
+        <On Terms="Behavior.WZPHeli.On" Send="ModelSwap WZPHeliLight"/>
+        <On Terms="Behavior.WZPNaval.On" Send="ModelSwap WZPNavalLight"/>
+        <Scale value="0.800000"/>
+    </CActorUnit>
+    <CActorAction default="1" id="WZWeapon" parent="GenericAttackBase">
+        <!--        <On Terms="Effect.##id##Attack.Stop; FromEffectTreeDescendant" Send="ActionImpactPhysics"/>-->
+        <On Terms="Effect.##id##MissileDamage.Start; FromEffectTreeDescendant" Send="ActionImpact"/>
+        <On Terms="Effect.##id##MissileDamage.Stop; FromEffectTreeDescendant" Send="ActionImpactPhysics"/>
+        <On Terms="Effect.SplashDamage.Start; FromEffectTreeDescendant" Send="ActionDamage"/>
+        <On Terms="Effect.SplashDamage.Stop; FromEffectTreeDescendant" Send="ActionDamagePhysics"/>
+        <!--        <On Terms="Effect.##id##Attack.Start; At Caster" Send="Create"/>-->
+        <On Terms="Effect.##id##Missile.Start; At Caster" Send="Create"/>
+        <LaunchSite value="WZTurretSite"/>
+        <!--        <LaunchAssets Sound="MissileTurret_AttackLaunch"/>-->
+        <!--        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="MissileTurret_AttackImpact"/>-->
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <ActionFlags index="LaunchForceSite" value="1"/>
+        <LaunchAttachQuery Methods="AMFilterWeapon"/>
+        <LaunchSiteOps Ops="SOpAttachWeapon"/>
+    </CActorAction>
+    <CActorMissile default="1" id="WZProjectile" parent="GenericAttackMissile">
+        <Model value="##id##"/>
+        <On index="0" Terms="UnitBirth.##id##" Send="Create"/>
+        <On Terms="ActorCreation" Send="AnimPlay Phase1 Stand PlayForever"/>
+        <On Terms="MotionPhaseStart; MotionPhase 1" Send="AnimPlay Phase2 Turbo PlayForever"/>
+    </CActorMissile>
+    <CActorUnit id="ScavBuggy" parent="ScavVehicle" unitName="ScavBuggy" icon="Bodies/ScavBuggy"/>
+    <CActorUnit id="ScavJeep" parent="ScavVehicle" unitName="ScavJeep" icon="Bodies/ScavJeep"/>
+    <CActorUnit id="ScavTrike" parent="ScavVehicle" unitName="ScavTrike" icon="Bodies/ScavTrike"/>
+    <CActorUnit id="ScavBus" parent="ScavVehicle" unitName="ScavBus" icon="Bodies/ScavBus"/>
+    <CActorUnit id="ScavFireTruck" parent="ScavVehicle" unitName="ScavFireTruck" icon="Bodies/ScavFireTruck"/>
+    <CActorUnit id="WZHeavyTransport" parent="WZVehicle" unitName="WZHeavyTransport" icon="Units/TransportHeavy"/>
+    <CActorSiteOpLocalOffset id="SOpHQTurret">
+        <LocalOffset value="0.000000,0.000000,3.000000"/>
+    </CActorSiteOpLocalOffset>
+    <CActorSiteOpLocalOffset id="SOpWZCyborg">
+        <LocalOffset value="0.600000,0.000000,0.030000"/>
+    </CActorSiteOpLocalOffset>
+    <CActorSiteOpLocalOffset id="SOpWZCyborgHeavy">
+        <LocalOffset value="1.000000,0.000000,0.200000"/>
+    </CActorSiteOpLocalOffset>
+    <CActorSiteOpRotator id="SOpWZCyborgRotation">
+        <LocalAxis value="0.000000,1.000000,0.000000"/>
+    </CActorSiteOpRotator>
+    <CActorUnit id="WZDesignCyborg" parent="WZCyborg" wireframe="WZCyborg" unitName="WZDesignCyborg" icon="Weapons\Machinegun"/>
+    <CActorModel id="WZCyborgBodyActor" parent="ModelAddition">
+        <EditorCategories value=""/>
+        <On Terms="Behavior.WZCyborg.On" Send="Create"/>
+        <On Terms="Behavior.WZCyborg.Off" Send="Destroy"/>
+        <On Terms="Behavior.WZBHeavyCyborg.On" Send="ModelSwap WZBHeavyCyborg"/>
+        <On Terms="Behavior.WZBLightCyborg.On" Send="ModelSwap WZBLightCyborg"/>
+        <Model value="WZBNull"/>
+        <HostSiteOps Ops="SOpAttachHardPoint"/>
+    </CActorModel>
+    <CActorModel id="WZCyborgTurretActorModel" parent="ModelAddition">
+        <On Terms="TurretEnable.WZCyborgTurret" Send="Create"/>
+        <!--        <On Terms="Behavior.WZCyborg.On" Send="Create"/>-->
+        <!--        <On Terms="Behavior.WZCyborg.Off" Send="Destroy"/>-->
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="Behavior.WZCyborgSpade.On" Send="ModelSwap WZEngineerWeapon"/>
+        <On Terms="Behavior.WZCyborgRepair.On" Send="ModelSwap WZMechanicWeapon"/>
+        <On Terms="Behavior.WZHeavyGunnerWeapon.On" Send="ModelSwap WZHeavyGunnerWeapon"/>
+        <On Terms="Behavior.WZMachinegunnerWeapon.On" Send="ModelSwap WZMachinegunnerWeapon"/>
+        <On Terms="Behavior.WZFlamerWeapon.On" Send="ModelSwap WZFlamerWeapon"/>
+        <On Terms="Behavior.WZGrenadierWeapon.On" Send="ModelSwap WZGrenadierWeapon"/>
+        <On Terms="Behavior.WZLancerWeapon.On" Send="ModelSwap WZLancerWeapon"/>
+        <On Terms="Behavior.WZThermiteFlamerWeapon.On" Send="ModelSwap WZThermiteFlamerWeapon"/>
+        <On Terms="Behavior.WZAssaultGunnerWeapon.On" Send="ModelSwap WZAssaultGunnerWeapon"/>
+        <On Terms="Behavior.WZFlashlightGunnerWeapon.On" Send="ModelSwap WZFlashlightGunnerWeapon"/>
+        <On Terms="Behavior.WZNeedleGunnerWeapon.On" Send="ModelSwap WZNeedleGunnerWeapon"/>
+        <On Terms="Behavior.WZSuperHeavyGunnerWeapon.On" Send="ModelSwap WZSuperHeavyGunnerWeapon"/>
+        <On Terms="Behavior.WZSuperAutoCannonWeapon.On" Send="ModelSwap WZSuperAutoCannonWeapon"/>
+        <On Terms="Behavior.WZSuperHVCWeapon.On" Send="ModelSwap WZSuperHVCWeapon"/>
+        <On Terms="Behavior.WZSuperTankKillerWeapon.On" Send="ModelSwap WZSuperTankKillerWeapon"/>
+        <On Terms="Behavior.WZSuperScourgeWeapon.On" Send="ModelSwap WZSuperScourgeWeapon"/>
+        <On Terms="Behavior.WZSuperPulseLaserWeapon.On" Send="ModelSwap WZSuperPulseLaserWeapon"/>
+        <On Terms="Behavior.WZSuperRailGunnerWeapon.On" Send="ModelSwap WZSuperRailGunnerWeapon"/>
+        <Model value="WZTankZNull"/>
+        <Host Subject="WZCyborgBodyActor"/>
+        <HostSiteOps Ops="SOpAttachHardPoint"/>
+    </CActorModel>
+    <CActorModel id="WZConstructionEffect" parent="ModelAddition">
+        <On Terms="Abil.WZBuild.WorkerStart" Send="Create"/>
+        <On Terms="Abil.WZBuild.WorkerStop" Send="Destroy"/>
+        <On Terms="Abil.WZBuild.WorkerCancel" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="AnimPlay Work Work PlayForever"/>
+        <Host Subject="WZCyborgTurretActorModel"/>
+        <Scale value="1.400000,3.000000,1.000000"/>
+        <HostSiteOps Ops="SOpAttachWeapon"/>
+        <Inherits index="BaseModelScale" value="0"/>
+        <Inherits index="Opacity" value="0"/>
+        <Inherits index="Scale" value="0"/>
+    </CActorModel>
+    <CActorModel id="WZConstructionEffect2" parent="ModelAddition">
+        <On Terms="Abil.WZBuild.WorkerStart" Send="Create"/>
+        <On Terms="Abil.WZBuild.WorkerStop" Send="Destroy"/>
+        <On Terms="Abil.WZBuild.WorkerCancel" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="AnimPlay Work Work PlayForever"/>
+        <Host Subject="WZCyborgTurretSecondaryActorModel"/>
+        <Model value="WZConstructionEffect"/>
+        <Scale value="1.400000,3.000000,1.000000"/>
+        <HostSiteOps Ops="SOpAttachWeapon SOpWZCyborgConstruction"/>
+        <Inherits index="BaseModelScale" value="0"/>
+        <Inherits index="Opacity" value="0"/>
+        <Inherits index="Scale" value="0"/>
+    </CActorModel>
+    <CActorSiteOpLocalOffset id="SOpWZCyborgConstruction">
+        <LocalOffset value="0.000000,-0.300000,0.000000"/>
+    </CActorSiteOpLocalOffset>
+    <CActorModel id="WZCyborgTurretSecondaryActorModel" parent="ModelAddition">
+        <On Terms="TurretEnable.WZCyborgTurretSecondary" Send="Create"/>
+        <!--        <On Terms="Behavior.WZCyborg.On" Send="Create"/>-->
+        <!--        <On Terms="Behavior.WZCyborg.Off" Send="Destroy"/>-->
+        <On Terms="WeaponStart.WeaponSecondary.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.WeaponSecondary.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="WeaponStart.WeaponSecondary.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.WeaponSecondary.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <!--        model<AttachProps Id="Ref_Hardpoint">-->
+        <!--            <Keys index="Turret" value="0"/>-->
+        <!--        </AttachProps>-->
+        <On Terms="Behavior.WZHeavyGunnerWeaponSecondary.On" Send="ModelSwap WZHeavyGunnerWeapon"/>
+        <On Terms="Behavior.WZMachinegunnerWeaponSecondary.On" Send="ModelSwap WZMachinegunnerWeapon"/>
+        <On Terms="Behavior.WZFlamerWeaponSecondary.On" Send="ModelSwap WZFlamerWeapon"/>
+        <On Terms="Behavior.WZGrenadierWeaponSecondary.On" Send="ModelSwap WZGrenadierWeapon"/>
+        <On Terms="Behavior.WZLancerWeaponSecondary.On" Send="ModelSwap WZLancerWeapon"/>
+        <On Terms="Behavior.WZThermiteFlamerWeaponSecondary.On" Send="ModelSwap WZThermiteFlamerWeapon"/>
+        <On Terms="Behavior.WZAssaultGunnerWeaponSecondary.On" Send="ModelSwap WZAssaultGunnerWeapon"/>
+        <On Terms="Behavior.WZFlashlightGunnerWeaponSecondary.On" Send="ModelSwap WZFlashlightGunnerWeapon"/>
+        <On Terms="Behavior.WZNeedleGunnerWeaponSecondary.On" Send="ModelSwap WZNeedleGunnerWeapon"/>
+        <On Terms="Behavior.WZSuperHeavyGunnerWeaponSecondary.On" Send="ModelSwap WZSuperHeavyGunnerWeapon"/>
+        <On Terms="Behavior.WZSuperAutoCannonWeaponSecondary.On" Send="ModelSwap WZSuperAutoCannonWeapon"/>
+        <On Terms="Behavior.WZSuperHVCWeaponSecondary.On" Send="ModelSwap WZSuperHVCWeapon"/>
+        <On Terms="Behavior.WZSuperTankKillerWeaponSecondary.On" Send="ModelSwap WZSuperTankKillerWeapon"/>
+        <On Terms="Behavior.WZSuperScourgeWeaponSecondary.On" Send="ModelSwap WZSuperScourgeWeapon"/>
+        <On Terms="Behavior.WZSuperPulseLaserWeaponSecondary.On" Send="ModelSwap WZSuperPulseLaserWeapon"/>
+        <On Terms="Behavior.WZSuperRailGunnerWeaponSecondary.On" Send="ModelSwap WZSuperRailGunnerWeapon"/>
+        <Model value="Invisible"/>
+        <Host Subject="WZCyborgBodyActor"/>
+        <!--        <HostSiteOps Ops="SOpAttachTarget"/>-->
+        <!--        <HostSiteOps Ops="SOpAttachWeapon01"/>-->
+        <HostSiteOps Ops="SOpAttachHardPoint SOpWZCyborg SOpWZCyborgRotation"/>
+    </CActorModel>
+    <CActorTurret id="WZCyborgTurretSecondary">
+        <On Terms="TurretEnable.WZCyborgTurretSecondary" Send="Create"/>
+        <TurretBody Subject="WZCyborgTurretSecondaryActorModel"/>
+    </CActorTurret>
+    <CActorSite id="WZCyborgTurretSiteSecondary">
+        <On Terms="Behavior.WZCyborg.On" Send="Create"/>
+        <On Terms="Behavior.WZCyborg.Off" Send="Destroy"/>
+        <Host Subject="WZCyborgTurretSecondaryActorModel"/>
+        <HostSiteOps Ops="SOpAttachWeapon"/>
+    </CActorSite>
+    <CActorTurret id="WZCyborgTurret">
+        <On Terms="TurretEnable.WZCyborgTurret" Send="Create"/>
+        <TurretBody Subject="WZCyborgTurretActorModel"/>
+    </CActorTurret>
+    <CActorSite id="WZCyborgTurretSite">
+        <On Terms="Behavior.WZCyborg.On" Send="Create"/>
+        <On Terms="Behavior.WZCyborg.Off" Send="Destroy"/>
+        <Host Subject="WZCyborgTurretActorModel"/>
+        <HostSiteOps Ops="SOpAttachWeapon"/>
+    </CActorSite>
+    <CActorUnit id="WZCyborgHeavyGunner" parent="WZCyborg" unitName="WZCyborgHeavyGunner" icon="Cyborgs/HeavyGunner"/>
+    <CActorUnit id="WZCyborgMachinegunner" parent="WZCyborg" unitName="WZCyborgMachinegunner" icon="Cyborgs/Machinegunner"/>
+    <CActorUnit id="WZCyborgFlamer" parent="WZCyborg" unitName="WZCyborgFlamer" icon="Cyborgs/Flamer"/>
+    <CActorUnit id="WZCyborgGrenadier" parent="WZCyborg" unitName="WZCyborgGrenadier" icon="Cyborgs/Grenadier"/>
+    <CActorUnit id="WZCyborgLancer" parent="WZCyborg" unitName="WZCyborgLancer" icon="Cyborgs/Lancer"/>
+    <CActorUnit id="WZCyborgThermiteFlamer" parent="WZCyborg" unitName="WZCyborgThermiteFlamer" icon="Cyborgs/ThermiteFlamer"/>
+    <CActorUnit id="WZCyborgAssaultGunner" parent="WZCyborg" unitName="WZCyborgAssaultGunner" icon="Cyborgs/AssaultGunner"/>
+    <CActorUnit id="WZCyborgFlashlightGunner" parent="WZCyborg" unitName="WZCyborgFlashlightGunner" icon="Cyborgs/FlashlightGunner"/>
+    <CActorUnit id="WZCyborgNeedleGunner" parent="WZCyborg" unitName="WZCyborgNeedleGunner" icon="Cyborgs/NeedleGunner"/>
+    <CActorUnit id="WZSuperCyborgHeavyGunner" parent="WZCyborg" unitName="WZSuperCyborgHeavyGunner" icon="Cyborgs/SuperHeavyGunner"/>
+    <CActorUnit id="WZSuperCyborgAutoCannon" parent="WZCyborg" unitName="WZSuperCyborgAutoCannon" icon="Cyborgs/SuperAutoCannon"/>
+    <CActorUnit id="WZSuperCyborgHVC" parent="WZCyborg" unitName="WZSuperCyborgHVC" icon="Cyborgs/SuperHVC"/>
+    <CActorUnit id="WZSuperCyborgTankKiller" parent="WZCyborg" unitName="WZSuperCyborgTankKiller" icon="Cyborgs/SuperTankKiller"/>
+    <CActorUnit id="WZSuperCyborgScourge" parent="WZCyborg" unitName="WZSuperCyborgScourge" icon="Cyborgs/SuperScourge"/>
+    <CActorUnit id="WZSuperCyborgPulseLaser" parent="WZCyborg" unitName="WZSuperCyborgPulseLaser" icon="Cyborgs/SuperPulseLaser"/>
+    <CActorUnit id="WZSuperCyborgRailGunner" parent="WZCyborg" unitName="WZSuperCyborgRailGunner" icon="Cyborgs/SuperRailGunner"/>
+    <CActorUnit id="WZCyborgMechanic" parent="WZCyborg" unitName="WZCyborgMechanic" icon="Cyborgs/Mechanic"/>
+    <CActorUnit id="WZCyborgCombatEngineer" parent="WZCyborg" unitName="WZCyborgCombatEngineer" icon="Cyborgs/Engineer"/>
+    <CActorProgress id="WZConstruction">
+        <!--        <On Terms="Abil.WZBuild.BuiltStart" Send="Create"/>-->
+        <!--        <On Terms="Abil.WZBuild.BuiltStart" Send="Create WZResourcesHubSplat"/>-->
+        <!--        <On Terms="ProgressLevel.WZBuild.Start; Level 0"   Send="SetScale 1,1,0.00"/>-->
+        <!--        <On Terms="ProgressLevel.WZBuild.Start; Level 0.1" Send="SetScale 1,1,0.01"/>-->
+        <!--        <On Terms="ProgressLevel.WZBuild.Start; Level 0.2" Send="SetScale 1,1,0.02"/>-->
+        <!--        <On Terms="ProgressLevel.WZBuild.Start; Level 0.3" Send="SetScale 1,1,0.03"/>-->
+        <!--        <On Terms="ProgressLevel.WZBuild.Start; Level 0.4" Send="SetScale 1,1,0.04"/>-->
+        <!--        <On Terms="ProgressLevel.WZBuild.Start; Level 0.5" Send="SetScale 1,1,0.05"/>-->
+        <!--        <On Terms="ProgressLevel.WZBuild.Start; Level 0.6" Send="SetScale 1,1,0.06"/>-->
+        <!--        <On Terms="ProgressLevel.WZBuild.Start; Level 0.7" Send="SetScale 1,1,0.07"/>-->
+        <!--        <On Terms="ProgressLevel.WZBuild.Start; Level 0.8" Send="SetScale 1,1,0.08"/>-->
+        <!--        <On Terms="ProgressLevel.WZBuild.Start; Level 0.9" Send="SetScale 1,1,0.09"/>-->
+        <!--        <On Terms="ProgressLevel.WZBuild.Start; Level 1"   Send="SetScale 1,1,1"/>-->
+        <!--&lt;!&ndash;        <StageArray AnimProps="Build,A,Start" BlendTime="0.000000"/>&ndash;&gt;-->
+        <!--        <StageArray AnimProps="Build,A,Stand"/>-->
+        <!--        <StageArray AnimProps="Build,B,Start"/>-->
+        <!--        <StageArray AnimProps="Build,B,Stand"/>-->
+        <!--        <StageArray AnimProps="Build,C,Start"/>-->
+        <!--        <StageArray AnimProps="Build,C,Stand"/>-->
+        <!--        <StageArray AnimProps="Build,D"/>-->
+    </CActorProgress>
+    <CActorModel id="WZGeneric1x1Splat" parent="WZSplat">
+        <On Terms="UnitBirth.WZRepairFacility" Send="Create"/>
+        <On Terms="UnitDeath.WZRepairFacility" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="WZGeneric2x2Splat" parent="WZSplat">
+        <!--        <On Terms="UnitBirth.ScavCommandPost" Send="Create"/>-->
+        <!--        <On Terms="UnitBirth.ScavGenerator" Send="Create"/>-->
+        <!--        <On Terms="UnitBirth.ScavGeneratorUpgraded" Send="Create"/>-->
+        <!--        <On Terms="UnitDeath.ScavCommandPost" Send="Destroy"/>-->
+        <!--        <On Terms="UnitDeath.ScavGenerator" Send="Destroy"/>-->
+        <!--        <On Terms="UnitDeath.ScavGeneratorUpgraded" Send="Destroy"/>-->
+    </CActorModel>
+    <CActorModel id="WZGeneric2x3Splat" parent="WZSplat">
+        <!--        <On Terms="UnitBirth.ScavVtolFactory" Send="Create"/>-->
+        <!--        <On Terms="UnitDeath.ScavVtolFactory" Send="Destroy"/>-->
+    </CActorModel>
+    <CActorModel id="WZGeneric3x2Splat" parent="WZSplat">
+        <!--        <On Terms="UnitBirth.ScavFactory" Send="Create"/>-->
+        <!--        <On Terms="UnitDeath.ScavFactory" Send="Destroy"/>-->
+    </CActorModel>
+    <CActorModel id="WZGeneric3x3Splat" parent="WZSplat">
+        <On Terms="UnitBirth.WZLaserSatelliteControlPost" Send="Create"/>
+        <On Terms="UnitDeath.WZLaserSatelliteControlPost" Send="Destroy"/>
+        <On Terms="UnitBirth.WZSatelliteUplinkCentre" Send="Create"/>
+        <On Terms="UnitDeath.WZSatelliteUplinkCentre" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="WZGeneric5x5Splat" parent="WZSplat">
+        <!--        <On Terms="UnitBirth.ScavResourcesHub" Send="Create"/>-->
+        <!--        <On Terms="UnitDeath.ScavResourcesHub" Send="Destroy"/>-->
+    </CActorModel>
+    <CActorModel id="WZResourcesHubSplat" parent="WZSplat">
+        <On Terms="UnitBirth.WZResourcesHub" Send="Create"/>
+        <On Terms="UnitDeath.WZResourcesHub" Send="Destroy"/>
+        <!--        <On Terms="UnitBirth.ScavResourcesHub" Send="Create"/>-->
+        <!--        <On Terms="UnitDeath.ScavResourcesHub" Send="Destroy"/>-->
+    </CActorModel>
+    <CActorModel id="WZHeadquartersSplat" parent="ModelAddition">
+        <On Terms="UnitBirth.WZHeadquarters" Send="Create"/>
+        <On Terms="UnitDeath.WZHeadquarters" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="WZGateSplat" parent="ModelAddition">
+        <On Terms="UnitBirth.WZGate" Send="Create"/>
+        <On Terms="UnitDeath.WZGate" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="WZCyborgFactorySplat" parent="WZSplat">
+        <On Terms="UnitBirth.WZCyborgFactory" Send="Create"/>
+        <On Terms="UnitDeath.WZCyborgFactory" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="WZCommandRelaySplat" parent="WZSplat">
+        <On Terms="UnitBirth.WZCommandRelay" Send="Create"/>
+        <On Terms="UnitDeath.WZCommandRelay" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="WZPowerNuclearSplat" parent="WZSplat">
+        <On Terms="UnitBirth.WZPowerNuclear" Send="Create"/>
+        <On Terms="UnitBirth.WZPowerNuclearUpgraded" Send="Create"/>
+        <On Terms="UnitDeath.WZPowerNuclear" Send="Destroy"/>
+        <On Terms="UnitDeath.WZPowerNuclearUpgraded" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="WZPowerSplat" parent="WZSplat">
+        <On Terms="UnitBirth.WZPower" Send="Create"/>
+        <On Terms="UnitBirth.WZPowerUpgraded" Send="Create"/>
+        <On Terms="UnitDeath.WZPower" Send="Destroy"/>
+        <On Terms="UnitDeath.WZPowerUpgraded" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="WZResearchFacilitySplat" parent="WZSplat">
+        <On Terms="UnitBirth.WZResearchFacility" Send="Create"/>
+        <On Terms="UnitBirth.WZResearchFacilityUpgraded" Send="Create"/>
+        <On Terms="UnitDeath.WZResearchFacility" Send="Destroy"/>
+        <On Terms="UnitDeath.WZResearchFacilityUpgraded" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="WZFactorySplat" parent="WZSplat">
+        <On Terms="UnitBirth.WZVtolFactoryLight" Send="Create"/>
+        <On Terms="UnitBirth.WZVtolFactoryMedium" Send="Create"/>
+        <On Terms="UnitBirth.WZVtolFactoryHeavy" Send="Create"/>
+        <On Terms="UnitBirth.WZWarFactoryLight" Send="Create"/>
+        <On Terms="UnitBirth.WZWarFactoryMedium" Send="Create"/>
+        <On Terms="UnitBirth.WZWarFactoryHeavy" Send="Create"/>
+        <On Terms="UnitDeath.WZVtolFactoryLight" Send="Destroy"/>
+        <On Terms="UnitDeath.WZVtolFactoryMedium" Send="Destroy"/>
+        <On Terms="UnitDeath.WZVtolFactoryHeavy" Send="Destroy"/>
+        <On Terms="UnitDeath.WZWarFactoryLight" Send="Destroy"/>
+        <On Terms="UnitDeath.WZWarFactoryMedium" Send="Destroy"/>
+        <On Terms="UnitDeath.WZWarFactoryHeavy" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="WZHQSensor" parent="ModelAddition">
+        <On Terms="UnitBirth.WZHeadquarters" Send="Create"/>
+        <On Terms="UnitDeath.WZHeadquarters" Send="Destroy"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachHardPoint"/>
+    </CActorModel>
+    <!--Defenses-->
+    <CActorUnit id="WZHardcreteWall" parent="WZStructure" unitName="WZHardcreteWall">
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallEW" Send="ModelSwap WZHardCreateEW"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallSN" Send="ModelSwap WZHardCreateSN"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallE" Send="ModelSwap WZHardCreateE"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallN" Send="ModelSwap WZHardCreateN"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallNE" Send="ModelSwap WZHardCreateNE"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallNEW" Send="ModelSwap WZHardCreateNEW"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallNW" Send="ModelSwap WZHardCreateNW"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallS" Send="ModelSwap WZHardCreateS"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallSE" Send="ModelSwap WZHardCreateSE"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallSEW" Send="ModelSwap WZHardCreateSEW"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallSNE" Send="ModelSwap WZHardCreateSNE"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallSNW" Send="ModelSwap WZHardCreateSNW"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallSW" Send="ModelSwap WZHardCreateSW"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallW" Send="ModelSwap WZHardCreateW"/>
+        <On Terms="Behavior.WZWallWest.On; ValidateUnit isWZWallSENW" Send="ModelSwap WZHardCreateSENW"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallEW" Send="ModelSwap WZHardCreateEW"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallSN" Send="ModelSwap WZHardCreateSN"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallE" Send="ModelSwap WZHardCreateE"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallN" Send="ModelSwap WZHardCreateN"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallNE" Send="ModelSwap WZHardCreateNE"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallNEW" Send="ModelSwap WZHardCreateNEW"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallNW" Send="ModelSwap WZHardCreateNW"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallS" Send="ModelSwap WZHardCreateS"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallSE" Send="ModelSwap WZHardCreateSE"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallSEW" Send="ModelSwap WZHardCreateSEW"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallSNE" Send="ModelSwap WZHardCreateSNE"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallSNW" Send="ModelSwap WZHardCreateSNW"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallSW" Send="ModelSwap WZHardCreateSW"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallW" Send="ModelSwap WZHardCreateW"/>
+        <On Terms="Behavior.WZWallNorth.On; ValidateUnit isWZWallSENW" Send="ModelSwap WZHardCreateSENW"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallEW" Send="ModelSwap WZHardCreateEW"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallSN" Send="ModelSwap WZHardCreateSN"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallE" Send="ModelSwap WZHardCreateE"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallN" Send="ModelSwap WZHardCreateN"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallNE" Send="ModelSwap WZHardCreateNE"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallNEW" Send="ModelSwap WZHardCreateNEW"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallNW" Send="ModelSwap WZHardCreateNW"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallS" Send="ModelSwap WZHardCreateS"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallSE" Send="ModelSwap WZHardCreateSE"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallSEW" Send="ModelSwap WZHardCreateSEW"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallSNE" Send="ModelSwap WZHardCreateSNE"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallSNW" Send="ModelSwap WZHardCreateSNW"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallSW" Send="ModelSwap WZHardCreateSW"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallW" Send="ModelSwap WZHardCreateW"/>
+        <On Terms="Behavior.WZWallSouth.On; ValidateUnit isWZWallSENW" Send="ModelSwap WZHardCreateSENW"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallEW" Send="ModelSwap WZHardCreateEW"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallSN" Send="ModelSwap WZHardCreateSN"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallE" Send="ModelSwap WZHardCreateE"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallN" Send="ModelSwap WZHardCreateN"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallNE" Send="ModelSwap WZHardCreateNE"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallNEW" Send="ModelSwap WZHardCreateNEW"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallNW" Send="ModelSwap WZHardCreateNW"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallS" Send="ModelSwap WZHardCreateS"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallSE" Send="ModelSwap WZHardCreateSE"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallSEW" Send="ModelSwap WZHardCreateSEW"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallSNE" Send="ModelSwap WZHardCreateSNE"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallSNW" Send="ModelSwap WZHardCreateSNW"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallSW" Send="ModelSwap WZHardCreateSW"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallW" Send="ModelSwap WZHardCreateW"/>
+        <On Terms="Behavior.WZWallEast.On; ValidateUnit isWZWallSENW" Send="ModelSwap WZHardCreateSENW"/>
+    </CActorUnit>
+    <CActorUnit id="WZHardcreteGateV" parent="WZStructure" unitName="WZHardcreteGateV" icon="Structures/WZHardcreteGate"/>
+    <CActorUnit id="WZHardcreteGateH" parent="WZStructure" unitName="WZHardcreteGateH" icon="Structures/WZHardcreteGate"/>
+    <CActorModel id="ScavWallEdge" parent="ModelAddition"/>
+    <CActorModel id="ScavWallHor" parent="ModelAddition"/>
+    <CActorModel id="ScavWallTurret" parent="ModelAddition"/>
+    <CActorModel id="WZHardcreteTurret" parent="ModelAddition"/>
+    <CActorModel id="WZGuardTower" parent="ModelAddition"/>
+    <CActorModel id="WZHardpoint" parent="ModelAddition"/>
+    <CActorModel id="WZFortress" parent="ModelAddition"/>
+    <CActorModel id="ScavFortress" parent="ModelAddition"/>
+    <CActorModel id="ScavGuard" parent="ModelAddition"/>
+    <CActorUnit id="ScavAATurret" parent="WZStructure" unitName="ScavAATurret" icon="Cannons/A0BabaCornerWall"/>
+    <CActorUnit id="ScavWall" parent="WZStructure" unitName="ScavWall"/>
+    <!--Structures-->
+    <CActorUnit id="WZHeadquarters" parent="WZStructure" unitName="WZHeadquarters"/>
+    <CActorUnit id="WZCyborgFactory" parent="WZStructure" unitName="WZCyborgFactory"/>
+    <CActorUnit id="ScavCommandPost" parent="WZStructure" unitName="ScavCommandPost" icon="Structures/WZCommandRelay"/>
+    <CActorUnit id="ScavCoolingTower" parent="WZStructure" unitName="ScavCoolingTower"/>
+    <CActorUnit id="ScavFactory" parent="WZStructure" unitName="ScavFactory"/>
+    <CActorUnit id="ScavGenerator" parent="WZStructure" unitName="ScavGenerator"/>
+    <CActorUnit id="ScavGeneratorUpgraded" parent="WZStructure" unitName="ScavGeneratorUpgraded" icon="Structures/ScavGenerator"/>
+    <CActorUnit id="ScavGuardSensor" parent="WZStructure" unitName="ScavGuardSensor"/>
+    <CActorUnit id="ScavVtolFactory" parent="WZStructure" unitName="ScavVtolFactory" icon="Structures/WZVtolFactory"/>
+    <CActorUnit id="WZTankTrap" parent="WZStructure" unitName="WZTankTrap"/>
+    <CActorUnit id="WZCommandRelay" parent="WZStructure" unitName="WZCommandRelay"/>
+    <CActorUnit id="WZMissileBunker" parent="WZStructure" unitName="WZMissileBunker" icon="Structures/WZMissileSilo"/>
+    <CActorUnit id="WZMissileSilo" parent="WZStructure" unitName="WZMissileSilo"/>
+    <CActorUnit id="WZPower" parent="WZStructure" unitName="WZPower"/>
+    <CActorUnit id="WZPowerUpgraded" parent="WZStructure" unitName="WZPowerUpgraded"/>
+    <CActorUnit id="WZPowerNuclear" parent="WZStructure" unitName="WZPowerNuclear" icon="Structures/WZPower"/>
+    <CActorUnit id="WZPowerNuclearUpgraded" parent="WZStructure" unitName="WZPowerNuclearUpgraded" icon="Structures/WZPowerUpgraded"/>
+    <CActorUnit id="WZRepairFacility" parent="WZStructure" unitName="WZRepairFacility"/>
+    <CActorUnit id="WZResearchFacility" parent="WZStructure" unitName="WZResearchFacility"/>
+    <CActorUnit id="WZResearchFacilityUpgraded" parent="WZStructure" unitName="WZResearchFacilityUpgraded"/>
+    <CActorUnit id="WZResourcesHub" parent="WZStructure" unitName="WZResourcesHub" icon="Structures2/ResourcesHub">
+        <On Terms="UnitBirth.CommandCenter; PlayerHasClanDecal" Send="Create TerranClanFlag"/>
+        <On Terms="UnitBirth.CommandCenter; PlayerHasTrophy" Send="Create TerranPlayerTrophy"/>
+        <BarOffset value="165"/><BarWidth value="200"/><NameOffset value="150"/>
+        <StatusHarvesterData Text="UI/HarvesterCountMinerals" SearchFilters="HarvestableResource;Player,Ally,Enemy" SearchRadius="8"/>
+    </CActorUnit>
+    <CActorUnit id="ScavResourcesHub" parent="WZStructure" unitName="ScavResourcesHub" icon="Structures2/ScavResourcesHub">
+        <On Terms="UnitBirth.CommandCenter; PlayerHasClanDecal" Send="Create TerranClanFlag"/>
+        <On Terms="UnitBirth.CommandCenter; PlayerHasTrophy" Send="Create TerranPlayerTrophy"/>
+        <BarOffset value="165"/><BarWidth value="200"/><NameOffset value="150"/>
+        <StatusHarvesterData Text="UI/HarvesterCountMinerals" SearchFilters="HarvestableResource;Player,Ally,Enemy" SearchRadius="8"/>
+    </CActorUnit>
+    <CActorUnit id="ScavHQ" parent="WZStructure" unitName="ScavHQ" icon="Structures/WZHeadquarters"/>
+    <CActorUnit id="WZLaserSatelliteControlPost" parent="WZStructure" unitName="WZLaserSatelliteControlPost"/>
+    <CActorUnit id="WZSatelliteUplinkCentre" parent="WZStructure" unitName="WZSatelliteUplinkCentre"/>
+    <CActorUnit id="WZOilDerrick" parent="WZStructure" unitName="WZOilDerrick"/>
+    <CActorUnit id="ScavOilDerrick" parent="WZStructure" unitName="ScavOilDerrick" icon="Structures/OilDerrick"/>
+    <CActorUnit id="ScavVespeneDerrick" parent="WZStructure" unitName="ScavVespeneDerrick" icon="Structures/OilDerrick"/>
+
+
+
+    <CActorUnit id="WZVespeneDerrick" parent="WZStructure" unitName="WZVespeneDerrick" icon="Structures2/VespeneDerrick">
+        <Aliases value="_UnitHuge"/>
+        <Macros value="ExtractAnim"/>
+        <On Terms="UnitBirth.WZVespeneDerrick" Send="AnimGroupApply B"/>
+        <On Terms="Behavior.HarvestableVespeneGeyserGas.Deplete" Send="SetTintColor 255,170,170"/>
+        <On Terms="Behavior.HarvestableVespeneGeyserGas.Deplete" Send="AnimGroupRemove D"/>
+        <On Terms="Behavior.HarvestableVespeneGeyserGas.Deplete" Send="AnimGroupApply B"/>
+        <On Terms="Behavior.HarvestableVespeneGeyserGas.Restore" Send="SetTintColor 255,255,255"/>
+        <On Terms="Behavior.HarvestableVespeneGeyserGas.Restore" Send="AnimGroupRemove B"/>
+        <On Terms="Behavior.HarvestableVespeneGeyserGas.Restore" Send="AnimGroupApply D"/>
+<!--        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationRefinery"/>-->
+        <On Terms="UnitDeathCustomize; ValidateUnit NoVespene" Send="DeathCustomize Empty"/>
+        <On Terms="UnitBirth.WZVespeneDerrick" Send="TimerSet 0.100000 HideGeyser"/>
+        <On Terms="TimerExpired; TimerName HideGeyser" Send="Create GeyserBuildFinishCovered"/>
+        <On Terms="ActorDestruction" Send="Create GeyserUncovered"/>
+        <CreepHeightClass value="Medium"/>
+        <DeathArray index="Normal" ModelLink="RefineryDeath" SoundLink="Refinery_Explode"/>
+        <DeathArray index="UnderConstruction" ModelLink="TerranBuildingDeath" SoundLink="Refinery_Explode"/>
+        <DeathCustoms ModelLink="RefineryEmptyDeath" Name="Empty"/>
+        <BarOffset value="160"/>
+        <BarWidth value="130"/>
+        <NameOffset value="120"/>
+        <SoundArray index="Ready" value="Refinery_Ready"/>
+        <SoundArray index="What" value="Refinery_What"/>
+        <StatusHarvesterData Text="UI/HarvesterCountVespene"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+    </CActorUnit>
+
+    <CActorUnit id="WZVespeneDerrickRich" parent="WZStructure" unitName="WZVespeneDerrickRich">
+        <Aliases value="_UnitHuge"/>
+        <Macros value="ExtractAnim"/>
+        <On index="69" Terms="UnitConstruction.WZVespeneDerrickRich.Start" Send="Create WZVespeneDerrick"/>
+        <On Terms="Behavior.HarvestableRichVespeneGeyserGas.Deplete" Send="SetTintColor 255,170,170"/>
+        <On Terms="Behavior.HarvestableRichVespeneGeyserGas.Deplete" Send="AnimGroupRemove E"/>
+        <On Terms="Behavior.HarvestableRichVespeneGeyserGas.Deplete" Send="AnimGroupApply B"/>
+        <On Terms="Behavior.HarvestableRichVespeneGeyserGas.Restore" Send="SetTintColor 255,255,255"/>
+        <On Terms="Behavior.HarvestableRichVespeneGeyserGas.Restore" Send="AnimGroupRemove B"/>
+        <On Terms="Behavior.HarvestableRichVespeneGeyserGas.Restore" Send="AnimGroupApply E"/>
+<!--        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationRefinery"/>-->
+        <On Terms="UnitDeathCustomize; ValidateUnit NoVespene" Send="DeathCustomize Empty"/>
+        <On Terms="UnitBirth.WZVespeneDerrickRich" Send="TimerSet 0.100000 HideGeyser"/>
+        <On Terms="TimerExpired; TimerName HideGeyser" Send="Create GeyserBuildFinishCovered"/>
+        <On Terms="ActorDestruction" Send="Create GeyserUncovered"/>
+        <CreepHeightClass value="Medium"/>
+        <DeathArray index="Normal" ModelLink="RefineryDeath" SoundLink="Refinery_Explode"/>
+        <DeathArray index="UnderConstruction" ModelLink="TerranBuildingDeath" SoundLink="Refinery_Explode"/>
+        <DeathCustoms ModelLink="RefineryEmptyDeath" Name="Empty"/>
+        <BarOffset value="160"/>
+        <BarWidth value="130"/>
+        <NameOffset value="120"/>
+        <SoundArray index="Ready" value="Refinery_Ready"/>
+        <SoundArray index="What" value="Refinery_What"/>
+        <StatusHarvesterData Text="UI/HarvesterCountVespene"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <BuildModel value="WZVespeneDerrick"/>
+        <PlacementModel value="WZVespeneDerrick"/>
+    </CActorUnit>
+
+
+
+
+
+
+
+
+
+
+
+
+    <CActorUnit id="WZVtolFactoryHeavy" parent="WZStructure" unitName="WZVtolFactoryHeavy" icon="Structures/WZVtolFactory"/>
+    <CActorUnit id="WZVtolFactoryLight" parent="WZStructure" unitName="WZVtolFactoryLight" icon="Structures/WZVtolFactory"/>
+    <CActorUnit id="WZVtolFactoryMedium" parent="WZStructure" unitName="WZVtolFactoryMedium" icon="Structures/WZVtolFactory"/>
+    <CActorUnit id="WZVtolPad" parent="WZStructure" unitName="WZVtolPad"/>
+    <CActorUnit id="WZWarFactoryHeavy" parent="WZStructure" unitName="WZWarFactoryHeavy" icon="Structures/WZWarFactory"/>
+    <CActorUnit id="WZWarFactoryLight" parent="WZStructure" unitName="WZWarFactoryLight" icon="Structures/WZWarFactory"/>
+    <CActorUnit id="WZWarFactoryMedium" parent="WZStructure" unitName="WZWarFactoryMedium" icon="Structures/WZWarFactory"/>
+    <CActorUnit id="WZDesignTank" parent="WZTank" wireframe="WZTank" unitName="WZDesignTank" icon="Weapons\Machinegun"/>
+    <!--    <CActorUnit unitName="WZDroidWheels" id="WZDroidWheels" parent="WZVehicle" icon="Propulsions/Wheels" wireframe="Propulsions/Wheels"> <Model value="WZPWheelsLight"/></CActorUnit>-->
+    <!--    <CActorUnit unitName="WZDroidHalftracks" id="WZDroidHalftracks" parent="WZVehicle" icon="Propulsions/Halftracks" wireframe="Propulsions/Halftracks"> <Model value="WZPHalftracksLight"/></CActorUnit>-->
+    <!--    <CActorUnit unitName="WZDroidTracks" id="WZDroidTracks" parent="WZVehicle" icon="Propulsions/Tracks" wireframe="Propulsions/Tracks"> <Model value="WZPTracksLight"/></CActorUnit>-->
+    <!--    <CActorUnit unitName="WZDroidHover" id="WZDroidHover" parent="WZVehicle" icon="Propulsions/Hover" wireframe="Propulsions/Hover"> <Model value="WZPHoverLight"/></CActorUnit>-->
+    <!--    <CActorUnit unitName="WZDroidVtol" id="WZDroidVtol" parent="WZVehicle" icon="Propulsions/Vtol" wireframe="Propulsions/Vtol"> <Model value="WZPVtolLight"/></CActorUnit>-->
+    <!--    <CActorUnit unitName="WZDroidHeli" id="WZDroidHeli" parent="WZVehicle" icon="Propulsions/Heli" wireframe="Propulsions/Heli"> <Model value="WZPHeliLight"/></CActorUnit>-->
+    <CActorUnit id="WZTank1" parent="WZTank" unitName="WZTank1"/>
+    <CActorUnit id="WZTank2" parent="WZTank" unitName="WZTank2"/>
+    <CActorUnit id="WZTank3" parent="WZTank" unitName="WZTank3"/>
+    <CActorUnit id="WZTank4" parent="WZTank" unitName="WZTank4"/>
+    <CActorUnit id="WZTank5" parent="WZTank" unitName="WZTank5"/>
+    <CActorUnit id="WZTank6" parent="WZTank" unitName="WZTank6"/>
+    <CActorUnit id="WZTank7" parent="WZTank" unitName="WZTank7"/>
+    <CActorUnit id="WZTank8" parent="WZTank" unitName="WZTank8"/>
+    <CActorUnit id="WZTank9" parent="WZTank" unitName="WZTank9"/>
+    <CActorUnit id="WZTank10" parent="WZTank" unitName="WZTank10"/>
+    <CActorUnit id="WZTank11" parent="WZTank" unitName="WZTank11"/>
+    <CActorUnit id="WZTank12" parent="WZTank" unitName="WZTank12"/>
+    <CActorUnit id="WZTank13" parent="WZTank" unitName="WZTank13"/>
+    <CActorUnit id="WZTank14" parent="WZTank" unitName="WZTank14"/>
+    <CActorUnit id="WZTank15" parent="WZTank" unitName="WZTank15"/>
+    <CActorUnit id="WZTank16" parent="WZTank" unitName="WZTank16"/>
+    <CActorUnit id="WZTank17" parent="WZTank" unitName="WZTank17"/>
+    <CActorUnit id="WZTank18" parent="WZTank" unitName="WZTank18"/>
+    <CActorUnit id="WZTank19" parent="WZTank" unitName="WZTank19"/>
+    <CActorUnit id="WZTank20" parent="WZTank" unitName="WZTank20"/>
+    <CActorUnit id="WZTank21" parent="WZTank" unitName="WZTank21"/>
+    <CActorUnit id="WZTank22" parent="WZTank" unitName="WZTank22"/>
+    <CActorUnit id="WZTank23" parent="WZTank" unitName="WZTank23"/>
+    <CActorUnit id="WZTank24" parent="WZTank" unitName="WZTank24"/>
+    <CActorUnit id="WZTank25" parent="WZTank" unitName="WZTank25"/>
+    <CActorUnit id="WZTank26" parent="WZTank" unitName="WZTank26"/>
+    <CActorUnit id="WZTank27" parent="WZTank" unitName="WZTank27"/>
+    <CActorUnit id="WZTank28" parent="WZTank" unitName="WZTank28"/>
+    <CActorUnit id="WZTank29" parent="WZTank" unitName="WZTank29"/>
+    <CActorUnit id="WZTank30" parent="WZTank" unitName="WZTank30"/>
+    <CActorUnit id="WZTank31" parent="WZTank" unitName="WZTank31"/>
+    <CActorUnit id="WZTank32" parent="WZTank" unitName="WZTank32"/>
+    <CActorUnit id="WZTank33" parent="WZTank" unitName="WZTank33"/>
+    <CActorUnit id="WZTank34" parent="WZTank" unitName="WZTank34"/>
+    <CActorUnit id="WZTank35" parent="WZTank" unitName="WZTank35"/>
+    <CActorUnit id="WZTank36" parent="WZTank" unitName="WZTank36"/>
+    <CActorUnit id="WZTank37" parent="WZTank" unitName="WZTank37"/>
+    <CActorUnit id="WZTank38" parent="WZTank" unitName="WZTank38"/>
+    <CActorUnit id="WZTank39" parent="WZTank" unitName="WZTank39"/>
+    <CActorUnit id="WZTank40" parent="WZTank" unitName="WZTank40"/>
+    <CActorUnit id="WZTank41" parent="WZTank" unitName="WZTank41"/>
+    <CActorUnit id="WZTank42" parent="WZTank" unitName="WZTank42"/>
+    <CActorUnit id="WZTank43" parent="WZTank" unitName="WZTank43"/>
+    <CActorUnit id="WZTank44" parent="WZTank" unitName="WZTank44"/>
+    <CActorUnit id="WZTank45" parent="WZTank" unitName="WZTank45"/>
+    <CActorUnit id="WZTank46" parent="WZTank" unitName="WZTank46"/>
+    <CActorUnit id="WZTank47" parent="WZTank" unitName="WZTank47"/>
+    <CActorUnit id="WZTank48" parent="WZTank" unitName="WZTank48"/>
+    <CActorUnit id="WZTank49" parent="WZTank" unitName="WZTank49"/>
+    <CActorUnit id="WZTank50" parent="WZTank" unitName="WZTank50"/>
+    <CActorAction id="WZTankLightMachinegun" parent="WZWeapon">
+        <Missile value="WZFXTracer"/>
+        <LaunchAssets Model="WZFXLMgun" Sound="WZmgbar2"/>
+        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="WZTankTwinMachinegun" parent="WZWeapon">
+        <Missile value="WZfxtracer_twin"/>
+        <LaunchAssets Model="WZFXLMgun2" Sound="WZmgbar3"/>
+        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="WZTankHeavyMachinegun" parent="WZWeapon">
+        <Missile value="WZfxtracerh"/>
+        <LaunchAssets Model="WZFXMgnVic" Sound="WZmgheavy"/>
+        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="WZTankAssaultGun" parent="WZWeapon">
+        <Missile value="WZfxtracerh"/>
+        <LaunchAssets Model="WZFXMgnVul" Sound="WZasltmg"/>
+        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="WZTankTwinAssaultGun" parent="WZWeapon">
+        <Missile value="WZFXTracr2"/>
+        <LaunchAssets Model="WZFXMgnVul" Sound="WZasltmg"/>
+        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="WZTankFlamer" parent="WZWeapon">
+        <Missile value="WZFXLThrow"/>
+        <LaunchAssets Model="WZFXCan20m" Sound="WZflmthrow"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="WZTankInferno" parent="WZWeapon">
+        <Missile value="WZFXLProj"/>
+        <LaunchAssets Model="WZFXLMgun2" Sound="WZflmthrow"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="WZTankPlasmiteFlamer" parent="WZWeapon">
+        <Missile value="WZFXLProj"/>
+        <LaunchAssets Model="WZFXCan20m" Sound="WZplasflm"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="WZTankHeavyPlasmaLauncher" parent="WZWeapon">
+        <Missile value="WZFXMflare"/>
+        <LaunchAssets Model="WZFXHBLas" Sound="WZmedcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankLightCannon" parent="WZWeapon">
+        <Missile value="WZFXcam20"/>
+        <LaunchAssets Model="WZFXCan20m" Sound="WZsmlcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankMediumCannon" parent="WZWeapon">
+        <Missile value="WZFXCAmmo"/>
+        <LaunchAssets Model="WZFXCan40m" Sound="WZmedcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankHyperVelocityCannon" parent="WZWeapon">
+        <Missile value="WZFXTracer"/>
+        <LaunchAssets Model="WZFXCan20A" Sound="WZhivelcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankAACycloneFlakCannon" parent="WZWeapon">
+        <Missile value="WZFXAALSH2"/>
+        <LaunchAssets Model="WZFxCan75m" Sound="WZmedcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankAssaultCannon" parent="WZWeapon">
+        <Missile value="WZFXTracer"/>
+        <LaunchAssets Model="WZFXVulCan" Sound="WZrapdcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankHeavyCannon" parent="WZWeapon">
+        <Missile value="WZFXCAmmo"/>
+        <LaunchAssets Model="WZFxCan75m" Sound="WZlrgcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankTwinAssaultCannon" parent="WZWeapon">
+        <Missile value="WZFXTracr2"/>
+        <LaunchAssets Model="WZFXLMgun2" Sound="WZrapdcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankPlasmaCannon" parent="WZWeapon">
+        <Missile value="WZFXSHgssA"/>
+        <LaunchAssets Model="WZFXHBLas" Sound="WZbemlsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlsrexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankAATornadoFlakCannon" parent="WZWeapon">
+        <Missile value="WZFXAALSHT"/>
+        <LaunchAssets Model="WZFxCan75m" Sound="WZlrgcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankMiniRocketPod" parent="WZWeapon">
+        <Missile value="WZFXMflare"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankMiniRocketArray" parent="WZWeapon">
+        <Missile value="WZFXMflare"/>
+        <LaunchAssets Model="WZFXMRoc" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankLancer" parent="WZWeapon">
+        <Missile value="WZFXMPLME"/>
+        <LaunchAssets Model="WZFXMRocAt" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankBunkerBuster" parent="WZWeapon">
+        <Missile value="WZFXSPLME"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankSunburstAA" parent="WZWeapon">
+        <Missile value="WZFXMflare"/>
+        <LaunchAssets Model="WZFXATMiss" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankRippleRockets" parent="WZWeapon">
+        <Missile value="WZFXHPLME"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankHeavyRocketArray" parent="WZWeapon">
+        <Missile value="WZFXHPLME"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankTankKiller" parent="WZWeapon">
+        <Missile value="WZFXMPLME"/>
+        <LaunchAssets Model="WZFXMRocAt" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankMortar" parent="WZWeapon">
+        <Missile value="WZFXTracer"/>
+        <LaunchAssets Model="WZFXMMort" Sound="WZmortar"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankBombard" parent="WZWeapon">
+        <Missile value="WZFXCAmmo"/>
+        <LaunchAssets Model="WZFxCan75m" Sound="WZmortar"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankPepperpot" parent="WZWeapon">
+        <Missile value="WZFXCAmmo"/>
+        <LaunchAssets Model="WZFXMMort" Sound="WZmortar"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankIncendiaryMortar" parent="WZWeapon">
+        <Missile value="WZFXTracer"/>
+        <LaunchAssets Model="WZFxCan75m" Sound="WZmortar"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankHurricaneAA" parent="WZWeapon">
+        <Missile value="WZFXAALSHT"/>
+        <LaunchAssets Model="WZFXCan40m" Sound="WZmgbar2"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankWhirlwindAA" parent="WZWeapon">
+        <Missile value="WZFXAALSH2"/>
+        <LaunchAssets Model="WZFXCan40m" Sound="WZasltmg"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankHowitzer" parent="WZWeapon">
+        <Missile value="WZFXCAmmo"/>
+        <LaunchAssets Model="WZFxCan75m" Sound="WZlrgcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankIncendiaryHowitzer" parent="WZWeapon">
+        <Missile value="WZFXCAmmo"/>
+        <LaunchAssets Model="WZFxCan75m" Sound="WZlrgcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankHellstorm" parent="WZWeapon">
+        <Missile value="WZFXCAmmo"/>
+        <LaunchAssets Model="WZFXHHowt2" Sound="WZlrgcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankGroundShaker" parent="WZWeapon">
+        <Missile value="WZFXCAmmo"/>
+        <LaunchAssets Model="WZFXHHowt" Sound="WZlrgcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankFlashlight" parent="WZWeapon">
+        <Missile value="WZFXLFLSH"/>
+        <LaunchAssets Model="WZFXHBLas" Sound="WZbemlsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlsrexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankPulseLaser" parent="WZWeapon">
+        <Missile value="WZFXPLAmmo"/>
+        <LaunchAssets Model="WZFXLasRot" Sound="WZplslsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlsrexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankStormbringerAALaser" parent="WZWeapon">
+        <Missile value="WZFXPLAmmo"/>
+        <LaunchAssets Model="WZFXLasRot" Sound="WZplslsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlsrexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankHeavyLaser" parent="WZWeapon">
+        <Missile value="WZFXPLAmmo"/>
+        <LaunchAssets Model="WZFXLasRot" Sound="WZhevlsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlsrexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankNeedleGun" parent="WZWeapon">
+        <Missile value="WZFXGAmmo"/>
+        <LaunchAssets Model="WZFXLGauss" Sound="WZgaussgun"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZgaussgun"/>
+    </CActorAction>
+    <CActorAction id="WZTankRailGun" parent="WZWeapon">
+        <Missile value="WZFXGammoM"/>
+        <LaunchAssets Model="WZFXMGauss" Sound="WZgaussgun"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankGaussCannon" parent="WZWeapon">
+        <Missile value="WZFXGammoH"/>
+        <LaunchAssets Model="WZFXHGauss" Sound="WZgaussgun"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankScourgeMissile" parent="WZWeapon">
+        <Missile value="WZFXMPLME"/>
+        <LaunchAssets Model="WZFXMRocAt" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankAvengerSAM" parent="WZWeapon">
+        <Missile value="WZFXMflare"/>
+        <LaunchAssets Model="WZFXATMiss" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankSeraphMissileArray" parent="WZWeapon">
+        <Missile value="WZFXMPLME"/>
+        <LaunchAssets Model="WZFXMMort" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankArchangelMissile" parent="WZWeapon">
+        <Missile value="WZFXHPLME"/>
+        <LaunchAssets Model="WZFXICBM" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankVindicatorSAM" parent="WZWeapon">
+        <Missile value="WZFXMflare"/>
+        <LaunchAssets Model="WZFXICBM" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZTankNexusLink" parent="WZWeapon">
+        <Missile value="WZFXMflare"/>
+        <LaunchAssets Model="WZFXHBLas" Sound="WZrotlsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="WZTankEMPCannon" parent="WZWeapon">
+        <Missile value="WZFXBeam"/>
+        <LaunchAssets Model="WZFXHBLas" Sound="WZemp"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="WZTankEMPMortar" parent="WZWeapon">
+        <Missile value="WZFXSFlms"/>
+        <LaunchAssets Model="WZFXMMort" Sound="WZemp"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="WZTankCommand" parent="WZWeapon">
+        <Missile value="WZFXBeam"/>
+        <LaunchAssets Model="WZFXHBLas" Sound="WZrotlsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="WZVtolClusterBombBay" parent="WZWeapon">
+        <Missile value="WZFxlbmbx1"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZhwtzflgt"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolHeapBombBay" parent="WZWeapon">
+        <Missile value="WZFxmbmbx2"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZhwtzflgt"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolEMPMissileLauncher" parent="WZWeapon">
+        <Missile value="WZFXLBMBE2"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZemp"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="WZVtolPlasmiteBombBay" parent="WZWeapon">
+        <Missile value="WZFXLBMBP2"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZflmthrow"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="WZVtolPhosphorBombBay" parent="WZWeapon">
+        <Missile value="WZFxlbmbi1"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZhwtzflgt"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolThermiteBombBay" parent="WZWeapon">
+        <Missile value="WZFxmbmbi2"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZhwtzflgt"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZFortressCannon" parent="WZWeapon">
+        <Missile value="WZFXSHcanA"/>
+        <LaunchAssets Model="WZFXSHcanM" Sound="WZlrgcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZFortressMassDriver" parent="WZWeapon">
+        <Missile value="WZFXSHgssA"/>
+        <LaunchAssets Model="WZFXSHgssM" Sound="WZgaussgun"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZFortressMissile" parent="WZWeapon">
+        <Missile value="WZFXHPLME"/>
+        <LaunchAssets Model="WZFXMMort" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZLaserSatelliteCommandPost" parent="WZWeapon">
+        <Missile value="WZFXBeam"/>
+        <LaunchAssets Model="WZFXHBLas" Sound="WZbemlsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlsrexpl"/>
+    </CActorAction>
+    <CActorAction id="WZHeavyGunnerWeapon" parent="WZWeapon">
+        <Missile value="WZFXcam20"/>
+        <LaunchAssets Model="WZFXCan20m" Sound="WZsmlcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZMachinegunnerWeapon" parent="WZWeapon">
+        <Missile value="WZFXTracer"/>
+        <LaunchAssets Model="WZFXLMgun" Sound="WZmgbar2"/>
+        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="WZFlamerWeapon" parent="WZWeapon">
+        <Missile value="WZFXLThrow"/>
+        <LaunchAssets Model="WZFXCan20m" Sound="WZflmthrow"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="WZGrenadierWeapon" parent="WZWeapon">
+        <Missile value="WZFXTracer"/>
+        <LaunchAssets Model="WZFXMMort" Sound="WZcybgrnd"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZLancerWeapon" parent="WZWeapon">
+        <Missile value="WZFXMPLME"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZThermiteFlamerWeapon" parent="WZWeapon">
+        <Missile value="WZFXLThrow"/>
+        <LaunchAssets Model="WZFXCan20m" Sound="WZflmthrow"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="WZAssaultGunnerWeapon" parent="WZWeapon">
+        <Missile value="WZfxtracerh"/>
+        <LaunchAssets Model="WZFXLMgun" Sound="WZasltmg"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="WZFlashlightGunnerWeapon" parent="WZWeapon">
+        <Missile value="WZFXLFLSH"/>
+        <LaunchAssets Model="WZFXLasRot" Sound="WZbemlsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlsrexpl"/>
+    </CActorAction>
+    <CActorAction id="WZNeedleGunnerWeapon" parent="WZWeapon">
+        <Missile value="WZFXGAmmo"/>
+        <LaunchAssets Model="WZFXLGauss" Sound="WZgaussgun"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZgaussgun"/>
+    </CActorAction>
+    <CActorAction id="WZSuperHeavyGunnerWeapon" parent="WZWeapon">
+        <Missile value="WZFXCAmmo"/>
+        <LaunchAssets Model="WZFXCan40m" Sound="WZmedcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZSuperAutoCannonWeapon" parent="WZWeapon">
+        <Missile value="WZFXTracer"/>
+        <LaunchAssets Model="WZFXVulCan" Sound="WZrapdcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZSuperHVCWeapon" parent="WZWeapon">
+        <Missile value="WZFXTracer"/>
+        <LaunchAssets Model="WZFXCan20A" Sound="WZhivelcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZSuperTankKillerWeapon" parent="WZWeapon">
+        <Missile value="WZFXMPLME"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZSuperScourgeWeapon" parent="WZWeapon">
+        <Missile value="WZFXMPLME"/>
+        <LaunchAssets Model="WZFXATMiss" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZSuperPulseLaserWeapon" parent="WZWeapon">
+        <Missile value="WZFXPLAmmo"/>
+        <LaunchAssets Model="WZFXLasRot" Sound="WZplslsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZlsrexpl"/>
+    </CActorAction>
+    <CActorAction id="WZSuperRailGunnerWeapon" parent="WZWeapon">
+        <Missile value="WZFXGammoM"/>
+        <LaunchAssets Model="WZFXMGauss" Sound="WZgaussgun"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZgaussgun"/>
+    </CActorAction>
+    <CActorAction id="ScavMG" parent="WZWeapon">
+        <Missile value="WZFXTracer"/>
+        <LaunchAssets Model="WZFXLMgun" Sound="WZmgbar1"/>
+        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="ScavCannon" parent="WZWeapon">
+        <Missile value="WZFXTracer"/>
+        <LaunchAssets Model="WZFXLMgun" Sound="WZsmlcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="ScavFlamer" parent="WZWeapon">
+        <Missile value="WZFXLThrow"/>
+        <LaunchAssets Model="WZFXCan20m" Sound="WZflmthrow"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound=""/>
+    </CActorAction>
+    <CActorAction id="ScavRocket" parent="WZWeapon">
+        <Missile value="WZFXMFLARE"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="WZsmlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolSunburstAA" parent="WZWeapon">
+        <Missile value="FXMflare"/>
+        <LaunchAssets Model="WZFXATMiss" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolMachinegun" parent="WZWeapon">
+        <Missile value="FXTracer"/>
+        <LaunchAssets Model="WZFXLMgun" Sound="WZmgbar2"/>
+        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="WZVtolCannon" parent="WZWeapon">
+        <Missile value="FXcam20"/>
+        <LaunchAssets Model="WZFXCan20m" Sound="WZsmlcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolTwinMachinegun" parent="WZWeapon">
+        <Missile value="fxtracer_twin"/>
+        <LaunchAssets Model="WZFXLMgun2" Sound="WZmgbar3"/>
+        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="WZVtolMiniRocket" parent="WZWeapon">
+        <Missile value="FXMflare"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolHeavyMachinegun" parent="WZWeapon">
+        <Missile value="fxtracerh"/>
+        <LaunchAssets Model="WZFXMgnVic" Sound="WZmgheavy"/>
+        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="WZVtolLancer" parent="WZWeapon">
+        <Missile value="FXMPLME"/>
+        <LaunchAssets Model="WZFXMRocAt" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolHyperVelocityCannon" parent="WZWeapon">
+        <Missile value="FXTracer"/>
+        <LaunchAssets Model="WZFXCan20A" Sound="WZhivelcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolBunkerBuster" parent="WZWeapon">
+        <Missile value="FXSPLME"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolAssaultGun" parent="WZWeapon">
+        <Missile value="FXTracer"/>
+        <LaunchAssets Model="WZFXVulCan" Sound="WZrapdcan"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolAssaultCannon" parent="WZWeapon">
+        <Missile value="fxtracerh"/>
+        <LaunchAssets Model="WZFXMgnVul" Sound="WZasltmg"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="Marine_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="WZVtolTankKiller" parent="WZWeapon">
+        <Missile value="FXMPLME"/>
+        <LaunchAssets Model="WZFXMRocAt" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="lrgexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolFlashlight" parent="WZWeapon">
+        <Missile value="FXLFLSH"/>
+        <LaunchAssets Model="WZFXHBLas" Sound="WZbemlsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="lsrexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolNeedleGun" parent="WZWeapon">
+        <Missile value="FXGAmmo"/>
+        <LaunchAssets Model="WZFXLGauss" Sound="WZgaussgun"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolScourgeMissile" parent="WZWeapon">
+        <Missile value="FXMPLME"/>
+        <LaunchAssets Model="WZFXMRocAt" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolPulseLaser" parent="WZWeapon">
+        <Missile value="FXPLAmmo"/>
+        <LaunchAssets Model="WZFXLasRot" Sound="WZplslsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="lsrexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolHeavyLaser" parent="WZWeapon">
+        <Missile value="FXPLAmmo"/>
+        <LaunchAssets Model="WZFXLasRot" Sound="WZhevlsr"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="lsrexpl"/>
+    </CActorAction>
+    <CActorAction id="WZVtolRailGun" parent="WZWeapon">
+        <Missile value="FXGammoM"/>
+        <LaunchAssets Model="WZFXMGauss" Sound="WZgaussgun"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="lrgexpl"/>
+    </CActorAction>
+    <CActorAction id="ScavVtolMachinegun" parent="WZWeapon">
+        <Missile value="FXTracer"/>
+        <LaunchAssets Model="WZFXLMgun" Sound="WZmgbar2"/>
+        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="ScavVtolMiniRocket" parent="WZWeapon">
+        <Missile value="FXMflare"/>
+        <LaunchAssets Model="WZFXLRocPd" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="smlexpl"/>
+    </CActorAction>
+    <CActorAction id="WZHeavyRocketBastion" parent="WZWeapon">
+        <Missile value="FXMPLME"/>
+        <LaunchAssets Model="WZFXMRocAt" Sound="WZrocket"/>
+        <ImpactMap index="None" Model="MissileTurretAttackImpact" Sound="lrgexpl"/>
+    </CActorAction>
+    <CActorTurret id="WZTurret">
+        <On Terms="TurretEnable.WZStaticTurret" Send="Create"/>
+        <On Terms="TurretEnable.WZSpinningTurret" Send="Create"/>
+        <TurretBody Subject="WZTankTurretActorModel"/>
+    </CActorTurret>
+    <CActorSite id="WZTurretSite">
+        <On Terms="Behavior.WZTank.On" Send="Create"/>
+        <On Terms="Behavior.WZTank.Off" Send="Destroy"/>
+        <Host Subject="WZTankTurretActorModel"/>
+        <HostSiteOps Ops="SOpAttachWeapon"/>
+    </CActorSite>
+    <CActorTurret id="WZGuardTurret">
+        <On Terms="TurretEnable.WZGuardTurret" Send="Create"/>
+        <TurretBody Subject="WZWallGuardTurretActorModel"/>
+    </CActorTurret>
+    <CActorSite id="WZGuardTurretSite">
+        <On Terms="Behavior.WZWallGuard.On" Send="Create"/>
+        <On Terms="Behavior.WZWallGuard.Off" Send="Destroy"/>
+        <Host Subject="WZWallGuardTurretActorModel"/>
+        <HostSiteOps Ops="SOpAttachWeapon"/>
+    </CActorSite>
+    <!--Tanks-->
+    <CActorModel id="WZTankBodyActor" parent="ModelAddition">
+        <EditorCategories value=""/>
+        <On Terms="Behavior.WZTank.On" Send="Create"/>
+        <On Terms="Behavior.WZTank.Off" Send="Destroy"/>
+        <On Terms="Behavior.WZBViper.On" Send="ModelSwap WZBViper"/>
+        <On Terms="Behavior.WZBCobra.On" Send="ModelSwap WZBCobra"/>
+        <On Terms="Behavior.WZBPython.On" Send="ModelSwap WZBPython"/>
+        <On Terms="Behavior.WZBBug.On" Send="ModelSwap WZBBug"/>
+        <On Terms="Behavior.WZBPanther.On" Send="ModelSwap WZBPanther"/>
+        <On Terms="Behavior.WZBTiger.On" Send="ModelSwap WZBTiger"/>
+        <On Terms="Behavior.WZBLeopard.On" Send="ModelSwap WZBLeopard"/>
+        <On Terms="Behavior.WZBScorpion.On" Send="ModelSwap WZBScorpion"/>
+        <On Terms="Behavior.WZBMantis.On" Send="ModelSwap WZBMantis"/>
+        <On Terms="Behavior.WZBRetaliation.On" Send="ModelSwap WZBRetaliation"/>
+        <On Terms="Behavior.WZBRetribution.On" Send="ModelSwap WZBRetribution"/>
+        <On Terms="Behavior.WZBVengeance.On" Send="ModelSwap WZBVengeance"/>
+        <On Terms="Behavior.WZBWyvern.On" Send="ModelSwap WZBWyvern"/>
+        <On Terms="Behavior.WZBDragon.On" Send="ModelSwap WZBDragon"/>
+        <Model value="WZBNull"/>
+        <HostSiteOps Ops="SOpAttachHardPoint"/>
+    </CActorModel>
+    <CActorModel id="WZTankTurretActorModel" parent="ModelAddition">
+        <On Terms="Behavior.WZTank.On" Send="Create"/>
+        <On Terms="Behavior.WZTank.Off" Send="Destroy"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="Behavior.WZTankZFolsom.On" Send="ModelSwap WZTankZFolsom"/>
+        <On Terms="Behavior.WZTankLightMachinegun.On" Send="ModelSwap WZTankLightMachinegun"/>
+        <On Terms="Behavior.WZTankTwinMachinegun.On" Send="ModelSwap WZTankTwinMachinegun"/>
+        <On Terms="Behavior.WZTankHeavyMachinegun.On" Send="ModelSwap WZTankHeavyMachinegun"/>
+        <On Terms="Behavior.WZTankAssaultGun.On" Send="ModelSwap WZTankAssaultGun"/>
+        <On Terms="Behavior.WZTankTwinAssaultGun.On" Send="ModelSwap WZTankTwinAssaultGun"/>
+        <On Terms="Behavior.WZTankFlamer.On" Send="ModelSwap WZTankFlamer"/>
+        <On Terms="Behavior.WZTankInferno.On" Send="ModelSwap WZTankInferno"/>
+        <On Terms="Behavior.WZTankPlasmiteFlamer.On" Send="ModelSwap WZTankPlasmiteFlamer"/>
+        <On Terms="Behavior.WZTankHeavyPlasmaLauncher.On" Send="ModelSwap WZTankHeavyPlasmaLauncher"/>
+        <On Terms="Behavior.WZTankLightCannon.On" Send="ModelSwap WZTankLightCannon"/>
+        <On Terms="Behavior.WZTankMediumCannon.On" Send="ModelSwap WZTankMediumCannon"/>
+        <On Terms="Behavior.WZTankHyperVelocityCannon.On" Send="ModelSwap WZTankHyperVelocityCannon"/>
+        <On Terms="Behavior.WZTankAACycloneFlakCannon.On" Send="ModelSwap WZTankAACycloneFlakCannon"/>
+        <On Terms="Behavior.WZTankAssaultCannon.On" Send="ModelSwap WZTankAssaultCannon"/>
+        <On Terms="Behavior.WZTankHeavyCannon.On" Send="ModelSwap WZTankHeavyCannon"/>
+        <On Terms="Behavior.WZTankTwinAssaultCannon.On" Send="ModelSwap WZTankTwinAssaultCannon"/>
+        <On Terms="Behavior.WZTankPlasmaCannon.On" Send="ModelSwap WZTankPlasmaCannon"/>
+        <On Terms="Behavior.WZTankAATornadoFlakCannon.On" Send="ModelSwap WZTankAATornadoFlakCannon"/>
+        <On Terms="Behavior.WZTankMiniRocketPod.On" Send="ModelSwap WZTankMiniRocketPod"/>
+        <On Terms="Behavior.WZTankMiniRocketArray.On" Send="ModelSwap WZTankMiniRocketArray"/>
+        <On Terms="Behavior.WZTankLancer.On" Send="ModelSwap WZTankLancer"/>
+        <On Terms="Behavior.WZTankBunkerBuster.On" Send="ModelSwap WZTankBunkerBuster"/>
+        <On Terms="Behavior.WZTankSunburstAA.On" Send="ModelSwap WZTankSunburstAA"/>
+        <On Terms="Behavior.WZTankRippleRockets.On" Send="ModelSwap WZTankRippleRockets"/>
+        <On Terms="Behavior.WZTankHeavyRocketArray.On" Send="ModelSwap WZTankHeavyRocketArray"/>
+        <On Terms="Behavior.WZTankTankKiller.On" Send="ModelSwap WZTankTankKiller"/>
+        <On Terms="Behavior.WZTankMortar.On" Send="ModelSwap WZTankMortar"/>
+        <On Terms="Behavior.WZTankBombard.On" Send="ModelSwap WZTankBombard"/>
+        <On Terms="Behavior.WZTankPepperpot.On" Send="ModelSwap WZTankPepperpot"/>
+        <On Terms="Behavior.WZTankIncendiaryMortar.On" Send="ModelSwap WZTankIncendiaryMortar"/>
+        <On Terms="Behavior.WZTankHurricaneAA.On" Send="ModelSwap WZTankHurricaneAA"/>
+        <On Terms="Behavior.WZTankWhirlwindAA.On" Send="ModelSwap WZTankWhirlwindAA"/>
+        <On Terms="Behavior.WZTankHowitzer.On" Send="ModelSwap WZTankHowitzer"/>
+        <On Terms="Behavior.WZTankIncendiaryHowitzer.On" Send="ModelSwap WZTankIncendiaryHowitzer"/>
+        <On Terms="Behavior.WZTankHellstorm.On" Send="ModelSwap WZTankHellstorm"/>
+        <On Terms="Behavior.WZTankGroundShaker.On" Send="ModelSwap WZTankGroundShaker"/>
+        <On Terms="Behavior.WZTankFlashlight.On" Send="ModelSwap WZTankFlashlight"/>
+        <On Terms="Behavior.WZTankPulseLaser.On" Send="ModelSwap WZTankPulseLaser"/>
+        <On Terms="Behavior.WZTankStormbringerAALaser.On" Send="ModelSwap WZTankStormbringerAALaser"/>
+        <On Terms="Behavior.WZTankHeavyLaser.On" Send="ModelSwap WZTankHeavyLaser"/>
+        <On Terms="Behavior.WZTankNeedleGun.On" Send="ModelSwap WZTankNeedleGun"/>
+        <On Terms="Behavior.WZTankRailGun.On" Send="ModelSwap WZTankRailGun"/>
+        <On Terms="Behavior.WZTankGaussCannon.On" Send="ModelSwap WZTankGaussCannon"/>
+        <On Terms="Behavior.WZTankScourgeMissile.On" Send="ModelSwap WZTankScourgeMissile"/>
+        <On Terms="Behavior.WZTankAvengerSAM.On" Send="ModelSwap WZTankAvengerSAM"/>
+        <On Terms="Behavior.WZTankSeraphMissileArray.On" Send="ModelSwap WZTankSeraphMissileArray"/>
+        <On Terms="Behavior.WZTankArchangelMissile.On" Send="ModelSwap WZTankArchangelMissile"/>
+        <On Terms="Behavior.WZTankVindicatorSAM.On" Send="ModelSwap WZTankVindicatorSAM"/>
+        <On Terms="Behavior.WZTankNexusLink.On" Send="ModelSwap WZTankNexusLink"/>
+        <On Terms="Behavior.WZTankEMPCannon.On" Send="ModelSwap WZTankEMPCannon"/>
+        <On Terms="Behavior.WZTankEMPMortar.On" Send="ModelSwap WZTankEMPMortar"/>
+        <On Terms="Behavior.WZTankSpade.On" Send="ModelSwap WZTankSpade"/>
+        <On Terms="Behavior.WZTankCommand.On" Send="ModelSwap WZTankCommand"/>
+        <On Terms="Behavior.WZTankCBRadar.On" Send="ModelSwap WZTankCBRadar"/>
+        <On Terms="Behavior.WZTankRadarDetector.On" Send="ModelSwap WZTankRadarDetector"/>
+        <On Terms="Behavior.WZTankSensor.On" Send="ModelSwap WZTankSensor"/>
+        <On Terms="Behavior.WZTankVtolCBRadar.On" Send="ModelSwap WZTankVtolCBRadar"/>
+        <On Terms="Behavior.WZTankVtolStrike.On" Send="ModelSwap WZTankVtolStrike"/>
+        <On Terms="Behavior.WZTankWideSpectrumSensor.On" Send="ModelSwap WZTankWideSpectrumSensor"/>
+        <On Terms="Behavior.WZTankHeavyRepair.On" Send="ModelSwap WZTankHeavyRepair"/>
+        <On Terms="Behavior.WZTankRepair.On" Send="ModelSwap WZTankRepair"/>
+        <Model value="WZTankZNull"/>
+        <Host Subject="WZTankBodyActor"/>
+        <HostSiteOps Ops="SOpAttachHardPoint"/>
+        <!--        <On Terms="Behavior.WZVtolClusterBombBay.On" Send="ModelSwap WZVtolClusterBombBay"/>-->
+        <!--        <On Terms="Behavior.WZVtolHeapBombBay.On" Send="ModelSwap WZVtolHeapBombBay"/>-->
+        <!--        <On Terms="Behavior.WZVtolEMPMissileLauncher.On" Send="ModelSwap WZVtolEMPMissileLauncher"/>-->
+        <!--        <On Terms="Behavior.WZVtolPlasmiteBombBay.On" Send="ModelSwap WZVtolPlasmiteBombBay"/>-->
+        <!--        <On Terms="Behavior.WZVtolPhosphorBombBay.On" Send="ModelSwap WZVtolPhosphorBombBay"/>-->
+        <!--        <On Terms="Behavior.WZVtolThermiteBombBay.On" Send="ModelSwap WZVtolThermiteBombBay"/>-->
+        <!--        <On Terms="Behavior.WZVtolSunburstAA.On" Send="ModelSwap WZVtolSunburstAA"/>-->
+        <!--        <On Terms="Behavior.WZVtolMachinegun.On" Send="ModelSwap WZVtolMachinegun"/>-->
+        <!--        <On Terms="Behavior.WZVtolCannon.On" Send="ModelSwap WZVtolCannon"/>-->
+        <!--        <On Terms="Behavior.WZVtolTwinMachinegun.On" Send="ModelSwap WZVtolTwinMachinegun"/>-->
+        <!--        <On Terms="Behavior.WZVtolMiniRocket.On" Send="ModelSwap WZVtolMiniRocket"/>-->
+        <!--        <On Terms="Behavior.WZVtolHeavyMachinegun.On" Send="ModelSwap WZVtolHeavyMachinegun"/>-->
+        <!--        <On Terms="Behavior.WZVtolLancer.On" Send="ModelSwap WZVtolLancer"/>-->
+        <!--        <On Terms="Behavior.WZVtolHyperVelocityCannon.On" Send="ModelSwap WZVtolHyperVelocityCannon"/>-->
+        <!--        <On Terms="Behavior.WZVtolBunkerBuster.On" Send="ModelSwap WZVtolBunkerBuster"/>-->
+        <!--        <On Terms="Behavior.WZVtolAssaultGun.On" Send="ModelSwap WZVtolAssaultGun"/>-->
+        <!--        <On Terms="Behavior.WZVtolAssaultCannon.On" Send="ModelSwap WZVtolAssaultCannon"/>-->
+        <!--        <On Terms="Behavior.WZVtolTankKiller.On" Send="ModelSwap WZVtolTankKiller"/>-->
+        <!--        <On Terms="Behavior.WZVtolFlashlight.On" Send="ModelSwap WZVtolFlashlight"/>-->
+        <!--        <On Terms="Behavior.WZVtolNeedleGun.On" Send="ModelSwap WZVtolNeedleGun"/>-->
+        <!--        <On Terms="Behavior.WZVtolScourgeMissile.On" Send="ModelSwap WZVtolScourgeMissile"/>-->
+        <!--        <On Terms="Behavior.WZVtolPulseLaser.On" Send="ModelSwap WZVtolPulseLaser"/>-->
+        <!--        <On Terms="Behavior.WZVtolHeavyLaser.On" Send="ModelSwap WZVtolHeavyLaser"/>-->
+        <!--        <On Terms="Behavior.WZVtolRailGun.On" Send="ModelSwap WZVtolRailGun"/>-->
+        <!--        <On Terms="Behavior.ScavMG.On" Send="ModelSwap ScavMG"/>-->
+        <!--        <On Terms="Behavior.ScavCannon.On" Send="ModelSwap ScavCannon"/>-->
+        <!--        <On Terms="Behavior.ScavFlamer.On" Send="ModelSwap ScavFlamer"/>-->
+        <!--        <On Terms="Behavior.ScavRocket.On" Send="ModelSwap ScavRocket"/>-->
+        <!--        <On Terms="Behavior.WZFortressCannon.On" Send="ModelSwap WZFortressCannon"/>-->
+        <!--        <On Terms="Behavior.WZFortressMassDriver.On" Send="ModelSwap WZFortressMassDriver"/>-->
+        <!--        <On Terms="Behavior.WZFortressMissile.On" Send="ModelSwap WZFortressMissile"/>-->
+        <!--        <On Terms="Behavior.ScavVtolMachinegun.On" Send="ModelSwap ScavVtolMachinegun"/>-->
+        <!--        <On Terms="Behavior.ScavVtolMiniRocket.On" Send="ModelSwap ScavVtolMiniRocket"/>-->
+        <!--        <On Terms="Behavior.WZHeavyRocketBastion.On" Send="ModelSwap WZHeavyRocketBastion"/>-->
+    </CActorModel>
+    <CActorMissile id="WZFXAALSH2" parent="WZProjectile"/>
+    <CActorMissile id="WZFXAALSHT" parent="WZProjectile"/>
+    <CActorMissile id="WZFXBeam" parent="WZProjectile"/>
+    <CActorMissile id="WZFXCAmmo" parent="WZProjectile"/>
+    <CActorMissile id="WZFXGammoH" parent="WZProjectile"/>
+    <CActorMissile id="WZFXGammoM" parent="WZProjectile"/>
+    <CActorMissile id="WZFXGAmmo" parent="WZProjectile"/>
+    <CActorMissile id="WZFXHPLME" parent="WZProjectile"/>
+    <CActorMissile id="WZFXLFLSH" parent="WZProjectile"/>
+    <CActorMissile id="WZFXLProj" parent="WZProjectile"/>
+    <CActorMissile id="WZFXLThrow" parent="WZProjectile"/>
+    <CActorMissile id="WZFXLBMBE2" parent="WZProjectile"/>
+    <CActorMissile id="WZFXLBMBP2" parent="WZProjectile"/>
+    <CActorMissile id="WZFXMFLARE" parent="WZProjectile"/>
+    <CActorMissile id="WZFXMPLME" parent="WZProjectile"/>
+    <CActorMissile id="WZFXPLAmmo" parent="WZProjectile"/>
+    <CActorMissile id="WZFXSHcanA" parent="WZProjectile"/>
+    <CActorMissile id="WZFXSHgssA" parent="WZProjectile"/>
+    <CActorMissile id="WZFXSFlms" parent="WZProjectile"/>
+    <CActorMissile id="WZFXSPLME" parent="WZProjectile"/>
+    <CActorMissile id="WZFxlbmbi1" parent="WZProjectile"/>
+    <CActorMissile id="WZFxlbmbx1" parent="WZProjectile"/>
+    <CActorMissile id="WZFxmbmbi2" parent="WZProjectile"/>
+    <CActorMissile id="WZFxmbmbx2" parent="WZProjectile"/>
+    <CActorMissile id="WZFXTracer" parent="WZProjectile"/>
+    <CActorMissile id="WZFXTracr2" parent="WZProjectile"/>
+    <CActorMissile id="WZfxtracer_twin" parent="WZProjectile"/>
+    <CActorMissile id="WZfxtracerh" parent="WZProjectile"/>
+
+
+
+</Catalog>

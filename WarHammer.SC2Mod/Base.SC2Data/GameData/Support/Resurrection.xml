@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectModifyUnit id="NecronWarriorResurrectionHeal">
+        <EditorCategories value="Race:Terran"/>
+        <VitalArray index="Life">
+            <ChangeFraction value="0.2"/>
+        </VitalArray>
+    </CEffectModifyUnit>
+    <CEffectApplyBehavior id="NecronWarriorIncapacitatedAB">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="NecronWarriorIncapacitated"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="NecronWarriorStandUpAB">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="NecronWarriorStandUp"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="NecronWarriorIncapacitatedEndSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="NecronWarriorStandUpAB"/>
+    </CEffectSet>
+    <CEffectSet id="NecronWarriorResurrectionEndSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="NecronWarriorResurrectionHeal"/>
+        <EffectArray value="NecronWarriorIncapacitated00RB"/>
+        <EffectArray value="NecronWarriorIncapacitated01RB"/>
+        <EffectArray value="NecronWarriorIncapacitated02RB"/>
+        <EffectArray value="NecronWarriorIncapacitated03RB"/>
+        <EffectArray value="NecronWarriorDeathPreventionAB"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="NecronWarriorIncapacitatedDamage">
+        <ValidatorArray value="OneHealth"/>
+        <VitalArray index="Life">
+            <Change value="-1"/>
+        </VitalArray>
+        <ImpactUnit Value="Source"/>
+    </CEffectModifyUnit>
+    <CEffectSet id="NecronWarriorIncapacitatedSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="NecronWarriorIncapacitatedAB"/>
+        <EffectArray value="NecronWarriorIncapacitatedDamage"/>
+        <EffectArray value="NecronWarriorDeathPreventionRB"/>
+    </CEffectSet>
+    <CEffectSet id="NecronWarriorIncapacitatedRandomSet">
+        <EffectArray value="NecronWarriorIncapacitated00AB"/>
+        <EffectArray value="NecronWarriorIncapacitated01AB"/>
+        <EffectArray value="NecronWarriorIncapacitated02AB"/>
+        <EffectArray value="NecronWarriorIncapacitated03AB"/>
+        <Random value="1"/>
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="NecronWarriorIncapacitated00AB">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="NecronWarriorIncapacitated00"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="NecronWarriorIncapacitated01AB">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="NecronWarriorIncapacitated01"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="NecronWarriorIncapacitated02AB">
+        <Behavior value="NecronWarriorIncapacitated02"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="NecronWarriorIncapacitated03AB">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="NecronWarriorIncapacitated03"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="NecronWarriorDeathPreventionAB">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="NecronWarriorDeathPrevention"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="NecronWarriorIncapacitated00RB">
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="NecronWarriorIncapacitated00"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="NecronWarriorIncapacitated01RB">
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="NecronWarriorIncapacitated01"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="NecronWarriorIncapacitated02RB">
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="NecronWarriorIncapacitated02"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="NecronWarriorIncapacitated03RB">
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="NecronWarriorIncapacitated03"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="NecronWarriorDeathPreventionRB">
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="NecronWarriorDeathPrevention"/>
+    </CEffectRemoveBehavior>
+    <CValidatorCombine id="NotNecronWarriorIncapacitated">
+        <Type value="And"/>
+        <CombineArray value="NotNecronWarriorIncapacitatedB"/>
+        <CombineArray value="NotNecronWarriorStandUpB"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="NotNecronWarriorIncapacitatedB">
+        <Behavior value="NecronWarriorIncapacitated"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NotNecronWarriorStandUpB">
+        <Behavior value="NecronWarriorStandUp"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsNotNecronWarriorIncapacitated">
+        <Behavior value="NecronWarriorStandUp"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsNecronWarriorIncapacitated00AB">
+        <Behavior value="NecronWarriorIncapacitated00"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsNecronWarriorIncapacitated01AB">
+        <Behavior value="NecronWarriorIncapacitated01"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsNecronWarriorIncapacitated02AB">
+        <Behavior value="NecronWarriorIncapacitated02"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsNecronWarriorIncapacitated03AB">
+        <Behavior value="NecronWarriorIncapacitated03"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CBehaviorBuff id="NecronWarriorDeathPrevention">
+        <!--        <InfoFlags index="Hidden" value="1"/>-->
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DamageResponse Fatal="1" Handled="NecronWarriorIncapacitatedSet" ModifyFraction="0">
+            <Chance value="1"/>
+        </DamageResponse>
+        <DisableValidatorArray value="NotNecronWarriorIncapacitated"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NecronWarriorStandUp">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-behavior-NecronWarriorIncapacitated.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="6"/>
+        <ExpireEffect value="NecronWarriorResurrectionEndSet"/>
+        <Modification>
+            <ModifyFlags index="DisableAbils" value="1"/>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="SuppressAttack" value="1"/>
+            <StateFlags index="SuppressPassenger" value="1"/>
+            <StateFlags index="SuppressLifeRegen" value="1"/>
+            <StateFlags index="SuppressEnergyRegen" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NecronWarriorIncapacitated">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-behavior-NecronWarriorIncapacitated.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <Duration value="6"/>
+        <InitialEffect value="NecronWarriorIncapacitatedRandomSet"/>
+        <ExpireEffect value="NecronWarriorIncapacitatedEndSet"/>
+        <Modification>
+            <ModifyFlags index="DisableAbils" value="1"/>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="SuppressAttack" value="1"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+            <StateFlags index="SuppressFoodUsed" value="1"/>
+            <StateFlags index="SuppressPassenger" value="1"/>
+            <StateFlags index="SuppressLifeRegen" value="1"/>
+            <StateFlags index="SuppressEnergyRegen" value="1"/>
+            <StateFlags index="Uncommandable" value="1"/>
+            <StateFlags index="Unradarable" value="1"/>
+            <StateFlags index="Unselectable" value="1"/>
+            <StateFlags index="Untargetable" value="1"/>
+        </Modification>
+        <PeriodicEffect value="NecronWarriorIncapacitatedDamage"/>
+        <Period value="0.0625"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NecronWarriorIncapacitated00">
+        <!--        <InfoFlags index="Hidden" value="1"/>-->
+        <InfoIcon value="Assets\Textures\btn-behavior-NecronWarriorIncapacitated.dds"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NecronWarriorIncapacitated01">
+        <!--        <InfoFlags index="Hidden" value="1"/>-->
+        <InfoIcon value="Assets\Textures\btn-behavior-NecronWarriorIncapacitated.dds"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NecronWarriorIncapacitated02">
+        <!--        <InfoFlags index="Hidden" value="1"/>-->
+        <InfoIcon value="Assets\Textures\btn-behavior-NecronWarriorIncapacitated.dds"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NecronWarriorIncapacitated03">
+        <!--        <InfoFlags index="Hidden" value="1"/>-->
+        <InfoIcon value="Assets\Textures\btn-behavior-NecronWarriorIncapacitated.dds"/>
+    </CBehaviorBuff>
+</Catalog>

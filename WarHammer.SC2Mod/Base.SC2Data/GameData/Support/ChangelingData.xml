@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectSwitch id="DisguiseEx3">
+        <CaseArray Validator="IsDOWRace" Effect="DisguiseAsDOWSwitch"/>
+    </CEffectSwitch>
+    <CEffectSwitch id="DisguiseAsDOWSwitch">
+        <CaseArray Validator="isNecronRace" Effect="DisguiseAsNecronWarriorCU"/>
+        <CaseDefault value="DisguiseAsNecronWarriorCU"/>
+    </CEffectSwitch>
+    <CEffectCreateUnit id="DisguiseAsNecronWarriorCU" parent="DisguiseEx3CU">
+        <SpawnUnit value="ChangelingNecronWarrior"/>
+    </CEffectCreateUnit>
+    <CAbilMorph id="DisguiseAsNecronWarrior" parent="DisguiseChangeling">
+        <Name value="Abil/Name/DisguiseAsNecronWarrior"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UPLTrainNecronWarrior"/>
+        <InfoArray Unit="ChangelingNecronWarrior">
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="0.5"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CActorUnit id="ChangelingNecronWarrior" parent="NecronWarrior" unitName="ChangelingNecronWarrior">
+        <AcceptedHostedPropTransfers index="Scale" value="0"/>
+        <On index="0" Terms="UnitBirth.ChangelingNecronWarrior" Send="Create SoundEmitter ChangelingVolt_Ambience"/>
+        <On index="1" Terms="UnitBirth.ChangelingNecronWarrior"/>
+        <On index="2" Terms="UnitRevive.ChangelingNecronWarrior"/>
+        <On index="3" Terms="UnitRevive.ChangelingNecronWarrior"/>
+        <On index="4" Terms="UnitConstruction.ChangelingNecronWarrior"/>
+        <On index="5" Terms="UnitConstruction.ChangelingNecronWarrior"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo ChangelingNecronWarrior" Send="Create"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom ChangelingNecronWarrior" Send="Destroy"/>
+        <SoundArray index="Ready" value="Changeling_Ready"/>
+        <SoundArray index="What" value="Changeling_What"/>
+        <SoundArray index="Yes" value="Changeling_Yes"/>
+        <DeathArray index="Normal" ModelLink="ChangelingDeath" SoundLink="Changeling_Death"/>
+    </CActorUnit>
+    <CUnit id="ChangelingNecronWarrior" parent="NecronWarrior">
+        <Name value="Unit/Name/ChangelingNecronWarrior"/>
+        <Race value="Zerg"/>
+        <BehaviorArray Link="ChangelingDisable"/>
+        <LeaderAlias value="Changeling"/>
+        <HotkeyAlias value="Changeling"/>
+        <SelectAlias value="Changeling"/>
+        <SubgroupAlias value="Changeling"/>
+        <RepairTime value="30.4"/>
+        <WeaponArray index="0" removed="1"/>
+    </CUnit>
+</Catalog>

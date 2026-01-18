@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CButton default="1" id="NecronButton">
+        <?token id="icon"?>
+        <EditorCategories value="Race:Necron"/>
+        <Icon value="Assets\icons\##icon##.dds"/>
+    </CButton>
+    <CButton id="NecronBuild">
+        <Icon value="Assets\Textures\btn-command-terran-buildstructure.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-terran-buildstructure.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+    </CButton>
+</Catalog>

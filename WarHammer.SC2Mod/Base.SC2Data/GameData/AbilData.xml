@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAbilEffectTarget id="SprayDOW">
+        <OrderArray>
+            <DisplayType value="Confirm"/>
+            <Color value="255,0,255,0"/>
+            <Model value="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
+            <LineTexture value="Assets\Textures\WayPointLine.dds"/>
+        </OrderArray>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Effect value="SprayDOW"/>
+        <Cost>
+            <Charge>
+                <CountMax value="5"/>
+                <CountStart value="1"/>
+                <CountUse value="1"/>
+                <Link value="Spray"/>
+                <Location value="Player"/>
+                <TimeStart value="300"/>
+                <TimeUse value="300"/>
+            </Charge>
+        </Cost>
+        <Range value="1"/>
+        <EffectRange value="0,1000"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Spray" Requirements="HaveSprayTerran"/>
+    </CAbilEffectTarget>
+    <CAbilBuild id="NecronBuild">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <FlagArray index="Interruptible" value="1"/>
+        <FlagArray index="PeonDisableCollision" value="1"/>
+        <InfoArray index="Build1" Unit="CommandCenter" Time="100">
+            <Button DefaultButtonFace="CommandCenter"/>
+        </InfoArray>
+        <InfoArray index="Build2" Unit="SupplyDepot" Time="30">
+            <Button DefaultButtonFace="SupplyDepot"/>
+        </InfoArray>
+        <InfoArray index="Build3" Unit="Refinery" Time="30">
+            <Button DefaultButtonFace="Refinery"/>
+            <ValidatorArray value="HasVespene"/>
+        </InfoArray>
+        <InfoArray index="Build4" Unit="Barracks" Time="65">
+            <Button DefaultButtonFace="Barracks" Requirements="HaveSupplyDepot"/>
+        </InfoArray>
+        <FidgetDelayMin value="5"/>
+        <FidgetDelayMax value="10"/>
+        <ConstructionMover value="Construction"/>
+    </CAbilBuild>
+</Catalog>

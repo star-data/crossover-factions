@@ -1,0 +1,544 @@
+﻿Abil/Name/AdrenalRush=Adrenal Rush
+Abil/Name/BarracksTrain2=Train Copy
+Abil/Name/BioPlasma=Bio-Plasma
+Abil/Name/FleshHooks=Flesh Hooks
+Abil/Name/GrowUnit=Grow Unit
+Abil/Name/GrowUnit2=Grow Unit
+Abil/Name/InfiltrateLictor=Infiltrate
+Abil/Name/LictorLeap=Lictor Leap
+Abil/Name/NecronBuild=Build (NecronBuilderScarab)
+Abil/Name/NecronBuilderScarabHarvest=Gather (NecronBuilderScarab)
+Abil/Name/PsychicScream=Psychic Scream
+Abil/Name/RampagingChargeAbility=Rampaging Charge
+Abil/Name/RavenerBurrow=Ravener Burrow
+Abil/Name/RavenerTunnel=Ravener Tunnel
+Abil/Name/RavenerUnburrow=Ravener Unburrow
+Abil/Name/SeismicRoar=Seismic Roar
+Abil/Name/Shieldwall=Shieldwall
+Abil/Name/Terrify=Terrify
+Abil/Name/TyranidBuild=TyranidBuild
+Abil/Name/Unshieldwall=Unshieldwall
+Abil/Name/VolatileBurstBuilding2=Volatile Burst Building Copy
+Apex Prime=Apex Prime
+Assoult Cannon=Assoult Cannon
+Assoult cannon=Assoult cannon
+Behavior/Name/AdrenalRushBuff=Adrenal Rush Buff
+Behavior/Name/AdrenalineSpike=Adrenaline Spike
+Behavior/Name/Aftershock=Aftershock
+Behavior/Name/CripplingPoison=Crippling Poison
+Behavior/Name/GenestealerCloak=Genestealer Cloak
+Behavior/Name/GenestealerSynapse=Genestealer Synapse
+Behavior/Name/HealthSynapse=Health Synapse
+Behavior/Name/InfiltrateLictor=Infiltrate
+Behavior/Name/LictorLeapStunned=Lictor Leap Stunned
+Behavior/Name/MeleeSynapse=Melee Synapse
+Behavior/Name/PsychicScreamBig=Psychic Scream
+Behavior/Name/RegenerationSynapse=Regeneration Synapse
+Behavior/Name/SeismicRoarDummyBehavior=Seismic Roar Dummy Behavior
+Behavior/Name/SeismicRoarDummyDistroy=Seismic Roar Dummy Distroy
+Behavior/Name/ShatteredMind=Shattered Mind
+Behavior/Name/ShieldwallBuff=Shieldwall Buff
+Behavior/Name/SpeedSynapse=Speed Synapse
+Behavior/Name/StunnedFleshHooks=Stunned Flesh Hooks
+Behavior/Name/Terrify=Terrify
+Behavior/Name/TheLoneHunter=The Lone Hunter
+Behavior/Tooltip/Aftershock=Stunned for 5 seconds
+Behavior/Tooltip/GenestealerSynapse=Increase all states by 10% and permanently cloaks Genestealer
+Behavior/Tooltip/HealthSynapse=Max health raised by 25%
+Behavior/Tooltip/InfiltrateLictor=This unit is cloaked and will only be revealed by detectors or effects.
+Behavior/Tooltip/MeleeSynapse=Melee damage raised by 15%
+Behavior/Tooltip/PsychicScreamBig=Reduces damage output by 30% for 15 seconds
+Behavior/Tooltip/RegenerationSynapse=Health and energy regeneration raised by 30%
+Behavior/Tooltip/ShatteredMind=Reduces damage output and move speed by 50% and adds confusion for 15 seconds
+Behavior/Tooltip/SpeedSynapse=attack and move speed raised by 30%
+Behavior/Tooltip/Terrify=Overwhelmed with fear
+Behavior/Tooltip/TheLoneHunter= +35% movement, +75% damage and -50% damage taken
+Button/ChamaeleonidaeStillness=Chamaeleonidae Stillness
+Button/MeleeSynapse=Melee Synapse
+Button/Name/AdrenalRush=Adrenal Rush
+Button/Name/AdrenalRush2=Adrenal Rush2
+Button/Name/AdrenalineSpike=Adrenaline Spike
+Button/Name/AssaultLeap=Assault Leap
+Button/Name/BioPlasma=Bio-Plasma
+Button/Name/CripplingPoison=Crippling Poison
+Button/Name/FleshHooks=Flesh Hooks
+Button/Name/GatherTerr2=Gather
+Button/Name/GenestealerSynapse=Genestealer Synapse
+Button/Name/GrowTyranidUnits=Grow Units
+Button/Name/HeathSynapse=Health Synapse
+Button/Name/InfiltrateLictor=Infiltrate
+Button/Name/InfiltrateOff=Infiltrate Off
+Button/Name/InsatiablePounce=Insatiable Pounce
+Button/Name/NecronBuild=Build Structure
+Button/Name/NornQueensNest=Tyranid MainBase
+Button/Name/PsychicScream=Psychic Scream
+Button/Name/RampagingCharge=Rampaging Charge
+Button/Name/RavenerTunnel=Ravener Tunnel
+Button/Name/RegenerationSynapse=Regeneration Synapse
+Button/Name/SeismicRoar=Seismic Roar
+Button/Name/Shieldwall=Shieldwall
+Button/Name/SpeedSynapse=Speed Synapse
+Button/Name/TerranBuildAdvanced2=Build Advanced Structure
+Button/Name/Terrify=Terrify
+Button/Name/TheLoneHunter=The Lone Hunter
+Button/Name/TrainTermagant=Train Termagant
+Button/Tooltip/AdrenalRush=Releases adrenal stimulants that send the Genestealers into a frenzy  for 10 seconds. Increases speed by 50%, damage by 40%, and reduces received ranged damage by 45%. Melee attacks heal the Genestealers by 15% of damage dealt. 30 second cooldown. Costs 20% maximum health
+Button/Tooltip/AdrenalRush2=Releases adrenal stimulants that send the Genestealers into a frenzy  for 10 seconds. Increases speed by 50%, damage by 40%, and reduces received ranged damage by 45%. Melee attacks heal the Genestealers by 15% of damage dealt. 30 second cooldown. Costs 20% maximum health
+Button/Tooltip/AdrenalineSpike=Near death (below 30% life) the Spinegaunts adrenaline spikes giving it 25% increased move and attack speed, all damage reduced by 30% and life regeneration increased by 40%. Affects last unit unit is above 30% life.
+Button/Tooltip/Assault Leap=Lictor leaps to a location, stunning nearby enemies on impact.
+Button/Tooltip/BioAcidSporeMine=Suicide unit. Deals damage over a small area upon death. <n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/BioPlasma=Fires a Bio-Plasmid Discharge at a single target.
+Button/Tooltip/BioPlasmaCarnifex=Fires a Bio-Plasmid Discharge at a single target.
+Button/Tooltip/Biovore=Long ranged siege unit.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/Biovore2=Long ranged siege unit.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/BroodNest=Allows allied infantry in radius 50 to reinforce.
+Button/Tooltip/CapillaryTower=Crushable terrain bearing testament to a recent Tyranoform. Emits Basic Synapse and Capillary Synapse.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.<n/>Detector</c>
+Button/Tooltip/Carnifex=A living engine of destruction.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/ChamaeleonidaeStillness=Grants the Genestealer the ability to cloak well idle. Moving or attacking reveals genestealer
+Button/Tooltip/ChaosDaemonsLostSoul=Builder.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c><n/><n/>
+Button/Tooltip/ChaosMarinesCultist=Light Infantry with Melee and Ranged Weapons<n/>Effective at Close Range<n/>Can be Upgraded with Heavy Weapons<n/>Can be Permanently Infiltrated<n/>Can be Upgraded to Detect Infiltrated Units<n/>Can be Upgraded with Aspiring Champions<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unist.<n/>Detector</c> 
+Button/Tooltip/ChaosMarinesDefiler=Siege Tank.<n/>Powerful Close Combat Unit.<n/>Equiped with a Heavy Flamer, Auto-Cannon, Battle-Cannon and Defiler Claws.<n/>Has a powerful but highly inaccurate Artillery attack<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/ChaosMarinesHeretic=Builder<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/ChaosMarinesLord=Commander unit<n/>Leader of the Word Bearers on Kronus<n/>Dark Apostle of Chaos<n/>Effective at close range<n/>Can become a Daemon Prince<n/>Can be upgraded to become stronger<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.<n/>Detector</c>
+Button/Tooltip/ChaosMarinesMarine=Heavy Infantry<n/>Equipped with Bolters<n/>Effective at Range and Close combat<n/>Can be Permanently Infiltrated<n/>Can be Upgraded with Heavy Weapons<n/>Can be Upgraded with Aspiring Champions<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c> 
+Button/Tooltip/ChaosMarinesSorcerer=Commander unit (secondary)<n/>Can be upgraded with psychic powers<n/>Can teleport short distances.<n/>Can be possessed by the Bloodthirster<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.<n/>Detector</c>
+Button/Tooltip/CripplingPoison=10% chance to inflict crippling poison on every attack. decreasing enemy attack speed by 20% and movement speed by 30% for 5 second.
+Button/Tooltip/DarkEldarTorturedSlave=Builder unit. <n/>Human slave taken captive in a Dark Eldar raid. <n/>Plants warp spire pods to start building construction. <n/>Can walk away once planted and building will finish itself.<n/><n/><c val="#ColorAttackInfo">Can attack ground./c>
+Button/Tooltip/EldarBanshee=Infantry<n/>Close combat specialist<n/>Effective against Infantry and Heavy Infantry.<n/>Upgrades increase their hitpoints and damage.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/EldarBoneSinger=Builder unit.<n/>Constructs all Eldar buildings.<n/>Can teleport over long distances.<n/>Can turn enemy buildings off for some time.<n/><n/><c val="#ColorAttackInfo">Can attack groundt.</c>
+Button/Tooltip/EldarFarseerElenwe=Commander unit (Primary).<n/>Boosts morale recovery when attached to squad.<n/>Powerful psychic unit with many attack abilities.<n/>Can be upgraded with abilities to enhance friendly units.<n/>Effective against all unit types.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.<n/>Detector</c>
+Button/Tooltip/EldarFarseerTaldeer=Commander unit (Primary).<n/>Boosts morale recovery when attached to squad.<n/>Powerful psychic unit with many attack abilities.<n/>Can be upgraded with abilities to enhance friendly units.<n/>Effective against all unit types.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.<n/>Detector</c>
+Button/Tooltip/EldarGravPlatformBrightlanceGun=Counts as Heavy Infantry<n/>Weapon Platform<n/>Effective against Vehicles and Buildings<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/EldarGravPlatformShurikenGun=Counts as Heavy Infantry.<n/>Weapon Platform.<n/>Effective against Infantry<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/EldarGuardianSquad=Infantry.<n/>General combat unit, effective at range.<n/>Effective against infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/EldarGuardianSquadMerc=Infantry.<n/>General combat unit, effective at range.<n/>Effective against infantry.<n/>Leaders can detect infiltrated units and have supportive abilities.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/EldarRanger=Infantry.<n/>Light scout unit equipped with powerful long range rifles.<n/>Can be upgraded to use infiltration (stealth).<n/>Effective at breaking enemy morale.<n/>Effective against infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/EldarRangerMerc=Infantry.<n/>Light scout unit equipped with powerful long range rifles.<n/>Can be upgraded to use infiltration (stealth).<n/>Effective at breaking enemy morale.<n/>Effective against infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.<n/>Detector</c>
+Button/Tooltip/EldarWarlock=Offensive type hero, limited support abilities<n/>Low damage and health before buying upgrades, needs investment<n/>Powerful offensive spells<n/>No purchasable anti-vehicle wargear, infantry orientated<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.<n/>Detector</c>
+Button/Tooltip/Flesh Hooks=Pulls the target to Lictor's location and temporarily stuns it.
+Button/Tooltip/FleshHooks=Pulls the target to Dehaka's location and temporarily stuns it.
+Button/Tooltip/Gargoyle=Overwhelming flaying unit .<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
+Button/Tooltip/GatherTerr2=Orders NecronBuilderScarab to gather resources from a selected Mineral Field or Vespene Geyser.
+Button/Tooltip/Genestealer=High damage ambush unit.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/GenestealerBroodlord=Genestealer leader strain.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/GenestealerSynapse=Genestealers within synapse range have there move speed, attack speed, health regeneration and damage increased by 10%.<n/>Genestealers also take 10% less damage and leach 10% of damage output as health.
+Button/Tooltip/GrowTyranidUnits=A list of basic units.
+Button/Tooltip/HeathSynapse=Units within health synapse range have there max heath raised by 25%
+Button/Tooltip/Hierophant=Massive titan unit.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/HiveNode=HQ defense structure. Damages all targets and suppresses infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.<n/>Detector</c>
+Button/Tooltip/HiveTyrant=Powerful highly adaptive synapse unit<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/Hormagaunt=Fast melee unit that overwhelms enemies en masse. .<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/InfiltrateLictor=Cloaks the unit, preventing enemy units from seeing or attacking it. A cloaked unit will only be revealed by detectors or effects.<n/><n/><c val="f078ff">Drains <d ref="-1 * (Behavior,SpectreCloaking,Modification.VitalRegenArray[2] + Unit,Spectre,EnergyRegenRate)" precision="1"/> energy per second.</c>
+Button/Tooltip/InfiltrateOff=Decloaks the selected unit, making it visible to enemies.
+Button/Tooltip/InsatiablePounce=Allows Hormaguant to leap toward its target. Ability can be used only once every 2 Seconds.
+Button/Tooltip/Lictor=Deadly assassin/caster unit  Detects infiltrated units.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/MeleeSynapse=Units within melee synapse range have there melee damage raised by 15%
+Button/Tooltip/NecronBlackWarrior=Heavy infantry.<n/>Armed with powerful gauss weapons.<n/>Made of a flexible, regenerative metal.<n/>When destroyed, some Necron Warriors may reassemble themselves and rejoin the battle.<n/>Effective against infantry and heavy infantry.<n/>Excellent upgrades throughout the course of a map battle that keep it permanently useful<n/>Can teleport to friendly buildings from anywhere with a moderate cooldown period.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/NecronBuild=A list of basic structures.
+Button/Tooltip/NecronBuilderScarab=Detects infiltrated units.<n/>Constructs all Necron buildings and is the only Necron unit that can repair buildings and vehicles.<n/>Can reinforce for free.<n/>Only Necron unit that can capture Strategic Points.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.<n/>Detector</c>
+Button/Tooltip/NecronDestroyer=Powerful Necron Warrior mounted on skimmer body.<n/>Fast moving unit good for raiding.<n/>Effective against infantry.<n/>Is able to be tied up in melee combat which drops a fair chunk of its damage output, so be warned.<n/><n/><c val="#ColorAttackInfo">Can attack groundt.</c>
+Button/Tooltip/NecronFlayedOne=Heavy infantry.<n/>Powerful melee warriors.<n/>These grotesque warriors drape themselves with the skin of their victims in a horrid parody of the living.<n/>Radiate fear and revulsion, and are a steady drain on the morale of nearby enemy units.<n/>Effective against infantry and heavy infantry. Terrible vs vehicles and buildings.<n/>Like Necron Warriors, some Flayed Ones may reassemble themselves when destroyed.<n/><n/><c val="#ColorAttackInfo">Can attack ground.</c>
+Button/Tooltip/NecronImmortal=Heavy infantry, although somewhat fragile.<n/>These elite warriors were among the first to swear allegiance to the C'tan.<n/>Equipped with gauss blasters that are calibrated to penetrate vehicle and building armor at quite a long range, one of the best known anti-vehicle/anti-building infantry units.<n/>Only effective against infantry in melee combat, but you don't really want to do that either as they won't last long so keep the pressure off of them.<n/>Like Necron Warriors, some Immortals may reassemble themselves when destroyed.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/NecronLord=Commander unit (primary).<n/>Highly mobile due to cheap long-range teleporting ability.<n/>Can equip himself with artifacts that greatly increase his power to almost insane levels, with everything from wide-area infantry resurrection to scattering enemy infantry in all directions from fear to turning into the invincible Relic-unit-busting Nightbringer temporarily.<n/>Uses many powerful abilities focused on increasing the power of surrounding troops.<n/>Increases in power as more of the Monolith's systems are restored.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.<n/>Detector</c>
+Button/Tooltip/NecronLordDestroyer=Lesser Necron Lord mounted on skimmer body.<n/>Not good at direct combat.<n/>Fast moving unit with powerful abilities.<n/>Can possess enemy vehicles, countering other races' heavy armor.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.<n/>Detector</c>
+Button/Tooltip/NecronNightBringer=A manifestation of the Nightbringer, one of the C'tan deities of the Necrons.<n/>Completely invincible for its duration, but can be stunned.<n/>Damage inflicted by the Nightbringer is transferred as health to the Necron Lord.<n/>Effective against all units, rips Relic units in particular to shreds.<n/>Temporary form of the Necron Lord.<n/><n/><c val="#ColorAttackInfo">Can attack ground.</c>
+Button/Tooltip/NecronPariah=Heavy infantry.<n/>The newest breed of Necron, Pariahs are revolting combinations of Necron metal and human flesh.<n/>Effective against infantry and heavy infantry.<n/>Each swipe of a Pariah's warscythe slows the target's movement speed and lowers maximum health.<n/>This effect remains until the Pariahs are eliminated.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/NecronScarabs=Small Necron scarabs with the ability to chew through any armor.<n/>Fragile but able to overwhelm larger units with sheer numbers.<n/>Effective against vehicles and buildings.<n/><n/><c val="#ColorAttackInfo">Can attack ground.<n/>
+Button/Tooltip/NecronTombSpyder=(limit: 3)<n/>Effective against most unit types, with strong close combat abilities.<n/>Can create Attack Scarabs at a cost to its own health.<n/>Can repair destroyed Necrons lying in the field and restore them to fighting condition.<n/>Can store Necron corpses for rebuilding/deploying later when desired.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/NecronWarrior=Heavy infantry.<n/>Armed with powerful gauss weapons.<n/>Made of a flexible, regenerative metal.<n/>When destroyed, some Necron Warriors may reassemble themselves and rejoin the battle.<n/>Effective against infantry and heavy infantry.<n/>Excellent upgrades throughout the course of a map battle that keep it permanently useful<n/>Can teleport to friendly buildings from anywhere with a moderate cooldown period.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/NecronWraith=Heavy infantry.<n/>Detects infiltrated units.<n/>Fast moving raiding unit that can uncapture Strategic Points.<n/>Takes reduced damage from ranged attacks, and has a devastating melee attack.<n/>Has the ability to phase out of the material universe.<n/>The Wraith cannot be harmed while phased, but also cannot attack or use special abilities.<n/>Like Necron Warriors, some Wraiths may reassemble themselves when destroyed.<n/><n/><c val="#ColorAttackInfo">Can attack ground.<n/>Detector</c>
+Button/Tooltip/NornQueensNest=Primary structure. Used to spawn all Tyranid units and receive gathered resources. Can grow into Norn-Qeen Den.<n/><n/><c val="#ColorAttackInfo">Bonus:Emits powerful synapse.</c>
+Button/Tooltip/NornQueensNest2=Primary structure. Used to spawn all Tyranid units and receive gathered resources. Can grow into Norn-Qeen Den.<n/><n/><c val="#ColorAttackInfo">Bonus:Emits powerful synapse.</c>
+Button/Tooltip/PowerGenerator=Generates the Power resource. (GAS ???)
+Button/Tooltip/PsychicScream=Reduces the damage of enemy units in radius 8 of the Hive Tyrant by 30% for 15 seconds. 50 second cooldown. 10% chance to inflict shattered mind reducing damage and move speed by  50% and inflicting confusion on enemy
+Button/Tooltip/RampagingCharge=Kraith charges forward, dealing damage to units and knocking them back. Hitting a wall will cause rocks and debris to fall from the ceiling.
+Button/Tooltip/Ravener=Quick, fragile unt capable of burrowing <n/><n/><c val="ffff8a">Can attack ground and air units.</c>
+Button/Tooltip/RavenerBurrowed=Ranged artillery. Can use Corrosive Bile.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/RavenerTunnel=Tunnel to another location.
+Button/Tooltip/RegenerationSynapse=Units within regeneration synapse range have there health and energy regeneration raised by 30%
+Button/Tooltip/Ripper=worker unit. gathers resources, Builds structures.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/SOBCanoness=Primary commander. Effective against infantry at range and in melee. Has support abilities and boosts morale when attached to squads.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.<n/Detector</c>
+Button/Tooltip/SeismicRoar=Deals 15 damage in radius 8 of the Hive Tyrant. The ground in radius 6 becomes poisoned for the next 10 seconds, doing 6 damage every second to enemy ground units. 65 second cooldown. 10% chance to inflict aftershock stunning ground units for 5 seconds
+Button/Tooltip/Shieldwall=The Tyrant Guard withdraws into its protective carapace, disabling it while increasing health regeneration by 40% and armor by 3.
+Button/Tooltip/SoBServitor=Builder unit. Constructs all Sisters of Battle buildings.<n/><n/><c val="#ColorAttackInfo">Can attack ground.</c>
+Button/Tooltip/SpeedSynapse=Units within melee synapse range have there move and attack speed raised by 30%
+Button/Tooltip/Spinegaunt=Fragile rapid fire unit that overwhelms enemies en masse.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/SporeMine=Suicide unit. Does damage over a small area on death. <n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/Swarmlord=Legendary synapse creature. Nearly unstoppable in melee.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/TauBarracuda=The Barracuda is a potent weapon against light vehicles/buildings and in packs can inflict significant damage very quickly. However, like other Tau vehicles it is fragile and can face a quick death if anti-vehicle units are deployed.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/TauBroadsideBattlesuit=Heavy Infantry.<n/>Slow Anti-Vehicle battlesuit equipped with two Missile Launchers.<n/>Can entrench into the ground, transforming it into a powerful weapons platform effective against all targets.<n/>Can act as a semi-mobile turret.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/TauBuilder=Builder drone provided by the Tau Earth caste.<n/>Constructs all Tau buildings.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/TauFireWarrior=Heavy Infantry.<n/>General combat unit with a powerful ranged attack effective at Infantry and Heavy Infantry.<n/>Extremely weak in melee.<n/>Can fire from incredibly long range but has a short sight radius, so requires other units scout ahead.<n/>´´May have a maximum 2 squad leaders added, which can either be the supportive Shield Drones, or offensive Fire Warrior Shas'uis.´´<n/>If the Way of the Patient Hunter has been upgraded to their range becomes absolutely extreme.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/TauGreaterKnarloc=Relic unit that can cause mass destruction.<n/>Relatively small for a relic unit, allowing it to slip through chokes a lot easier.<n/>Deals substantial damage but cannot handle large swarms of infantry.<n/>Has comparably low health but can defeat much larger creatures, such as a Squiggoth, merely due to its immense melee damage.<n/><n/><c val="#ColorAttackInfo">Can attack ground unit.</c>
+Button/Tooltip/TauShasvreStealthSuit=Light infantry.<n/>Infiltrated squad of up to three XV25 Stealthsuits that is able to attack and capture points while invisible.<n/>Can be equipped with a jetpack to move across and over the battlefield.<n/>Can be upgraded with heavier weapons and may have a XV25 Shas'ui added to the squad to slow down and deal heavy damage to vehicles.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c> 
+Button/Tooltip/TauWraithGuard=Short-range artillery unit with extreme ranged damage and suppression<n/>Very slow and bad at hitting moving targets<n/>Gain 1.5 speed (60% bonus) under Wraithsight but get stunned if the Warlock dies<n/>Immune to suppression and weapon knockback<n/>Very vulnerable to melee, pretty vulnerable to plasma/inferno weapons<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/TauWraithLord=Walker vehicle comparable to a Dreadnought<n/>Ranged weapon upgrades do not reduce melee damage<n/>Cannot upgrade melee or durability, but can be upgraded to regenerate some health<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/Termagant=Fragile unit that overwhelms melee enemies en masse.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/TermagantMotyxia=Fragile unit that overwhelms melee enemies en masse.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/TermagantReaper=Fragile unit that overwhelms melee enemies en masse.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/TerranBuildAdvanced2=A list of advanced structures.
+Button/Tooltip/Terrify=Emits a overwhelming sense of fear that explodes in the minds of near by enemy's causing them to flee terror.
+Button/Tooltip/TheLoneHunter=Gains 35% movement, 75% damage and -50% damage taken buff if not around any ally units.
+Button/Tooltip/TrainTermagant=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/TyranidWarrior=A front line highly adaptive synapse unit..<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/TyrantGuard=A slow and durable unit. Uses shiedwall to regenerate health<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/TyrantGuardSieldwall=A slow and durable unit. Uses shiedwall to regenerate health<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/WHIGGuardsman=Infantry.<n/>The primary unit of the Imperial Guard.<n/>Weak in small numbers or without leaders.<n/>Powerful when massed in large numbers.<n/>Attach Commissars or Priests to greatly increase their power.<n/>Effective against infantry and heavy infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.</c>
+Button/Tooltip/WHIGInquisitor=Versatile and fairly simple to use<n/>Can be used in both melee and ranged combat depending on wargear<n/>Good synergy with many unit types due to immobilizing abilities and infiltration<n/>The only hero with access to the Bane Wolf tank.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air unit.<n/>Detector</c>
+Button/Tooltip/WHIGOgryn=Close-combat heavy infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground unit.</c> 
+Button/Tooltip/WHIGOgrynMerc=Close-combat heavy infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground unit.<n/>Detector</c> 
+Button/Tooltip/WHIGTechPriest=Builder unit.<n/>Legendary builders from the Adeptus Mechanicus.<n/>Can repair units more quickly and efficiently than the builders of other races.<n/>Their exoskeletons allow them to take more punishment than other builder units.<n/><n/><c val="#ColorAttackInfo">Can attack ground.</c>
+Button/Tooltip/WHSMDreadnought=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground.</c>
+Button/Tooltip/WHSMDreadnoughtDuelElite=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air.<n/>Detector</c>
+Button/Tooltip/WHSMDreadnoughtDuelHeavyBolter=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air.</c>
+Button/Tooltip/WHSMDreadnoughtDuelLescannon=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air.</c>
+Button/Tooltip/WHSMDreadnoughtElite=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground.<n/>Detector</c>
+Button/Tooltip/WHSMDreadnoughtMerc=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground.</c>
+Button/Tooltip/WHSMDreadnoughtMercDuel=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air.</c>
+Button/Tooltip/WHSMDreadnoughtMercDuelMissileLuncher=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air.</c>
+Button/Tooltip/WHSMDreadnoughtRangedAssultcannon=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air.</c>
+Button/Tooltip/WHSMDreadnoughtRangedElite=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air.<n/>Detector</c>
+Button/Tooltip/WHSMDreadnoughtRangedInfernocannon=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground.</c>
+Button/Tooltip/WHSMDreadnoughtRangedMerc=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air.</c>
+Button/Tooltip/WHSMDreadnoughtRangedMultiMeta=Walker vehicle.<n/>Support/siege unit.<n/>Can be upgraded with anti-infantry or anti-vehicle ranged weaponry.<n/>Effective against most unit types, very effective against vehicles and buildings in close combat.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air.</c>
+Button/Tooltip/WHSMServitor=Constructs all Space Marine buildings. <n/><n/><c val="#ColorAttackInfo">Can attack ground.</c>
+Button/Tooltip/Zoanthrope=Slow, fragile  psychic unit.<n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/Zoanthrope2=Slow, fragile  psychic unit.<n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/TrainBiovore=Train Biovore
+Button/TrainCarnifex=Train Carnifex
+Button/TrainGargoyle=Train Gargoyle
+Button/TrainGenestealer=Train Genestealer
+Button/TrainHormagaunt=Train Hormagaunt
+Button/TrainLictor=Train Lictor
+Button/TrainRavener=Train Ravener
+Button/TrainRipper=Train Ripper
+Button/TrainSpinegaunt=Train Spinegaunt
+Button/TrainTermagant=Train Termagant
+Button/TrainTyrantGuard=Train Tyrant Guard
+Button/TrainWarrior=Train Warrior
+DocInfo/DescLong=Adds War Hammer Races   
+DocInfo/Name=[ARX] WarHammer Data
+Dual Cannon=Dual Cannon
+Dual Heavy Bolter=Dual Heavy Bolter
+Dual Laser Cannon=Dual Laser Cannon
+Dual Missile Luncher=Dual Missile Luncher
+Effect/Name/AdrenalRushActivate=Adrenal Rush Activate
+Effect/Name/AftershockWillAB=Aftershock AB
+Effect/Name/BioAcidSporeMineCreate=Bio-Acid Spore Mine Create
+Effect/Name/BioAcidSporeMineDeathExplodeSmallSet=Bio-Acid Spore Mine Death Explode Small Set
+Effect/Name/BioAcidSporeMineExplodeSmallDeathBehavior=Bio-Acid Spore Mine Explode Small Death Behavior
+Effect/Name/BioAcidSporeMineExplodeSmallDirect=Bio-Acid Spore Mine Explode Small Direct
+Effect/Name/BioAcidSporeMineExplodeSmallFriendlySet=Bio-Acid Spore Mine Explode Small Friendly Set
+Effect/Name/BioAcidSporeMineExplodeSmallSearch=Bio-Acid Spore Mine Explode Small Search
+Effect/Name/BioAcidSporeMineExplodeSmallSearchAll=Bio-Acid Spore Mine Explode Small Search All
+Effect/Name/BioAcidSporeMineExplodeSmallSearchDamage=Bio-Acid Spore Mine Explode Small Search Damage
+Effect/Name/BioAcidSporeMineExplodeSmallSet=Bio-Acid Spore Mine Explode Small Set
+Effect/Name/BioAcidSporeMineExplodeSmallTarget=Bio-Acid Spore Mine Explode Small Target
+Effect/Name/BioAcidSporeMineSuicideDelay=Bio-Acid Spore Mine Suicide Delay
+Effect/Name/BioAcidTimeOut=Bio-Acid Time Out
+Effect/Name/BioCannonDamage=Bio-Cannon Damage
+Effect/Name/BioCannonLM=Bio-Cannon LM
+Effect/Name/BioPlasmaDamage=Bio-Plasma (Damage)
+Effect/Name/BioPlasmaLaunchMissile=Bio-Plasma (Launch Missile)
+Effect/Name/BioPlasmaMoveSuppress=Bio-Plasma Move Suppress
+Effect/Name/CarnifexScythingTalonDamage=Scything Talon (Damage)
+Effect/Name/CarnifexScythingTalons=Scything Talons
+Effect/Name/CripplingPoisonApplyBehavor=Crippling Poison (Apply Behavor)
+Effect/Name/FleshHooksApplyBehavior=Flesh Hooks Apply Behavior
+Effect/Name/FleshHooksApplyStunBehavior=Flesh Hooks Apply Stun Behavior
+Effect/Name/FleshHooksApplyTentacleBehavior=Flesh Hooks Apply Tentacle Behavior
+Effect/Name/FleshHooksCreatePlaceholder=Flesh Hooks Create Placeholder
+Effect/Name/FleshHooksCreationSet=Flesh Hooks Creation Set
+Effect/Name/FleshHooksDelayPersistent=Flesh Hooks Delay Persistent
+Effect/Name/FleshHooksImpactDummy=Flesh Hooks Impact Dummy
+Effect/Name/FleshHooksImpactSet=Flesh Hooks Impact Set
+Effect/Name/FleshHooksLaunchMissile=Flesh Hooks Launch Missile
+Effect/Name/FleshHooksLaunchTarget=Flesh Hooks Launch Target
+Effect/Name/FleshHooksMakePrecursor=Flesh Hooks Make Precursor
+Effect/Name/FleshHooksSet=Flesh Hooks Set
+Effect/Name/FleshHooksSuicideRemove=Flesh Hooks Suicide Remove
+Effect/Name/GargoyleCDamage=Gargoyle C Damage
+Effect/Name/GargoyleCLM=Gargoyle C LM
+Effect/Name/GenestealerCloakReaplay=Genestealer Cloak Reaplay
+Effect/Name/GenestealerCloakSuppress=Genestealer Cloak Suppress
+Effect/Name/GenestealerRendingClaws=Rending Claws
+Effect/Name/GenestealerRendingClawsDamage=Rending Claws (Damage)
+Effect/Name/GenestealerSynapseApply=Genestealer Synapse Apply
+Effect/Name/GenestealerSynapseSearch=Genestealer Synapse Search
+Effect/Name/GuardianMPWeaponDamage2=Guardian MP Weapon Damage
+Effect/Name/GuardianMPWeaponLM2=Guardian MP Weapon LM Copy
+Effect/Name/GuardianMpSearchCopy=Guardian Mp Search Copy
+Effect/Name/HealthSynapseAntiExploit=Health Synapse Anti-Exploit
+Effect/Name/HealthSynapseApply=Health Synapse Apply
+Effect/Name/HealthSynapseSearch=Health Synapse Search
+Effect/Name/HierophantRangedSearch=Bio-Cannon Ranged Search
+Effect/Name/HiveTyrantScythingTalons=Scything Talons
+Effect/Name/HiveTyrantScythingTalonsDamage=Scything Talons (Damage)
+Effect/Name/HormagauntScythingTalons2=Scything Talons
+Effect/Name/HormagauntScythingTalonsDamage=Scything Talons (Damage)
+Effect/Name/LictorLeapLaunchMissile=Lictor Leap (Launch Missile)
+Effect/Name/LictorLeapSearch=Lictor Leap (Search)
+Effect/Name/LictorLeapStun=Lictor Leap (Stun)
+Effect/Name/LictorMantisDamage=Mantis (Damage)
+Effect/Name/MantisTalons=Mantis Talons
+Effect/Name/MeleeSynapseApply=Melee Synapse Apply
+Effect/Name/MeleeSynapseSearch=Melee Synapse Search
+Effect/Name/MeleeSynapseSearch2=Speed Synapse Search
+Effect/Name/NecronFusionCutter=Fusion Cutter (Damage)
+Effect/Name/NecronWarriorBlasterDamage=NecronWarriorBlasterDamage
+Effect/Name/PsychicScream=Psychic Scream
+Effect/Name/PsychicScreamMoveSuppress=Psychic Scream Move Suppress
+Effect/Name/PsychicScreamNormalAB=Psychic Scream Normal AB
+Effect/Name/PsychicScreamSearch=Psychic Scream Search
+Effect/Name/RamagingChargeSpeedRemoveBehavior=Ramaging Charge Speed (Remove Behavior)
+Effect/Name/RamagingChargeTargetSearch=Ramaging Charge Target (Search)
+Effect/Name/RampagingChargeAbortApplyBehavior=Rampaging Charge Abort (Apply Behavior)
+Effect/Name/RampagingChargeCasterApplyForce=Rampaging Charge Caster (Apply Force)
+Effect/Name/RampagingChargeCasterMovePersistent=Rampaging Charge Caster Move (Persistent)
+Effect/Name/RampagingChargeCasterSet=Rampaging Charge Caster (Set)
+Effect/Name/RampagingChargeCheckTargetPersistent=Rampaging Charge Check Target (Persistent)
+Effect/Name/RampagingChargeDamage=Rampaging Charge (Damage)
+Effect/Name/RampagingChargeKnockbackApplyBehavior=Rampaging Charge Knockback (Apply Behavior)
+Effect/Name/RampagingChargeKnockbackApplyForce=Rampaging Charge Knockback (Apply Force)
+Effect/Name/RampagingChargeKnockbackPersistent=Rampaging Charge Knockback (Persistent)
+Effect/Name/RampagingChargeKnockbackRemoveBehavior=Rampaging Charge Knockback (Remove Behavior)
+Effect/Name/RampagingChargePersistent=Rampaging Charge (Persistent)
+Effect/Name/RampagingChargeSpeedApplyBehavior=Rampaging Charge Speed (Apply Behavior)
+Effect/Name/RampagingChargeTargetSet=Rampaging Charge Target (Set)
+Effect/Name/RampagungChargeMoveSuppress=Rampagung Charge Move Suppress
+Effect/Name/RavenerMeele=Ravener Meele
+Effect/Name/RavenerMeeleDamage=Ravener Meele (Damage)
+Effect/Name/RavenerRangedDamage=Ravener Ranged Damage
+Effect/Name/RavenerRangedLaunchMissile=Ravener Ranged Launch Missile
+Effect/Name/RavenerRangedSearch=Ravener Ranged Search
+Effect/Name/RavenerRangedShootPersistent=Ravener Ranged Shoot Persistent
+Effect/Name/RavenerTunnel=Ravener Tunnel
+Effect/Name/RegenerationSynapseApply=Regeneration Synapse Apply
+Effect/Name/RegenerationSynapseSearch=Regeneration Synapse Search
+Effect/Name/RendingClawsBroodlord=Rending Claws Broodlord
+Effect/Name/RendingClawsDamageBroodlord=Rending Claws (Damage) Broodlord
+Effect/Name/RippingBiteDamage=Ripping Bite (Damage)
+Effect/Name/ScythingCleaveDamage=Scything Cleave Damage
+Effect/Name/ScythingCleaveSearch=Scything Cleave Search
+Effect/Name/SeismicRoar=Seismic Roar
+Effect/Name/SeismicRoarDamage=Seismic Roar Damage
+Effect/Name/SeismicRoarDummyDistroy=Seismic Roar Dummy Distroy
+Effect/Name/SeismicRoarMoveSuppress=Seismic Roar Move Suppress
+Effect/Name/SeismicRoarPoisionDamage=Seismic Roar Poison Damage
+Effect/Name/SeismicRoarPoisonDummy=Seismic Roar Poison Dummy
+Effect/Name/SeismicRoarPoisonRepeatDamage=Seismic Roar Poison Repeat Damage
+Effect/Name/SeismicRoarPoisonSearch=Seismic Roar Poison Search
+Effect/Name/SeismicRoarSearch=Seismic Roar Search
+Effect/Name/SeismicRoarSet=Seismic Roar Set
+Effect/Name/ShakenWillSearch=Aftershock Search
+Effect/Name/ShatteredMindAB=Shattered Mind AB
+Effect/Name/ShatteredMindAttack=Shattered Mind Attack
+Effect/Name/ShatteredMindAttackEnd=Shattered Mind Attack End
+Effect/Name/ShatteredMindAttackSearch=Shattered Mind Attack Search
+Effect/Name/ShatteredMindSearch=Shattered Mind Search
+Effect/Name/ShiedwallRemove=Shiedwall Remove
+Effect/Name/ShieldwallApply=Shieldwall Apply
+Effect/Name/ShieldwallSuppress=Shieldwall Suppress
+Effect/Name/SpeedSynapseApply=Speed Synapse Apply
+Effect/Name/SpinefistDamage=Spinefist Damage
+Effect/Name/SwarmlordBoneswords=Boneswords
+Effect/Name/SwarmlordBoneswordsDamage=Boneswords (Damage)
+Effect/Name/TermagantDamage=Termagant Damage
+Effect/Name/TermagantWeaponLM=Termagant Weapon LM
+Effect/Name/TermagantWeaponSet=Termagant Weapon Set
+Effect/Name/TerrifyAB=Terrify AB
+Effect/Name/TerrifyDummyDamage=Terrify Dummy Damage
+Effect/Name/TerrifySearch=Terrify Search
+Effect/Name/TyrantGuardScythingTalons=Scything Talons
+Effect/Name/TyrantGuardScythingTalonsDamage=Scything Talons (Damage)
+Effect/Name/WarriorScythingTalons=Scything Talons
+Effect/Name/WarriorScythingTalonsDamage=Scything Talons (Damage)
+Effect/Name/damaged=damaged
+Hive Fleet Genesis=Hive Fleet Genesis
+Hive Fleet Genesis2=                                                    Hive Fleet Geneses
+Hive Fleet Motyxia=Hive Fleet Motyxia
+Hive Fleet Reaper=Hive Fleet Reaper
+Inferno Cannon=Inferno Cannon
+KillRankAlpha=Alpha
+KillRankApex=Apex
+KillRankBeta=Beta
+KillRankQmega=Omega
+Multi Meta=Multi Meta
+Plasma Cannon=Plasma Cannon
+Race/Name/Necron=Necron
+Race/Name/Tyranid=Tyranid
+Race/Name/WHAM=Adeptus Mechanicus
+Race/Name/WHBA=Blood Angels
+Race/Name/WHBT=Black Templar
+Race/Name/WHCD=Chaos Daemons
+Race/Name/WHCM=Chaos Marines
+Race/Name/WHDA=Dark Angles
+Race/Name/WHDE=Dark Eldar
+Race/Name/WHDG=Death Guard
+Race/Name/WHEC=Emperors Children
+Race/Name/WHEL=Eldar
+Race/Name/WHFA=Fallen Angels
+Race/Name/WHFS=Farsight
+Race/Name/WHHA=Harlequins
+Race/Name/WHIF=Imperial Fists
+Race/Name/WHIG=Imperial Guard
+Race/Name/WHKR=Krieg
+Race/Name/WHLD=Legion Damned
+Race/Name/WHMA=Malleus
+Race/Name/WHNL=Night Lords
+Race/Name/WHOR=Space Orks
+Race/Name/WHPR=Praetorians
+Race/Name/WHRN=Renegade Guard
+Race/Name/WHRV=Raven Guard
+Race/Name/WHSA=Salamanders
+Race/Name/WHSB=Sisters Of Battle
+Race/Name/WHSM=Space Marine
+Race/Name/WHST=Steel Legion
+Race/Name/WHSW=Space Wolves
+Race/Name/WHTA=Tau Empire
+Race/Name/WHTK=Tekarn
+Race/Name/WHTS=Thousand Sons
+Race/Name/WHVO=Vostryan
+Race/Name/WHWE=World Eaters
+Race/Name/WHWH=Witch Hunters
+Race/Name/WHYN=Ynnari
+Unit/Category/TyranidUnits=Tyranid
+Unit/LifeArmorName/Gaunt Carapace=Gaunt Carapace
+Unit/LifeArmorName/Heavy Carapace=Heavy Carapace
+Unit/LifeArmorName/Massive Carapace=Massive Carapace
+Unit/LifeArmorName/Small Carapace=Small Carapace
+Unit/LifeArmorName/Thick Carapace=Thick Carapace
+Unit/LifeArmorName/Thin Membrane=Thin Membrane
+Unit/Name/BioAcidSporeMine=Bio-Acid Spore Mine
+Unit/Name/BioCannons=Bio-Cannons
+Unit/Name/BioPlasma=Bio-Plasma
+Unit/Name/Biovore=Biovore
+Unit/Name/Biovore2=Biovore
+Unit/Name/BiovoreWeapon=Biovore Weapon
+Unit/Name/BroodNest=BroodNest 
+Unit/Name/CapillaryTower=Capillary Tower
+Unit/Name/Carnifex=Carnifex
+Unit/Name/Carnifex2=Carnifex
+Unit/Name/ChaosDaemonsLostSoul=Lost Soul
+Unit/Name/ChaosMarinesCultist=Cultist
+Unit/Name/ChaosMarinesDefiler=Defiler
+Unit/Name/ChaosMarinesHeretic=Heretic
+Unit/Name/ChaosMarinesLord=Lord
+Unit/Name/ChaosMarinesMarine=Marine 
+Unit/Name/ChaosMarinesSorcerer=Sorcerer
+Unit/Name/DarkEldarTorturedSlave=Tortured Slave
+Unit/Name/EldarBanshee=Banshee
+Unit/Name/EldarBoneSinger=Bonesinger
+Unit/Name/EldarFarseerElenwe=Farseer (Helmet OFF)
+Unit/Name/EldarFarseerTaldeer=Farseer (Helmet ON)
+Unit/Name/EldarGravPlatformBrightlanceGun=Platform Brightlance Gun
+Unit/Name/EldarGravPlatformShurikenGun=Platform Shuriken Gun
+Unit/Name/EldarGuardianSquad=Guardian
+Unit/Name/EldarGuardianSquadMerc=Guardian (Leader)
+Unit/Name/EldarRanger=Ranger
+Unit/Name/EldarRangerMerc=Ranger (Merc)
+Unit/Name/EldarWarlock=Warlock
+Unit/Name/FleshHooksMissile=Flesh Hooks Missile
+Unit/Name/Gargoyle=Gargoyle
+Unit/Name/GargoyleCWeapon=Gargoyle C Weapon
+Unit/Name/Genestealer=Genestealer
+Unit/Name/Genestealer2=Genestealer
+Unit/Name/GenestealerBroodlord=Genestealer Broodlord
+Unit/Name/GenestealerBroodlord2=Genestealer Broodlord
+Unit/Name/Hierophant=Hierophant
+Unit/Name/HiveNode=Hive Node
+Unit/Name/HiveTyrant=Hive Tyrant
+Unit/Name/HiveTyrant2=Hive Tyrant
+Unit/Name/Hormagaunt=Hormagaunt
+Unit/Name/Lictor=Lictor
+Unit/Name/Lictor2=Lictor
+Unit/Name/NecronBlackWarrior=Black Warrior 
+Unit/Name/NecronBuilderScarab=Builder Scarab
+Unit/Name/NecronDeceiver=NecronDeceiver (Unnamed)
+Unit/Name/NecronDestroyer=Destroyer
+Unit/Name/NecronFlayedOne=Flayed One 
+Unit/Name/NecronImmortal=Immortal
+Unit/Name/NecronLord=Lord 
+Unit/Name/NecronLordDestroyer=Lord Destroyer
+Unit/Name/NecronNightBringer=Nightbringer
+Unit/Name/NecronPariah=Pariah
+Unit/Name/NecronScarabs=Attack Scarabs
+Unit/Name/NecronTombSpyder=Tomb Spyder
+Unit/Name/NecronWarrior=Warrior
+Unit/Name/NecronWraith=Wraith 
+Unit/Name/NornQueensNest=Norn-Queens Nest
+Unit/Name/NornQueensNest2=Norn-Queens Nest
+Unit/Name/PowerGenerator=Power Generator
+Unit/Name/Ravener=Ravener
+Unit/Name/Ravener2=Ravener
+Unit/Name/RavenerBurrowed=Ravener Burrowed
+Unit/Name/RavenerRangedAttack=Ravener Ranged Attack
+Unit/Name/Ripper=Ripper
+Unit/Name/SOBCanoness=Canoness
+Unit/Name/SeismicRoarDummy=Seismic Roar Dummy
+Unit/Name/SoBServitor=Servitor
+Unit/Name/Spinegaunt=Spinegaunt
+Unit/Name/SporeMine=Spore Mine
+Unit/Name/Swarmlord=Swarmlord
+Unit/Name/Swarmlord2=Swarmlord
+Unit/Name/TauBarracuda=AX-5-2 Barracuda
+Unit/Name/TauBroadsideBattlesuit=XV88 Broadside Battlesuit
+Unit/Name/TauBuilder=Earth Caste Builder
+Unit/Name/TauFireWarrior=Fire Warrior
+Unit/Name/TauGreaterKnarloc=Greater Knarloc
+Unit/Name/TauShasvreStealthSuit=XV15 Stealth Suit
+Unit/Name/TauWraithGuard=Wraith Guard
+Unit/Name/TauWraithLord=Wraith Lord
+Unit/Name/Termagant=Termagant
+Unit/Name/TermagantMotyxia=Termagant
+Unit/Name/TermagantReaper=Termagant
+Unit/Name/TermagantWepon=Termagant Wepon
+Unit/Name/TyranidWarrior=Warrior
+Unit/Name/TyrantGuard=Tyrant Guard
+Unit/Name/TyrantGuard2=Tyrant Guard
+Unit/Name/TyrantGuardShieldwall=Tyrant Guard Copy
+Unit/Name/TyrantGuardShieldwall2=Tyrant Guard Copy
+Unit/Name/TyrantGuardSieldwall=Tyrant Guard
+Unit/Name/WHIGGuardsman=Guardsman
+Unit/Name/WHIGInquisitor=Inquisitor
+Unit/Name/WHIGOgryn=Ogryn
+Unit/Name/WHIGOgrynMerc=Ogryn Merc
+Unit/Name/WHIGTechPriest=Tech Priest 
+Unit/Name/WHSMDreadnought=Dreadnought
+Unit/Name/WHSMDreadnoughtDuelElite=Dreadnought
+Unit/Name/WHSMDreadnoughtDuelHeavyBolter=Dreadnought
+Unit/Name/WHSMDreadnoughtDuelLescannon=Dreadnought
+Unit/Name/WHSMDreadnoughtElite=Dreadnought
+Unit/Name/WHSMDreadnoughtMerc=Dreadnought
+Unit/Name/WHSMDreadnoughtMercDuel=Dreadnought
+Unit/Name/WHSMDreadnoughtMercDuelMissileLuncher=Dreadnought
+Unit/Name/WHSMDreadnoughtRangedAssultcannon=Dreadnought
+Unit/Name/WHSMDreadnoughtRangedElite=Dreadnought
+Unit/Name/WHSMDreadnoughtRangedInfernocannon=Dreadnought
+Unit/Name/WHSMDreadnoughtRangedMerc=Dreadnought
+Unit/Name/WHSMDreadnoughtRangedMultiMeta=Dreadnought
+Unit/Name/WHSMServitor=Servitor
+Unit/Name/Warrior2=Warrior
+Unit/Name/Zoanthrope=Zoanthrope
+Unit/Name/Zoanthrope2=Zoanthrope
+Weapon/Name/BioAcidSporeMineExplode=Bio-Acid Spore Mine Explode
+Weapon/Name/BioAcidSporeMineExplodeBuilding=Bio-Acid Spore Mine Explode Building
+Weapon/Name/BioAcidSporeMines=Bio-Acid Spore Mines
+Weapon/Name/BioCannons=Bio-Cannons
+Weapon/Name/Boneswords=Boneswords
+Weapon/Name/CarnifexScythingTalons=Scything Talons
+Weapon/Name/DevourerBiomorph=Devourer Biomorph
+Weapon/Name/GargoyleFleshborersBiomorph=Fleshborers Biomorph
+Weapon/Name/GenestealerRendingClaws=Rending Claws
+Weapon/Name/GenestealerRendingClawsBroodlord=Rending Claws
+Weapon/Name/HiveTyrantScythingTalon=Scything Talons
+Weapon/Name/HormagauntTalons=Talons
+Weapon/Name/LictorMantisTalons=Mantis Talons
+Weapon/Name/NecronFusionCutter=Fusion Cutter
+Weapon/Name/NecronWarriorBlaster=NecronWarriorBlaster
+Weapon/Name/RavenerChitinSpikes=Chitin Spikes
+Weapon/Name/RavenerTalons=Talons
+Weapon/Name/RipperCorrosiveBile=Corrosive Bile
+Weapon/Name/Spinefist=Spinefist
+Weapon/Name/TyrantGuardTalons=Talons
+Weapon/Name/WarriorTalons=Talons

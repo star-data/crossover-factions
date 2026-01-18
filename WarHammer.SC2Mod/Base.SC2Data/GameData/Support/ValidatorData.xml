@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CValidatorCombine id="IsDOWRace"><CombineArray value="isNecronRace"/></CValidatorCombine>
+    <CValidatorUnitCompareField id="isNecronRace"><Field value="Race"/><Value value="Necron"/></CValidatorUnitCompareField>
+    <CValidatorCombine id="isWorker"><CombineArray value="isDOWWorker"/></CValidatorCombine>
+    <CValidatorUnitType id="IsNecronBuilderScarab"><Value value="NecronBuilderScarab"/></CValidatorUnitType>
+    <CValidatorCombine id="isDOWWorker"><CombineArray value="IsNecronBuilderScarab"/></CValidatorCombine>
+</Catalog>

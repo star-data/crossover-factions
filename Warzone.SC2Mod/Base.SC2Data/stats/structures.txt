@@ -1,0 +1,127 @@
+bbaatow                                 Scavenger MG tower                       bbaatower
+
+A0BaBaBunker                            Scavenger Bunker                         blbrbbnk
+
+A0BaBaMortarPit                         *BaBaMortarPit*                          BLBRMRTP
+
+A0BaBaRocketPit                         Scavenger Rocket Pit                     EXROCKET
+A0BaBaRocketPitAT                       Scavenger AT-Rocket Pit                  EXROCKET
+
+A0BaBaFlameTower                        Scavenger Flame Tower                    Blbrtowf
+A0BaBaGunTower                          Scavenger Gun Tower                      BLBRBTW1
+A0BaBaGunTowerEND                       *Scavenger End Tower*                    Blbrbtw2
+A0CannonTower                           Scavenger Cannon Tower                    BLBRTOWR
+
+
+
+//howitzer mount
+Emplacement-HPVcannon                   Hyper Velocity Cannon Emplacement        Blhowmnt
+Emplacement-Howitzer-Incendiary         Incendiary Howitzer Emplacement          Blhowmnt
+Emplacement-Howitzer-Incenediary        Incendiary Howitzer Emplacement 2        Blhowmnt
+Emplacement-Howitzer105                 Howitzer Emplacement                     Blhowmnt
+Emplacement-Howitzer150                 Ground Shaker Emplacement                Blhowmnt
+Emplacement-HvyATrocket                 Tank Killer Emplacement                  Blhowmnt
+Emplacement-Rocket06-IDF                Ripple Rocket Battery                    Blhowmnt
+Emplacement-RotHow                      Hellstorm Emplacement                    BLHOWMNT
+
+//mortar pit
+Emplacement-MortarEMP                   EMP Mortar Pit                           BLMRTPIT
+Emplacement-MortarPit-Incendiary        Incendiary Mortar Pit                    BLMRTPIT
+Emplacement-MortarPit-Incenediary       Incendiary Mortar Pit 2                  BLMRTPIT
+Emplacement-MortarPit01                 Mortar Pit                               BLMRTPIT
+Emplacement-MortarPit02                 Bombard Pit                              BLMRTPIT
+Emplacement-RotMor                      Pepperpot Pit                            BLMRTPIT
+
+//steel tower
+GuardTower1                             Heavy Machinegun Guard Tower             BLGUARDM
+GuardTower2                             Twin Machinegun Guard Tower              BLGUARDM
+Sys-SensoTower01                        Sensor Tower                             BLGUARDM
+
+//heavy bricks AA
+AASite-QuadBof                          AA Cyclone Flak Cannon Emplacement       Blaamnt2
+AASite-QuadBof02                        AA Tornado Flak Cannon Emplacement       Blaamnt2
+Emplacement-HeavyPlasmaLauncher         Heavy Plasma Launcher Emplacement        Blaamnt2
+P0-AASite-Laser                         Stormbringer Emplacement                 Blaamnt2
+P0-AASite-SAM2                          Vindicator SAM Site                      Blaamnt2
+
+//bricks AA
+AASite-QuadMg1                          Hurricane AA Site                        Blaamnt1
+AASite-QuadRotMg                        Whirlwind AA Site                        Blaamnt1
+P0-AASite-SAM1                          Avenger SAM Site                         Blaamnt1
+P0-AASite-Sunburst                      Sunburst AA Site                         Blaamnt1
+
+//Bunker with no attachments
+PillBox1                                Heavy Machinegun Bunker                  blpilbox
+PillBox2                                Twin Machinegun Bunker                   blpilbox
+PillBox3                                HMG Bunker                               blpilbox
+Pillbox-RotMG                           Rotary MG Bunker                         blpilbox
+
+//Bunker with attachments cannons
+PillBox-Cannon6                         Twin Assault Cannon Bunker               Blcanpil
+PillBox4                                Light Cannon Bunker                      Blcanpil
+PillBox5                                Flamer Bunker                            Blcanpil
+PillBox6                                Lancer Bunker                            Blcanpil
+Plasmite-flamer-bunker                  Plasmite Flamer Bunker                   Blcanpil
+Tower-Projector                         Inferno Bunker                           Blcanpil
+Tower-RotMg                             Assault Gun Emplacement                  blcanpil
+
+//Towers
+GuardTower-ATMiss                       Scourge Missile Tower                    BLGUARDR
+GuardTower-BeamLas                      Pulse Laser Tower                        BLGUARDR
+GuardTower-Rail1                        Needle Gun Tower                         BLGUARDR
+GuardTower-RotMg                        Assault Gun Tower                        blguardr
+GuardTower3                             Heavy Machinegun Tower                   BLGUARDR
+GuardTower4                             Flamer Guard Tower                       BLGUARDR
+GuardTower5                             Lancer Tower                             BLGUARDR
+GuardTower6                             Mini-Rocket Tower                        BLGUARDR
+Sys-CB-Tower01                          CB Tower                                 BLGUARDR
+Sys-RadarDetector01                     Radar Detector Tower                     BLGUARDR
+Sys-SensoTower02                        Hardened Sensor Tower                    BLGUARDR
+Sys-SensoTowerWS                        Wide Spectrum Sensor Tower               BLGUARDR
+Sys-SpyTower                            Nexus Link Tower                         BLGUARDR
+Sys-VTOL-CB-Tower01                     VTOL CB Tower                            BLGUARDR
+Sys-VTOL-RadarTower01                   VTOL Strike Tower                        BLGUARDR
+Tower-VulcanCan                         Assault Cannon Guard Tower               BLGUARDR
+
+//черное укрепление
+Emplacement-HeavyLaser                  Heavy Laser Emplacement                  BLHARDPT
+Emplacement-HvART-pit                   Archangel Missile Emplacement            BLHARDPT
+Emplacement-MRL-pit                     Mini-Rocket Battery                      BLHARDPT
+Emplacement-MRLHvy-pit                  Heavy Rocket Battery                     BLHARDPT
+Emplacement-MdART-pit                   Seraph Missile Battery                   BLHARDPT
+Emplacement-PlasmaCannon                Plasma Cannon Emplacement                BLHARDPT
+Emplacement-PrisLas                     Flashlight Emplacement                   BLHARDPT
+Emplacement-PulseLaser                  Pulse Laser Emplacement                  BLHARDPT
+Emplacement-Rail2                       Railgun Emplacement                      BLHARDPT
+Emplacement-Rail3                       Gauss Cannon Emplacement                 BLHARDPT
+WallTower-Projector                     Inferno Hardpoint                        BLHARDPT
+
+
+//башня на стене
+Wall-RotMg                              Assault Gun Hardpoint                    BLGUARD1
+Wall-VulcanCan                          Assault Cannon Hardpoint                 BLGUARD1
+WallTower-Atmiss                        Scourge Missile Hardpoint                BLGUARD1
+WallTower-DoubleAAGun                   AA Cyclone Flak Cannon Hardpoint         BLGUARD1
+WallTower-DoubleAAGun02                 AA Tornado Flak Cannon Hardpoint         BLGUARD1
+WallTower-EMP                           EMP Cannon Hardpoint                     BLGUARD1
+WallTower-HPVcannon                     Hyper Velocity Cannon Hardpoint          BLGUARD1
+WallTower-HvATrocket                    Tank Killer Hardpoint                    BLGUARD1
+WallTower-PulseLas                      Pulse Laser Hardpoint                    BLGUARD1
+WallTower-QuadRotAAGun                  Whirlwind Hardpoint                      BLGUARD1
+WallTower-Rail2                         Rail Gun Hardpoint                       BLGUARD1
+WallTower-Rail3                         Gauss Cannon Hardpoint                   BLGUARD1
+WallTower-SamHvy                        Vindicator Hardpoint                     BLGUARD1
+WallTower-SamSite                       Avenger Hardpoint                        BLGUARD1
+WallTower-TwinAssaultGun                Twin Assault Gun Hardpoint               BLGUARD1
+WallTower01                             Heavy Machinegun Hardpoint               BLGUARD1
+WallTower02                             Light Cannon Hardpoint                   BLGUARD1
+WallTower03                             Medium Cannon Hardpoint                  BLGUARD1
+WallTower04                             Heavy Cannon Hardpoint                   BLGUARD1
+WallTower05                             Flamer Hardpoint                         BLGUARD1
+WallTower06                             Lancer Hardpoint                         BLGUARD1
+
+//Fortress
+X-Super-Cannon                          Cannon Fortress                         FORTRESS
+X-Super-MassDriver                      Mass Driver Fortress                    FORTRESS
+X-Super-Missile                         Missile Fortress                        FORTRESS
+X-Super-Rocket                          Heavy Rocket Bastion                    FORTRESS

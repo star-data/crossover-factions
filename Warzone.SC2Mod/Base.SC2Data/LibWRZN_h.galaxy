@@ -1,0 +1,40 @@
+include "TriggerLibs/natives"
+
+//--------------------------------------------------------------------------------------------------
+// Library: Mods - Warzone
+//--------------------------------------------------------------------------------------------------
+// Structures
+struct libWRZN_gs_Design {
+    string lv_unit;
+    string lv_propulsion;
+    string lv_body;
+    string lv_primary;
+    string lv_secondary;
+    string lv_speciality;
+};
+
+// Variable Declarations
+libWRZN_gs_Design[17][31] libWRZN_gv_designs;
+int[17] libWRZN_gv_activeDesign;
+
+// Function Declarations
+void libWRZN_gf_UnitDesignEnd (unit lp_hq);
+void libWRZN_gf_UnitDesignStart (unit lp_hq, int lp_slot);
+string libWRZN_gf_GetAvailableUnitType (int lp_player);
+int libWRZN_gf_GetUnitSlot (int lp_player, string lp_unit);
+void libWRZN_gf_SetDesignByBehaviors (int lp_player, int lp_slot, string lp_primary, string lp_secondary, string lp_propulsion, string lp_body, string lp_speciality);
+void libWRZN_gf_SetDesignByUserInstances (int lp_player, int lp_slot, string lp_primary, string lp_secondary, string lp_propulsion, string lp_body, string lp_speciality);
+bool libWRZN_gf_UnitIsQueued (string lp_unitType, int lp_player);
+
+// Trigger Declarations
+trigger libWRZN_gt_ConstructionAnimation;
+trigger libWRZN_gt_UnitDesignButtonClicked;
+trigger libWRZN_gt_UnitDesignerDeselected;
+trigger libWRZN_gt_UnitDesignCancelClicked;
+trigger libWRZN_gt_UnitCreated;
+trigger libWRZN_gt_UnitDesignModified;
+trigger libWRZN_gt_Test;
+
+// Library Initialization
+void libWRZN_InitVariables ();
+

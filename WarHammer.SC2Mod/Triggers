@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TriggerData>
+    <Library Id="NECR">
+        <Root>
+            <Item Type="Trigger" Library="NECR" Id="5F95D471"/>
+        </Root>
+        <Element Type="Trigger" Id="5F95D471">
+            <Event Type="FunctionCall" Library="NECR" Id="7CEE96CA"/>
+            <Action Type="FunctionCall" Library="NECR" Id="15236507"/>
+        </Element>
+        <Element Type="FunctionCall" Id="7CEE96CA">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="3C0566C4"/>
+            <Parameter Type="Param" Library="NECR" Id="866BBCC4"/>
+            <Parameter Type="Param" Library="NECR" Id="632B9E3A"/>
+            <Parameter Type="Param" Library="NECR" Id="EB89E148"/>
+        </Element>
+        <Element Type="Param" Id="866BBCC4">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="F3A8B0DC"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="C84C7A78"/>
+        </Element>
+        <Element Type="Param" Id="632B9E3A">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="1CDCC284"/>
+            <Value>NecronWarriorIncapacitated</Value>
+            <ValueType Type="gamelink"/>
+            <ValueGameType Type="Behavior"/>
+        </Element>
+        <Element Type="Param" Id="EB89E148">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="3029CA3C"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="079527A6"/>
+        </Element>
+        <Element Type="FunctionCall" Id="15236507">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="5084725D"/>
+            <Parameter Type="Param" Library="NECR" Id="C044FFAC"/>
+            <FunctionCall Type="FunctionCall" Library="NECR" Id="6005AD15"/>
+        </Element>
+        <Element Type="Param" Id="C044FFAC">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="42AB3EFD"/>
+            <FunctionCall Type="FunctionCall" Library="NECR" Id="4FB60DA8"/>
+        </Element>
+        <Element Type="FunctionCall" Id="4FB60DA8">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000192"/>
+        </Element>
+        <Element Type="FunctionCall" Id="6005AD15">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000175"/>
+            <SubFunctionType Type="SubFuncType" Library="Ntve" Id="DEA91B62"/>
+            <Parameter Type="Param" Library="NECR" Id="5F113634"/>
+            <Parameter Type="Param" Library="NECR" Id="9F44168C"/>
+            <Parameter Type="Param" Library="NECR" Id="40AE8EE3"/>
+        </Element>
+        <Element Type="Param" Id="5F113634">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="00000289"/>
+            <FunctionCall Type="FunctionCall" Library="NECR" Id="FFED560C"/>
+        </Element>
+        <Element Type="FunctionCall" Id="FFED560C">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000092"/>
+        </Element>
+        <Element Type="Param" Id="9F44168C">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="00000290"/>
+            <FunctionCall Type="FunctionCall" Library="NECR" Id="2A76D05C"/>
+        </Element>
+        <Element Type="FunctionCall" Id="2A76D05C">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="8570CA61"/>
+        </Element>
+        <Element Type="Param" Id="40AE8EE3">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="00000291"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="00000109"/>
+        </Element>
+    </Library>
+</TriggerData>

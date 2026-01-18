@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <!--Weapon-->
+    <CWeaponLegacy default="1" id="WZWeapon">
+        <?token id="icon" value="##id##"?>
+        <Icon value="Assets\icons\Weapons\##icon##.dds"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Options index="LinkedCooldown" value="0"/>
+        <Options index="NeverMiss" value="0"/>
+        <DamagePoint value="0"/>
+        <Backswing value="0"/>
+        <RangeSlop value="0"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy default="1" id="WZWeaponAM" parent="WZWeapon">
+        <LegacyOptions index="NoDeceleration" value="1"/>
+        <AllowedMovement value="Moving"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+    </CWeaponLegacy>
+
+    <!--Fake weapons-->
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankSpade"                icon="Spade"                  wzid="Spade1Mk1"                ><Range value="6"/></CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankCBRadar"              icon="CBRadar"                wzid="Sys-CBTurret01"                             > </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankRadarDetector"        icon="RadarDetector"          wzid="RadarDetector"                                   > </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankSensor"               icon="Sensor"                 wzid="SensorTurret1Mk1"                             > </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankVtolCBRadar"          icon="VtolCBRadar"            wzid="Sys-VTOLCBTurret01"                             > </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankVtolStrike"           icon="VtolStrike"             wzid="Sys-VstrikeTurret01"                             > </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankWideSpectrumSensor"   icon="WideSpectrumSensor"     wzid="Sensor-WideSpec"                                   > </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankHeavyRepair"          icon="HeavyRepair"            wzid="HeavyRepair"                                          />
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankRepair"               icon="Repair"                 wzid="LightRepair1"                                         />
+    <CWeaponLegacy parent="WZWeapon"   id="WZCyborgSpade"              icon="Spade"                  wzid="CyborgSpade"               ><Period value="1"/>    </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZCyborgRepair"             icon="Repair"                 wzid="CyborgRepair"              ><Period value="1"/>    </CWeaponLegacy>
+
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankLightMachinegun"      icon="LightMachinegun"        wzid="mg1mk1"               ><Period value="0.5"/>     <Range value="5.1"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankTwinMachinegun"       icon="TwinMachinegun"         wzid="mg2mk1"               ><Period value="0.6"/>     <Range value="5.1"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankHeavyMachinegun"      icon="HeavyMachinegun"        wzid="mg3mk1"               ><Period value="0.7"/>     <Range value="6.4"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankAssaultGun"           icon="AssaultGun"             wzid="mg4rotarymk1"         ><Period value="0.4"/>     <Range value="7.7"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankTwinAssaultGun"       icon="TwinAssaultGun"         wzid="mg5twinrotary"        ><Period value="0.4"/>     <Range value="7.7"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankFlamer"               icon="Flamer"                 wzid="flame1mk1"            ><Period value="2.0"/>     <Range value="2.6"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankInferno"              icon="Inferno"                wzid="flame2"               ><Period value="2.0"/>     <Range value="5.1"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankPlasmiteFlamer"       icon="PlasmiteFlamer"         wzid="plasmiteflamer"       ><Period value="2.0"/>     <Range value="5.1"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankHeavyPlasmaLauncher"  icon="HeavyPlasmaLauncher"    wzid="plasmaheavy"          ><Period value="35.0"/>    <Range value="19.2"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankLightCannon"          icon="LightCannon"            wzid="cannon1mk1"           ><Period value="3.0"/>     <Range value="6.4"/>     <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankMediumCannon"         icon="MediumCannon"           wzid="cannon2a-tmk1"        ><Period value="4.0"/>     <Range value="6.4"/>     <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankHyperVelocityCannon"  icon="HyperVelocityCannon"    wzid="cannon4automk1"       ><Period value="4.3"/>     <Range value="12.8"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankAACycloneFlakCannon"  icon="AACycloneFlakCannon"    wzid="aagun2mk1"            ><Period value="3.8"/>     <Range value="12.8"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankAssaultCannon"        icon="AssaultCannon"          wzid="cannon5vulcanmk1"     ><Period value="1.5"/>     <Range value="7.7"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankHeavyCannon"          icon="HeavyCannon"            wzid="cannon375mmmk1"       ><Period value="6.0"/>     <Range value="7.7"/>     <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankTwinAssaultCannon"    icon="TwinAssaultCannon"      wzid="cannon6twinaslt"      ><Period value="1.5"/>     <Range value="7.7"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankPlasmaCannon"         icon="PlasmaCannon"           wzid="laser4-plasmacannon"  ><Period value="15.0"/>    <Range value="9.6"/>     <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankAATornadoFlakCannon"  icon="AATornadoFlakCannon"    wzid="aagun2mk1quad"        ><Period value="8.1"/>     <Range value="14.1"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankMiniRocketPod"        icon="MiniRocketPod"          wzid="rocket-pod"           ><Period value="1.0"/>     <Range value="5.1"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankMiniRocketArray"      icon="MiniRocketArray"        wzid="rocket-mrl"           ><Period value="16.5"/>    <Range value="5.1"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankLancer"               icon="Lancer"                 wzid="rocket-lta-t"         ><Period value="16.0"/>    <Range value="5.1"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankBunkerBuster"         icon="BunkerBuster"           wzid="rocket-bb"            ><Period value="8"/>       <Range value="5.1"/>     <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankSunburstAA"           icon="SunburstAA"             wzid="rocket-sunburst"      ><Period value="9.0 "/>    <Range value="10.2"/>    <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankRippleRockets"        icon="RippleRockets"          wzid="rocket-idf"           ><Period value="60.0"/>    <Range value="10.2"/>    <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankHeavyRocketArray"     icon="HeavyRocketArray"       wzid="rocket-mrl-hvy"       ><Period value="18.5"/>    <Range value="5.1"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankTankKiller"           icon="TankKiller"             wzid="rocket-hvya-t"        ><Period value="18.0"/>    <Range value="5.1"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankMortar"               icon="Mortar"                 wzid="mortar1mk1"           ><Period value="6.0"/>     <Range value="11.5"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankBombard"              icon="Bombard"                wzid="mortar2mk1"           ><Period value="9.0"/>     <Range value="11.5"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankPepperpot"            icon="Pepperpot"              wzid="mortar3rotarymk1"     ><Period value="1.8"/>     <Range value="11.5"/>    <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankIncendiaryMortar"     icon="IncendiaryMortar"       wzid="mortar-incendiary"    ><Period value="6.0"/>     <Range value="11.5"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankHurricaneAA"          icon="HurricaneAA"            wzid="quadmg1aagun"         ><Period value="0.6"/>     <Range value="7.7"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankWhirlwindAA"          icon="WhirlwindAA"            wzid="quadrotaagun"         ><Period value="0.4"/>     <Range value="7.7"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankHowitzer"             icon="Howitzer"               wzid="howitzer105mk1"       ><Period value="11.0"/>    <Range value="19.2"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankIncendiaryHowitzer"   icon="IncendiaryHowitzer"     wzid="howitzer-incendiary"  ><Period value="12.0"/>    <Range value="19.2"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankHellstorm"            icon="Hellstorm"              wzid="howitzer03-rot"       ><Period value="5.0"/>     <Range value="19.2"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankGroundShaker"         icon="GroundShaker"           wzid="howitzer150mk1"       ><Period value="25.0"/>    <Range value="19.2"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankFlashlight"           icon="Flashlight"             wzid="laser3beammk1"        ><Period value="2.0"/>     <Range value="15.4"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankPulseLaser"           icon="PulseLaser"             wzid="laser2pulsemk1"       ><Period value="4.0"/>     <Range value="17.9"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankStormbringerAALaser"  icon="StormbringerAALaser"    wzid="aagunlaser"           ><Period value="6"/>       <Range value="23.0"/>    <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankHeavyLaser"           icon="HeavyLaser"             wzid="heavylaser"           ><Period value="6.0"/>     <Range value="20.5"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankNeedleGun"            icon="NeedleGun"              wzid="railgun1mk1"          ><Period value="4.0"/>     <Range value="7.7"/>     <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankRailGun"              icon="RailGun"                wzid="railgun2mk1"          ><Period value="5.0"/>     <Range value="7.7"/>     <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankGaussCannon"          icon="GaussCannon"            wzid="railgun3mk1"          ><Period value="6.0"/>     <Range value="10.2"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankScourgeMissile"       icon="ScourgeMissile"         wzid="missile-a-t"          ><Period value="10"/>      <Range value="6.4"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankAvengerSAM"           icon="AvengerSAM"             wzid="missile-ltsam"        ><Period value="3"/>       <Range value="20.5"/>    <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankSeraphMissileArray"   icon="SeraphMissileArray"     wzid="missile-mdart"        ><Period value="15"/>      <Range value="9.0"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankArchangelMissile"     icon="ArchangelMissile"       wzid="missile-hvyart"       ><Period value="30"/>      <Range value="20.5"/>    <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankVindicatorSAM"        icon="VindicatorSAM"          wzid="missile-hvysam"       ><Period value="3"/>       <Range value="20.5"/>    <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankNexusLink"            icon="NexusLink"              wzid="scavnexuslink"        ><Period value="0.1"/>     <Range value="7.7"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankEMPCannon"            icon="EMPCannon"              wzid="emp-cannon"           ><Period value="13.0"/>    <Range value="7.7"/>     <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZTankEMPMortar"            icon="EMPMortar"              wzid="mortaremp"            ><Period value="9.0"/>     <Range value="11.5"/>    <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZTankCommand"              icon="Command"                wzid="commandturret1"       ><Period value="0.3"/>     <Range value="15.4"/>    <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolClusterBombBay"       icon="ClusterBombBay"         wzid="bomb1-vtol-lthe"      ><Period value="10"/>      <Range value="3.8"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolHeapBombBay"          icon="HeapBombBay"            wzid="bomb2-vtol-hvhe"      ><Period value="10"/>      <Range value="3.8"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolEMPMissileLauncher"   icon="EMPMissileLauncher"     wzid="bomb6-vtol-emp"       ><Period value="1.0"/>     <Range value="3.8"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolPlasmiteBombBay"      icon="PlasmiteBombBay"        wzid="bomb5-vtol-plasmite"  ><Period value="10.0"/>    <Range value="3.8"/>     <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolPhosphorBombBay"      icon="PhosphorBombBay"        wzid="bomb3-vtol-ltinc"     ><Period value="10"/>      <Range value="3.8"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolThermiteBombBay"      icon="ThermiteBombBay"        wzid="bomb4-vtol-hvyinc"    ><Period value="10"/>      <Range value="3.8"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZFortressCannon"            icon="FortressCannon"        wzid="cannonsuper"          ><Period value="6.0"/>     <Range value="1.3"/>     <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZFortressMassDriver"        icon="FortressMassDriver"    wzid="massdriver"           ><Period value="9.0"/>     <Range value="1.3"/>     <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZFortressMissile"           icon="FortressMissile"       wzid="missilesuper"         ><Period value="20"/>      <Range value="6.4"/>     <Options index="DisplayCooldown" value="0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZLaserSatelliteCommandPost"                              wzid="lassat"               ><Period value="300.0"/>   <Range value="6.4"/>     <Options index="DisplayCooldown" value="1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZHeavyGunnerWeapon"         icon="LightCannon"           wzid="cyborgcannon"         ><Period value="3.0"/>     <Range value="5.1"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZMachinegunnerWeapon"       icon="Machinegun"            wzid="cyborgchaingun"       ><Period value="0.6"/>     <Range value="5.1"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZFlamerWeapon"              icon="Flamer"                wzid="cyborgflamer01"       ><Period value="1.8"/>     <Range value="2.6"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="WZGrenadierWeapon"           icon="Mortar"                wzid="cyb-wpn-grenade"      ><Period value="6.0"/>     <Range value="7.7"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZLancerWeapon"              icon="Lancer"                wzid="cyborgrocket"         ><Period value="16.0"/>    <Range value="6.4"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZThermiteFlamerWeapon"      icon="Inferno"               wzid="cyb-wpn-thermite"     ><Period value="1.8"/>     <Range value="3.2"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZAssaultGunnerWeapon"       icon="AssaultGun"            wzid="cyborgrotmg"          ><Period value="0.5"/>     <Range value="5.1"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZFlashlightGunnerWeapon"    icon="Flashlight"            wzid="cyb-wpn-laser"        ><Period value="2.0"/>     <Range value="15.4"/>    </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZNeedleGunnerWeapon"        icon="NeedleGun"             wzid="cyb-wpn-rail1"        ><Period value="3.6"/>     <Range value="7.7"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZSuperHeavyGunnerWeapon"    icon="HeavyCannon"           wzid="cyb-hvywpn-mcannon"   ><Period value="4.2"/>     <Range value="5.1"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZSuperAutoCannonWeapon"     icon="AssaultGun"            wzid="cyb-hvywpn-acannon"   ><Period value="1.5"/>     <Range value="6.4"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZSuperHVCWeapon"            icon="HyperVelocityCannon"   wzid="cyb-hvywpn-hpv"       ><Period value="4.0"/>     <Range value="10.9"/>    </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZSuperTankKillerWeapon"     icon="TankKiller"            wzid="cyb-hvywpn-tk"        ><Period value="18.0"/>    <Range value="5.1"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZSuperScourgeWeapon"        icon="ScourgeMissile"        wzid="cyb-wpn-atmiss"       ><Period value="10.0"/>    <Range value="6.4"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZSuperPulseLaserWeapon"     icon="PulseLaser"            wzid="cyb-hvywpn-pulselsr"  ><Period value="4.0"/>     <Range value="17.9"/>    </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZSuperRailGunnerWeapon"     icon="RailGunn"              wzid="cyb-hvywpn-railgunner"><Period value="5.0"/>     <Range value="7.7"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="ScavMG"                      icon="Machinegun"            wzid="babamg"               ><Period value="0.4"/>     <Range value="6.4"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="ScavCannon"                  icon="LightCannon"           wzid="babacannon"           ><Period value="3.0"/>     <Range value="6.4"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeapon"   id="ScavFlamer"                  icon="Flamer"                wzid="babaflame"            ><Period value="12.0"/>    <Range value="2.6"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="ScavRocket"                  icon="MiniRocketPod"         wzid="babarocket"           ><Period value="10"/>      <Range value="6.4"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolSunburstAA"            icon="SunburstAA"            wzid="rocket-vtol-sunburst" ><Period value="3"/>       <Range value="10.2"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolMachinegun"            icon="Machinegun"            wzid="mg1-vtol"             ><Period value="0.5"/>     <Range value="5.1"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolCannon"                icon="Cannon"                wzid="cannon1-vtol"         ><Period value="0.4"/>     <Range value="7.7"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolTwinMachinegun"        icon="TwinMachinegun"        wzid="mg2-vtol"             ><Period value="0.6"/>     <Range value="5.1"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolMiniRocket"            icon="MiniRocket"            wzid="rocket-vtol-pod"      ><Period value="0.1"/>     <Range value="6.4"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolHeavyMachinegun"       icon="HeavyMachinegun"       wzid="mg3-vtol"             ><Period value="0.5"/>     <Range value="6.4"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolLancer"                icon="Lancer"                wzid="rocket-vtol-lta-t"    ><Period value="12"/>      <Range value="5.1"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolHyperVelocityCannon"   icon="HyperVelocityCannon"   wzid="cannon4auto-vtol"     ><Period value="0.4"/>     <Range value="14.1"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolBunkerBuster"          icon="BunkerBuster"          wzid="rocket-vtol-bb"       ><Period value="8"/>       <Range value="5.1"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolAssaultGun"            icon="AssaultGun"            wzid="cannon5vulcan-vtol"   ><Period value="0.3"/>     <Range value="7.7"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolAssaultCannon"         icon="AssaultCannon"         wzid="mg4rotary-vtol"       ><Period value="0.3"/>     <Range value="7.7"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolTankKiller"            icon="TankKiller"            wzid="rocket-vtol-hvya-t"   ><Period value="16"/>      <Range value="5.1"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolFlashlight"            icon="Flashlight"            wzid="laser3beam-vtol"      ><Period value="1.5"/>     <Range value="17.9"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolNeedleGun"             icon="NeedleGun"             wzid="railgun1-vtol"        ><Period value="0.3"/>     <Range value="7.7"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolScourgeMissile"        icon="ScourgeMissile"        wzid="missile-vtol-at"      ><Period value="7.5"/>     <Range value="6.4"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolPulseLaser"            icon="PulseLaser"            wzid="laser2pulse-vtol"     ><Period value="1.5"/>     <Range value="20.5"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolHeavyLaser"            icon="HeavyLaser"            wzid="heavylaser-vtol"      ><Period value="2"/>       <Range value="23.0"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZVtolRailGun"               icon="RailGun"               wzid="railgun2-vtol"        ><Period value="0.4"/>     <Range value="7.7"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="ScavVtolMachinegun"          icon="Machinegun"            wzid="mg1-vtol-scavs"       ><Period value="0.5"/>     <Range value="3.6"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="ScavVtolMiniRocket"          icon="MiniRocketPod"         wzid="rocket-vtol-pod-scavs"><Period value="0.5"/>     <Range value="5.1"/>     </CWeaponLegacy>
+    <CWeaponLegacy parent="WZWeaponAM" id="WZHeavyRocketBastion"                                     wzid="RocketSuper"          ><Period value="10"/>      <Range value="12"/>     </CWeaponLegacy>
+
+
+
+    <CWeaponLegacy parent="WZTankLightMachinegun"        id="WZTankLightMachinegunTargeted"      ><Range value="7.7"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankTwinMachinegun"         id="WZTankTwinMachinegunTargeted"       ><Range value="8.3"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankHeavyMachinegun"        id="WZTankHeavyMachinegunTargeted"      ><Range value="9.6"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankAssaultGun"             id="WZTankAssaultGunTargeted"           ><Range value="11.5"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankTwinAssaultGun"         id="WZTankTwinAssaultGunTargeted"       ><Range value="11.5"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankFlamer"                 id="WZTankFlamerTargeted"               ><Range value="3.8"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankInferno"                id="WZTankInfernoTargeted"              ><Range value="6.4"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankPlasmiteFlamer"         id="WZTankPlasmiteFlamerTargeted"       ><Range value="6.4"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankHeavyPlasmaLauncher"    id="WZTankHeavyPlasmaLauncherTargeted"  ><Range value="99.8"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankLightCannon"            id="WZTankLightCannonTargeted"          ><Range value="9.6"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankMediumCannon"           id="WZTankMediumCannonTargeted"         ><Range value="10.2"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankHyperVelocityCannon"    id="WZTankHyperVelocityCannonTargeted"  >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankAACycloneFlakCannon"    id="WZTankAACycloneFlakCannonTargeted"  ><Range value="15.4"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankAssaultCannon"          id="WZTankAssaultCannonTargeted"        ><Range value="10.2"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankHeavyCannon"            id="WZTankHeavyCannonTargeted"          ><Range value="11.5"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankTwinAssaultCannon"      id="WZTankTwinAssaultCannonTargeted"    ><Range value="10.2"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankPlasmaCannon"           id="WZTankPlasmaCannonTargeted"         ><Range value="12.8"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankAATornadoFlakCannon"    id="WZTankAATornadoFlakCannonTargeted"  ><Range value="20.5"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankMiniRocketPod"          id="WZTankMiniRocketPodTargeted"        ><Range value="10.9"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankMiniRocketArray"        id="WZTankMiniRocketArrayTargeted"      ><Range value="11.5"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankLancer"                 id="WZTankLancerTargeted"               ><Range value="11.5"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankBunkerBuster"           id="WZTankBunkerBusterTargeted"         ><Range value="12.8"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankSunburstAA"             id="WZTankSunburstAATargeted"           ><Range value="15.4"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankRippleRockets"          id="WZTankRippleRocketsTargeted"        ><Range value="110"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankHeavyRocketArray"       id="WZTankHeavyRocketArrayTargeted"     ><Range value="12.8"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankTankKiller"             id="WZTankTankKillerTargeted"           ><Range value="12.8"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankMortar"                 id="WZTankMortarTargeted"               ><Range value="23.0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankBombard"                id="WZTankBombardTargeted"              ><Range value="23.0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankPepperpot"              id="WZTankPepperpotTargeted"            ><Range value="23.0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankIncendiaryMortar"       id="WZTankIncendiaryMortarTargeted"     ><Range value="23.0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankHurricaneAA"            id="WZTankHurricaneAATargeted"          ><Range value="17.9"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankWhirlwindAA"            id="WZTankWhirlwindAATargeted"          ><Range value="20.5"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankHowitzer"               id="WZTankHowitzerTargeted"             ><Range value="70.4"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankIncendiaryHowitzer"     id="WZTankIncendiaryHowitzerTargeted"   ><Range value="51.2"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankHellstorm"              id="WZTankHellstormTargeted"            ><Range value="70.4"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankGroundShaker"           id="WZTankGroundShakerTargeted"         ><Range value="81.9"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankFlashlight"             id="WZTankFlashlightTargeted"           ><Range value="16.6"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankPulseLaser"             id="WZTankPulseLaserTargeted"           >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankStormbringerAALaser"    id="WZTankStormbringerAALaserTargeted"  >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankHeavyLaser"             id="WZTankHeavyLaserTargeted"           >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankNeedleGun"              id="WZTankNeedleGunTargeted"            ><Range value="14.1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankRailGun"                id="WZTankRailGunTargeted"              ><Range value="15.4"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankGaussCannon"            id="WZTankGaussCannonTargeted"          ><Range value="17.9"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankScourgeMissile"         id="WZTankScourgeMissileTargeted"       ><Range value="17.9"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankAvengerSAM"             id="WZTankAvengerSAMTargeted"           ><Range value="25.6"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankSeraphMissileArray"     id="WZTankSeraphMissileArrayTargeted"   ><Range value="19.2"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankArchangelMissile"       id="WZTankArchangelMissileTargeted"     ><Range value="153"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankVindicatorSAM"          id="WZTankVindicatorSAMTargeted"        ><Range value="25.6"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankNexusLink"              id="WZTankNexusLinkTargeted"            >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankEMPCannon"              id="WZTankEMPCannonTargeted"            ><Range value="15.4"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankEMPMortar"              id="WZTankEMPMortarTargeted"            ><Range value="23.0"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZTankCommand"                id="WZTankCommandTargeted"              >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolClusterBombBay"         id="WZVtolClusterBombBayTargeted"       >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolHeapBombBay"            id="WZVtolHeapBombBayTargeted"          >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolEMPMissileLauncher"     id="WZVtolEMPMissileLauncherTargeted"   ><Range value="6.4"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolPlasmiteBombBay"        id="WZVtolPlasmiteBombBayTargeted"      >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolPhosphorBombBay"        id="WZVtolPhosphorBombBayTargeted"      >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolThermiteBombBay"        id="WZVtolThermiteBombBayTargeted"      >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZFortressCannon"            id="WZFortressCannonTargeted"           ><Range value="14.1"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZFortressMassDriver"        id="WZFortressMassDriverTargeted"       ><Range value="20.5"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZFortressMissile"           id="WZFortressMissileTargeted"          ><Range value="30.7"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZLaserSatelliteCommandPost" id="WZLaserSatelliteCommandPostTargeted"><Range value="230.4"/> </CWeaponLegacy>
+    <CWeaponLegacy parent="WZHeavyGunnerWeapon"         id="WZHeavyGunnerWeaponTargeted"        ><Range value="7.6"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZMachinegunnerWeapon"       id="WZMachinegunnerWeaponTargeted"      ><Range value="7.7"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZFlamerWeapon"              id="WZFlamerWeaponTargeted"             ><Range value="3.8"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZGrenadierWeapon"           id="WZGrenadierWeaponTargeted"          ><Range value="15.4"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZLancerWeapon"              id="WZLancerWeaponTargeted"             ><Range value="9.6"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZThermiteFlamerWeapon"      id="WZThermiteFlamerWeaponTargeted"     ><Range value="4.5"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZAssaultGunnerWeapon"       id="WZAssaultGunnerWeaponTargeted"      ><Range value="9.0"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZFlashlightGunnerWeapon"    id="WZFlashlightGunnerWeaponTargeted"   >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZNeedleGunnerWeapon"        id="WZNeedleGunnerWeaponTargeted"       ><Range value="15.4"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZSuperHeavyGunnerWeapon"    id="WZSuperHeavyGunnerWeaponTargeted"   ><Range value="7.6"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZSuperAutoCannonWeapon"     id="WZSuperAutoCannonWeaponTargeted"    ><Range value="9.0"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZSuperHVCWeapon"            id="WZSuperHVCWeaponTargeted"           >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZSuperTankKillerWeapon"     id="WZSuperTankKillerWeaponTargeted"    ><Range value="12.8"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZSuperScourgeWeapon"        id="WZSuperScourgeWeaponTargeted"       ><Range value="16.6"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="WZSuperPulseLaserWeapon"     id="WZSuperPulseLaserWeaponTargeted"    >                         </CWeaponLegacy>
+    <CWeaponLegacy parent="WZSuperRailGunnerWeapon"     id="WZSuperRailGunnerWeaponTargeted"    ><Range value="16.6"/>  </CWeaponLegacy>
+    <CWeaponLegacy parent="ScavMG"                      id="ScavMGTargeted"                     ><Range value="9.6"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="ScavCannon"                  id="ScavCannonTargeted"                 ><Range value="9.6"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="ScavFlamer"                  id="ScavFlamerTargeted"                 ><Range value="3.8"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="ScavRocket"                  id="ScavRocketTargeted"                 ><Range value="9.6"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolSunburstAA"            id="WZVtolSunburstAATargeted"           ><Range value="20.5"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolMachinegun"            id="WZVtolMachinegunTargeted"           ><Range value="7.7"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolCannon"                id="WZVtolCannonTargeted"               ><Range value="12.8"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolTwinMachinegun"        id="WZVtolTwinMachinegunTargeted"       ><Range value="8.3"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolMiniRocket"            id="WZVtolMiniRocketTargeted"           ><Range value="12.8"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolHeavyMachinegun"       id="WZVtolHeavyMachinegunTargeted"      ><Range value="11.5"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolLancer"                id="WZVtolLancerTargeted"               ><Range value="14.1"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolHyperVelocityCannon"   id="WZVtolHyperVelocityCannonTargeted"  >                       </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolBunkerBuster"          id="WZVtolBunkerBusterTargeted"         ><Range value="17.9"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolAssaultGun"            id="WZVtolAssaultGunTargeted"           ><Range value="12.8"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolAssaultCannon"         id="WZVtolAssaultCannonTargeted"        ><Range value="14.1"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolTankKiller"            id="WZVtolTankKillerTargeted"           ><Range value="15.4"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolFlashlight"            id="WZVtolFlashlightTargeted"           >                       </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolNeedleGun"             id="WZVtolNeedleGunTargeted"            ><Range value="16.6"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolScourgeMissile"        id="WZVtolScourgeMissileTargeted"       ><Range value="20.5"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolPulseLaser"            id="WZVtolPulseLaserTargeted"           >                       </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolHeavyLaser"            id="WZVtolHeavyLaserTargeted"           >                       </CWeaponLegacy>
+    <CWeaponLegacy parent="WZVtolRailGun"               id="WZVtolRailGunTargeted"              ><Range value="17.9"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="ScavVtolMachinegun"          id="ScavVtolMachinegunTargeted"         ><Range value="7.7"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="ScavVtolMiniRocket"          id="ScavVtolMiniRocketTargeted"         ><Range value="10.2"/>   </CWeaponLegacy>
+    <CWeaponLegacy parent="WZHeavyRocketBastion"        id="WZHeavyRocketBastionTargeted"       ><Range value="20.48"/>  </CWeaponLegacy>
+
+
+
+
+    <CWeaponLegacy parent="WZTankLightMachinegun"        id="WZTankLightMachinegunSecondary"       />
+    <CWeaponLegacy parent="WZTankTwinMachinegun"         id="WZTankTwinMachinegunSecondary"        />
+    <CWeaponLegacy parent="WZTankHeavyMachinegun"        id="WZTankHeavyMachinegunSecondary"       />
+    <CWeaponLegacy parent="WZTankAssaultGun"             id="WZTankAssaultGunSecondary"            />
+    <CWeaponLegacy parent="WZTankTwinAssaultGun"         id="WZTankTwinAssaultGunSecondary"        />
+    <CWeaponLegacy parent="WZTankFlamer"                 id="WZTankFlamerSecondary"                />
+    <CWeaponLegacy parent="WZTankInferno"                id="WZTankInfernoSecondary"               />
+    <CWeaponLegacy parent="WZTankPlasmiteFlamer"         id="WZTankPlasmiteFlamerSecondary"        />
+    <CWeaponLegacy parent="WZTankHeavyPlasmaLauncher"    id="WZTankHeavyPlasmaLauncherSecondary"   />
+    <CWeaponLegacy parent="WZTankLightCannon"            id="WZTankLightCannonSecondary"           />
+    <CWeaponLegacy parent="WZTankMediumCannon"           id="WZTankMediumCannonSecondary"          />
+    <CWeaponLegacy parent="WZTankHyperVelocityCannon"    id="WZTankHyperVelocityCannonSecondary"   />
+    <CWeaponLegacy parent="WZTankAACycloneFlakCannon"    id="WZTankAACycloneFlakCannonSecondary"   />
+    <CWeaponLegacy parent="WZTankAssaultCannon"          id="WZTankAssaultCannonSecondary"         />
+    <CWeaponLegacy parent="WZTankHeavyCannon"            id="WZTankHeavyCannonSecondary"           />
+    <CWeaponLegacy parent="WZTankTwinAssaultCannon"      id="WZTankTwinAssaultCannonSecondary"     />
+    <CWeaponLegacy parent="WZTankPlasmaCannon"           id="WZTankPlasmaCannonSecondary"          />
+    <CWeaponLegacy parent="WZTankAATornadoFlakCannon"    id="WZTankAATornadoFlakCannonSecondary"   />
+    <CWeaponLegacy parent="WZTankMiniRocketPod"          id="WZTankMiniRocketPodSecondary"         />
+    <CWeaponLegacy parent="WZTankMiniRocketArray"        id="WZTankMiniRocketArraySecondary"       />
+    <CWeaponLegacy parent="WZTankLancer"                 id="WZTankLancerSecondary"                />
+    <CWeaponLegacy parent="WZTankBunkerBuster"           id="WZTankBunkerBusterSecondary"          />
+    <CWeaponLegacy parent="WZTankSunburstAA"             id="WZTankSunburstAASecondary"            />
+    <CWeaponLegacy parent="WZTankRippleRockets"          id="WZTankRippleRocketsSecondary"         />
+    <CWeaponLegacy parent="WZTankHeavyRocketArray"       id="WZTankHeavyRocketArraySecondary"      />
+    <CWeaponLegacy parent="WZTankTankKiller"             id="WZTankTankKillerSecondary"            />
+    <CWeaponLegacy parent="WZTankMortar"                 id="WZTankMortarSecondary"                />
+    <CWeaponLegacy parent="WZTankBombard"                id="WZTankBombardSecondary"               />
+    <CWeaponLegacy parent="WZTankPepperpot"              id="WZTankPepperpotSecondary"             />
+    <CWeaponLegacy parent="WZTankIncendiaryMortar"       id="WZTankIncendiaryMortarSecondary"      />
+    <CWeaponLegacy parent="WZTankHurricaneAA"            id="WZTankHurricaneAASecondary"           />
+    <CWeaponLegacy parent="WZTankWhirlwindAA"            id="WZTankWhirlwindAASecondary"           />
+    <CWeaponLegacy parent="WZTankHowitzer"               id="WZTankHowitzerSecondary"              />
+    <CWeaponLegacy parent="WZTankIncendiaryHowitzer"     id="WZTankIncendiaryHowitzerSecondary"    />
+    <CWeaponLegacy parent="WZTankHellstorm"              id="WZTankHellstormSecondary"             />
+    <CWeaponLegacy parent="WZTankGroundShaker"           id="WZTankGroundShakerSecondary"          />
+    <CWeaponLegacy parent="WZTankFlashlight"             id="WZTankFlashlightSecondary"            />
+    <CWeaponLegacy parent="WZTankPulseLaser"             id="WZTankPulseLaserSecondary"            />
+    <CWeaponLegacy parent="WZTankStormbringerAALaser"    id="WZTankStormbringerAALaserSecondary"   />
+    <CWeaponLegacy parent="WZTankHeavyLaser"             id="WZTankHeavyLaserSecondary"            />
+    <CWeaponLegacy parent="WZTankNeedleGun"              id="WZTankNeedleGunSecondary"             />
+    <CWeaponLegacy parent="WZTankRailGun"                id="WZTankRailGunSecondary"               />
+    <CWeaponLegacy parent="WZTankGaussCannon"            id="WZTankGaussCannonSecondary"           />
+    <CWeaponLegacy parent="WZTankScourgeMissile"         id="WZTankScourgeMissileSecondary"        />
+    <CWeaponLegacy parent="WZTankAvengerSAM"             id="WZTankAvengerSAMSecondary"            />
+    <CWeaponLegacy parent="WZTankSeraphMissileArray"     id="WZTankSeraphMissileArraySecondary"    />
+    <CWeaponLegacy parent="WZTankArchangelMissile"       id="WZTankArchangelMissileSecondary"      />
+    <CWeaponLegacy parent="WZTankVindicatorSAM"          id="WZTankVindicatorSAMSecondary"         />
+    <CWeaponLegacy parent="WZTankNexusLink"              id="WZTankNexusLinkSecondary"             />
+    <CWeaponLegacy parent="WZTankEMPCannon"              id="WZTankEMPCannonSecondary"             />
+    <CWeaponLegacy parent="WZTankEMPMortar"              id="WZTankEMPMortarSecondary"             />
+    <CWeaponLegacy parent="WZTankCommand"                id="WZTankCommandSecondary"               />
+    <CWeaponLegacy parent="WZVtolClusterBombBay"         id="WZVtolClusterBombBaySecondary"        />
+    <CWeaponLegacy parent="WZVtolHeapBombBay"            id="WZVtolHeapBombBaySecondary"           />
+    <CWeaponLegacy parent="WZVtolEMPMissileLauncher"     id="WZVtolEMPMissileLauncherSecondary"    />
+    <CWeaponLegacy parent="WZVtolPlasmiteBombBay"        id="WZVtolPlasmiteBombBaySecondary"       />
+    <CWeaponLegacy parent="WZVtolPhosphorBombBay"        id="WZVtolPhosphorBombBaySecondary"       />
+    <CWeaponLegacy parent="WZVtolThermiteBombBay"        id="WZVtolThermiteBombBaySecondary"       />
+    <CWeaponLegacy parent="WZFortressCannon"             id="WZFortressCannonSecondary"            />
+    <CWeaponLegacy parent="WZFortressMassDriver"         id="WZFortressMassDriverSecondary"        />
+    <CWeaponLegacy parent="WZFortressMissile"            id="WZFortressMissileSecondary"           />
+    <CWeaponLegacy parent="WZHeavyGunnerWeapon"          id="WZHeavyGunnerWeaponSecondary"         />
+    <CWeaponLegacy parent="WZMachinegunnerWeapon"        id="WZMachinegunnerWeaponSecondary"       />
+    <CWeaponLegacy parent="WZFlamerWeapon"               id="WZFlamerWeaponSecondary"              />
+    <CWeaponLegacy parent="WZGrenadierWeapon"            id="WZGrenadierWeaponSecondary"           />
+    <CWeaponLegacy parent="WZLancerWeapon"               id="WZLancerWeaponSecondary"              />
+    <CWeaponLegacy parent="WZThermiteFlamerWeapon"       id="WZThermiteFlamerWeaponSecondary"      />
+    <CWeaponLegacy parent="WZAssaultGunnerWeapon"        id="WZAssaultGunnerWeaponSecondary"       />
+    <CWeaponLegacy parent="WZFlashlightGunnerWeapon"     id="WZFlashlightGunnerWeaponSecondary"    />
+    <CWeaponLegacy parent="WZNeedleGunnerWeapon"         id="WZNeedleGunnerWeaponSecondary"        />
+    <CWeaponLegacy parent="WZSuperHeavyGunnerWeapon"     id="WZSuperHeavyGunnerWeaponSecondary"    />
+    <CWeaponLegacy parent="WZSuperAutoCannonWeapon"      id="WZSuperAutoCannonWeaponSecondary"     />
+    <CWeaponLegacy parent="WZSuperHVCWeapon"             id="WZSuperHVCWeaponSecondary"            />
+    <CWeaponLegacy parent="WZSuperTankKillerWeapon"      id="WZSuperTankKillerWeaponSecondary"     />
+    <CWeaponLegacy parent="WZSuperScourgeWeapon"         id="WZSuperScourgeWeaponSecondary"        />
+    <CWeaponLegacy parent="WZSuperPulseLaserWeapon"      id="WZSuperPulseLaserWeaponSecondary"     />
+    <CWeaponLegacy parent="WZSuperRailGunnerWeapon"      id="WZSuperRailGunnerWeaponSecondary"     />
+    <CWeaponLegacy parent="ScavMG"                       id="ScavMGSecondary"                      />
+    <CWeaponLegacy parent="ScavCannon"                   id="ScavCannonSecondary"                  />
+    <CWeaponLegacy parent="ScavFlamer"                   id="ScavFlamerSecondary"                  />
+    <CWeaponLegacy parent="ScavRocket"                   id="ScavRocketSecondary"                  />
+    <CWeaponLegacy parent="WZVtolSunburstAA"             id="WZVtolSunburstAASecondary"/>
+    <CWeaponLegacy parent="WZVtolMachinegun"             id="WZVtolMachinegunSecondary"/>
+    <CWeaponLegacy parent="WZVtolCannon"                 id="WZVtolCannonSecondary"/>
+    <CWeaponLegacy parent="WZVtolTwinMachinegun"         id="WZVtolTwinMachinegunSecondary"/>
+    <CWeaponLegacy parent="WZVtolMiniRocket"             id="WZVtolMiniRocketSecondary"/>
+    <CWeaponLegacy parent="WZVtolHeavyMachinegun"        id="WZVtolHeavyMachinegunSecondary"/>
+    <CWeaponLegacy parent="WZVtolLancer"                 id="WZVtolLancerSecondary"/>
+    <CWeaponLegacy parent="WZVtolHyperVelocityCannon"    id="WZVtolHyperVelocityCannonSecondary"/>
+    <CWeaponLegacy parent="WZVtolBunkerBuster"           id="WZVtolBunkerBusterSecondary"/>
+    <CWeaponLegacy parent="WZVtolAssaultGun"             id="WZVtolAssaultGunSecondary"/>
+    <CWeaponLegacy parent="WZVtolAssaultCannon"          id="WZVtolAssaultCannonSecondary"/>
+    <CWeaponLegacy parent="WZVtolTankKiller"             id="WZVtolTankKillerSecondary"/>
+    <CWeaponLegacy parent="WZVtolFlashlight"             id="WZVtolFlashlightSecondary"/>
+    <CWeaponLegacy parent="WZVtolNeedleGun"              id="WZVtolNeedleGunSecondary"/>
+    <CWeaponLegacy parent="WZVtolScourgeMissile"         id="WZVtolScourgeMissileSecondary"/>
+    <CWeaponLegacy parent="WZVtolPulseLaser"             id="WZVtolPulseLaserSecondary"/>
+    <CWeaponLegacy parent="WZVtolHeavyLaser"             id="WZVtolHeavyLaserSecondary"/>
+    <CWeaponLegacy parent="WZVtolRailGun"                id="WZVtolRailGunSecondary"/>
+    <CWeaponLegacy parent="ScavVtolMachinegun"           id="ScavVtolMachinegunSecondary"/>
+    <CWeaponLegacy parent="ScavVtolMiniRocket"           id="ScavVtolMiniRocketSecondary"/>
+    <CWeaponLegacy parent="WZHeavyRocketBastion"           id="WZHeavyRocketBastionSecondary"/>
+    <!--        <CWeaponLegacy parent="WZLaserSatelliteCommandPost"  id="WZLaserSatelliteCommandPostSecondary"/>-->
+
+    <CWeaponLegacy parent="WZTankLightMachinegunTargeted"       id="WZTankLightMachinegunSecondaryTargeted"      />
+    <CWeaponLegacy parent="WZTankTwinMachinegunTargeted"        id="WZTankTwinMachinegunSecondaryTargeted"       />
+    <CWeaponLegacy parent="WZTankHeavyMachinegunTargeted"       id="WZTankHeavyMachinegunSecondaryTargeted"      />
+    <CWeaponLegacy parent="WZTankAssaultGunTargeted"            id="WZTankAssaultGunSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZTankTwinAssaultGunTargeted"        id="WZTankTwinAssaultGunSecondaryTargeted"       />
+    <CWeaponLegacy parent="WZTankFlamerTargeted"                id="WZTankFlamerSecondaryTargeted"               />
+    <CWeaponLegacy parent="WZTankInfernoTargeted"               id="WZTankInfernoSecondaryTargeted"              />
+    <CWeaponLegacy parent="WZTankPlasmiteFlamerTargeted"        id="WZTankPlasmiteFlamerSecondaryTargeted"       />
+    <CWeaponLegacy parent="WZTankHeavyPlasmaLauncherTargeted"   id="WZTankHeavyPlasmaLauncherSecondaryTargeted"  />
+    <CWeaponLegacy parent="WZTankLightCannonTargeted"           id="WZTankLightCannonSecondaryTargeted"          />
+    <CWeaponLegacy parent="WZTankMediumCannonTargeted"          id="WZTankMediumCannonSecondaryTargeted"         />
+    <CWeaponLegacy parent="WZTankHyperVelocityCannonTargeted"   id="WZTankHyperVelocityCannonSecondaryTargeted"  />
+    <CWeaponLegacy parent="WZTankAACycloneFlakCannonTargeted"   id="WZTankAACycloneFlakCannonSecondaryTargeted"  />
+    <CWeaponLegacy parent="WZTankAssaultCannonTargeted"         id="WZTankAssaultCannonSecondaryTargeted"        />
+    <CWeaponLegacy parent="WZTankHeavyCannonTargeted"           id="WZTankHeavyCannonSecondaryTargeted"          />
+    <CWeaponLegacy parent="WZTankTwinAssaultCannonTargeted"     id="WZTankTwinAssaultCannonSecondaryTargeted"    />
+    <CWeaponLegacy parent="WZTankPlasmaCannonTargeted"          id="WZTankPlasmaCannonSecondaryTargeted"         />
+    <CWeaponLegacy parent="WZTankAATornadoFlakCannonTargeted"   id="WZTankAATornadoFlakCannonSecondaryTargeted"  />
+    <CWeaponLegacy parent="WZTankMiniRocketPodTargeted"         id="WZTankMiniRocketPodSecondaryTargeted"        />
+    <CWeaponLegacy parent="WZTankMiniRocketArrayTargeted"       id="WZTankMiniRocketArraySecondaryTargeted"      />
+    <CWeaponLegacy parent="WZTankLancerTargeted"                id="WZTankLancerSecondaryTargeted"               />
+    <CWeaponLegacy parent="WZTankBunkerBusterTargeted"          id="WZTankBunkerBusterSecondaryTargeted"         />
+    <CWeaponLegacy parent="WZTankSunburstAATargeted"            id="WZTankSunburstAASecondaryTargeted"           />
+    <CWeaponLegacy parent="WZTankRippleRocketsTargeted"         id="WZTankRippleRocketsSecondaryTargeted"        />
+    <CWeaponLegacy parent="WZTankHeavyRocketArrayTargeted"      id="WZTankHeavyRocketArraySecondaryTargeted"     />
+    <CWeaponLegacy parent="WZTankTankKillerTargeted"            id="WZTankTankKillerSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZTankMortarTargeted"                id="WZTankMortarSecondaryTargeted"               />
+    <CWeaponLegacy parent="WZTankBombardTargeted"               id="WZTankBombardSecondaryTargeted"              />
+    <CWeaponLegacy parent="WZTankPepperpotTargeted"             id="WZTankPepperpotSecondaryTargeted"            />
+    <CWeaponLegacy parent="WZTankIncendiaryMortarTargeted"      id="WZTankIncendiaryMortarSecondaryTargeted"     />
+    <CWeaponLegacy parent="WZTankHurricaneAATargeted"           id="WZTankHurricaneAASecondaryTargeted"          />
+    <CWeaponLegacy parent="WZTankWhirlwindAATargeted"           id="WZTankWhirlwindAASecondaryTargeted"          />
+    <CWeaponLegacy parent="WZTankHowitzerTargeted"              id="WZTankHowitzerSecondaryTargeted"             />
+    <CWeaponLegacy parent="WZTankIncendiaryHowitzerTargeted"    id="WZTankIncendiaryHowitzerSecondaryTargeted"   />
+    <CWeaponLegacy parent="WZTankHellstormTargeted"             id="WZTankHellstormSecondaryTargeted"            />
+    <CWeaponLegacy parent="WZTankGroundShakerTargeted"          id="WZTankGroundShakerSecondaryTargeted"         />
+    <CWeaponLegacy parent="WZTankFlashlightTargeted"            id="WZTankFlashlightSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZTankPulseLaserTargeted"            id="WZTankPulseLaserSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZTankStormbringerAALaserTargeted"   id="WZTankStormbringerAALaserSecondaryTargeted"  />
+    <CWeaponLegacy parent="WZTankHeavyLaserTargeted"            id="WZTankHeavyLaserSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZTankNeedleGunTargeted"             id="WZTankNeedleGunSecondaryTargeted"            />
+    <CWeaponLegacy parent="WZTankRailGunTargeted"               id="WZTankRailGunSecondaryTargeted"              />
+    <CWeaponLegacy parent="WZTankGaussCannonTargeted"           id="WZTankGaussCannonSecondaryTargeted"          />
+    <CWeaponLegacy parent="WZTankScourgeMissileTargeted"        id="WZTankScourgeMissileSecondaryTargeted"       />
+    <CWeaponLegacy parent="WZTankAvengerSAMTargeted"            id="WZTankAvengerSAMSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZTankSeraphMissileArrayTargeted"    id="WZTankSeraphMissileArraySecondaryTargeted"   />
+    <CWeaponLegacy parent="WZTankArchangelMissileTargeted"      id="WZTankArchangelMissileSecondaryTargeted"     />
+    <CWeaponLegacy parent="WZTankVindicatorSAMTargeted"         id="WZTankVindicatorSAMSecondaryTargeted"        />
+    <CWeaponLegacy parent="WZTankNexusLinkTargeted"             id="WZTankNexusLinkSecondaryTargeted"            />
+    <CWeaponLegacy parent="WZTankEMPCannonTargeted"             id="WZTankEMPCannonSecondaryTargeted"            />
+    <CWeaponLegacy parent="WZTankEMPMortarTargeted"             id="WZTankEMPMortarSecondaryTargeted"            />
+    <CWeaponLegacy parent="WZTankCommandTargeted"               id="WZTankCommandSecondaryTargeted"              />
+    <CWeaponLegacy parent="WZVtolClusterBombBayTargeted"        id="WZVtolClusterBombBaySecondaryTargeted"       />
+    <CWeaponLegacy parent="WZVtolHeapBombBayTargeted"           id="WZVtolHeapBombBaySecondaryTargeted"          />
+    <CWeaponLegacy parent="WZVtolEMPMissileLauncherTargeted"    id="WZVtolEMPMissileLauncherSecondaryTargeted"   />
+    <CWeaponLegacy parent="WZVtolPlasmiteBombBayTargeted"       id="WZVtolPlasmiteBombBaySecondaryTargeted"      />
+    <CWeaponLegacy parent="WZVtolPhosphorBombBayTargeted"       id="WZVtolPhosphorBombBaySecondaryTargeted"      />
+    <CWeaponLegacy parent="WZVtolThermiteBombBayTargeted"       id="WZVtolThermiteBombBaySecondaryTargeted"      />
+    <CWeaponLegacy parent="WZFortressCannonTargeted"            id="WZFortressCannonSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZFortressMassDriverTargeted"        id="WZFortressMassDriverSecondaryTargeted"       />
+    <CWeaponLegacy parent="WZFortressMissileTargeted"           id="WZFortressMissileSecondaryTargeted"          />
+    <CWeaponLegacy parent="WZHeavyGunnerWeaponTargeted"         id="WZHeavyGunnerWeaponSecondaryTargeted"        />
+    <CWeaponLegacy parent="WZMachinegunnerWeaponTargeted"       id="WZMachinegunnerWeaponSecondaryTargeted"      />
+    <CWeaponLegacy parent="WZFlamerWeaponTargeted"              id="WZFlamerWeaponSecondaryTargeted"             />
+    <CWeaponLegacy parent="WZGrenadierWeaponTargeted"           id="WZGrenadierWeaponSecondaryTargeted"          />
+    <CWeaponLegacy parent="WZLancerWeaponTargeted"              id="WZLancerWeaponSecondaryTargeted"             />
+    <CWeaponLegacy parent="WZThermiteFlamerWeaponTargeted"      id="WZThermiteFlamerWeaponSecondaryTargeted"     />
+    <CWeaponLegacy parent="WZAssaultGunnerWeaponTargeted"       id="WZAssaultGunnerWeaponSecondaryTargeted"      />
+    <CWeaponLegacy parent="WZFlashlightGunnerWeaponTargeted"    id="WZFlashlightGunnerWeaponSecondaryTargeted"   />
+    <CWeaponLegacy parent="WZNeedleGunnerWeaponTargeted"        id="WZNeedleGunnerWeaponSecondaryTargeted"       />
+    <CWeaponLegacy parent="WZSuperHeavyGunnerWeaponTargeted"    id="WZSuperHeavyGunnerWeaponSecondaryTargeted"   />
+    <CWeaponLegacy parent="WZSuperAutoCannonWeaponTargeted"     id="WZSuperAutoCannonWeaponSecondaryTargeted"    />
+    <CWeaponLegacy parent="WZSuperHVCWeaponTargeted"            id="WZSuperHVCWeaponSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZSuperTankKillerWeaponTargeted"     id="WZSuperTankKillerWeaponSecondaryTargeted"    />
+    <CWeaponLegacy parent="WZSuperScourgeWeaponTargeted"        id="WZSuperScourgeWeaponSecondaryTargeted"       />
+    <CWeaponLegacy parent="WZSuperPulseLaserWeaponTargeted"     id="WZSuperPulseLaserWeaponSecondaryTargeted"    />
+    <CWeaponLegacy parent="WZSuperRailGunnerWeaponTargeted"     id="WZSuperRailGunnerWeaponSecondaryTargeted"    />
+    <CWeaponLegacy parent="ScavMGTargeted"                      id="ScavMGSecondaryTargeted"                     />
+    <CWeaponLegacy parent="ScavCannonTargeted"                  id="ScavCannonSecondaryTargeted"                 />
+    <CWeaponLegacy parent="ScavFlamerTargeted"                  id="ScavFlamerSecondaryTargeted"                 />
+    <CWeaponLegacy parent="ScavRocketTargeted"                  id="ScavRocketSecondaryTargeted"                 />
+    <CWeaponLegacy parent="WZVtolSunburstAATargeted"            id="WZVtolSunburstAASecondaryTargeted"           />
+    <CWeaponLegacy parent="WZVtolMachinegunTargeted"            id="WZVtolMachinegunSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZVtolCannonTargeted"                id="WZVtolCannonSecondaryTargeted"               />
+    <CWeaponLegacy parent="WZVtolTwinMachinegunTargeted"        id="WZVtolTwinMachinegunSecondaryTargeted"       />
+    <CWeaponLegacy parent="WZVtolMiniRocketTargeted"            id="WZVtolMiniRocketSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZVtolHeavyMachinegunTargeted"       id="WZVtolHeavyMachinegunSecondaryTargeted"      />
+    <CWeaponLegacy parent="WZVtolLancerTargeted"                id="WZVtolLancerSecondaryTargeted"               />
+    <CWeaponLegacy parent="WZVtolHyperVelocityCannonTargeted"   id="WZVtolHyperVelocityCannonSecondaryTargeted"  />
+    <CWeaponLegacy parent="WZVtolBunkerBusterTargeted"          id="WZVtolBunkerBusterSecondaryTargeted"         />
+    <CWeaponLegacy parent="WZVtolAssaultGunTargeted"            id="WZVtolAssaultGunSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZVtolAssaultCannonTargeted"         id="WZVtolAssaultCannonSecondaryTargeted"        />
+    <CWeaponLegacy parent="WZVtolTankKillerTargeted"            id="WZVtolTankKillerSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZVtolFlashlightTargeted"            id="WZVtolFlashlightSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZVtolNeedleGunTargeted"             id="WZVtolNeedleGunSecondaryTargeted"            />
+    <CWeaponLegacy parent="WZVtolScourgeMissileTargeted"        id="WZVtolScourgeMissileSecondaryTargeted"       />
+    <CWeaponLegacy parent="WZVtolPulseLaserTargeted"            id="WZVtolPulseLaserSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZVtolHeavyLaserTargeted"            id="WZVtolHeavyLaserSecondaryTargeted"           />
+    <CWeaponLegacy parent="WZVtolRailGunTargeted"               id="WZVtolRailGunSecondaryTargeted"              />
+    <CWeaponLegacy parent="ScavVtolMachinegunTargeted"          id="ScavVtolMachinegunSecondaryTargeted"         />
+    <CWeaponLegacy parent="ScavVtolMiniRocketTargeted"          id="ScavVtolMiniRocketSecondaryTargeted"         />
+    <!--    <CWeaponLegacy parent="WZLaserSatelliteCommandPostTargeted" id="WZLaserSatelliteCommandPostSecondaryTargeted" />-->
+    <CWeaponLegacy parent="WZHeavyRocketBastionTargeted"          id="WZHeavyRocketBastionSecondaryTargeted"         />
+
+
+</Catalog>

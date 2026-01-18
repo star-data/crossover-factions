@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <!--Hide Upgrade If Research Already Started-->
+    <CRequirement default="1" id="WZLearnUpgrade">
+        <?token id="upgrade" type="CUpgradeLink"  value="Bogus"?>
+        <EditorCategories value="Race:WZ,TechType:Upgrade"/>
+        <NodeArray index="Show" Link="RN_##upgrade##"/>
+    </CRequirement>
+    <!--Allow Ability if Upgrade Complete-->
+    <CRequirement default="1" id="WZRequireUpgrade">
+        <?token id="upgrade" type="CUpgradeLink" value="Bogus"?>
+        <EditorCategories value="Race:WZ,TechType:Upgrade"/>
+        <NodeArray index="Use" Link="RC_##upgrade##"/>
+    </CRequirement>
+    <!--Unit Requirements-->
+<!--    <CRequirement default="1" id="WZRequirementUnit">-->
+<!--        <?token id="requirement" type="CRequirementNodeLink" value="Bogus"?>-->
+<!--        <EditorCategories value="Race:WZ,TechType:Unit"/>-->
+<!--        <CanBeSuppressed index="Use" value="0"/>-->
+<!--        <NodeArray index="Use" Link="##requirement##"/>-->
+<!--    </CRequirement>-->
+
+<!--    <CRequirement parent="WZRequirementUnit">-->
+<!--        <CanBeSuppressed index="Use" value="0"/>-->
+<!--        <NodeArray index="Use" Link="RC_NO##requirement##"/>-->
+<!--    </CRequirement>-->
+
+    <CRequirement id="DUHasBViper"><NodeArray index="Show" Link="BC_WZBViper"/></CRequirement>
+    <CRequirement id="DUHasBCobra"><NodeArray index="Show" Link="BC_WZBCobra"/></CRequirement>
+    <CRequirement id="DUHasBPython"><NodeArray index="Show" Link="BC_WZBPython"/></CRequirement>
+    <CRequirement id="DUHasBBug"><NodeArray index="Show" Link="BC_WZBBug"/></CRequirement>
+    <CRequirement id="DUHasBPanther"><NodeArray index="Show" Link="BC_WZBPanther"/></CRequirement>
+    <CRequirement id="DUHasBTiger"><NodeArray index="Show" Link="BC_WZBTiger"/></CRequirement>
+    <CRequirement id="DUHasBLeopard"><NodeArray index="Show" Link="BC_WZBLeopard"/></CRequirement>
+    <CRequirement id="DUHasBScorpion"><NodeArray index="Show" Link="BC_WZBScorpion"/></CRequirement>
+    <CRequirement id="DUHasBMantis"><NodeArray index="Show" Link="BC_WZBMantis"/></CRequirement>
+    <CRequirement id="DUHasBRetaliation"><NodeArray index="Show" Link="BC_WZBRetaliation"/></CRequirement>
+    <CRequirement id="DUHasBRetribution"><NodeArray index="Show" Link="BC_WZBRetribution"/></CRequirement>
+    <CRequirement id="DUHasBVengeance"><NodeArray index="Show" Link="BC_WZBVengeance"/></CRequirement>
+    <CRequirement id="DUHasBWyvern"><NodeArray index="Show" Link="BC_WZBWyvern"/></CRequirement>
+    <CRequirement id="DUHasBDragon"><NodeArray index="Show" Link="BC_WZBDragon"/></CRequirement>
+    <CRequirement id="DUHasPWheels"><NodeArray index="Show" Link="BC_WZPWheels"/></CRequirement>
+    <CRequirement id="DUHasPHalftracks"><NodeArray index="Show" Link="BC_WZPHalftracks"/></CRequirement>
+    <CRequirement id="DUHasPTracks"><NodeArray index="Show" Link="BC_WZPTracks"/></CRequirement>
+    <CRequirement id="DUHasPHover"><NodeArray index="Show" Link="BC_WZPHover"/></CRequirement>
+    <CRequirement id="DUHasPVtol"><NodeArray index="Show" Link="BC_WZPVtol"/></CRequirement>
+    <CRequirement id="DUHasPHeli"><NodeArray index="Show" Link="BC_WZPHeli"/></CRequirement>
+    <CRequirement id="DUHasPNaval"><NodeArray index="Show" Link="BC_WZPNaval"/></CRequirement>
+
+    <CRequirement id="DUHasTTankLightMachinegun"><NodeArray index="Show" Link="BC_WZTankLightMachinegun"/></CRequirement>
+    <CRequirement id="DUHasTTankTwinMachinegun"><NodeArray index="Show" Link="BC_WZTankTwinMachinegun"/></CRequirement>
+    <CRequirement id="DUHasTTankHeavyMachinegun"><NodeArray index="Show" Link="BC_WZTankHeavyMachinegun"/></CRequirement>
+    <CRequirement id="DUHasTTankAssaultGun"><NodeArray index="Show" Link="BC_WZTankAssaultGun"/></CRequirement>
+    <CRequirement id="DUHasTTankTwinAssaultGun"><NodeArray index="Show" Link="BC_WZTankTwinAssaultGun"/></CRequirement>
+    <CRequirement id="DUHasTTankFlamer"><NodeArray index="Show" Link="BC_WZTankFlamer"/></CRequirement>
+    <CRequirement id="DUHasTTankInferno"><NodeArray index="Show" Link="BC_WZTankInferno"/></CRequirement>
+    <CRequirement id="DUHasTTankPlasmiteFlamer"><NodeArray index="Show" Link="BC_WZTankPlasmiteFlamer"/></CRequirement>
+    <CRequirement id="DUHasTTankHeavyPlasmaLauncher"><NodeArray index="Show" Link="BC_WZTankHeavyPlasmaLauncher"/></CRequirement>
+    <CRequirement id="DUHasTTankLightCannon"><NodeArray index="Show" Link="BC_WZTankLightCannon"/></CRequirement>
+    <CRequirement id="DUHasTTankMediumCannon"><NodeArray index="Show" Link="BC_WZTankMediumCannon"/></CRequirement>
+    <CRequirement id="DUHasTTankHyperVelocityCannon"><NodeArray index="Show" Link="BC_WZTankHyperVelocityCannon"/></CRequirement>
+    <CRequirement id="DUHasTTankAACycloneFlakCannon"><NodeArray index="Show" Link="BC_WZTankAACycloneFlakCannon"/></CRequirement>
+    <CRequirement id="DUHasTTankAssaultCannon"><NodeArray index="Show" Link="BC_WZTankAssaultCannon"/></CRequirement>
+    <CRequirement id="DUHasTTankHeavyCannon"><NodeArray index="Show" Link="BC_WZTankHeavyCannon"/></CRequirement>
+    <CRequirement id="DUHasTTankTwinAssaultCannon"><NodeArray index="Show" Link="BC_WZTankTwinAssaultCannon"/></CRequirement>
+    <CRequirement id="DUHasTTankPlasmaCannon"><NodeArray index="Show" Link="BC_WZTankPlasmaCannon"/></CRequirement>
+    <CRequirement id="DUHasTTankAATornadoFlakCannon"><NodeArray index="Show" Link="BC_WZTankAATornadoFlakCannon"/></CRequirement>
+    <CRequirement id="DUHasTTankMiniRocketPod"><NodeArray index="Show" Link="BC_WZTankMiniRocketPod"/></CRequirement>
+    <CRequirement id="DUHasTTankMiniRocketArray"><NodeArray index="Show" Link="BC_WZTankMiniRocketArray"/></CRequirement>
+    <CRequirement id="DUHasTTankLancer"><NodeArray index="Show" Link="BC_WZTankLancer"/></CRequirement>
+    <CRequirement id="DUHasTTankBunkerBuster"><NodeArray index="Show" Link="BC_WZTankBunkerBuster"/></CRequirement>
+    <CRequirement id="DUHasTTankSunburstAA"><NodeArray index="Show" Link="BC_WZTankSunburstAA"/></CRequirement>
+    <CRequirement id="DUHasTTankRippleRockets"><NodeArray index="Show" Link="BC_WZTankRippleRockets"/></CRequirement>
+    <CRequirement id="DUHasTTankHeavyRocketArray"><NodeArray index="Show" Link="BC_WZTankHeavyRocketArray"/></CRequirement>
+    <CRequirement id="DUHasTTankTankKiller"><NodeArray index="Show" Link="BC_WZTankTankKiller"/></CRequirement>
+    <CRequirement id="DUHasTTankMortar"><NodeArray index="Show" Link="BC_WZTankMortar"/></CRequirement>
+    <CRequirement id="DUHasTTankBombard"><NodeArray index="Show" Link="BC_WZTankBombard"/></CRequirement>
+    <CRequirement id="DUHasTTankPepperpot"><NodeArray index="Show" Link="BC_WZTankPepperpot"/></CRequirement>
+    <CRequirement id="DUHasTTankIncendiaryMortar"><NodeArray index="Show" Link="BC_WZTankIncendiaryMortar"/></CRequirement>
+    <CRequirement id="DUHasTTankHurricaneAA"><NodeArray index="Show" Link="BC_WZTankHurricaneAA"/></CRequirement>
+    <CRequirement id="DUHasTTankWhirlwindAA"><NodeArray index="Show" Link="BC_WZTankWhirlwindAA"/></CRequirement>
+    <CRequirement id="DUHasTTankHowitzer"><NodeArray index="Show" Link="BC_WZTankHowitzer"/></CRequirement>
+    <CRequirement id="DUHasTTankIncendiaryHowitzer"><NodeArray index="Show" Link="BC_WZTankIncendiaryHowitzer"/></CRequirement>
+    <CRequirement id="DUHasTTankHellstorm"><NodeArray index="Show" Link="BC_WZTankHellstorm"/></CRequirement>
+    <CRequirement id="DUHasTTankGroundShaker"><NodeArray index="Show" Link="BC_WZTankGroundShaker"/></CRequirement>
+    <CRequirement id="DUHasTTankFlashlight"><NodeArray index="Show" Link="BC_WZTankFlashlight"/></CRequirement>
+    <CRequirement id="DUHasTTankPulseLaser"><NodeArray index="Show" Link="BC_WZTankPulseLaser"/></CRequirement>
+    <CRequirement id="DUHasTTankStormbringerAALaser"><NodeArray index="Show" Link="BC_WZTankStormbringerAALaser"/></CRequirement>
+    <CRequirement id="DUHasTTankHeavyLaser"><NodeArray index="Show" Link="BC_WZTankHeavyLaser"/></CRequirement>
+    <CRequirement id="DUHasTTankNeedleGun"><NodeArray index="Show" Link="BC_WZTankNeedleGun"/></CRequirement>
+    <CRequirement id="DUHasTTankRailGun"><NodeArray index="Show" Link="BC_WZTankRailGun"/></CRequirement>
+    <CRequirement id="DUHasTTankGaussCannon"><NodeArray index="Show" Link="BC_WZTankGaussCannon"/></CRequirement>
+    <CRequirement id="DUHasTTankScourgeMissile"><NodeArray index="Show" Link="BC_WZTankScourgeMissile"/></CRequirement>
+    <CRequirement id="DUHasTTankAvengerSAM"><NodeArray index="Show" Link="BC_WZTankAvengerSAM"/></CRequirement>
+    <CRequirement id="DUHasTTankSeraphMissileArray"><NodeArray index="Show" Link="BC_WZTankSeraphMissileArray"/></CRequirement>
+    <CRequirement id="DUHasTTankArchangelMissile"><NodeArray index="Show" Link="BC_WZTankArchangelMissile"/></CRequirement>
+    <CRequirement id="DUHasTTankVindicatorSAM"><NodeArray index="Show" Link="BC_WZTankVindicatorSAM"/></CRequirement>
+    <CRequirement id="DUHasTTankNexusLink"><NodeArray index="Show" Link="BC_WZTankNexusLink"/></CRequirement>
+    <CRequirement id="DUHasTTankEMPCannon"><NodeArray index="Show" Link="BC_WZTankEMPCannon"/></CRequirement>
+    <CRequirement id="DUHasTTankEMPMortar"><NodeArray index="Show" Link="BC_WZTankEMPMortar"/></CRequirement>
+    <CRequirement id="DUHasTTankSpade"><NodeArray index="Show" Link="BC_WZTankSpade"/></CRequirement>
+    <CRequirement id="DUHasTTankCommand"><NodeArray index="Show" Link="BC_WZTankCommand"/></CRequirement>
+    <CRequirement id="DUHasTTankCBRadar"><NodeArray index="Show" Link="BC_WZTankCBRadar"/></CRequirement>
+    <CRequirement id="DUHasTTankRadarDetector"><NodeArray index="Show" Link="BC_WZTankRadarDetector"/></CRequirement>
+    <CRequirement id="DUHasTTankSensor"><NodeArray index="Show" Link="BC_WZTankSensor"/></CRequirement>
+    <CRequirement id="DUHasTTankVtolCBRadar"><NodeArray index="Show" Link="BC_WZTankVtolCBRadar"/></CRequirement>
+    <CRequirement id="DUHasTTankVtolStrike"><NodeArray index="Show" Link="BC_WZTankVtolStrike"/></CRequirement>
+    <CRequirement id="DUHasTTankWideSpectrumSensor"><NodeArray index="Show" Link="BC_WZTankWideSpectrumSensor"/></CRequirement>
+    <CRequirement id="DUHasTTankHeavyRepair"><NodeArray index="Show" Link="BC_WZTankHeavyRepair"/></CRequirement>
+    <CRequirement id="DUHasTTankRepair"><NodeArray index="Show" Link="BC_WZTankRepair"/></CRequirement>
+    <CRequirement id="DUHasTVtolClusterBombBay"><NodeArray index="Show" Link="BC_WZVtolClusterBombBay"/></CRequirement>
+    <CRequirement id="DUHasTVtolHeapBombBay"><NodeArray index="Show" Link="BC_WZVtolHeapBombBay"/></CRequirement>
+    <CRequirement id="DUHasTVtolEMPMissileLauncher"><NodeArray index="Show" Link="BC_WZVtolEMPMissileLauncher"/></CRequirement>
+    <CRequirement id="DUHasTVtolPlasmiteBombBay"><NodeArray index="Show" Link="BC_WZVtolPlasmiteBombBay"/></CRequirement>
+    <CRequirement id="DUHasTVtolPhosphorBombBay"><NodeArray index="Show" Link="BC_WZVtolPhosphorBombBay"/></CRequirement>
+    <CRequirement id="DUHasTVtolThermiteBombBay"><NodeArray index="Show" Link="BC_WZVtolThermiteBombBay"/></CRequirement>
+    <CRequirement id="DUHasTVtolSunburstAA"><NodeArray index="Show" Link="BC_WZVtolSunburstAA"/></CRequirement>
+    <CRequirement id="DUHasTVtolMachinegun"><NodeArray index="Show" Link="BC_WZVtolMachinegun"/></CRequirement>
+    <CRequirement id="DUHasTVtolCannon"><NodeArray index="Show" Link="BC_WZVtolCannon"/></CRequirement>
+    <CRequirement id="DUHasTVtolTwinMachinegun"><NodeArray index="Show" Link="BC_WZVtolTwinMachinegun"/></CRequirement>
+    <CRequirement id="DUHasTVtolMiniRocket"><NodeArray index="Show" Link="BC_WZVtolMiniRocket"/></CRequirement>
+    <CRequirement id="DUHasTVtolHeavyMachinegun"><NodeArray index="Show" Link="BC_WZVtolHeavyMachinegun"/></CRequirement>
+    <CRequirement id="DUHasTVtolLancer"><NodeArray index="Show" Link="BC_WZVtolLancer"/></CRequirement>
+    <CRequirement id="DUHasTVtolHyperVelocityCannon"><NodeArray index="Show" Link="BC_WZVtolHyperVelocityCannon"/></CRequirement>
+    <CRequirement id="DUHasTVtolBunkerBuster"><NodeArray index="Show" Link="BC_WZVtolBunkerBuster"/></CRequirement>
+    <CRequirement id="DUHasTVtolAssaultGun"><NodeArray index="Show" Link="BC_WZVtolAssaultGun"/></CRequirement>
+    <CRequirement id="DUHasTVtolAssaultCannon"><NodeArray index="Show" Link="BC_WZVtolAssaultCannon"/></CRequirement>
+    <CRequirement id="DUHasTVtolTankKiller"><NodeArray index="Show" Link="BC_WZVtolTankKiller"/></CRequirement>
+    <CRequirement id="DUHasTVtolFlashlight"><NodeArray index="Show" Link="BC_WZVtolFlashlight"/></CRequirement>
+    <CRequirement id="DUHasTVtolNeedleGun"><NodeArray index="Show" Link="BC_WZVtolNeedleGun"/></CRequirement>
+    <CRequirement id="DUHasTVtolScourgeMissile"><NodeArray index="Show" Link="BC_WZVtolScourgeMissile"/></CRequirement>
+    <CRequirement id="DUHasTVtolPulseLaser"><NodeArray index="Show" Link="BC_WZVtolPulseLaser"/></CRequirement>
+    <CRequirement id="DUHasTVtolHeavyLaser"><NodeArray index="Show" Link="BC_WZVtolHeavyLaser"/></CRequirement>
+    <CRequirement id="DUHasTVtolRailGun"><NodeArray index="Show" Link="BC_WZVtolRailGun"/></CRequirement>
+    <CRequirement id="DUHasTavVtolMachinegun"><NodeArray index="Show" Link="BC_ScavVtolMachinegun"/></CRequirement>
+    <CRequirement id="DUHasTavVtolMiniRocket"><NodeArray index="Show" Link="BC_ScavVtolMiniRocket"/></CRequirement>
+    <CRequirement id="DUHasTHeavyGunnerWeapon"><NodeArray index="Show" Link="BC_WZHeavyGunnerWeapon"/></CRequirement>
+    <CRequirement id="DUHasTMachinegunnerWeapon"><NodeArray index="Show" Link="BC_WZMachinegunnerWeapon"/></CRequirement>
+    <CRequirement id="DUHasTFlamerWeapon"><NodeArray index="Show" Link="BC_WZFlamerWeapon"/></CRequirement>
+    <CRequirement id="DUHasTGrenadierWeapon"><NodeArray index="Show" Link="BC_WZGrenadierWeapon"/></CRequirement>
+    <CRequirement id="DUHasTLancerWeapon"><NodeArray index="Show" Link="BC_WZLancerWeapon"/></CRequirement>
+    <CRequirement id="DUHasTThermiteFlamerWeapon"><NodeArray index="Show" Link="BC_WZThermiteFlamerWeapon"/></CRequirement>
+    <CRequirement id="DUHasTAssaultGunnerWeapon"><NodeArray index="Show" Link="BC_WZAssaultGunnerWeapon"/></CRequirement>
+    <CRequirement id="DUHasTFlashlightGunnerWeapon"><NodeArray index="Show" Link="BC_WZFlashlightGunnerWeapon"/></CRequirement>
+    <CRequirement id="DUHasTNeedleGunnerWeapon"><NodeArray index="Show" Link="BC_WZNeedleGunnerWeapon"/></CRequirement>
+    <CRequirement id="DUHasTSuperHeavyGunnerWeapon"><NodeArray index="Show" Link="BC_WZSuperHeavyGunnerWeapon"/></CRequirement>
+    <CRequirement id="DUHasTSuperAutoCannonWeapon"><NodeArray index="Show" Link="BC_WZSuperAutoCannonWeapon"/></CRequirement>
+    <CRequirement id="DUHasTSuperHVCWeapon"><NodeArray index="Show" Link="BC_WZSuperHVCWeapon"/></CRequirement>
+    <CRequirement id="DUHasTSuperTankKillerWeapon"><NodeArray index="Show" Link="BC_WZSuperTankKillerWeapon"/></CRequirement>
+    <CRequirement id="DUHasTSuperScourgeWeapon"><NodeArray index="Show" Link="BC_WZSuperScourgeWeapon"/></CRequirement>
+    <CRequirement id="DUHasTSuperPulseLaserWeapon"><NodeArray index="Show" Link="BC_WZSuperPulseLaserWeapon"/></CRequirement>
+    <CRequirement id="DUHasTSuperRailGunnerWeapon"><NodeArray index="Show" Link="BC_WZSuperRailGunnerWeapon"/></CRequirement>
+    <CRequirement id="DUHasTavMG"><NodeArray index="Show" Link="BC_ScavMG"/></CRequirement>
+    <CRequirement id="DUHasTavCannon"><NodeArray index="Show" Link="BC_ScavCannon"/></CRequirement>
+    <CRequirement id="DUHasTavFlamer"><NodeArray index="Show" Link="BC_ScavFlamer"/></CRequirement>
+    <CRequirement id="DUHasTavRocket"><NodeArray index="Show" Link="BC_ScavRocket"/></CRequirement>
+    <CRequirement id="DUHasTFortressCannon"><NodeArray index="Show" Link="BC_WZFortressCannon"/></CRequirement>
+    <CRequirement id="DUHasTFortressMassDriver"><NodeArray index="Show" Link="BC_WZFortressMassDriver"/></CRequirement>
+    <CRequirement id="DUHasTFortressMissile"><NodeArray index="Show" Link="BC_WZFortressMissile"/></CRequirement>
+    <CRequirement id="DUHasTHeavyRocketBastion"><NodeArray index="Show" Link="BC_WZHeavyRocketBastion"/></CRequirement>
+
+    <CRequirement id="WZRepairFacility" parent="WZRequireUpgrade" upgrade="WZRepairFacility"/>
+    <CRequirement id="WZCommandRelayPost" parent="WZRequireUpgrade" upgrade="WZCommandRelayPost"/>
+    <CRequirement id="WZFactoryModule" parent="WZRequireUpgrade" upgrade="WZFactoryModule"/>
+    <CRequirement id="WZResearchModule" parent="WZRequireUpgrade" upgrade="WZResearchModule"/>
+    <CRequirement id="WZWarFactory" parent="WZRequireUpgrade" upgrade="WZWarFactory"/>
+    <CRequirement id="WZVTOLFactory" parent="WZRequireUpgrade" upgrade="WZVTOLFactory"/>
+    <CRequirement id="WZVTOLRearmingPad" parent="WZRequireUpgrade" upgrade="WZVTOLRearmingPad"/>
+    <CRequirement id="WZSatelliteUplinkCenter" parent="WZRequireUpgrade" upgrade="WZSatelliteUplinkCenter"/>
+    <CRequirement id="WZLaserSatelliteCommandPost" parent="WZRequireUpgrade" upgrade="WZLaserSatelliteCommandPost"/>
+    <CRequirement id="WZLightBodyViper" parent="WZRequireUpgrade" upgrade="WZLightBodyViper"/>
+    <CRequirement id="WZLightBodyLeopard" parent="WZRequireUpgrade" upgrade="WZLightBodyLeopard"/>
+    <CRequirement id="WZLightBodyRetaliation" parent="WZRequireUpgrade" upgrade="WZLightBodyRetaliation"/>
+    <CRequirement id="WZLightBodyBug" parent="WZRequireUpgrade" upgrade="WZLightBodyBug"/>
+    <CRequirement id="WZMediumBodyCobra" parent="WZRequireUpgrade" upgrade="WZMediumBodyCobra"/>
+    <CRequirement id="WZMediumBodyPanther" parent="WZRequireUpgrade" upgrade="WZMediumBodyPanther"/>
+    <CRequirement id="WZMediumBodyRetribution" parent="WZRequireUpgrade" upgrade="WZMediumBodyRetribution"/>
+    <CRequirement id="WZMediumBodyScorpion" parent="WZRequireUpgrade" upgrade="WZMediumBodyScorpion"/>
+    <CRequirement id="WZHeavyBodyTiger" parent="WZRequireUpgrade" upgrade="WZHeavyBodyTiger"/>
+    <CRequirement id="WZHeavyBodyVengeance" parent="WZRequireUpgrade" upgrade="WZHeavyBodyVengeance"/>
+    <CRequirement id="WZHeavyBodyPython" parent="WZRequireUpgrade" upgrade="WZHeavyBodyPython"/>
+    <CRequirement id="WZHeavyBodyMantis" parent="WZRequireUpgrade" upgrade="WZHeavyBodyMantis"/>
+    <CRequirement id="WZHeavyBodyWyvern" parent="WZRequireUpgrade" upgrade="WZHeavyBodyWyvern"/>
+    <CRequirement id="WZMultiTurretBodyDragon" parent="WZRequireUpgrade" upgrade="WZMultiTurretBodyDragon"/>
+    <CRequirement id="WZCyborgTransport" parent="WZRequireUpgrade" upgrade="WZCyborgTransport"/>
+    <CRequirement id="WZSuperTransport" parent="WZRequireUpgrade" upgrade="WZSuperTransport"/>
+    <CRequirement id="WZCyborgFactory" parent="WZRequireUpgrade" upgrade="WZCyborgFactory"/>
+    <CRequirement id="WZWheeledPropulsion" parent="WZRequireUpgrade" upgrade="WZWheeledPropulsion"/>
+    <CRequirement id="WZHalftrackedPropulsion" parent="WZRequireUpgrade" upgrade="WZHalftrackedPropulsion"/>
+    <CRequirement id="WZTrackedPropulsion" parent="WZRequireUpgrade" upgrade="WZTrackedPropulsion"/>
+    <CRequirement id="WZHoverPropulsion" parent="WZRequireUpgrade" upgrade="WZHoverPropulsion"/>
+    <CRequirement id="WZVTOLPropulsion" parent="WZRequireUpgrade" upgrade="WZVTOLPropulsion"/>
+    <CRequirement id="WZHeliPropulsion" parent="WZRequireUpgrade" upgrade="WZHeliPropulsion"/>
+    <CRequirement id="WZNavalPropulsion" parent="WZRequireUpgrade" upgrade="WZNavalPropulsion"/>
+    <CRequirement id="WZAutoRepair" parent="WZRequireUpgrade" upgrade="WZAutoRepair"/>
+    <CRequirement id="WZSuperScourgeCyborg" parent="WZRequireUpgrade" upgrade="WZSuperScourgeCyborg"/>
+    <CRequirement id="WZSuperAutoCannonCyborg" parent="WZRequireUpgrade" upgrade="WZSuperAutoCannonCyborg"/>
+    <CRequirement id="WZSuperHVCCyborg" parent="WZRequireUpgrade" upgrade="WZSuperHVCCyborg"/>
+    <CRequirement id="WZSuperHeavyGunner" parent="WZRequireUpgrade" upgrade="WZSuperHeavyGunner"/>
+    <CRequirement id="WZSuperPulseLaserCyborg" parent="WZRequireUpgrade" upgrade="WZSuperPulseLaserCyborg"/>
+    <CRequirement id="WZSuperRailGunner" parent="WZRequireUpgrade" upgrade="WZSuperRailGunner"/>
+    <CRequirement id="WZSuperTankKillerCyborg" parent="WZRequireUpgrade" upgrade="WZSuperTankKillerCyborg"/>
+    <CRequirement id="WZConstructionUnit" parent="WZRequireUpgrade" upgrade="WZConstructionUnit"/>
+    <CRequirement id="WZCommandTurret" parent="WZRequireUpgrade" upgrade="WZCommandTurret"/>
+    <CRequirement id="WZMobileRepairTurret" parent="WZRequireUpgrade" upgrade="WZMobileRepairTurret"/>
+    <CRequirement id="WZHeavyRepairTurret" parent="WZRequireUpgrade" upgrade="WZHeavyRepairTurret"/>
+    <CRequirement id="WZCBTurret" parent="WZRequireUpgrade" upgrade="WZCBTurret"/>
+    <CRequirement id="WZRadarDetector" parent="WZRequireUpgrade" upgrade="WZRadarDetector"/>
+    <CRequirement id="WZSensorTurret" parent="WZRequireUpgrade" upgrade="WZSensorTurret"/>
+    <CRequirement id="WZWideSpectrumSensor" parent="WZRequireUpgrade" upgrade="WZWideSpectrumSensor"/>
+    <CRequirement id="WZNexusLinkTurret" parent="WZRequireUpgrade" upgrade="WZNexusLinkTurret"/>
+    <CRequirement id="WZVTOLCBTurret" parent="WZRequireUpgrade" upgrade="WZVTOLCBTurret"/>
+    <CRequirement id="WZVTOLStrikeTurret" parent="WZRequireUpgrade" upgrade="WZVTOLStrikeTurret"/>
+    <CRequirement id="WZAACycloneFlakCannon" parent="WZRequireUpgrade" upgrade="WZAACycloneFlakCannon"/>
+    <CRequirement id="WZAATornadoFlakCannon" parent="WZRequireUpgrade" upgrade="WZAATornadoFlakCannon"/>
+    <CRequirement id="WZHurricaneAATurret" parent="WZRequireUpgrade" upgrade="WZHurricaneAATurret"/>
+    <CRequirement id="WZWhirlwindAATurret" parent="WZRequireUpgrade" upgrade="WZWhirlwindAATurret"/>
+    <CRequirement id="WZStormbringerAALaser" parent="WZRequireUpgrade" upgrade="WZStormbringerAALaser"/>
+    <CRequirement id="WZClusterBombBay" parent="WZRequireUpgrade" upgrade="WZClusterBombBay"/>
+    <CRequirement id="WZHEAPBombBay" parent="WZRequireUpgrade" upgrade="WZHEAPBombBay"/>
+    <CRequirement id="WZPhosphorBombBay" parent="WZRequireUpgrade" upgrade="WZPhosphorBombBay"/>
+    <CRequirement id="WZThermiteBombBay" parent="WZRequireUpgrade" upgrade="WZThermiteBombBay"/>
+    <CRequirement id="WZPlasmiteBomb" parent="WZRequireUpgrade" upgrade="WZPlasmiteBomb"/>
+    <CRequirement id="WZEMPMissileLauncher" parent="WZRequireUpgrade" upgrade="WZEMPMissileLauncher"/>
+    <CRequirement id="WZLightCannon" parent="WZRequireUpgrade" upgrade="WZLightCannon"/>
+    <CRequirement id="WZMediumCannon" parent="WZRequireUpgrade" upgrade="WZMediumCannon"/>
+    <CRequirement id="WZHeavyCannon" parent="WZRequireUpgrade" upgrade="WZHeavyCannon"/>
+    <CRequirement id="WZHyperVelocityCannon" parent="WZRequireUpgrade" upgrade="WZHyperVelocityCannon"/>
+    <CRequirement id="WZAssaultCannon" parent="WZRequireUpgrade" upgrade="WZAssaultCannon"/>
+    <CRequirement id="WZTwinAssaultCannon" parent="WZRequireUpgrade" upgrade="WZTwinAssaultCannon"/>
+    <CRequirement id="WZEMPCannon" parent="WZRequireUpgrade" upgrade="WZEMPCannon"/>
+    <CRequirement id="WZHeavyFlamerInferno" parent="WZRequireUpgrade" upgrade="WZHeavyFlamerInferno"/>
+    <CRequirement id="WZFlamer" parent="WZRequireUpgrade" upgrade="WZFlamer"/>
+    <CRequirement id="WZHeavyPlasmaLauncher" parent="WZRequireUpgrade" upgrade="WZHeavyPlasmaLauncher"/>
+    <CRequirement id="WZIncendiaryHowitzer" parent="WZRequireUpgrade" upgrade="WZIncendiaryHowitzer"/>
+    <CRequirement id="WZMachinegun" parent="WZRequireUpgrade" upgrade="WZMachinegun"/>
+    <CRequirement id="WZTwinMachinegun" parent="WZRequireUpgrade" upgrade="WZTwinMachinegun"/>
+    <CRequirement id="WZHeavyMachinegun" parent="WZRequireUpgrade" upgrade="WZHeavyMachinegun"/>
+    <CRequirement id="WZAssaultGun" parent="WZRequireUpgrade" upgrade="WZAssaultGun"/>
+    <CRequirement id="WZTwinAssaultGun" parent="WZRequireUpgrade" upgrade="WZTwinAssaultGun"/>
+    <CRequirement id="WZSeraphMissileArray" parent="WZRequireUpgrade" upgrade="WZSeraphMissileArray"/>
+    <CRequirement id="WZVindicatorSAM" parent="WZRequireUpgrade" upgrade="WZVindicatorSAM"/>
+    <CRequirement id="WZAvengerSAM" parent="WZRequireUpgrade" upgrade="WZAvengerSAM"/>
+    <CRequirement id="WZScourgeMissile" parent="WZRequireUpgrade" upgrade="WZScourgeMissile"/>
+    <CRequirement id="WZLancerATRocket" parent="WZRequireUpgrade" upgrade="WZLancerATRocket"/>
+    <CRequirement id="WZMiniRocketArray" parent="WZRequireUpgrade" upgrade="WZMiniRocketArray"/>
+    <CRequirement id="WZHeavyRocketArray" parent="WZRequireUpgrade" upgrade="WZHeavyRocketArray"/>
+    <CRequirement id="WZBunkerBusterRocket" parent="WZRequireUpgrade" upgrade="WZBunkerBusterRocket"/>
+    <CRequirement id="WZMiniRocketPod" parent="WZRequireUpgrade" upgrade="WZMiniRocketPod"/>
+    <CRequirement id="WZRippleRockets" parent="WZRequireUpgrade" upgrade="WZRippleRockets"/>
+    <CRequirement id="WZTankKillerRocket" parent="WZRequireUpgrade" upgrade="WZTankKillerRocket"/>
+    <CRequirement id="WZSunburstAARocketArray" parent="WZRequireUpgrade" upgrade="WZSunburstAARocketArray"/>
+    <CRequirement id="WZMortar" parent="WZRequireUpgrade" upgrade="WZMortar"/>
+    <CRequirement id="WZHeavyMortarBombard" parent="WZRequireUpgrade" upgrade="WZHeavyMortarBombard"/>
+    <CRequirement id="WZRotaryMortarPepperpot" parent="WZRequireUpgrade" upgrade="WZRotaryMortarPepperpot"/>
+    <CRequirement id="WZEMPMortar" parent="WZRequireUpgrade" upgrade="WZEMPMortar"/>
+    <CRequirement id="WZPlasmaCannon" parent="WZRequireUpgrade" upgrade="WZPlasmaCannon"/>
+    <CRequirement id="WZPlasmiteFlamer" parent="WZRequireUpgrade" upgrade="WZPlasmiteFlamer"/>
+    <CRequirement id="WZNeedleGun" parent="WZRequireUpgrade" upgrade="WZNeedleGun"/>
+    <CRequirement id="WZRailGun" parent="WZRequireUpgrade" upgrade="WZRailGun"/>
+    <CRequirement id="WZGaussCannon" parent="WZRequireUpgrade" upgrade="WZGaussCannon"/>
+    <CRequirement id="WZRotaryHowitzerHellstorm" parent="WZRequireUpgrade" upgrade="WZRotaryHowitzerHellstorm"/>
+    <CRequirement id="WZHowitzer" parent="WZRequireUpgrade" upgrade="WZHowitzer"/>
+    <CRequirement id="WZArchangelMissile" parent="WZRequireUpgrade" upgrade="WZArchangelMissile"/>
+    <CRequirement id="WZHeavyHowitzerGroundShaker" parent="WZRequireUpgrade" upgrade="WZHeavyHowitzerGroundShaker"/>
+    <CRequirement id="WZHeavyLaser" parent="WZRequireUpgrade" upgrade="WZHeavyLaser"/>
+    <CRequirement id="WZLaserFlashlight" parent="WZRequireUpgrade" upgrade="WZLaserFlashlight"/>
+    <CRequirement id="WZPulseLaser" parent="WZRequireUpgrade" upgrade="WZPulseLaser"/>
+    <CRequirement id="WZIncendiaryMortar" parent="WZRequireUpgrade" upgrade="WZIncendiaryMortar"/>
+    <CRequirement id="WZFuelInjectionEngine" parent="WZRequireUpgrade" upgrade="WZFuelInjectionEngine"/>
+    <CRequirement id="WZFuelInjectionEngineMk2" parent="WZRequireUpgrade" upgrade="WZFuelInjectionEngineMk2"/>
+    <CRequirement id="WZFuelInjectionEngineMk3" parent="WZRequireUpgrade" upgrade="WZFuelInjectionEngineMk3"/>
+    <CRequirement id="WZTurboChargedEngine" parent="WZRequireUpgrade" upgrade="WZTurboChargedEngine"/>
+    <CRequirement id="WZTurboChargedEngineMk2" parent="WZRequireUpgrade" upgrade="WZTurboChargedEngineMk2"/>
+    <CRequirement id="WZTurboChargedEngineMk3" parent="WZRequireUpgrade" upgrade="WZTurboChargedEngineMk3"/>
+    <CRequirement id="WZGasTurbineEngine" parent="WZRequireUpgrade" upgrade="WZGasTurbineEngine"/>
+    <CRequirement id="WZGasTurbineEngineMk2" parent="WZRequireUpgrade" upgrade="WZGasTurbineEngineMk2"/>
+    <CRequirement id="WZGasTurbineEngineMk3" parent="WZRequireUpgrade" upgrade="WZGasTurbineEngineMk3"/>
+    <CRequirement id="WZStormbringerEmplacement" parent="WZRequireUpgrade" upgrade="WZStormbringerEmplacement"/>
+    <CRequirement id="WZAACycloneFlakCannonEmplacement" parent="WZRequireUpgrade" upgrade="WZAACycloneFlakCannonEmplacement"/>
+    <CRequirement id="WZAATornadoFlakCannonEmplacement" parent="WZRequireUpgrade" upgrade="WZAATornadoFlakCannonEmplacement"/>
+    <CRequirement id="WZHurricaneAASite" parent="WZRequireUpgrade" upgrade="WZHurricaneAASite"/>
+    <CRequirement id="WZWhirlwindAASite" parent="WZRequireUpgrade" upgrade="WZWhirlwindAASite"/>
+    <CRequirement id="WZTwinAssaultCannonBunker" parent="WZRequireUpgrade" upgrade="WZTwinAssaultCannonBunker"/>
+    <CRequirement id="WZEMPCannonHardpoint" parent="WZRequireUpgrade" upgrade="WZEMPCannonHardpoint"/>
+    <CRequirement id="WZEMPMortarPit" parent="WZRequireUpgrade" upgrade="WZEMPMortarPit"/>
+    <CRequirement id="WZHyperVelocityCannonEmplacement" parent="WZRequireUpgrade" upgrade="WZHyperVelocityCannonEmplacement"/>
+    <CRequirement id="WZScourgeMissileTower" parent="WZRequireUpgrade" upgrade="WZScourgeMissileTower"/>
+    <CRequirement id="WZNeedleGunTower" parent="WZRequireUpgrade" upgrade="WZNeedleGunTower"/>
+    <CRequirement id="WZHardcreteGate" parent="WZRequireUpgrade" upgrade="WZHardcreteGate"/>
+    <CRequirement id="WZHardcrete" parent="WZRequireUpgrade" upgrade="WZHardcrete"/>
+    <CRequirement id="WZHeavyLaserEmplacement" parent="WZRequireUpgrade" upgrade="WZHeavyLaserEmplacement"/>
+    <CRequirement id="WZHeavyPlasmaLauncherEmplacement" parent="WZRequireUpgrade" upgrade="WZHeavyPlasmaLauncherEmplacement"/>
+    <CRequirement id="WZHowitzerEmplacement" parent="WZRequireUpgrade" upgrade="WZHowitzerEmplacement"/>
+    <CRequirement id="WZIncendiaryHowitzerEmplacement" parent="WZRequireUpgrade" upgrade="WZIncendiaryHowitzerEmplacement"/>
+    <CRequirement id="WZTankKillerEmplacement" parent="WZRequireUpgrade" upgrade="WZTankKillerEmplacement"/>
+    <CRequirement id="WZArchangelMissileBattery" parent="WZRequireUpgrade" upgrade="WZArchangelMissileBattery"/>
+    <CRequirement id="WZInfernoBunker" parent="WZRequireUpgrade" upgrade="WZInfernoBunker"/>
+    <CRequirement id="WZGroundShakerEmplacement" parent="WZRequireUpgrade" upgrade="WZGroundShakerEmplacement"/>
+    <CRequirement id="WZBombardPit" parent="WZRequireUpgrade" upgrade="WZBombardPit"/>
+    <CRequirement id="WZRippleRocketBattery" parent="WZRequireUpgrade" upgrade="WZRippleRocketBattery"/>
+    <CRequirement id="WZMiniRocketBattery" parent="WZRequireUpgrade" upgrade="WZMiniRocketBattery"/>
+    <CRequirement id="WZHeavyRocketBattery" parent="WZRequireUpgrade" upgrade="WZHeavyRocketBattery"/>
+    <CRequirement id="WZMassDriverFortress" parent="WZRequireUpgrade" upgrade="WZMassDriverFortress"/>
+    <CRequirement id="WZSeraphMissileBattery" parent="WZRequireUpgrade" upgrade="WZSeraphMissileBattery"/>
+    <CRequirement id="WZMortarPit" parent="WZRequireUpgrade" upgrade="WZMortarPit"/>
+    <CRequirement id="WZIncendiaryMortarPit" parent="WZRequireUpgrade" upgrade="WZIncendiaryMortarPit"/>
+    <CRequirement id="WZHeavyMachinegunBunker" parent="WZRequireUpgrade" upgrade="WZHeavyMachinegunBunker"/>
+    <CRequirement id="WZLightCannonBunker" parent="WZRequireUpgrade" upgrade="WZLightCannonBunker"/>
+    <CRequirement id="WZFlamerBunker" parent="WZRequireUpgrade" upgrade="WZFlamerBunker"/>
+    <CRequirement id="WZLancerTower" parent="WZRequireUpgrade" upgrade="WZLancerTower"/>
+    <CRequirement id="WZPlasmaCannonEmplacement" parent="WZRequireUpgrade" upgrade="WZPlasmaCannonEmplacement"/>
+    <CRequirement id="WZPlasmiteFlamerBunker" parent="WZRequireUpgrade" upgrade="WZPlasmiteFlamerBunker"/>
+    <CRequirement id="WZFlashlightEmplacement" parent="WZRequireUpgrade" upgrade="WZFlashlightEmplacement"/>
+    <CRequirement id="WZPulseLaserTower" parent="WZRequireUpgrade" upgrade="WZPulseLaserTower"/>
+    <CRequirement id="WZRailGunEmplacement" parent="WZRequireUpgrade" upgrade="WZRailGunEmplacement"/>
+    <CRequirement id="WZGaussCannonEmplacement" parent="WZRequireUpgrade" upgrade="WZGaussCannonEmplacement"/>
+    <CRequirement id="WZHellstormEmplacement" parent="WZRequireUpgrade" upgrade="WZHellstormEmplacement"/>
+    <CRequirement id="WZRotaryMGBunker" parent="WZRequireUpgrade" upgrade="WZRotaryMGBunker"/>
+    <CRequirement id="WZPepperpotPit" parent="WZRequireUpgrade" upgrade="WZPepperpotPit"/>
+    <CRequirement id="WZAvengerSAMSite" parent="WZRequireUpgrade" upgrade="WZAvengerSAMSite"/>
+    <CRequirement id="WZVindicatorSAMSite" parent="WZRequireUpgrade" upgrade="WZVindicatorSAMSite"/>
+    <CRequirement id="WZSunburstAASite" parent="WZRequireUpgrade" upgrade="WZSunburstAASite"/>
+    <CRequirement id="WZCannonFortress" parent="WZRequireUpgrade" upgrade="WZCannonFortress"/>
+    <CRequirement id="WZMissileFortress" parent="WZRequireUpgrade" upgrade="WZMissileFortress"/>
+    <CRequirement id="WZHeavyRocketBastion" parent="WZRequireUpgrade" upgrade="WZHeavyRocketBastion"/>
+    <CRequirement id="WZTankTraps" parent="WZRequireUpgrade" upgrade="WZTankTraps"/>
+    <CRequirement id="WZHeavyMachinegunGuardTower" parent="WZRequireUpgrade" upgrade="WZHeavyMachinegunGuardTower"/>
+    <CRequirement id="WZMiniRocketTower" parent="WZRequireUpgrade" upgrade="WZMiniRocketTower"/>
+    <CRequirement id="WZAssaultGunHardpoint" parent="WZRequireUpgrade" upgrade="WZAssaultGunHardpoint"/>
+    <CRequirement id="WZAssaultCannonHardpoint" parent="WZRequireUpgrade" upgrade="WZAssaultCannonHardpoint"/>
+    <CRequirement id="WZScourgeMissileHardpoint" parent="WZRequireUpgrade" upgrade="WZScourgeMissileHardpoint"/>
+    <CRequirement id="WZAACycloneFlakCannonHardpoint" parent="WZRequireUpgrade" upgrade="WZAACycloneFlakCannonHardpoint"/>
+    <CRequirement id="WZAATornadoFlakCannonHardpoint" parent="WZRequireUpgrade" upgrade="WZAATornadoFlakCannonHardpoint"/>
+    <CRequirement id="WZHyperVelocityCannonHardpoint" parent="WZRequireUpgrade" upgrade="WZHyperVelocityCannonHardpoint"/>
+    <CRequirement id="WZTankKillerHardpoint" parent="WZRequireUpgrade" upgrade="WZTankKillerHardpoint"/>
+    <CRequirement id="WZPulseLaserHardpoint" parent="WZRequireUpgrade" upgrade="WZPulseLaserHardpoint"/>
+    <CRequirement id="WZWhirlwindHardpoint" parent="WZRequireUpgrade" upgrade="WZWhirlwindHardpoint"/>
+    <CRequirement id="WZRailGunHardpoint" parent="WZRequireUpgrade" upgrade="WZRailGunHardpoint"/>
+    <CRequirement id="WZGaussCannonHardpoint" parent="WZRequireUpgrade" upgrade="WZGaussCannonHardpoint"/>
+    <CRequirement id="WZVindicatorHardpoint" parent="WZRequireUpgrade" upgrade="WZVindicatorHardpoint"/>
+    <CRequirement id="WZAvengerHardpoint" parent="WZRequireUpgrade" upgrade="WZAvengerHardpoint"/>
+    <CRequirement id="WZTwinAssaultGunHardpoint" parent="WZRequireUpgrade" upgrade="WZTwinAssaultGunHardpoint"/>
+    <CRequirement id="WZHeavyMachinegunHardpoint" parent="WZRequireUpgrade" upgrade="WZHeavyMachinegunHardpoint"/>
+    <CRequirement id="WZLightCannonHardpoint" parent="WZRequireUpgrade" upgrade="WZLightCannonHardpoint"/>
+    <CRequirement id="WZMediumCannonHardpoint" parent="WZRequireUpgrade" upgrade="WZMediumCannonHardpoint"/>
+    <CRequirement id="WZHeavyCannonHardpoint" parent="WZRequireUpgrade" upgrade="WZHeavyCannonHardpoint"/>
+    <CRequirement id="WZLancerHardpoint" parent="WZRequireUpgrade" upgrade="WZLancerHardpoint"/>
+    <CRequirement id="WZCBTower" parent="WZRequireUpgrade" upgrade="WZCBTower"/>
+    <CRequirement id="WZSensorTower" parent="WZRequireUpgrade" upgrade="WZSensorTower"/>
+    <CRequirement id="WZHardenedSensorTower" parent="WZRequireUpgrade" upgrade="WZHardenedSensorTower"/>
+    <CRequirement id="WZWideSpectrumSensorTower" parent="WZRequireUpgrade" upgrade="WZWideSpectrumSensorTower"/>
+    <CRequirement id="WZNexusLinkTower" parent="WZRequireUpgrade" upgrade="WZNexusLinkTower"/>
+    <CRequirement id="WZVTOLCBTower" parent="WZRequireUpgrade" upgrade="WZVTOLCBTower"/>
+    <CRequirement id="WZVTOLStrikeTower" parent="WZRequireUpgrade" upgrade="WZVTOLStrikeTower"/>
+    <CRequirement id="WZCommandTurretUpgrade" parent="WZRequireUpgrade" upgrade="WZCommandTurretUpgrade"/>
+    <CRequirement id="WZAutomatedRepairFacility" parent="WZRequireUpgrade" upgrade="WZAutomatedRepairFacility"/>
+    <CRequirement id="WZRoboticRepairFacility" parent="WZRequireUpgrade" upgrade="WZRoboticRepairFacility"/>
+    <CRequirement id="WZAdvancedRepairFacility" parent="WZRequireUpgrade" upgrade="WZAdvancedRepairFacility"/>
+    <CRequirement id="WZAutomatedVTOLRearming" parent="WZRequireUpgrade" upgrade="WZAutomatedVTOLRearming"/>
+    <CRequirement id="WZAutomatedVTOLRearmingMk2" parent="WZRequireUpgrade" upgrade="WZAutomatedVTOLRearmingMk2"/>
+    <CRequirement id="WZAutomatedVTOLRearmingMk3" parent="WZRequireUpgrade" upgrade="WZAutomatedVTOLRearmingMk3"/>
+    <CRequirement id="WZRoboticVTOLRearming" parent="WZRequireUpgrade" upgrade="WZRoboticVTOLRearming"/>
+    <CRequirement id="WZRoboticVTOLRearmingMk2" parent="WZRequireUpgrade" upgrade="WZRoboticVTOLRearmingMk2"/>
+    <CRequirement id="WZRoboticVTOLRearmingMk3" parent="WZRequireUpgrade" upgrade="WZRoboticVTOLRearmingMk3"/>
+    <CRequirement id="WZEngineering" parent="WZRequireUpgrade" upgrade="WZEngineering"/>
+    <CRequirement id="WZImprovedEngineering" parent="WZRequireUpgrade" upgrade="WZImprovedEngineering"/>
+    <CRequirement id="WZAdvancedEngineering" parent="WZRequireUpgrade" upgrade="WZAdvancedEngineering"/>
+    <CRequirement id="WZAutomatedManufacturing" parent="WZRequireUpgrade" upgrade="WZAutomatedManufacturing"/>
+    <CRequirement id="WZRoboticManufacturing" parent="WZRequireUpgrade" upgrade="WZRoboticManufacturing"/>
+    <CRequirement id="WZAdvancedManufacturing" parent="WZRequireUpgrade" upgrade="WZAdvancedManufacturing"/>
+    <CRequirement id="WZSelfReplicatingManufacturing" parent="WZRequireUpgrade" upgrade="WZSelfReplicatingManufacturing"/>
+    <CRequirement id="WZGasTurbineGenerator" parent="WZRequireUpgrade" upgrade="WZGasTurbineGenerator"/>
+    <CRequirement id="WZGasTurbineGeneratorMk2" parent="WZRequireUpgrade" upgrade="WZGasTurbineGeneratorMk2"/>
+    <CRequirement id="WZGasTurbineGeneratorMk3" parent="WZRequireUpgrade" upgrade="WZGasTurbineGeneratorMk3"/>
+    <CRequirement id="WZVaporTurbineGenerator" parent="WZRequireUpgrade" upgrade="WZVaporTurbineGenerator"/>
+    <CRequirement id="WZVaporTurbineGeneratorMk2" parent="WZRequireUpgrade" upgrade="WZVaporTurbineGeneratorMk2"/>
+    <CRequirement id="WZVaporTurbineGeneratorMk3" parent="WZRequireUpgrade" upgrade="WZVaporTurbineGeneratorMk3"/>
+    <CRequirement id="WZPowerModule" parent="WZRequireUpgrade" upgrade="WZPowerModule"/>
+    <CRequirement id="WZSynapticLinkDataAnalysis" parent="WZRequireUpgrade" upgrade="WZSynapticLinkDataAnalysis"/>
+    <CRequirement id="WZSynapticLinkDataAnalysisMk2" parent="WZRequireUpgrade" upgrade="WZSynapticLinkDataAnalysisMk2"/>
+    <CRequirement id="WZSynapticLinkDataAnalysisMk3" parent="WZRequireUpgrade" upgrade="WZSynapticLinkDataAnalysisMk3"/>
+    <CRequirement id="WZDedicatedSynapticLinkDataAnalysis" parent="WZRequireUpgrade" upgrade="WZDedicatedSynapticLinkDataAnalysis"/>
+    <CRequirement id="WZDedicatedSynapticLinkDataAnalysisMk2" parent="WZRequireUpgrade" upgrade="WZDedicatedSynapticLinkDataAnalysisMk2"/>
+    <CRequirement id="WZDedicatedSynapticLinkDataAnalysisMk3" parent="WZRequireUpgrade" upgrade="WZDedicatedSynapticLinkDataAnalysisMk3"/>
+    <CRequirement id="WZNeuralSynapseResearchBrain" parent="WZRequireUpgrade" upgrade="WZNeuralSynapseResearchBrain"/>
+    <CRequirement id="WZNeuralSynapseResearchBrainMk2" parent="WZRequireUpgrade" upgrade="WZNeuralSynapseResearchBrainMk2"/>
+    <CRequirement id="WZNeuralSynapseResearchBrainMk3" parent="WZRequireUpgrade" upgrade="WZNeuralSynapseResearchBrainMk3"/>
+    <CRequirement id="WZCyborgThermalArmor" parent="WZRequireUpgrade" upgrade="WZCyborgThermalArmor"/>
+    <CRequirement id="WZCyborgThermalArmorMk2" parent="WZRequireUpgrade" upgrade="WZCyborgThermalArmorMk2"/>
+    <CRequirement id="WZCyborgThermalArmorMk3" parent="WZRequireUpgrade" upgrade="WZCyborgThermalArmorMk3"/>
+    <CRequirement id="WZCyborgHighIntensityThermalArmor" parent="WZRequireUpgrade" upgrade="WZCyborgHighIntensityThermalArmor"/>
+    <CRequirement id="WZCyborgHighIntensityThermalArmorMk2" parent="WZRequireUpgrade" upgrade="WZCyborgHighIntensityThermalArmorMk2"/>
+    <CRequirement id="WZCyborgHighIntensityThermalArmorMk3" parent="WZRequireUpgrade" upgrade="WZCyborgHighIntensityThermalArmorMk3"/>
+    <CRequirement id="WZCyborgSuperdenseThermalArmor" parent="WZRequireUpgrade" upgrade="WZCyborgSuperdenseThermalArmor"/>
+    <CRequirement id="WZCyborgSuperdenseThermalArmorMk2" parent="WZRequireUpgrade" upgrade="WZCyborgSuperdenseThermalArmorMk2"/>
+    <CRequirement id="WZCyborgSuperdenseThermalArmorMk3" parent="WZRequireUpgrade" upgrade="WZCyborgSuperdenseThermalArmorMk3"/>
+    <CRequirement id="WZThermalArmor" parent="WZRequireUpgrade" upgrade="WZThermalArmor"/>
+    <CRequirement id="WZThermalArmorMk2" parent="WZRequireUpgrade" upgrade="WZThermalArmorMk2"/>
+    <CRequirement id="WZThermalArmorMk3" parent="WZRequireUpgrade" upgrade="WZThermalArmorMk3"/>
+    <CRequirement id="WZHighIntensityThermalArmor" parent="WZRequireUpgrade" upgrade="WZHighIntensityThermalArmor"/>
+    <CRequirement id="WZHighIntensityThermalArmorMk2" parent="WZRequireUpgrade" upgrade="WZHighIntensityThermalArmorMk2"/>
+    <CRequirement id="WZHighIntensityThermalArmorMk3" parent="WZRequireUpgrade" upgrade="WZHighIntensityThermalArmorMk3"/>
+    <CRequirement id="WZVehicleSuperdenseThermalArmor" parent="WZRequireUpgrade" upgrade="WZVehicleSuperdenseThermalArmor"/>
+    <CRequirement id="WZVehicleSuperdenseThermalArmorMk2" parent="WZRequireUpgrade" upgrade="WZVehicleSuperdenseThermalArmorMk2"/>
+    <CRequirement id="WZVehicleSuperdenseThermalArmorMk3" parent="WZRequireUpgrade" upgrade="WZVehicleSuperdenseThermalArmorMk3"/>
+    <CRequirement id="WZCyborgDenseCompositeAlloys" parent="WZRequireUpgrade" upgrade="WZCyborgDenseCompositeAlloys"/>
+    <CRequirement id="WZCyborgCompositeAlloys" parent="WZRequireUpgrade" upgrade="WZCyborgCompositeAlloys"/>
+    <CRequirement id="WZCyborgCompositeAlloysMk2" parent="WZRequireUpgrade" upgrade="WZCyborgCompositeAlloysMk2"/>
+    <CRequirement id="WZCyborgCompositeAlloysMk3" parent="WZRequireUpgrade" upgrade="WZCyborgCompositeAlloysMk3"/>
+    <CRequirement id="WZCyborgDenseCompositeAlloysMk2" parent="WZRequireUpgrade" upgrade="WZCyborgDenseCompositeAlloysMk2"/>
+    <CRequirement id="WZCyborgDenseCompositeAlloysMk3" parent="WZRequireUpgrade" upgrade="WZCyborgDenseCompositeAlloysMk3"/>
+    <CRequirement id="WZCyborgSuperdenseCompositeAlloys" parent="WZRequireUpgrade" upgrade="WZCyborgSuperdenseCompositeAlloys"/>
+    <CRequirement id="WZCyborgSuperdenseCompositeAlloysMk2" parent="WZRequireUpgrade" upgrade="WZCyborgSuperdenseCompositeAlloysMk2"/>
+    <CRequirement id="WZCyborgSuperdenseCompositeAlloysMk3" parent="WZRequireUpgrade" upgrade="WZCyborgSuperdenseCompositeAlloysMk3"/>
+    <CRequirement id="WZImprovedHardcrete" parent="WZRequireUpgrade" upgrade="WZImprovedHardcrete"/>
+    <CRequirement id="WZImprovedHardcreteMk2" parent="WZRequireUpgrade" upgrade="WZImprovedHardcreteMk2"/>
+    <CRequirement id="WZImprovedHardcreteMk3" parent="WZRequireUpgrade" upgrade="WZImprovedHardcreteMk3"/>
+    <CRequirement id="WZSupercrete" parent="WZRequireUpgrade" upgrade="WZSupercrete"/>
+    <CRequirement id="WZSupercreteMk2" parent="WZRequireUpgrade" upgrade="WZSupercreteMk2"/>
+    <CRequirement id="WZSupercreteMk3" parent="WZRequireUpgrade" upgrade="WZSupercreteMk3"/>
+    <CRequirement id="WZPlascrete" parent="WZRequireUpgrade" upgrade="WZPlascrete"/>
+    <CRequirement id="WZPlascreteMk2" parent="WZRequireUpgrade" upgrade="WZPlascreteMk2"/>
+    <CRequirement id="WZPlascreteMk3" parent="WZRequireUpgrade" upgrade="WZPlascreteMk3"/>
+    <CRequirement id="WZPlasteel" parent="WZRequireUpgrade" upgrade="WZPlasteel"/>
+    <CRequirement id="WZPlasteelMk2" parent="WZRequireUpgrade" upgrade="WZPlasteelMk2"/>
+    <CRequirement id="WZPlasteelMk3" parent="WZRequireUpgrade" upgrade="WZPlasteelMk3"/>
+    <CRequirement id="WZReinforcedBaseStructureMaterials" parent="WZRequireUpgrade" upgrade="WZReinforcedBaseStructureMaterials"/>
+    <CRequirement id="WZHardenedBaseStructureMaterials" parent="WZRequireUpgrade" upgrade="WZHardenedBaseStructureMaterials"/>
+    <CRequirement id="WZAdvancedBaseStructureMaterials" parent="WZRequireUpgrade" upgrade="WZAdvancedBaseStructureMaterials"/>
+    <CRequirement id="WZCompositeAlloys" parent="WZRequireUpgrade" upgrade="WZCompositeAlloys"/>
+    <CRequirement id="WZCompositeAlloysMk2" parent="WZRequireUpgrade" upgrade="WZCompositeAlloysMk2"/>
+    <CRequirement id="WZCompositeAlloysMk3" parent="WZRequireUpgrade" upgrade="WZCompositeAlloysMk3"/>
+    <CRequirement id="WZDenseCompositeAlloys" parent="WZRequireUpgrade" upgrade="WZDenseCompositeAlloys"/>
+    <CRequirement id="WZDenseCompositeAlloysMk2" parent="WZRequireUpgrade" upgrade="WZDenseCompositeAlloysMk2"/>
+    <CRequirement id="WZDenseCompositeAlloysMk3" parent="WZRequireUpgrade" upgrade="WZDenseCompositeAlloysMk3"/>
+    <CRequirement id="WZSuperdenseCompositeAlloys" parent="WZRequireUpgrade" upgrade="WZSuperdenseCompositeAlloys"/>
+    <CRequirement id="WZSuperdenseCompositeAlloysMk2" parent="WZRequireUpgrade" upgrade="WZSuperdenseCompositeAlloysMk2"/>
+    <CRequirement id="WZSuperdenseCompositeAlloysMk3" parent="WZRequireUpgrade" upgrade="WZSuperdenseCompositeAlloysMk3"/>
+    <CRequirement id="WZNexusResistanceCircuits" parent="WZRequireUpgrade" upgrade="WZNexusResistanceCircuits"/>
+    <CRequirement id="WZCannonLaserRangefinder" parent="WZRequireUpgrade" upgrade="WZCannonLaserRangefinder"/>
+    <CRequirement id="WZCannonLaserDesignator" parent="WZRequireUpgrade" upgrade="WZCannonLaserDesignator"/>
+    <CRequirement id="WZImprovedLaserFocusing" parent="WZRequireUpgrade" upgrade="WZImprovedLaserFocusing"/>
+    <CRequirement id="WZTargetAcquisitionArtilleryShells" parent="WZRequireUpgrade" upgrade="WZTargetAcquisitionArtilleryShells"/>
+    <CRequirement id="WZTargetAcquisitionArtilleryShellsMk2" parent="WZRequireUpgrade" upgrade="WZTargetAcquisitionArtilleryShellsMk2"/>
+    <CRequirement id="WZTargetPredictionArtilleryShells" parent="WZRequireUpgrade" upgrade="WZTargetPredictionArtilleryShells"/>
+    <CRequirement id="WZTargetPredictionMissiles" parent="WZRequireUpgrade" upgrade="WZTargetPredictionMissiles"/>
+    <CRequirement id="WZSearchDestroyMissiles" parent="WZRequireUpgrade" upgrade="WZSearchDestroyMissiles"/>
+    <CRequirement id="WZMortarTargetingComputer" parent="WZRequireUpgrade" upgrade="WZMortarTargetingComputer"/>
+    <CRequirement id="WZThermalImagingMortarShells" parent="WZRequireUpgrade" upgrade="WZThermalImagingMortarShells"/>
+    <CRequirement id="WZTargetAcquisitionMortarShells" parent="WZRequireUpgrade" upgrade="WZTargetAcquisitionMortarShells"/>
+    <CRequirement id="WZRailTargetPredictionComputer" parent="WZRequireUpgrade" upgrade="WZRailTargetPredictionComputer"/>
+    <CRequirement id="WZStabilizedRockets" parent="WZRequireUpgrade" upgrade="WZStabilizedRockets"/>
+    <CRequirement id="WZImprovedRocketWireGuidance" parent="WZRequireUpgrade" upgrade="WZImprovedRocketWireGuidance"/>
+    <CRequirement id="WZRocketLaserDesignator" parent="WZRequireUpgrade" upgrade="WZRocketLaserDesignator"/>
+    <CRequirement id="WZThermalImagingRockets" parent="WZRequireUpgrade" upgrade="WZThermalImagingRockets"/>
+    <CRequirement id="WZHowitzerAutoloaderMk3" parent="WZRequireUpgrade" upgrade="WZHowitzerAutoloaderMk3"/>
+    <CRequirement id="WZHowitzerFastLoader" parent="WZRequireUpgrade" upgrade="WZHowitzerFastLoader"/>
+    <CRequirement id="WZMortarAutoloader" parent="WZRequireUpgrade" upgrade="WZMortarAutoloader"/>
+    <CRequirement id="WZMortarAutoloaderMk2" parent="WZRequireUpgrade" upgrade="WZMortarAutoloaderMk2"/>
+    <CRequirement id="WZMortarAutoloaderMk3" parent="WZRequireUpgrade" upgrade="WZMortarAutoloaderMk3"/>
+    <CRequirement id="WZMortarFastLoader" parent="WZRequireUpgrade" upgrade="WZMortarFastLoader"/>
+    <CRequirement id="WZCannonAutoloader" parent="WZRequireUpgrade" upgrade="WZCannonAutoloader"/>
+    <CRequirement id="WZCannonAutoloaderMk2" parent="WZRequireUpgrade" upgrade="WZCannonAutoloaderMk2"/>
+    <CRequirement id="WZCannonAutoloaderMk3" parent="WZRequireUpgrade" upgrade="WZCannonAutoloaderMk3"/>
+    <CRequirement id="WZCannonRapidLoader" parent="WZRequireUpgrade" upgrade="WZCannonRapidLoader"/>
+    <CRequirement id="WZCannonRapidLoaderMk2" parent="WZRequireUpgrade" upgrade="WZCannonRapidLoaderMk2"/>
+    <CRequirement id="WZCannonRapidLoaderMk3" parent="WZRequireUpgrade" upgrade="WZCannonRapidLoaderMk3"/>
+    <CRequirement id="WZThermopoleEnergizer" parent="WZRequireUpgrade" upgrade="WZThermopoleEnergizer"/>
+    <CRequirement id="WZThermopoleEnergizerMk2" parent="WZRequireUpgrade" upgrade="WZThermopoleEnergizerMk2"/>
+    <CRequirement id="WZThermopoleEnergizerMk3" parent="WZRequireUpgrade" upgrade="WZThermopoleEnergizerMk3"/>
+    <CRequirement id="WZFlamerAutoloader" parent="WZRequireUpgrade" upgrade="WZFlamerAutoloader"/>
+    <CRequirement id="WZFlamerAutoloaderMk2" parent="WZRequireUpgrade" upgrade="WZFlamerAutoloaderMk2"/>
+    <CRequirement id="WZFlamerAutoloaderMk3" parent="WZRequireUpgrade" upgrade="WZFlamerAutoloaderMk3"/>
+    <CRequirement id="WZHowitzerAutoloader" parent="WZRequireUpgrade" upgrade="WZHowitzerAutoloader"/>
+    <CRequirement id="WZHowitzerAutoloaderMk2" parent="WZRequireUpgrade" upgrade="WZHowitzerAutoloaderMk2"/>
+    <CRequirement id="WZChaingunUpgrade" parent="WZRequireUpgrade" upgrade="WZChaingunUpgrade"/>
+    <CRequirement id="WZRapidFireChaingun" parent="WZRequireUpgrade" upgrade="WZRapidFireChaingun"/>
+    <CRequirement id="WZHyperFireChaingunUpgrade" parent="WZRequireUpgrade" upgrade="WZHyperFireChaingunUpgrade"/>
+    <CRequirement id="WZAdvancedMissileAllocationSystem" parent="WZRequireUpgrade" upgrade="WZAdvancedMissileAllocationSystem"/>
+    <CRequirement id="WZAdvancedMissileAllocationSystemMk2" parent="WZRequireUpgrade" upgrade="WZAdvancedMissileAllocationSystemMk2"/>
+    <CRequirement id="WZAdvancedMissileAllocationSystemMk3" parent="WZRequireUpgrade" upgrade="WZAdvancedMissileAllocationSystemMk3"/>
+    <CRequirement id="WZRailGunROF" parent="WZRequireUpgrade" upgrade="WZRailGunROF"/>
+    <CRequirement id="WZRailGunROFMk2" parent="WZRequireUpgrade" upgrade="WZRailGunROFMk2"/>
+    <CRequirement id="WZRailGunROFMk3" parent="WZRequireUpgrade" upgrade="WZRailGunROFMk3"/>
+    <CRequirement id="WZRocketAutoloader" parent="WZRequireUpgrade" upgrade="WZRocketAutoloader"/>
+    <CRequirement id="WZRocketAutoloaderMk2" parent="WZRequireUpgrade" upgrade="WZRocketAutoloaderMk2"/>
+    <CRequirement id="WZRocketAutoloaderMk3" parent="WZRequireUpgrade" upgrade="WZRocketAutoloaderMk3"/>
+    <CRequirement id="WZHEBombShells" parent="WZRequireUpgrade" upgrade="WZHEBombShells"/>
+    <CRequirement id="WZImprovedBombWarhead" parent="WZRequireUpgrade" upgrade="WZImprovedBombWarhead"/>
+    <CRequirement id="WZAdvancedBombWarhead" parent="WZRequireUpgrade" upgrade="WZAdvancedBombWarhead"/>
+    <CRequirement id="WZHEATCannonShells" parent="WZRequireUpgrade" upgrade="WZHEATCannonShells"/>
+    <CRequirement id="WZHEATCannonShellsMk2" parent="WZRequireUpgrade" upgrade="WZHEATCannonShellsMk2"/>
+    <CRequirement id="WZHEATCannonShellsMk3" parent="WZRequireUpgrade" upgrade="WZHEATCannonShellsMk3"/>
+    <CRequirement id="WZAPFSDSCannonRounds" parent="WZRequireUpgrade" upgrade="WZAPFSDSCannonRounds"/>
+    <CRequirement id="WZAPFSDSCannonRoundsMk2" parent="WZRequireUpgrade" upgrade="WZAPFSDSCannonRoundsMk2"/>
+    <CRequirement id="WZAPFSDSCannonRoundsMk3" parent="WZRequireUpgrade" upgrade="WZAPFSDSCannonRoundsMk3"/>
+    <CRequirement id="WZHVAPFSDSCannonRounds" parent="WZRequireUpgrade" upgrade="WZHVAPFSDSCannonRounds"/>
+    <CRequirement id="WZHVAPFSDSCannonRoundsMk2" parent="WZRequireUpgrade" upgrade="WZHVAPFSDSCannonRoundsMk2"/>
+    <CRequirement id="WZHVAPFSDSCannonRoundsMk3" parent="WZRequireUpgrade" upgrade="WZHVAPFSDSCannonRoundsMk3"/>
+    <CRequirement id="WZHiEnergyLaserEmitter" parent="WZRequireUpgrade" upgrade="WZHiEnergyLaserEmitter"/>
+    <CRequirement id="WZHiEnergyLaserEmitterMk2" parent="WZRequireUpgrade" upgrade="WZHiEnergyLaserEmitterMk2"/>
+    <CRequirement id="WZHiEnergyLaserEmitterMk3" parent="WZRequireUpgrade" upgrade="WZHiEnergyLaserEmitterMk3"/>
+    <CRequirement id="WZHighTemperatureFlamerGel" parent="WZRequireUpgrade" upgrade="WZHighTemperatureFlamerGel"/>
+    <CRequirement id="WZHighTemperatureFlamerGelMk2" parent="WZRequireUpgrade" upgrade="WZHighTemperatureFlamerGelMk2"/>
+    <CRequirement id="WZHighTemperatureFlamerGelMk3" parent="WZRequireUpgrade" upgrade="WZHighTemperatureFlamerGelMk3"/>
+    <CRequirement id="WZSuperhotFlamerGel" parent="WZRequireUpgrade" upgrade="WZSuperhotFlamerGel"/>
+    <CRequirement id="WZSuperhotFlamerGelMk2" parent="WZRequireUpgrade" upgrade="WZSuperhotFlamerGelMk2"/>
+    <CRequirement id="WZSuperhotFlamerGelMk3" parent="WZRequireUpgrade" upgrade="WZSuperhotFlamerGelMk3"/>
+    <CRequirement id="WZSuperhotPlasmiteGel" parent="WZRequireUpgrade" upgrade="WZSuperhotPlasmiteGel"/>
+    <CRequirement id="WZSuperhotPlasmiteGelMk2" parent="WZRequireUpgrade" upgrade="WZSuperhotPlasmiteGelMk2"/>
+    <CRequirement id="WZSuperhotPlasmiteGelMk3" parent="WZRequireUpgrade" upgrade="WZSuperhotPlasmiteGelMk3"/>
+    <CRequirement id="WZHEHowitzerShells" parent="WZRequireUpgrade" upgrade="WZHEHowitzerShells"/>
+    <CRequirement id="WZHEHowitzerShellsMk2" parent="WZRequireUpgrade" upgrade="WZHEHowitzerShellsMk2"/>
+    <CRequirement id="WZHEHowitzerShellsMk3" parent="WZRequireUpgrade" upgrade="WZHEHowitzerShellsMk3"/>
+    <CRequirement id="WZHEAPHowitzerShells" parent="WZRequireUpgrade" upgrade="WZHEAPHowitzerShells"/>
+    <CRequirement id="WZHEAPHowitzerShellsMk2" parent="WZRequireUpgrade" upgrade="WZHEAPHowitzerShellsMk2"/>
+    <CRequirement id="WZHEAPHowitzerShellsMk3" parent="WZRequireUpgrade" upgrade="WZHEAPHowitzerShellsMk3"/>
+    <CRequirement id="WZHardenedMGBullets" parent="WZRequireUpgrade" upgrade="WZHardenedMGBullets"/>
+    <CRequirement id="WZAPDSBMGBullets" parent="WZRequireUpgrade" upgrade="WZAPDSBMGBullets"/>
+    <CRequirement id="WZAPDSBMGBulletsMk2" parent="WZRequireUpgrade" upgrade="WZAPDSBMGBulletsMk2"/>
+    <CRequirement id="WZAPDSBMGBulletsMk3" parent="WZRequireUpgrade" upgrade="WZAPDSBMGBulletsMk3"/>
+    <CRequirement id="WZTungstenTippedMGBullets" parent="WZRequireUpgrade" upgrade="WZTungstenTippedMGBullets"/>
+    <CRequirement id="WZTungstenTippedMGBulletsMk2" parent="WZRequireUpgrade" upgrade="WZTungstenTippedMGBulletsMk2"/>
+    <CRequirement id="WZTungstenTippedMGBulletsMk3" parent="WZRequireUpgrade" upgrade="WZTungstenTippedMGBulletsMk3"/>
+    <CRequirement id="WZDepletedUraniumMGBullets" parent="WZRequireUpgrade" upgrade="WZDepletedUraniumMGBullets"/>
+    <CRequirement id="WZDepletedUraniumMGBulletsMk2" parent="WZRequireUpgrade" upgrade="WZDepletedUraniumMGBulletsMk2"/>
+    <CRequirement id="WZDepletedUraniumMGBulletsMk3" parent="WZRequireUpgrade" upgrade="WZDepletedUraniumMGBulletsMk3"/>
+    <CRequirement id="WZAdvancedMissileWarhead" parent="WZRequireUpgrade" upgrade="WZAdvancedMissileWarhead"/>
+    <CRequirement id="WZAdvancedMissileWarheadMk2" parent="WZRequireUpgrade" upgrade="WZAdvancedMissileWarheadMk2"/>
+    <CRequirement id="WZAdvancedMissileWarheadMk3" parent="WZRequireUpgrade" upgrade="WZAdvancedMissileWarheadMk3"/>
+    <CRequirement id="WZHEMortarShells" parent="WZRequireUpgrade" upgrade="WZHEMortarShells"/>
+    <CRequirement id="WZHEMortarShellsMk2" parent="WZRequireUpgrade" upgrade="WZHEMortarShellsMk2"/>
+    <CRequirement id="WZHEMortarShellsMk3" parent="WZRequireUpgrade" upgrade="WZHEMortarShellsMk3"/>
+    <CRequirement id="WZHEAPMortarShells" parent="WZRequireUpgrade" upgrade="WZHEAPMortarShells"/>
+    <CRequirement id="WZHEAPMortarShellsMk2" parent="WZRequireUpgrade" upgrade="WZHEAPMortarShellsMk2"/>
+    <CRequirement id="WZHEAPMortarShellsMk3" parent="WZRequireUpgrade" upgrade="WZHEAPMortarShellsMk3"/>
+    <CRequirement id="WZHardenedRailDart" parent="WZRequireUpgrade" upgrade="WZHardenedRailDart"/>
+    <CRequirement id="WZHardenedRailDartMk2" parent="WZRequireUpgrade" upgrade="WZHardenedRailDartMk2"/>
+    <CRequirement id="WZHardenedRailDartMk3" parent="WZRequireUpgrade" upgrade="WZHardenedRailDartMk3"/>
+    <CRequirement id="WZHERockets" parent="WZRequireUpgrade" upgrade="WZHERockets"/>
+    <CRequirement id="WZHERocketsMk2" parent="WZRequireUpgrade" upgrade="WZHERocketsMk2"/>
+    <CRequirement id="WZHERocketsMk3" parent="WZRequireUpgrade" upgrade="WZHERocketsMk3"/>
+    <CRequirement id="WZHEATRocketWarhead" parent="WZRequireUpgrade" upgrade="WZHEATRocketWarhead"/>
+    <CRequirement id="WZHEATRocketWarheadMk2" parent="WZRequireUpgrade" upgrade="WZHEATRocketWarheadMk2"/>
+    <CRequirement id="WZHEATRocketWarheadMk3" parent="WZRequireUpgrade" upgrade="WZHEATRocketWarheadMk3"/>
+    <CRequirement id="WZHESHRocketWarhead" parent="WZRequireUpgrade" upgrade="WZHESHRocketWarhead"/>
+    <CRequirement id="WZHESHRocketWarheadMk2" parent="WZRequireUpgrade" upgrade="WZHESHRocketWarheadMk2"/>
+    <CRequirement id="WZHESHRocketWarheadMk3" parent="WZRequireUpgrade" upgrade="WZHESHRocketWarheadMk3"/>
+    <CRequirement id="WZSensorUpgrade" parent="WZRequireUpgrade" upgrade="WZSensorUpgrade"/>
+    <CRequirement id="WZSensorUpgradeMk2" parent="WZRequireUpgrade" upgrade="WZSensorUpgradeMk2"/>
+    <CRequirement id="WZSensorUpgradeMk3" parent="WZRequireUpgrade" upgrade="WZSensorUpgradeMk3"/>
+
+
+
+    <CRequirement id="WZMobileRepairTurretAndWZFactoryModule"/>
+    <CRequirement id="WZCyborgFactoryAndWZPowerModule"/>
+    <CRequirement id="WZAutomatedManufacturingAndWZHoverPropulsionAndWZFuelInjectionEngineMk3"/>
+    <CRequirement id="WZWideSpectrumSensorAndWZAdvancedEngineering"/>
+    <CRequirement id="WZNeuralSynapseResearchBrainMk3AndWZSatelliteUplinkCenter"/>
+    <CRequirement id="WZSuperdenseCompositeAlloysAndWZTurboChargedEngineMk2"/>
+    <CRequirement id="WZLightBodyLeopardAndWZMediumBodyCobraAndWZDenseCompositeAlloys"/>
+    <CRequirement id="WZLightBodyRetaliationAndWZTurboChargedEngineMk3AndWZSuperdenseCompositeAlloysMk2"/>
+    <CRequirement id="WZLightBodyBugAndWZCompositeAlloysMk2"/>
+    <CRequirement id="WZHeavyBodyPythonAndWZMediumBodyPantherAndWZDenseCompositeAlloysMk2"/>
+    <CRequirement id="WZMediumBodyRetributionAndWZSuperdenseCompositeAlloysMk3AndWZGasTurbineEngine"/>
+    <CRequirement id="WZMediumBodyCobraAndWZCompositeAlloysMk2"/>
+    <CRequirement id="WZMediumBodyScorpionAndWZFuelInjectionEngineMk3"/>
+    <CRequirement id="WZGasTurbineEngineMk3AndWZHighIntensityThermalArmorMk3"/>
+    <CRequirement id="WZHalftrackedPropulsionAndWZCompositeAlloysMk2"/>
+    <CRequirement id="WZFuelInjectionEngineMk2AndWZFactoryModule"/>
+    <CRequirement id="WZCyborgDenseCompositeAlloysAndWZScourgeMissile"/>
+    <CRequirement id="WZAssaultCannonAndWZSuperHeavyGunner"/>
+    <CRequirement id="WZSuperHeavyGunnerAndWZHyperVelocityCannon"/>
+    <CRequirement id="WZCyborgDenseCompositeAlloysAndWZMediumCannon"/>
+    <CRequirement id="WZCyborgDenseCompositeAlloysAndWZPulseLaser"/>
+    <CRequirement id="WZCyborgDenseCompositeAlloysAndWZRailGun"/>
+    <CRequirement id="WZCyborgDenseCompositeAlloysAndWZTankKillerRocket"/>
+    <CRequirement id="WZSensorUpgradeAndWZMortarTargetingComputer"/>
+    <CRequirement id="WZNeuralSynapseResearchBrainAndWZVTOLCBTurret"/>
+    <CRequirement id="WZSensorUpgradeMk3AndWZCommandTurretUpgrade"/>
+    <CRequirement id="WZCBTurretAndWZVTOLStrikeTurretAndWZSensorUpgradeMk2"/>
+    <CRequirement id="WZVTOLRearmingPadAndWZSensorUpgrade"/>
+    <CRequirement id="WZAACycloneFlakCannonAndWZHeavyCannonAndWZNeuralSynapseResearchBrain"/>
+    <CRequirement id="WZHyperFireChaingunUpgradeAndWZHurricaneAATurretAndWZDedicatedSynapticLinkDataAnalysisMk3"/>
+    <CRequirement id="WZClusterBombBayAndWZHighTemperatureFlamerGelMk3"/>
+    <CRequirement id="WZSuperhotFlamerGelMk2AndWZPhosphorBombBay"/>
+    <CRequirement id="WZPlasmiteFlamerAndWZThermiteBombBay"/>
+    <CRequirement id="WZCommandTurretUpgradeAndWZAdvancedBombWarhead"/>
+    <CRequirement id="WZFactoryModuleAndWZHEATCannonShells"/>
+    <CRequirement id="WZAPFSDSCannonRoundsMk2AndWZCompositeAlloysMk3AndWZMediumCannon"/>
+    <CRequirement id="WZAssaultCannonAndWZDedicatedSynapticLinkDataAnalysisMk3"/>
+    <CRequirement id="WZCommandTurretUpgradeAndWZNeuralSynapseResearchBrainMk2"/>
+    <CRequirement id="WZSuperhotPlasmiteGelMk2AndWZPlasmaCannon"/>
+    <CRequirement id="WZIncendiaryMortarAndWZHowitzer"/>
+    <CRequirement id="WZHeavyMachinegunAndWZRapidFireChaingun"/>
+    <CRequirement id="WZDedicatedSynapticLinkDataAnalysisMk3AndWZAssaultGun"/>
+    <CRequirement id="WZScourgeMissileAndWZMiniRocketArray"/>
+    <CRequirement id="WZAdvancedMissileWarheadMk3AndWZAvengerSAM"/>
+    <CRequirement id="WZSensorUpgradeMk2AndWZScourgeMissile"/>
+    <CRequirement id="WZTankKillerRocketAndWZThermalImagingRocketsAndWZNeuralSynapseResearchBrain"/>
+    <CRequirement id="WZHEATRocketWarheadMk2AndWZMiniRocketArray"/>
+    <CRequirement id="WZSynapticLinkDataAnalysisMk3AndWZLancerATRocket"/>
+    <CRequirement id="WZMiniRocketArrayAndWZCBTurret"/>
+    <CRequirement id="WZRocketLaserDesignatorAndWZHEATRocketWarheadMk2"/>
+    <CRequirement id="WZCompositeAlloysAndWZHEMortarShellsMk2"/>
+    <CRequirement id="WZCommandTurretUpgradeAndWZSensorUpgradeMk3AndWZNeuralSynapseResearchBrainMk3"/>
+    <CRequirement id="WZHyperVelocityCannonAndWZHeavyFlamerInfernoAndWZDedicatedSynapticLinkDataAnalysisMk3"/>
+    <CRequirement id="WZHeavyFlamerInfernoAndWZNeuralSynapseResearchBrain"/>
+    <CRequirement id="WZHyperVelocityCannonAndWZNeuralSynapseResearchBrainAndWZHVAPFSDSCannonRoundsAndWZCannonLaserDesignator"/>
+    <CRequirement id="WZHowitzerAndWZRotaryMortarPepperpot"/>
+    <CRequirement id="WZHEAPMortarShellsAndWZSensorUpgradeAndWZDedicatedSynapticLinkDataAnalysisMk3"/>
+    <CRequirement id="WZSeraphMissileArrayAndWZAdvancedMissileWarheadMk2AndWZRippleRockets"/>
+    <CRequirement id="WZHEHowitzerShellsMk2AndWZHeavyMortarBombard"/>
+    <CRequirement id="WZNeuralSynapseResearchBrainAndWZSensorUpgradeMk2"/>
+    <CRequirement id="WZHEMortarShellsMk2AndWZHeavyFlamerInferno"/>
+    <CRequirement id="WZFuelInjectionEngineMk3AndWZDedicatedSynapticLinkDataAnalysis"/>
+    <CRequirement id="WZTurboChargedEngineMk3AndWZVTOLPropulsionAndWZSuperdenseCompositeAlloys"/>
+    <CRequirement id="WZMediumBodyRetributionAndWZGasTurbineEngine"/>
+    <CRequirement id="WZGasTurbineEngineMk2AndWZHeavyBodyVengeance"/>
+    <CRequirement id="WZWhirlwindAATurretAndWZHurricaneAASite"/>
+    <CRequirement id="WZSupercreteAndWZTwinAssaultCannon"/>
+    <CRequirement id="WZHowitzerEmplacementAndWZIncendiaryHowitzer"/>
+    <CRequirement id="WZHowitzerEmplacementAndWZHeavyHowitzerGroundShaker"/>
+    <CRequirement id="WZMortarPitAndWZHeavyMortarBombard"/>
+    <CRequirement id="WZRippleRocketsAndWZMiniRocketBattery"/>
+    <CRequirement id="WZMiniRocketArrayAndWZHardcrete"/>
+    <CRequirement id="WZHardcreteAndWZHeavyRocketArray"/>
+    <CRequirement id="WZGaussCannonAndWZRailGunROFMk3AndWZPlasteel"/>
+    <CRequirement id="WZHardcreteAndWZMortar"/>
+    <CRequirement id="WZIncendiaryMortarAndWZMortarPit"/>
+    <CRequirement id="WZHardcreteAndWZHardenedMGBullets"/>
+    <CRequirement id="WZHardcreteAndWZLightCannon"/>
+    <CRequirement id="WZHardcreteAndWZFlamer"/>
+    <CRequirement id="WZHardcreteAndWZLancerATRocket"/>
+    <CRequirement id="WZHowitzerEmplacementAndWZRotaryHowitzerHellstorm"/>
+    <CRequirement id="WZMortarPitAndWZRotaryMortarPepperpot"/>
+    <CRequirement id="WZAPFSDSCannonRoundsMk2AndWZSupercreteMk2"/>
+    <CRequirement id="WZPlasteelAndWZAdvancedMissileAllocationSystemMk3"/>
+    <CRequirement id="WZThermalImagingRocketsAndWZSupercreteMk2AndWZHESHRocketWarheadMk2"/>
+    <CRequirement id="WZHardcreteAndWZMiniRocketPod"/>
+    <CRequirement id="WZHeavyMachinegunBunkerAndWZHeavyMachinegun"/>
+    <CRequirement id="WZMediumCannonAndWZLightCannonHardpoint"/>
+    <CRequirement id="WZMediumCannonHardpointAndWZHeavyCannon"/>
+    <CRequirement id="WZLancerATRocketAndWZHardcrete"/>
+    <CRequirement id="WZCBTurretAndWZHardenedSensorTower"/>
+    <CRequirement id="WZHardcreteAndWZSensorTower"/>
+    <CRequirement id="WZWideSpectrumSensorAndWZHardenedSensorTower"/>
+    <CRequirement id="WZVTOLCBTurretAndWZHardenedSensorTower"/>
+    <CRequirement id="WZVTOLStrikeTurretAndWZHardenedSensorTower"/>
+    <CRequirement id="WZCommandTurretAndWZSensorUpgradeMk2AndWZNeuralSynapseResearchBrain"/>
+    <CRequirement id="WZAutomatedManufacturingAndWZRepairFacility"/>
+    <CRequirement id="WZAutomatedRepairFacilityAndWZRoboticManufacturing"/>
+    <CRequirement id="WZRoboticRepairFacilityAndWZAdvancedEngineering"/>
+    <CRequirement id="WZAutomatedVTOLRearmingMk3AndWZImprovedEngineering"/>
+    <CRequirement id="WZEngineeringAndWZDedicatedSynapticLinkDataAnalysis"/>
+    <CRequirement id="WZNeuralSynapseResearchBrainMk2AndWZImprovedEngineering"/>
+    <CRequirement id="WZAutomatedManufacturingAndWZSynapticLinkDataAnalysisMk3"/>
+    <CRequirement id="WZRoboticManufacturingAndWZAdvancedEngineering"/>
+    <CRequirement id="WZDedicatedSynapticLinkDataAnalysisAndWZPowerModule"/>
+    <CRequirement id="WZNeuralSynapseResearchBrainAndWZGasTurbineGeneratorMk3"/>
+    <CRequirement id="WZCyborgThermalArmorMk3AndWZCyborgDenseCompositeAlloysMk3"/>
+    <CRequirement id="WZThermalArmorMk3AndWZDenseCompositeAlloysMk3"/>
+    <CRequirement id="WZCyborgCompositeAlloysMk3AndWZDedicatedSynapticLinkDataAnalysis"/>
+    <CRequirement id="WZFactoryModuleAndWZResearchModule"/>
+    <CRequirement id="WZImprovedEngineeringAndWZImprovedHardcreteMk3"/>
+    <CRequirement id="WZSupercreteMk3AndWZAdvancedEngineering"/>
+    <CRequirement id="WZSupercreteAndWZReinforcedBaseStructureMaterials"/>
+    <CRequirement id="WZPlascreteAndWZHardenedBaseStructureMaterials"/>
+    <CRequirement id="WZDedicatedSynapticLinkDataAnalysisAndWZCompositeAlloysMk3"/>
+    <CRequirement id="WZNeuralSynapseResearchBrainAndWZDenseCompositeAlloysMk3"/>
+    <CRequirement id="WZNexusLinkTurretAndWZNeuralSynapseResearchBrainMk3"/>
+    <CRequirement id="WZHEATCannonShellsMk2AndWZSynapticLinkDataAnalysis"/>
+    <CRequirement id="WZDedicatedSynapticLinkDataAnalysisAndWZCannonLaserRangefinder"/>
+    <CRequirement id="WZSynapticLinkDataAnalysisMk2AndWZHEMortarShells"/>
+    <CRequirement id="WZSynapticLinkDataAnalysisAndWZHERocketsMk2"/>
+    <CRequirement id="WZHEATRocketWarheadAndWZStabilizedRockets"/>
+    <CRequirement id="WZRocketLaserDesignatorAndWZDedicatedSynapticLinkDataAnalysis"/>
+    <CRequirement id="WZMortarAutoloaderMk3AndWZCannonAutoloaderMk3"/>
+    <CRequirement id="WZRoboticManufacturingAndWZCannonAutoloader"/>
+    <CRequirement id="WZHVAPFSDSCannonRoundsAndWZCannonAutoloaderMk3"/>
+    <CRequirement id="WZHeavyFlamerInfernoAndWZFlamerAutoloader"/>
+    <CRequirement id="WZAutomatedManufacturingAndWZAPDSBMGBulletsMk2"/>
+    <CRequirement id="WZHERocketsMk2AndWZAutomatedManufacturing"/>
+    <CRequirement id="WZRocketAutoloaderAndWZHERocketsMk3"/>
+    <CRequirement id="WZHEMortarShellsMk2AndWZClusterBombBayAndWZDedicatedSynapticLinkDataAnalysis"/>
+    <CRequirement id="WZSuperhotFlamerGelMk3AndWZPlasmiteFlamer"/>
+    <CRequirement id="WZHEHowitzerShellsMk3AndWZHVAPFSDSCannonRounds"/>
+    <CRequirement id="WZTungstenTippedMGBulletsMk3AndWZDedicatedSynapticLinkDataAnalysisMk3"/>
+    <CRequirement id="WZDepletedUraniumMGBulletsAndWZNeuralSynapseResearchBrain"/>
+    <CRequirement id="WZDepletedUraniumMGBulletsMk2AndWZNeuralSynapseResearchBrainMk2"/>
+    <CRequirement id="WZSensorUpgradeAndWZDedicatedSynapticLinkDataAnalysisMk2"/>
+    <CRequirement id="WZSensorUpgradeMk2AndWZNeuralSynapseResearchBrain"/>
+
+
+
+    <CRequirement id="HasValidDesignUnit">
+        <NodeArray index="Use" Link="BC_WZTurretPrimaryAndWZPropulsionAndWZBody"/>
+        <NodeArray index="Show" Link="BC_DesignUnit"/>
+    </CRequirement>
+    <CRequirement id="HasDesignUnit"><NodeArray index="Show" Link="BC_DesignUnit"/></CRequirement>
+    <CRequirement id="HasNoDesignUnit"><NodeArray index="Show" Link="BN_DesignUnit"/></CRequirement>
+<!--    <CRequirement id="HadNoWZDesignTank"><NodeArray index="Use" Link="UN_WZDesignTank"/></CRequirement>-->
+
+    <CRequirement id="WZHiddenDesign"><NodeArray index="Show" Link="WZHiddenDesign"/></CRequirement>
+    <CRequirement id="WZLightBodyRequirements"/>
+    <CRequirement id="WZMediumBodyRequirements"><NodeArray index="Use" Link="BC_WZMediumFactoryModule"/></CRequirement>
+    <CRequirement id="WZHeavyBodyRequirements"><NodeArray index="Use" Link="BC_WZHeavyFactoryModule"/></CRequirement>
+    <CRequirement id="WZMassiveBodyRequirements"><NodeArray index="Use" Link="BC_WZHeavyFactoryModule"/></CRequirement>
+
+
+
+
+</Catalog>

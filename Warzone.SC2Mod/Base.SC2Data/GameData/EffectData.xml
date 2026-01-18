@@ -1,0 +1,1441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectDamage id="WZFusionCutter" parent="DU_WEAP">
+        <EditorCategories value="Race:WZ"/>
+        <Amount value="5"/>
+    </CEffectDamage>
+
+     <CEffectApplyBehavior id="WZEastAB"><WhichUnit Value="Target"/> <Behavior value="WZWallEast"/></CEffectApplyBehavior>
+     <CEffectApplyBehavior id="WZWestAB"><WhichUnit Value="Target"/> <Behavior value="WZWallWest"/></CEffectApplyBehavior>
+     <CEffectApplyBehavior id="WZNorthAB"><WhichUnit Value="Target"/> <Behavior value="WZWallNorth"/></CEffectApplyBehavior>
+     <CEffectApplyBehavior id="WZSouthAB"><WhichUnit Value="Target"/> <Behavior value="WZWallSouth"/></CEffectApplyBehavior>
+     <CEffectApplyBehavior id="WZEastSelfAB"><WhichUnit Value="Caster"/> <Behavior value="WZWallEast"/></CEffectApplyBehavior>
+     <CEffectApplyBehavior id="WZWestSelfAB"><WhichUnit Value="Caster"/> <Behavior value="WZWallWest"/></CEffectApplyBehavior>
+     <CEffectApplyBehavior id="WZNorthSelfAB"><WhichUnit Value="Caster"/> <Behavior value="WZWallNorth"/></CEffectApplyBehavior>
+     <CEffectApplyBehavior id="WZSouthSelfAB"><WhichUnit Value="Caster"/> <Behavior value="WZWallSouth"/></CEffectApplyBehavior>
+
+
+    <CEffectEnumArea id="WZWallSearchEast"><AreaRelativeOffset value="-1,0"/><AreaArray Radius="0.2" Effect="WZEastSet"/><SearchFilters value="Player;Self,Ally,Enemy,Hidden"/></CEffectEnumArea>
+    <CEffectEnumArea id="WZWallSearchWest"><AreaRelativeOffset value="1,0"/><AreaArray Radius="0.2" Effect="WZWestSet"/><SearchFilters value="Player;Self,Ally,Enemy,Hidden"/></CEffectEnumArea>
+    <CEffectEnumArea id="WZWallSearchNorth"><AreaRelativeOffset value="0,-1"/><AreaArray Radius="0.2" Effect="WZNorthSet"/><SearchFilters value="Player;Self,Ally,Enemy,Hidden"/></CEffectEnumArea>
+    <CEffectEnumArea id="WZWallSearchSouth"><AreaRelativeOffset value="0,1"/><AreaArray Radius="0.2" Effect="WZSouthSet"/><SearchFilters value="Player;Self,Ally,Enemy,Hidden"/></CEffectEnumArea>
+
+
+     <CEffectSet id="WZEastSet">
+         <ValidatorArray value="IsWZWall"/>
+         <EffectArray value="WZEastAB"/>
+         <EffectArray value="WZWestSelfAB"/>
+     </CEffectSet>
+     <CEffectSet id="WZWestSet">
+         <ValidatorArray value="IsWZWall"/>
+         <EffectArray value="WZWestAB"/>
+         <EffectArray value="WZEastSelfAB"/>
+     </CEffectSet>
+     <CEffectSet id="WZNorthSet">
+         <ValidatorArray value="IsWZWall"/>
+         <EffectArray value="WZNorthAB"/>
+         <EffectArray value="WZSouthSelfAB"/>
+     </CEffectSet>
+     <CEffectSet id="WZSouthSet">
+         <ValidatorArray value="IsWZWall"/>
+         <EffectArray value="WZSouthAB"/>
+         <EffectArray value="WZNorthSelfAB"/>
+     </CEffectSet>
+    <CEffectSet id="WZHardcreteWallCreateSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="WZWallSearchEast"/>
+        <EffectArray value="WZWallSearchWest"/>
+        <EffectArray value="WZWallSearchNorth"/>
+        <EffectArray value="WZWallSearchSouth"/>
+    </CEffectSet>
+
+
+    <CEffectModifyPlayer id="WZInitialUpgrade">
+        <Upgrades Upgrade="WZWarFactory" Count="1"/>
+        <Upgrades Upgrade="WZWheeledPropulsion" Count="1"/>
+        <Upgrades Upgrade="WZHoverPropulsion" Count="1"/>
+        <Upgrades Upgrade="WZVTOLPropulsion" Count="1"/>
+        <Upgrades Upgrade="WZLightBodyViper" Count="1"/>
+        <Upgrades Upgrade="WZMediumBodyCobra" Count="1"/>
+        <Upgrades Upgrade="WZHeavyBodyPython" Count="1"/>
+        <Upgrades Upgrade="WZEngineering" Count="1"/>
+        <Upgrades Upgrade="WZMachinegun" Count="1"/>
+        <Upgrades Upgrade="WZPulseLaser" Count="1"/>
+        <Upgrades Upgrade="WZFlamer" Count="1"/>
+        <Upgrades Upgrade="WZMortar" Count="1"/>
+        <Upgrades Upgrade="WZMiniRocketPod" Count="1"/>
+        <Upgrades Upgrade="WZLightCannon" Count="1"/>
+        <Upgrades Upgrade="WZNeedleGun" Count="1"/>
+        <WhichPlayer Value="Caster"/>
+        <EditorCategories value="Race:Terran"/>
+    </CEffectModifyPlayer>
+    <CEffectSet id="WZHQBirthSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="WZInitialUpgrade"/>
+        <!--        <ValidatorArray value="HasNoDesignDummies"/>-->
+    </CEffectSet>
+    <CEffectSet id="WZHQCreateSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="WZInitialUpgrade"/>
+        <!--        <ValidatorArray value="HasNoDesignDummies"/>-->
+    </CEffectSet>
+    <CEffectDamage id="FakeWeaponDummy" parent="DU_WEAP">
+        <ResponseFlags index="Acquire" value="0"/>
+        <ResponseFlags index="Flee" value="0"/>
+        <Visibility value="Hidden"/>
+        <Flags index="Notification" value="0"/>
+    </CEffectDamage>
+
+
+    <CEffectSet id="DesignUnitCancel"/>
+    <CEffectSet id="DesignUnitConfirm"/>
+    <CEffectSet default="1" id="DesignUnitSet">
+        <!--        <EffectArray value="DesignUnitAB"/>-->
+    </CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet1"> <!--EffectArray value="WZCreateDesignDummyUnit1"/><EffectArray value="DUSetActive1"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet2"> <!--EffectArray value="WZCreateDesignDummyUnit2"/><EffectArray value="DUSetActive2"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet3"> <!--EffectArray value="WZCreateDesignDummyUnit3"/><EffectArray value="DUSetActive3"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet4"> <!--EffectArray value="WZCreateDesignDummyUnit4"/><EffectArray value="DUSetActive4"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet5"> <!--EffectArray value="WZCreateDesignDummyUnit5"/><EffectArray value="DUSetActive5"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet6"> <!--EffectArray value="WZCreateDesignDummyUnit6"/><EffectArray value="DUSetActive6"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet7"> <!--EffectArray value="WZCreateDesignDummyUnit7"/><EffectArray value="DUSetActive7"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet8"> <!--EffectArray value="WZCreateDesignDummyUnit8"/><EffectArray value="DUSetActive8"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet9"> <!--EffectArray value="WZCreateDesignDummyUnit9"/><EffectArray value="DUSetActive9"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet10"><!--EffectArray value="WZCreateDesignDummyUnit10"/><EffectArray value="DUSetActive10"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet11"><!--EffectArray value="WZCreateDesignDummyUnit11"/><EffectArray value="DUSetActive11"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet12"><!--EffectArray value="WZCreateDesignDummyUnit12"/><EffectArray value="DUSetActive12"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet13"><!--EffectArray value="WZCreateDesignDummyUnit13"/><EffectArray value="DUSetActive13"/--></CEffectSet>
+    <CEffectSet parent="DesignUnitSet" id="DesignUnitSet14"><!--EffectArray value="WZCreateDesignDummyUnit14"/><EffectArray value="DUSetActive14"/--></CEffectSet>
+
+
+
+
+
+
+    <CEffectCreatePersistent default="1" id="WZWeapon">
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffectArray value="##id##Miss"/>
+        <PeriodicPeriodArray value="0"/>
+    </CEffectCreatePersistent>
+    <!--Weapon Precision Switch-->
+    <CEffectSwitch default="1" id="WZWeaponMiss">
+        <!--Miss change if range GT4-->
+        <CaseArray Validator="TheBestPrecision" Effect="##id##ile"/>
+        <!--Bigger Miss change if range GT6-->
+        <CaseArray Validator="NormalPrecision" Effect="##id##i"/>
+        <CaseArray Effect="##id##il"/>
+    </CEffectSwitch>
+    <!--Normal precision-->
+    <CEffectRandomPointInCircle default="1" id="WZWeaponMissi">
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <Effect value="##id##le"/>
+        <Radius value="0.75"/>
+    </CEffectRandomPointInCircle>
+    <!--Bad precision-->
+    <CEffectRandomPointInCircle default="1" id="WZWeaponMissil">
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <Effect value="##id##e"/>
+        <Radius value="1.5"/>
+    </CEffectRandomPointInCircle>
+    <CEffectLaunchMissile default="1" id="WZWeaponMissile">
+        <ImpactEffect value="##id##Damage"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <!--        <AmmoUnit value="##id##"/>-->
+        <!--        <Movers Link="D_15_0"/>-->
+    </CEffectLaunchMissile>
+    <CEffectDamage default="1" id="WZWeaponMissileDamage" parent="DU_WEAP_MISSILE">
+        <Amount value="1"/>
+        <ExcludeArray Value="Target"/>
+        <AreaArray MaxCount="1" Radius="0.5" Fraction="1"/>
+        <SearchFilters value="-;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <ArmorReduction value="0"/>
+        <Kind value="Ranged"/>
+    </CEffectDamage>
+    <CEffectDamage default="1" id="WZWeaponMissileDamageSplash" parent="DU_WEAP_MISSILE">
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <ArmorReduction value="0"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="1"/>
+        <ExcludeArray Value="Outer"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+        <!--        <Death value="Fire"/>-->
+    </CEffectDamage>
+
+
+    <CEffectCreatePersistent id="WZTankLightMachinegun"          parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankTwinMachinegun"           parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankHeavyMachinegun"          parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankAssaultGun"               parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankTwinAssaultGun"           parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankFlamer"                   parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankInferno"                  parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankPlasmiteFlamer"           parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankHeavyPlasmaLauncher"      parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankLightCannon"              parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankMediumCannon"             parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankHyperVelocityCannon"      parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankAACycloneFlakCannon"      parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankAssaultCannon"            parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankHeavyCannon"              parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankTwinAssaultCannon"        parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankPlasmaCannon"             parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankAATornadoFlakCannon"      parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankMiniRocketPod"            parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankMiniRocketArray"          parent="WZWeapon"><PeriodCount value="8"   /><PeriodicPeriodArray value="0.1"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankLancer"                   parent="WZWeapon"><PeriodCount value="2"   /><PeriodicPeriodArray value="0.1"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankBunkerBuster"             parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankSunburstAA"               parent="WZWeapon"><PeriodCount value="6"   /><PeriodicPeriodArray value="0.1"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankRippleRockets"            parent="WZWeapon"><PeriodCount value="8"   /><PeriodicPeriodArray value="0.1"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankHeavyRocketArray"         parent="WZWeapon"><PeriodCount value="8"   /><PeriodicPeriodArray value="0.2"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankTankKiller"               parent="WZWeapon"><PeriodCount value="2"   /><PeriodicPeriodArray value="0.1"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankMortar"                   parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankBombard"                  parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankPepperpot"                parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankIncendiaryMortar"         parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankHurricaneAA"              parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankWhirlwindAA"              parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankHowitzer"                 parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankIncendiaryHowitzer"       parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankHellstorm"                parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankGroundShaker"             parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankFlashlight"               parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankPulseLaser"               parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankStormbringerAALaser"      parent="WZWeapon"><PeriodCount value="2"   /><PeriodicPeriodArray value="0.1"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankHeavyLaser"               parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankNeedleGun"                parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankRailGun"                  parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankGaussCannon"              parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankScourgeMissile"           parent="WZWeapon"><PeriodCount value="2"   /><PeriodicPeriodArray value="0.2"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankAvengerSAM"               parent="WZWeapon"><PeriodCount value="2"   /><PeriodicPeriodArray value="0.5"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankSeraphMissileArray"       parent="WZWeapon"><PeriodCount value="8"   /><PeriodicPeriodArray value="0.2"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankArchangelMissile"         parent="WZWeapon"><PeriodCount value="6"   /><PeriodicPeriodArray value="0.5"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankVindicatorSAM"            parent="WZWeapon"><PeriodCount value="4"   /><PeriodicPeriodArray value="0.5"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankNexusLink"                parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankEMPCannon"                parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankEMPMortar"                parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZTankCommand"                  parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolClusterBombBay"           parent="WZWeapon"><PeriodCount value="3"   /><PeriodicPeriodArray value="1"/>    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolHeapBombBay"              parent="WZWeapon"><PeriodCount value="3"   /><PeriodicPeriodArray value="1"/>    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolEMPMissileLauncher"       parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolPlasmiteBombBay"          parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolPhosphorBombBay"          parent="WZWeapon"><PeriodCount value="2"   /><PeriodicPeriodArray value="1"/>    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolThermiteBombBay"          parent="WZWeapon"><PeriodCount value="2"   /><PeriodicPeriodArray value="1"/>    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZFortressCannon"               parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZFortressMassDriver"           parent="WZWeapon">                                                                </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZFortressMissile"              parent="WZWeapon"><PeriodCount value="4"   /><PeriodicPeriodArray value="0.8"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZLaserSatelliteCommandPost"    parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZHeavyGunnerWeapon"            parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZMachinegunnerWeapon"          parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZFlamerWeapon"                 parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZGrenadierWeapon"              parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZLancerWeapon"                 parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZThermiteFlamerWeapon"         parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZAssaultGunnerWeapon"          parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZFlashlightGunnerWeapon"       parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZNeedleGunnerWeapon"           parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZSuperHeavyGunnerWeapon"       parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZSuperAutoCannonWeapon"        parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZSuperHVCWeapon"               parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZSuperTankKillerWeapon"        parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZSuperScourgeWeapon"           parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZSuperPulseLaserWeapon"        parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZSuperRailGunnerWeapon"        parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="ScavMG"                         parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="ScavCannon"                     parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="ScavFlamer"                     parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="ScavRocket"                     parent="WZWeapon"><PeriodCount value="6"   /><PeriodicPeriodArray value="0.1"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolSunburstAA"               parent="WZWeapon"><PeriodCount value="6"   /><PeriodicPeriodArray value="0.1"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolMachinegun"               parent="WZWeapon">                                                                 </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolCannon"                   parent="WZWeapon">                                                                 </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolTwinMachinegun"           parent="WZWeapon">                                                                 </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolMiniRocket"               parent="WZWeapon">                                                                 </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolHeavyMachinegun"          parent="WZWeapon">                                                                 </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolLancer"                   parent="WZWeapon"><PeriodCount value="2"   /><PeriodicPeriodArray value="0.1"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolHyperVelocityCannon"      parent="WZWeapon">                                                                  </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolBunkerBuster"             parent="WZWeapon"><PeriodCount value="2"   /><PeriodicPeriodArray value="1"/>    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolAssaultGun"               parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolAssaultCannon"            parent="WZWeapon">                                                              </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolTankKiller"               parent="WZWeapon"><PeriodCount value="2"   /><PeriodicPeriodArray value="0.1"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolFlashlight"               parent="WZWeapon"><PeriodCount value="8"   /><PeriodicPeriodArray value="0.2"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolNeedleGun"                parent="WZWeapon">                                                                 </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolScourgeMissile"           parent="WZWeapon"><PeriodCount value="2"   /><PeriodicPeriodArray value="0"/>      </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolPulseLaser"               parent="WZWeapon"><PeriodCount value="4"   /><PeriodicPeriodArray value="0.3"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolHeavyLaser"               parent="WZWeapon"><PeriodCount value="4"   /><PeriodicPeriodArray value="0.4"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZVtolRailGun"                  parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="ScavVtolMachinegun"             parent="WZWeapon">                                                               </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="ScavVtolMiniRocket"             parent="WZWeapon"><PeriodCount value="100" /><PeriodicPeriodArray value="0.5"/>     </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="WZHeavyRocketBastion"           parent="WZWeapon"><PeriodCount value="4"   /><PeriodicPeriodArray value="0.5"/>     </CEffectCreatePersistent>
+
+
+
+    <!--Accurace Effects-->
+    <CEffectSwitch id="WZTankLightMachinegunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankLightMachinegunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankLightMachinegunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankTwinMachinegunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankTwinMachinegunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankTwinMachinegunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankHeavyMachinegunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankHeavyMachinegunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankHeavyMachinegunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankAssaultGunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankAssaultGunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankAssaultGunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankTwinAssaultGunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankTwinAssaultGunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankTwinAssaultGunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankFlamerMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankFlamerMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankFlamerMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankInfernoMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankInfernoMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankInfernoMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankPlasmiteFlamerMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankPlasmiteFlamerMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankPlasmiteFlamerMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankHeavyPlasmaLauncherMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankHeavyPlasmaLauncherMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankHeavyPlasmaLauncherMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankLightCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankLightCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankLightCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankMediumCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankMediumCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankMediumCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankHyperVelocityCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankHyperVelocityCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankHyperVelocityCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankAACycloneFlakCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankAACycloneFlakCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankAACycloneFlakCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankAssaultCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankAssaultCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankAssaultCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankHeavyCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankHeavyCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankHeavyCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankTwinAssaultCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankTwinAssaultCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankTwinAssaultCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankPlasmaCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankPlasmaCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankPlasmaCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankAATornadoFlakCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankAATornadoFlakCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankAATornadoFlakCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankMiniRocketPodMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankMiniRocketPodMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankMiniRocketPodMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankMiniRocketArrayMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankMiniRocketArrayMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankMiniRocketArrayMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankLancerMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankLancerMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankLancerMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankBunkerBusterMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankBunkerBusterMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankBunkerBusterMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankSunburstAAMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankSunburstAAMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankSunburstAAMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankRippleRocketsMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankRippleRocketsMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankRippleRocketsMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankHeavyRocketArrayMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankHeavyRocketArrayMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankHeavyRocketArrayMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankTankKillerMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankTankKillerMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankTankKillerMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankMortarMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankMortarMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankMortarMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankBombardMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankBombardMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankBombardMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankPepperpotMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankPepperpotMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankPepperpotMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankIncendiaryMortarMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankIncendiaryMortarMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankIncendiaryMortarMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankHurricaneAAMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankHurricaneAAMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankHurricaneAAMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankWhirlwindAAMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankWhirlwindAAMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankWhirlwindAAMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankHowitzerMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankHowitzerMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankHowitzerMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankIncendiaryHowitzerMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankIncendiaryHowitzerMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankIncendiaryHowitzerMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankHellstormMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankHellstormMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankHellstormMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankGroundShakerMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankGroundShakerMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankGroundShakerMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankFlashlightMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankFlashlightMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankFlashlightMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankPulseLaserMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankPulseLaserMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankPulseLaserMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankStormbringerAALaserMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankStormbringerAALaserMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankStormbringerAALaserMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankHeavyLaserMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankHeavyLaserMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankHeavyLaserMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankNeedleGunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankNeedleGunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankNeedleGunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankRailGunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankRailGunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankRailGunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankGaussCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankGaussCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankGaussCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankScourgeMissileMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankScourgeMissileMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankScourgeMissileMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankAvengerSAMMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankAvengerSAMMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankAvengerSAMMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankSeraphMissileArrayMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankSeraphMissileArrayMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankSeraphMissileArrayMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankArchangelMissileMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankArchangelMissileMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankArchangelMissileMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankVindicatorSAMMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankVindicatorSAMMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankVindicatorSAMMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankNexusLinkMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankNexusLinkMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankNexusLinkMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankEMPCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankEMPCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankEMPCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankEMPMortarMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankEMPMortarMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankEMPMortarMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZTankCommandMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZTankCommandMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZTankCommandMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolClusterBombBayMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolClusterBombBayMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolClusterBombBayMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolHeapBombBayMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolHeapBombBayMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolHeapBombBayMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolEMPMissileLauncherMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolEMPMissileLauncherMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolEMPMissileLauncherMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolPlasmiteBombBayMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolPlasmiteBombBayMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolPlasmiteBombBayMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolPhosphorBombBayMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolPhosphorBombBayMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolPhosphorBombBayMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolThermiteBombBayMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolThermiteBombBayMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolThermiteBombBayMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZFortressCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZFortressCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZFortressCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZFortressMassDriverMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZFortressMassDriverMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZFortressMassDriverMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZFortressMissileMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZFortressMissileMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZFortressMissileMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZLaserSatelliteCommandPostMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZLaserSatelliteCommandPostMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZLaserSatelliteCommandPostMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZHeavyGunnerWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZHeavyGunnerWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZHeavyGunnerWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZMachinegunnerWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZMachinegunnerWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZMachinegunnerWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZFlamerWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZFlamerWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZFlamerWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZGrenadierWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZGrenadierWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZGrenadierWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZLancerWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZLancerWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZLancerWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZThermiteFlamerWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZThermiteFlamerWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZThermiteFlamerWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZAssaultGunnerWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZAssaultGunnerWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZAssaultGunnerWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZFlashlightGunnerWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZFlashlightGunnerWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZFlashlightGunnerWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZNeedleGunnerWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZNeedleGunnerWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZNeedleGunnerWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZSuperHeavyGunnerWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZSuperHeavyGunnerWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZSuperHeavyGunnerWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZSuperAutoCannonWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZSuperAutoCannonWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZSuperAutoCannonWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZSuperHVCWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZSuperHVCWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZSuperHVCWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZSuperTankKillerWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZSuperTankKillerWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZSuperTankKillerWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZSuperScourgeWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZSuperScourgeWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZSuperScourgeWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZSuperPulseLaserWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZSuperPulseLaserWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZSuperPulseLaserWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZSuperRailGunnerWeaponMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZSuperRailGunnerWeaponMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZSuperRailGunnerWeaponMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="ScavMGMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="ScavMGMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="ScavMGMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="ScavCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="ScavCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="ScavCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="ScavFlamerMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="ScavFlamerMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="ScavFlamerMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="ScavRocketMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="ScavRocketMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="ScavRocketMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolSunburstAAMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolSunburstAAMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolSunburstAAMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolMachinegunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolMachinegunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolMachinegunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolTwinMachinegunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolTwinMachinegunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolTwinMachinegunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolMiniRocketMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolMiniRocketMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolMiniRocketMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolHeavyMachinegunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolHeavyMachinegunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolHeavyMachinegunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolLancerMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolLancerMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolLancerMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolHyperVelocityCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolHyperVelocityCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolHyperVelocityCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolBunkerBusterMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolBunkerBusterMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolBunkerBusterMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolAssaultGunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolAssaultGunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolAssaultGunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolAssaultCannonMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolAssaultCannonMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolAssaultCannonMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolTankKillerMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolTankKillerMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolTankKillerMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolFlashlightMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolFlashlightMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolFlashlightMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolNeedleGunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolNeedleGunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolNeedleGunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolScourgeMissileMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolScourgeMissileMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolScourgeMissileMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolPulseLaserMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolPulseLaserMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolPulseLaserMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolHeavyLaserMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolHeavyLaserMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolHeavyLaserMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZVtolRailGunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZVtolRailGunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZVtolRailGunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="ScavVtolMachinegunMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="ScavVtolMachinegunMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="ScavVtolMachinegunMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="ScavVtolMiniRocketMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="ScavVtolMiniRocketMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="ScavVtolMiniRocketMissil" parent="WZWeaponMissil"/>
+    <CEffectSwitch id="WZHeavyRocketBastionMiss" parent="WZWeaponMiss"/><CEffectRandomPointInCircle id="WZHeavyRocketBastionMissi" parent="WZWeaponMissi"/><CEffectRandomPointInCircle id="WZHeavyRocketBastionMissil" parent="WZWeaponMissil"/>
+
+
+
+    <CEffectLaunchMissile id="WZTankLightMachinegunMissile"       parent="WZWeaponMissile"><AmmoUnit value="WZFXTracer"     /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankTwinMachinegunMissile"        parent="WZWeaponMissile"><AmmoUnit value="WZfxtracer_twin"/><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankHeavyMachinegunMissile"       parent="WZWeaponMissile"><AmmoUnit value="WZfxtracerh"    /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankAssaultGunMissile"            parent="WZWeaponMissile"><AmmoUnit value="WZfxtracerh"    /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankTwinAssaultGunMissile"        parent="WZWeaponMissile"><AmmoUnit value="WZFXTracr2"     /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankFlamerMissile"                parent="WZWeaponMissile"><AmmoUnit value="WZFXLThrow"     /><Movers Link="D_7_0"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankInfernoMissile"               parent="WZWeaponMissile"><AmmoUnit value="WZFXLProj"      /><Movers Link="D_7_0"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankPlasmiteFlamerMissile"        parent="WZWeaponMissile"><AmmoUnit value="WZFXLProj"      /><Movers Link="D_7_0"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankHeavyPlasmaLauncherMissile"   parent="WZWeaponMissile"><AmmoUnit value="WZFXMflare"     /><Movers Link="I_4_0"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankLightCannonMissile"           parent="WZWeaponMissile"><AmmoUnit value="WZFXcam20"      /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankMediumCannonMissile"          parent="WZWeaponMissile"><AmmoUnit value="WZFXCAmmo"      /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankHyperVelocityCannonMissile"   parent="WZWeaponMissile"><AmmoUnit value="WZFXTracer"     /><Movers Link="D_22_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankAACycloneFlakCannonMissile"   parent="WZWeaponMissile"><AmmoUnit value="WZFXAALSH2"     /><Movers Link="H_22_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankAssaultCannonMissile"         parent="WZWeaponMissile"><AmmoUnit value="WZFXTracer"     /><Movers Link="D_16_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankHeavyCannonMissile"           parent="WZWeaponMissile"><AmmoUnit value="WZFXCAmmo"      /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankTwinAssaultCannonMissile"     parent="WZWeaponMissile"><AmmoUnit value="WZFXTracr2"     /><Movers Link="D_16_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankPlasmaCannonMissile"          parent="WZWeaponMissile"><AmmoUnit value="WZFXSHgssA"     /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankAATornadoFlakCannonMissile"   parent="WZWeaponMissile"><AmmoUnit value="WZFXAALSHT"     /><Movers Link="H_22_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankMiniRocketPodMissile"         parent="WZWeaponMissile"><AmmoUnit value="WZFXMflare"     /><Movers Link="D_22_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankMiniRocketArrayMissile"       parent="WZWeaponMissile"><AmmoUnit value="WZFXMflare"     /><Movers Link="I_20_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankLancerMissile"                parent="WZWeaponMissile"><AmmoUnit value="WZFXMPLME"      /><Movers Link="1D_7_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankBunkerBusterMissile"          parent="WZWeaponMissile"><AmmoUnit value="WZFXSPLME"      /><Movers Link="1D_7_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankSunburstAAMissile"            parent="WZWeaponMissile"><AmmoUnit value="WZFXMflare"     /><Movers Link="H_22_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankRippleRocketsMissile"         parent="WZWeaponMissile"><AmmoUnit value="WZFXHPLME"      /><Movers Link="I_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankHeavyRocketArrayMissile"      parent="WZWeaponMissile"><AmmoUnit value="WZFXHPLME"      /><Movers Link="1I_4_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankTankKillerMissile"            parent="WZWeaponMissile"><AmmoUnit value="WZFXMPLME"      /><Movers Link="1D_7_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankMortarMissile"                parent="WZWeaponMissile"><AmmoUnit value="WZFXTracer"     /><Movers Link="I_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankBombardMissile"               parent="WZWeaponMissile"><AmmoUnit value="WZFXCAmmo"      /><Movers Link="I_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankPepperpotMissile"             parent="WZWeaponMissile"><AmmoUnit value="WZFXCAmmo"      /><Movers Link="I_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankIncendiaryMortarMissile"      parent="WZWeaponMissile"><AmmoUnit value="WZFXTracer"     /><Movers Link="I_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankHurricaneAAMissile"           parent="WZWeaponMissile"><AmmoUnit value="WZFXAALSHT"     /><Movers Link="H_22_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankWhirlwindAAMissile"           parent="WZWeaponMissile"><AmmoUnit value="WZFXAALSH2"     /><Movers Link="H_22_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankHowitzerMissile"              parent="WZWeaponMissile"><AmmoUnit value="WZFXCAmmo"      /><Movers Link="I_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankIncendiaryHowitzerMissile"    parent="WZWeaponMissile"><AmmoUnit value="WZFXCAmmo"      /><Movers Link="I_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankHellstormMissile"             parent="WZWeaponMissile"><AmmoUnit value="WZFXCAmmo"      /><Movers Link="I_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankGroundShakerMissile"          parent="WZWeaponMissile"><AmmoUnit value="WZFXCAmmo"      /><Movers Link="I_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankFlashlightMissile"            parent="WZWeaponMissile"><AmmoUnit value="WZFXLFLSH"      /><Movers Link="H_32_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankPulseLaserMissile"            parent="WZWeaponMissile"><AmmoUnit value="WZFXPLAmmo"     /><Movers Link="H_32_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankStormbringerAALaserMissile"   parent="WZWeaponMissile"><AmmoUnit value="WZFXPLAmmo"     /><Movers Link="H_32_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankHeavyLaserMissile"            parent="WZWeaponMissile"><AmmoUnit value="WZFXPLAmmo"     /><Movers Link="H_32_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankNeedleGunMissile"             parent="WZWeaponMissile"><AmmoUnit value="WZFXGAmmo"      /><Movers Link="D_18_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankRailGunMissile"               parent="WZWeaponMissile"><AmmoUnit value="WZFXGammoM"     /><Movers Link="D_18_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankGaussCannonMissile"           parent="WZWeaponMissile"><AmmoUnit value="WZFXGammoH"     /><Movers Link="D_18_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankScourgeMissileMissile"        parent="WZWeaponMissile"><AmmoUnit value="WZFXMPLME"      /><Movers Link="H_13_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankAvengerSAMMissile"            parent="WZWeaponMissile"><AmmoUnit value="WZFXMflare"     /><Movers Link="H_22_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankSeraphMissileArrayMissile"    parent="WZWeaponMissile"><AmmoUnit value="WZFXMPLME"      /><Movers Link="H_14_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankArchangelMissileMissile"      parent="WZWeaponMissile"><AmmoUnit value="WZFXHPLME"      /><Movers Link="H_12_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankVindicatorSAMMissile"         parent="WZWeaponMissile"><AmmoUnit value="WZFXMflare"     /><Movers Link="H_22_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankNexusLinkMissile"             parent="WZWeaponMissile"><AmmoUnit value="WZFXMflare"     /><Movers Link="H_25_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankEMPCannonMissile"             parent="WZWeaponMissile"><AmmoUnit value="WZFXBeam"       /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankEMPMortarMissile"             parent="WZWeaponMissile"><AmmoUnit value="WZFXSFlms"      /><Movers Link="I_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZTankCommandMissile"               parent="WZWeaponMissile"><AmmoUnit value="WZFXBeam"       /><Movers Link="H_25_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolClusterBombBayMissile"        parent="WZWeaponMissile"><AmmoUnit value="WZFxlbmbx1"     /><Movers Link="D_4_8"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolHeapBombBayMissile"           parent="WZWeaponMissile"><AmmoUnit value="WZFxmbmbx2"     /><Movers Link="D_4_8"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolEMPMissileLauncherMissile"    parent="WZWeaponMissile"><AmmoUnit value="WZFXLBMBE2"     /><Movers Link="D_4_8"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolPlasmiteBombBayMissile"       parent="WZWeaponMissile"><AmmoUnit value="WZFXLBMBP2"     /><Movers Link="D_4_8"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolPhosphorBombBayMissile"       parent="WZWeaponMissile"><AmmoUnit value="WZFxlbmbi1"     /><Movers Link="D_4_8"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolThermiteBombBayMissile"       parent="WZWeaponMissile"><AmmoUnit value="WZFxmbmbi2"     /><Movers Link="D_4_8"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZFortressCannonMissile"            parent="WZWeaponMissile"><AmmoUnit value="WZFXSHcanA"     /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZFortressMassDriverMissile"        parent="WZWeaponMissile"><AmmoUnit value="WZFXSHgssA"     /><Movers Link="D_18_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZFortressMissileMissile"           parent="WZWeaponMissile"><AmmoUnit value="WZFXHPLME"      /><Movers Link="H_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZLaserSatelliteCommandPostMissile" parent="WZWeaponMissile"><AmmoUnit value="WZFXBeam"       /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZHeavyGunnerWeaponMissile"         parent="WZWeaponMissile"><AmmoUnit value="WZFXcam20"      /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZMachinegunnerWeaponMissile"       parent="WZWeaponMissile"><AmmoUnit value="WZFXTracer"     /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZFlamerWeaponMissile"              parent="WZWeaponMissile"><AmmoUnit value="WZFXLThrow"     /><Movers Link="D_7_0"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZGrenadierWeaponMissile"           parent="WZWeaponMissile"><AmmoUnit value="WZFXTracer"     /><Movers Link="1I_4_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZLancerWeaponMissile"              parent="WZWeaponMissile"><AmmoUnit value="WZFXMPLME"      /><Movers Link="D_18_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZThermiteFlamerWeaponMissile"      parent="WZWeaponMissile"><AmmoUnit value="WZFXLThrow"     /><Movers Link="D_7_0"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZAssaultGunnerWeaponMissile"       parent="WZWeaponMissile"><AmmoUnit value="WZfxtracerh"    /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZFlashlightGunnerWeaponMissile"    parent="WZWeaponMissile"><AmmoUnit value="WZFXLFLSH"      /><Movers Link="H_32_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZNeedleGunnerWeaponMissile"        parent="WZWeaponMissile"><AmmoUnit value="WZFXGAmmo"      /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZSuperHeavyGunnerWeaponMissile"    parent="WZWeaponMissile"><AmmoUnit value="WZFXCAmmo"      /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZSuperAutoCannonWeaponMissile"     parent="WZWeaponMissile"><AmmoUnit value="WZFXTracer"     /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZSuperHVCWeaponMissile"            parent="WZWeaponMissile"><AmmoUnit value="WZFXTracer"     /><Movers Link="D_22_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZSuperTankKillerWeaponMissile"     parent="WZWeaponMissile"><AmmoUnit value="WZFXMPLME"      /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZSuperScourgeWeaponMissile"        parent="WZWeaponMissile"><AmmoUnit value="WZFXMPLME"      /><Movers Link="H_13_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZSuperPulseLaserWeaponMissile"     parent="WZWeaponMissile"><AmmoUnit value="WZFXPLAmmo"     /><Movers Link="H_32_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZSuperRailGunnerWeaponMissile"     parent="WZWeaponMissile"><AmmoUnit value="WZFXGammoM"     /><Movers Link="D_16_5"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="ScavMGMissile"                      parent="WZWeaponMissile"><AmmoUnit value="WZFXTracer"     /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="ScavCannonMissile"                  parent="WZWeaponMissile"><AmmoUnit value="WZFXTracer"     /><Movers Link="D_15_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="ScavFlamerMissile"                  parent="WZWeaponMissile"><AmmoUnit value="WZFXLThrow"     /><Movers Link="D_7_0"/>    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="ScavRocketMissile"                  parent="WZWeaponMissile"><AmmoUnit value="WZFXMFLARE"     /><Movers Link="D_18_0"/>   </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolSunburstAAMissile"            parent="WZWeaponMissile"><AmmoUnit value="FXMflare"       /><Movers Link="H_22_5"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolMachinegunMissile"            parent="WZWeaponMissile"><AmmoUnit value="FXTracer"       /><Movers Link="D_15_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolCannonMissile"                parent="WZWeaponMissile"><AmmoUnit value="FXcam20"        /><Movers Link="D_20_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolTwinMachinegunMissile"        parent="WZWeaponMissile"><AmmoUnit value="fxtracer_twin"  /><Movers Link="D_15_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolMiniRocketMissile"            parent="WZWeaponMissile"><AmmoUnit value="FXMflare"       /><Movers Link="D_20_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolHeavyMachinegunMissile"       parent="WZWeaponMissile"><AmmoUnit value="fxtracerh"      /><Movers Link="D_18_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolLancerMissile"                parent="WZWeaponMissile"><AmmoUnit value="FXMPLME"        /><Movers Link="D_17_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolHyperVelocityCannonMissile"   parent="WZWeaponMissile"><AmmoUnit value="FXTracer"       /><Movers Link="D_22_5"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolBunkerBusterMissile"          parent="WZWeaponMissile"><AmmoUnit value="FXSPLME"        /><Movers Link="D_12_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolAssaultGunMissile"            parent="WZWeaponMissile"><AmmoUnit value="FXTracer"       /><Movers Link="D_20_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolAssaultCannonMissile"         parent="WZWeaponMissile"><AmmoUnit value="fxtracerh"      /><Movers Link="D_22_5"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolTankKillerMissile"            parent="WZWeaponMissile"><AmmoUnit value="FXMPLME"        /><Movers Link="D_17_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolFlashlightMissile"            parent="WZWeaponMissile"><AmmoUnit value="FXLFLSH"        /><Movers Link="H_32_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolNeedleGunMissile"             parent="WZWeaponMissile"><AmmoUnit value="FXGAmmo"        /><Movers Link="D_18_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolScourgeMissileMissile"        parent="WZWeaponMissile"><AmmoUnit value="FXMPLME"        /><Movers Link="H_13_5"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolPulseLaserMissile"            parent="WZWeaponMissile"><AmmoUnit value="FXPLAmmo"       /><Movers Link="H_32_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolHeavyLaserMissile"            parent="WZWeaponMissile"><AmmoUnit value="FXPLAmmo"       /><Movers Link="H_32_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZVtolRailGunMissile"               parent="WZWeaponMissile"><AmmoUnit value="FXGammoM"       /><Movers Link="D_18_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="ScavVtolMachinegunMissile"          parent="WZWeaponMissile"><AmmoUnit value="FXTracer"       /><Movers Link="D_15_0"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="ScavVtolMiniRocketMissile"          parent="WZWeaponMissile"><AmmoUnit value="FXMflare"       /><Movers Link="D_22_5"/>  </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WZHeavyRocketBastionMissile"        parent="WZWeaponMissile"><AmmoUnit value="FXMPLME"        /><Movers Link="D_18_0"/>  </CEffectLaunchMissile>
+
+
+
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankLightMachinegunMissileDamage"      ><Amount value="5.0"/>                                                </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankTwinMachinegunMissileDamage"       ><Amount value="7.0"/>                                                </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankHeavyMachinegunMissileDamage"      ><Amount value="8.5"/>                                                </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankAssaultGunMissileDamage"           ><Amount value="9.5"/>                                                </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankTwinAssaultGunMissileDamage"       ><Amount value="14.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankFlamerMissileDamage"               ><Amount value="14.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankInfernoMissileDamage"              ><Amount value="20.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankPlasmiteFlamerMissileDamage"       ><Amount value="31.5"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankHeavyPlasmaLauncherMissileDamage"  ><Amount value="25.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankLightCannonMissileDamage"          ><Amount value="17.5"/>     <AreaArray Radius="0.2" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankMediumCannonMissileDamage"         ><Amount value="30.0"/>     <AreaArray Radius="0.3" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankHyperVelocityCannonMissileDamage"  ><Amount value="35.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankAACycloneFlakCannonMissileDamage"  ><Amount value="70.0"/>     <AreaArray Radius="1.2" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankAssaultCannonMissileDamage"        ><Amount value="20.0"/>     <AreaArray Radius="0.3" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankHeavyCannonMissileDamage"          ><Amount value="60.0"/>     <AreaArray Radius="0.6" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankTwinAssaultCannonMissileDamage"    ><Amount value="25.0"/>     <AreaArray Radius="0.4" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankPlasmaCannonMissileDamage"         ><Amount value="250.0"/>    <AreaArray Radius="5.0" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankAATornadoFlakCannonMissileDamage"  ><Amount value="125.0"/>    <AreaArray Radius="1.8" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankMiniRocketPodMissileDamage"        ><Amount value="11.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankMiniRocketArrayMissileDamage"      ><Amount value="14.5"/>     <AreaArray Radius="0.3" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankLancerMissileDamage"               ><Amount value="52.5"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankBunkerBusterMissileDamage"         ><Amount value="87.5"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankSunburstAAMissileDamage"           ><Amount value="55.0"/>     <AreaArray Radius="0.5" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankRippleRocketsMissileDamage"        ><Amount value="22.5"/>     <AreaArray Radius="0.5" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankHeavyRocketArrayMissileDamage"     ><Amount value="20.0"/>     <AreaArray Radius="0.3" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankTankKillerMissileDamage"           ><Amount value="90.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankMortarMissileDamage"               ><Amount value="30.0"/>     <AreaArray Radius="0.4" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankBombardMissileDamage"              ><Amount value="60.0"/>     <AreaArray Radius="0.8" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankPepperpotMissileDamage"            ><Amount value="30.0"/>     <AreaArray Radius="0.4" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankIncendiaryMortarMissileDamage"     ><Amount value="40.0"/>     <AreaArray Radius="0.5" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankHurricaneAAMissileDamage"          ><Amount value="35.0"/>     <AreaArray Radius="0.5" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankWhirlwindAAMissileDamage"          ><Amount value="45.0"/>     <AreaArray Radius="0.6" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankHowitzerMissileDamage"             ><Amount value="100.0"/>    <AreaArray Radius="2.0" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankIncendiaryHowitzerMissileDamage"   ><Amount value="100.0"/>    <AreaArray Radius="2.0" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankHellstormMissileDamage"            ><Amount value="100.0"/>    <AreaArray Radius="2.0" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankGroundShakerMissileDamage"         ><Amount value="175.0"/>    <AreaArray Radius="3.5" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankFlashlightMissileDamage"           ><Amount value="50.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankPulseLaserMissileDamage"           ><Amount value="82.5"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankStormbringerAALaserMissileDamage"  ><Amount value="112.5"/>                                              </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankHeavyLaserMissileDamage"           ><Amount value="190.0"/>                                              </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankNeedleGunMissileDamage"            ><Amount value="90.0"/>     <AreaArray Radius="0.9" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankRailGunMissileDamage"              ><Amount value="110.0"/>    <AreaArray Radius="1.1" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankGaussCannonMissileDamage"          ><Amount value="150.0"/>    <AreaArray Radius="1.5" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankScourgeMissileMissileDamage"       ><Amount value="180.0"/>                                              </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankAvengerSAMMissileDamage"           ><Amount value="225.0"/>    <AreaArray Radius="2.3" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankSeraphMissileArrayMissileDamage"   ><Amount value="55.0"/>     <AreaArray Radius="0.7" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankArchangelMissileMissileDamage"     ><Amount value="80.0"/>     <AreaArray Radius="1.6" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankVindicatorSAMMissileDamage"        ><Amount value="225.0"/>    <AreaArray Radius="2.3" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankNexusLinkMissileDamage"            ><Amount value="0.5"/>                                                </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankEMPCannonMissileDamage"            ><Amount value="35.0"/>     <AreaArray Radius="0.2" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZTankEMPMortarMissileDamage"            ><Amount value="20.0"/>     <AreaArray Radius="0.3" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZTankCommandMissileDamage"              ><Amount value="2.0"/>                                                </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZVtolClusterBombBayMissileDamage"       ><Amount value="150.0"/>    <AreaArray Radius="1.8" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZVtolHeapBombBayMissileDamage"          ><Amount value="250.0"/>    <AreaArray Radius="3.0" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZVtolEMPMissileLauncherMissileDamage"   ><Amount value="100.0"/>    <AreaArray Radius="2.0" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZVtolPlasmiteBombBayMissileDamage"      ><Amount value="750.0"/>    <AreaArray Radius="15.0" Fraction="0.5"/> </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZVtolPhosphorBombBayMissileDamage"      ><Amount value="250.0"/>                                              </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZVtolThermiteBombBayMissileDamage"      ><Amount value="375.0"/>                                              </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZFortressCannonMissileDamage"           ><Amount value="190.0"/>    <AreaArray Radius="2.6" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZFortressMassDriverMissileDamage"       ><Amount value="600.0"/>    <AreaArray Radius="7.5" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZFortressMissileMissileDamage"          ><Amount value="550.0"/>    <AreaArray Radius="1.0" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZLaserSatelliteCommandPostMissileDamage"><Amount value="2700.0"/>   <AreaArray Radius="32.0" Fraction="0.5"/> </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZHeavyGunnerWeaponMissileDamage"        ><Amount value="20.0"/>     <AreaArray Radius="0.2" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZMachinegunnerWeaponMissileDamage"      ><Amount value="6.0"/>                                                </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZFlamerWeaponMissileDamage"             ><Amount value="11.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZGrenadierWeaponMissileDamage"          ><Amount value="30.0"/>     <AreaArray Radius="0.4" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZLancerWeaponMissileDamage"             ><Amount value="80.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZThermiteFlamerWeaponMissileDamage"     ><Amount value="19.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZAssaultGunnerWeaponMissileDamage"      ><Amount value="9.0"/>                                                </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZFlashlightGunnerWeaponMissileDamage"   ><Amount value="45.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZNeedleGunnerWeaponMissileDamage"       ><Amount value="60.0"/>     <AreaArray Radius="0.6" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZSuperHeavyGunnerWeaponMissileDamage"   ><Amount value="37.5"/>     <AreaArray Radius="0.4" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZSuperAutoCannonWeaponMissileDamage"    ><Amount value="20.0"/>     <AreaArray Radius="0.3" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZSuperHVCWeaponMissileDamage"           ><Amount value="35.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZSuperTankKillerWeaponMissileDamage"    ><Amount value="150.0"/>                                              </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZSuperScourgeWeaponMissileDamage"       ><Amount value="230.0"/>                                              </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="WZSuperPulseLaserWeaponMissileDamage"    ><Amount value="77.5"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="WZSuperRailGunnerWeaponMissileDamage"    ><Amount value="80.0"/>     <AreaArray Radius="0.8" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="ScavMGMissileDamage"                     ><Amount value="5.0"/>                                                </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="ScavCannonMissileDamage"                 ><Amount value="14.0"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                     id="ScavFlamerMissileDamage"                 ><Amount value="12.5"/>                                               </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"               id="ScavRocketMissileDamage"                 ><Amount value="10.0"/>                                            </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolSunburstAAMissileDamage"          ><Amount value="60.0"/>                                            </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"                id="WZVtolMachinegunMissileDamage"          ><Amount value="7.5"/>    <AreaArray Radius="0.3" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolCannonMissileDamage"              ><Amount value="35.0"/>                                            </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"                id="WZVtolTwinMachinegunMissileDamage"      ><Amount value="10.5"/>   <AreaArray Radius="0.4" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolMiniRocketMissileDamage"          ><Amount value="22.0"/>                                            </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolHeavyMachinegunMissileDamage"     ><Amount value="13.5"/>                                            </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolLancerMissileDamage"              ><Amount value="82.5"/>                                            </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolHyperVelocityCannonMissileDamage" ><Amount value="70.0"/>                                            </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"                id="WZVtolBunkerBusterMissileDamage"        ><Amount value="100.0"/>  <AreaArray Radius="0.5" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolAssaultGunMissileDamage"          ><Amount value="40.0"/>                                            </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolAssaultCannonMissileDamage"       ><Amount value="14.0"/>                                            </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolTankKillerMissileDamage"          ><Amount value="120.0"/>                                           </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"                id="WZVtolFlashlightMissileDamage"          ><Amount value="80.0"/>   <AreaArray Radius="1.8" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolNeedleGunMissileDamage"           ><Amount value="180.0"/>                                           </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolScourgeMissileMissileDamage"      ><Amount value="240.0"/>                                           </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolPulseLaserMissileDamage"          ><Amount value="160.0"/>                                           </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamageSplash"                id="WZVtolHeavyLaserMissileDamage"          ><Amount value="360.0"/>  <AreaArray Radius="2.2" Fraction="0.5"/>  </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZVtolRailGunMissileDamage"             ><Amount value="220.0"/>                                           </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="ScavVtolMachinegunMissileDamage"        ><Amount value="8.5"/>                                             </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="ScavVtolMiniRocketMissileDamage"        ><Amount value="23.0"/>                                        </CEffectDamage>
+    <CEffectDamage parent="WZWeaponMissileDamage"                      id="WZHeavyRocketBastionMissileDamage"      ><Amount value="140.0"/>                                        </CEffectDamage>
+
+
+
+
+
+
+    <CEffectSet id="WZCyborgPropulsionUnset">
+        <EffectArray value="WZPHeavyCyborgRB"/>
+        <EffectArray value="WZPLightCyborgRB"/>
+    </CEffectSet>
+    <CEffectRemoveBehavior id="WZPHeavyCyborgRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZPHeavyCyborg"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZPLightCyborgRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZPLightCyborg"/></CEffectRemoveBehavior>
+    <CEffectApplyBehavior id="WZPHeavyCyborgAB"><WhichUnit Value="Caster"/><Behavior value="WZPHeavyCyborg"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZPLightCyborgAB"><WhichUnit Value="Caster"/><Behavior value="WZPLightCyborg"/></CEffectApplyBehavior>
+
+
+
+    <CEffectSet id="WZPropulsionSet" default="1">
+        <EffectArray value="WZPWheelsRB"/>
+        <EffectArray value="WZPHalftracksRB"/>
+        <EffectArray value="WZPTracksRB"/>
+        <EffectArray value="WZPHoverRB"/>
+        <EffectArray value="WZPVtolRB"/>
+        <EffectArray value="WZPHeliRB"/>
+        <EffectArray value="WZPNavalRB"/>
+    </CEffectSet>
+    <CEffectSet parent="WZPropulsionSet" id="WZPWheelsSet"><EffectArray value="WZPWheelsAB"/></CEffectSet>
+    <CEffectSet parent="WZPropulsionSet" id="WZPHalftracksSet"><EffectArray value="WZPHalftracksAB"/></CEffectSet>
+    <CEffectSet parent="WZPropulsionSet" id="WZPTracksSet"><EffectArray value="WZPTracksAB"/></CEffectSet>
+    <CEffectSet parent="WZPropulsionSet" id="WZPHoverSet"><EffectArray value="WZPHoverAB"/></CEffectSet>
+    <CEffectSet parent="WZPropulsionSet" id="WZPVtolSet"><EffectArray value="WZPVtolAB"/></CEffectSet>
+    <CEffectSet parent="WZPropulsionSet" id="WZPHeliSet"><EffectArray value="WZPHeliAB"/></CEffectSet>
+    <CEffectSet parent="WZPropulsionSet" id="WZPNavalSet"><EffectArray value="WZPNavalAB"/></CEffectSet>
+
+    <CEffectRemoveBehavior id="WZPWheelsRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZPWheels"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZPHalftracksRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZPHalftracks"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZPTracksRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZPTracks"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZPHoverRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZPHover"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZPVtolRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZPVtol"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZPHeliRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZPHeli"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZPNavalRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZPNaval"/></CEffectRemoveBehavior>
+
+    <CEffectApplyBehavior id="WZPWheelsAB"><WhichUnit Value="Caster"/><Behavior value="WZPWheels"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZPHalftracksAB"><WhichUnit Value="Caster"/><Behavior value="WZPHalftracks"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZPTracksAB"><WhichUnit Value="Caster"/><Behavior value="WZPTracks"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZPHoverAB"><WhichUnit Value="Caster"/><Behavior value="WZPHover"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZPVtolAB"><WhichUnit Value="Caster"/><Behavior value="WZPVtol"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZPHeliAB"><WhichUnit Value="Caster"/><Behavior value="WZPHeli"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZPNavalAB"><WhichUnit Value="Caster"/><Behavior value="WZPNaval"/></CEffectApplyBehavior>
+
+
+    <CEffectSet id="WZWeaponUnset1">
+        <EffectArray value="WZTankLightMachinegunRB"/>
+        <EffectArray value="WZTankTwinMachinegunRB"/>
+        <EffectArray value="WZTankHeavyMachinegunRB"/>
+        <EffectArray value="WZTankAssaultGunRB"/>
+        <EffectArray value="WZTankTwinAssaultGunRB"/>
+        <EffectArray value="WZTankFlamerRB"/>
+        <EffectArray value="WZTankInfernoRB"/>
+        <EffectArray value="WZTankPlasmiteFlamerRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnset2">
+        <EffectArray value="WZTankHeavyPlasmaLauncherRB"/>
+        <EffectArray value="WZTankLightCannonRB"/>
+        <EffectArray value="WZTankMediumCannonRB"/>
+        <EffectArray value="WZTankHyperVelocityCannonRB"/>
+        <EffectArray value="WZTankAACycloneFlakCannonRB"/>
+        <EffectArray value="WZTankAssaultCannonRB"/>
+        <EffectArray value="WZTankHeavyCannonRB"/>
+        <EffectArray value="WZTankTwinAssaultCannonRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnset3">
+        <EffectArray value="WZTankPlasmaCannonRB"/>
+        <EffectArray value="WZTankAATornadoFlakCannonRB"/>
+        <EffectArray value="WZTankMiniRocketPodRB"/>
+        <EffectArray value="WZTankMiniRocketArrayRB"/>
+        <EffectArray value="WZTankLancerRB"/>
+        <EffectArray value="WZTankBunkerBusterRB"/>
+        <EffectArray value="WZTankSunburstAARB"/>
+        <EffectArray value="WZTankRippleRocketsRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnset4">
+        <EffectArray value="WZTankHeavyRocketArrayRB"/>
+        <EffectArray value="WZTankTankKillerRB"/>
+        <EffectArray value="WZTankMortarRB"/>
+        <EffectArray value="WZTankBombardRB"/>
+        <EffectArray value="WZTankPepperpotRB"/>
+        <EffectArray value="WZTankIncendiaryMortarRB"/>
+        <EffectArray value="WZTankHurricaneAARB"/>
+        <EffectArray value="WZTankWhirlwindAARB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnset5">
+        <EffectArray value="WZTankHowitzerRB"/>
+        <EffectArray value="WZTankIncendiaryHowitzerRB"/>
+        <EffectArray value="WZTankHellstormRB"/>
+        <EffectArray value="WZTankGroundShakerRB"/>
+        <EffectArray value="WZTankFlashlightRB"/>
+        <EffectArray value="WZTankPulseLaserRB"/>
+        <EffectArray value="WZTankStormbringerAALaserRB"/>
+        <EffectArray value="WZTankHeavyLaserRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnset6">
+        <EffectArray value="WZTankNeedleGunRB"/>
+        <EffectArray value="WZTankRailGunRB"/>
+        <EffectArray value="WZTankGaussCannonRB"/>
+        <EffectArray value="WZTankScourgeMissileRB"/>
+        <EffectArray value="WZTankAvengerSAMRB"/>
+        <EffectArray value="WZTankSeraphMissileArrayRB"/>
+        <EffectArray value="WZTankArchangelMissileRB"/>
+        <EffectArray value="WZTankVindicatorSAMRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnset7">
+        <EffectArray value="WZTankNexusLinkRB"/>
+        <EffectArray value="WZTankEMPCannonRB"/>
+        <EffectArray value="WZTankEMPMortarRB"/>
+        <EffectArray value="WZTankSpadeRB"/>
+        <EffectArray value="WZTankCommandRB"/>
+        <EffectArray value="WZTankCBRadarRB"/>
+        <EffectArray value="WZTankRadarDetectorRB"/>
+        <EffectArray value="WZTankSensorRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnset8">
+        <EffectArray value="WZTankVtolCBRadarRB"/>
+        <EffectArray value="WZTankVtolStrikeRB"/>
+        <EffectArray value="WZTankWideSpectrumSensorRB"/>
+        <EffectArray value="WZTankHeavyRepairRB"/>
+        <EffectArray value="WZTankRepairRB"/>
+        <EffectArray value="WZVtolClusterBombBayRB"/>
+        <EffectArray value="WZVtolHeapBombBayRB"/>
+        <EffectArray value="WZVtolEMPMissileLauncherRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnset9">
+        <EffectArray value="WZVtolPlasmiteBombBayRB"/>
+        <EffectArray value="WZVtolPhosphorBombBayRB"/>
+        <EffectArray value="WZVtolThermiteBombBayRB"/>
+        <EffectArray value="WZVtolSunburstAARB"/>
+        <EffectArray value="WZVtolMachinegunRB"/>
+        <EffectArray value="WZVtolCannonRB"/>
+        <EffectArray value="WZVtolTwinMachinegunRB"/>
+        <EffectArray value="WZVtolMiniRocketRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnset10">
+        <EffectArray value="WZVtolPlasmiteBombBayRB"/>
+        <EffectArray value="WZVtolPhosphorBombBayRB"/>
+        <EffectArray value="WZVtolThermiteBombBayRB"/>
+        <EffectArray value="WZVtolSunburstAARB"/>
+        <EffectArray value="WZVtolMachinegunRB"/>
+        <EffectArray value="WZVtolCannonRB"/>
+        <EffectArray value="WZVtolTwinMachinegunRB"/>
+        <EffectArray value="WZVtolMiniRocketRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnset11">
+        <EffectArray value="WZVtolHeavyMachinegunRB"/>
+        <EffectArray value="WZVtolLancerRB"/>
+        <EffectArray value="WZVtolHyperVelocityCannonRB"/>
+        <EffectArray value="WZVtolBunkerBusterRB"/>
+        <EffectArray value="WZVtolAssaultGunRB"/>
+        <EffectArray value="WZVtolAssaultCannonRB"/>
+        <EffectArray value="WZVtolTankKillerRB"/>
+        <EffectArray value="WZVtolFlashlightRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnset12">
+        <EffectArray value="WZVtolNeedleGunRB"/>
+        <EffectArray value="WZVtolScourgeMissileRB"/>
+        <EffectArray value="WZVtolPulseLaserRB"/>
+        <EffectArray value="WZVtolHeavyLaserRB"/>
+        <EffectArray value="WZVtolRailGunRB"/>
+        <EffectArray value="ScavMGRB"/>
+        <EffectArray value="ScavCannonRB"/>
+        <EffectArray value="ScavFlamerRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnset13">
+        <EffectArray value="ScavRocketRB"/>
+        <EffectArray value="WZFortressCannonRB"/>
+        <EffectArray value="WZFortressMassDriverRB"/>
+        <EffectArray value="WZFortressMissileRB"/>
+        <EffectArray value="ScavVtolMachinegunRB"/>
+        <EffectArray value="ScavVtolMiniRocketRB"/>
+        <EffectArray value="WZHeavyRocketBastionRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnsetPart1">
+        <EffectArray value="WZWeaponUnset1"/>
+        <EffectArray value="WZWeaponUnset2"/>
+        <EffectArray value="WZWeaponUnset3"/>
+        <EffectArray value="WZWeaponUnset4"/>
+        <EffectArray value="WZWeaponUnset5"/>
+        <EffectArray value="WZWeaponUnset6"/>
+        <EffectArray value="WZWeaponUnset7"/>
+        <EffectArray value="WZWeaponUnset8"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponUnsetPart2">
+        <EffectArray value="WZWeaponUnset9"/>
+        <EffectArray value="WZWeaponUnset10"/>
+        <EffectArray value="WZWeaponUnset11"/>
+        <EffectArray value="WZWeaponUnset12"/>
+        <EffectArray value="WZWeaponUnset13"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSet" default="1">
+        <EffectArray value="WZWeaponUnsetPart1"/>
+        <EffectArray value="WZWeaponUnsetPart2"/>
+    </CEffectSet>
+
+    <CEffectSet id="WZWeaponSecondaryUnset1">
+        <EffectArray value="WZTankLightMachinegunSecondaryRB"/>
+        <EffectArray value="WZTankTwinMachinegunSecondaryRB"/>
+        <EffectArray value="WZTankHeavyMachinegunSecondaryRB"/>
+        <EffectArray value="WZTankAssaultGunSecondaryRB"/>
+        <EffectArray value="WZTankTwinAssaultGunSecondaryRB"/>
+        <EffectArray value="WZTankFlamerSecondaryRB"/>
+        <EffectArray value="WZTankInfernoSecondaryRB"/>
+        <EffectArray value="WZTankPlasmiteFlamerSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnset2">
+        <EffectArray value="WZTankHeavyPlasmaLauncherSecondaryRB"/>
+        <EffectArray value="WZTankLightCannonSecondaryRB"/>
+        <EffectArray value="WZTankMediumCannonSecondaryRB"/>
+        <EffectArray value="WZTankHyperVelocityCannonSecondaryRB"/>
+        <EffectArray value="WZTankAACycloneFlakCannonSecondaryRB"/>
+        <EffectArray value="WZTankAssaultCannonSecondaryRB"/>
+        <EffectArray value="WZTankHeavyCannonSecondaryRB"/>
+        <EffectArray value="WZTankTwinAssaultCannonSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnset3">
+        <EffectArray value="WZTankPlasmaCannonSecondaryRB"/>
+        <EffectArray value="WZTankAATornadoFlakCannonSecondaryRB"/>
+        <EffectArray value="WZTankMiniRocketPodSecondaryRB"/>
+        <EffectArray value="WZTankMiniRocketArraySecondaryRB"/>
+        <EffectArray value="WZTankLancerSecondaryRB"/>
+        <EffectArray value="WZTankBunkerBusterSecondaryRB"/>
+        <EffectArray value="WZTankSunburstAASecondaryRB"/>
+        <EffectArray value="WZTankRippleRocketsSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnset4">
+        <EffectArray value="WZTankHeavyRocketArraySecondaryRB"/>
+        <EffectArray value="WZTankTankKillerSecondaryRB"/>
+        <EffectArray value="WZTankMortarSecondaryRB"/>
+        <EffectArray value="WZTankBombardSecondaryRB"/>
+        <EffectArray value="WZTankPepperpotSecondaryRB"/>
+        <EffectArray value="WZTankIncendiaryMortarSecondaryRB"/>
+        <EffectArray value="WZTankHurricaneAASecondaryRB"/>
+        <EffectArray value="WZTankWhirlwindAASecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnset5">
+        <EffectArray value="WZTankHowitzerSecondaryRB"/>
+        <EffectArray value="WZTankIncendiaryHowitzerSecondaryRB"/>
+        <EffectArray value="WZTankHellstormSecondaryRB"/>
+        <EffectArray value="WZTankGroundShakerSecondaryRB"/>
+        <EffectArray value="WZTankFlashlightSecondaryRB"/>
+        <EffectArray value="WZTankPulseLaserSecondaryRB"/>
+        <EffectArray value="WZTankStormbringerAALaserSecondaryRB"/>
+        <EffectArray value="WZTankHeavyLaserSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnset6">
+        <EffectArray value="WZTankNeedleGunSecondaryRB"/>
+        <EffectArray value="WZTankRailGunSecondaryRB"/>
+        <EffectArray value="WZTankGaussCannonSecondaryRB"/>
+        <EffectArray value="WZTankScourgeMissileSecondaryRB"/>
+        <EffectArray value="WZTankAvengerSAMSecondaryRB"/>
+        <EffectArray value="WZTankSeraphMissileArraySecondaryRB"/>
+        <EffectArray value="WZTankArchangelMissileSecondaryRB"/>
+        <EffectArray value="WZTankVindicatorSAMSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnset7">
+        <EffectArray value="WZTankNexusLinkSecondaryRB"/>
+        <EffectArray value="WZTankEMPCannonSecondaryRB"/>
+        <EffectArray value="WZTankEMPMortarSecondaryRB"/>
+        <EffectArray value="WZTankSpadeSecondaryRB"/>
+        <EffectArray value="WZTankCommandSecondaryRB"/>
+        <EffectArray value="WZTankCBRadarSecondaryRB"/>
+        <EffectArray value="WZTankRadarDetectorSecondaryRB"/>
+        <EffectArray value="WZTankSensorSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnset8">
+        <EffectArray value="WZTankVtolCBRadarSecondaryRB"/>
+        <EffectArray value="WZTankVtolStrikeSecondaryRB"/>
+        <EffectArray value="WZTankWideSpectrumSensorSecondaryRB"/>
+        <EffectArray value="WZTankHeavyRepairSecondaryRB"/>
+        <EffectArray value="WZTankRepairSecondaryRB"/>
+        <EffectArray value="WZVtolClusterBombBaySecondaryRB"/>
+        <EffectArray value="WZVtolHeapBombBaySecondaryRB"/>
+        <EffectArray value="WZVtolEMPMissileLauncherSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnset9">
+        <EffectArray value="WZVtolPlasmiteBombBaySecondaryRB"/>
+        <EffectArray value="WZVtolPhosphorBombBaySecondaryRB"/>
+        <EffectArray value="WZVtolThermiteBombBaySecondaryRB"/>
+        <EffectArray value="WZVtolSunburstAASecondaryRB"/>
+        <EffectArray value="WZVtolMachinegunSecondaryRB"/>
+        <EffectArray value="WZVtolCannonSecondaryRB"/>
+        <EffectArray value="WZVtolTwinMachinegunSecondaryRB"/>
+        <EffectArray value="WZVtolMiniRocketSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnset10">
+        <EffectArray value="WZVtolPlasmiteBombBaySecondaryRB"/>
+        <EffectArray value="WZVtolPhosphorBombBaySecondaryRB"/>
+        <EffectArray value="WZVtolThermiteBombBaySecondaryRB"/>
+        <EffectArray value="WZVtolSunburstAASecondaryRB"/>
+        <EffectArray value="WZVtolMachinegunSecondaryRB"/>
+        <EffectArray value="WZVtolCannonSecondaryRB"/>
+        <EffectArray value="WZVtolTwinMachinegunSecondaryRB"/>
+        <EffectArray value="WZVtolMiniRocketSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnset11">
+        <EffectArray value="WZVtolHeavyMachinegunSecondaryRB"/>
+        <EffectArray value="WZVtolLancerSecondaryRB"/>
+        <EffectArray value="WZVtolHyperVelocityCannonSecondaryRB"/>
+        <EffectArray value="WZVtolBunkerBusterSecondaryRB"/>
+        <EffectArray value="WZVtolAssaultGunSecondaryRB"/>
+        <EffectArray value="WZVtolAssaultCannonSecondaryRB"/>
+        <EffectArray value="WZVtolTankKillerSecondaryRB"/>
+        <EffectArray value="WZVtolFlashlightSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnset12">
+        <EffectArray value="WZVtolNeedleGunSecondaryRB"/>
+        <EffectArray value="WZVtolScourgeMissileSecondaryRB"/>
+        <EffectArray value="WZVtolPulseLaserSecondaryRB"/>
+        <EffectArray value="WZVtolHeavyLaserSecondaryRB"/>
+        <EffectArray value="WZVtolRailGunSecondaryRB"/>
+        <EffectArray value="ScavMGSecondaryRB"/>
+        <EffectArray value="ScavCannonSecondaryRB"/>
+        <EffectArray value="ScavFlamerSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnset13">
+        <EffectArray value="ScavRocketSecondaryRB"/>
+        <EffectArray value="WZFortressCannonSecondaryRB"/>
+        <EffectArray value="WZFortressMassDriverSecondaryRB"/>
+        <EffectArray value="WZFortressMissileSecondaryRB"/>
+        <EffectArray value="ScavVtolMachinegunRB"/>
+        <EffectArray value="ScavVtolMiniRocketRB"/>
+        <EffectArray value="WZHeavyRocketBastionRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnsetPart1">
+        <EffectArray value="WZWeaponSecondaryUnset1"/>
+        <EffectArray value="WZWeaponSecondaryUnset2"/>
+        <EffectArray value="WZWeaponSecondaryUnset3"/>
+        <EffectArray value="WZWeaponSecondaryUnset4"/>
+        <EffectArray value="WZWeaponSecondaryUnset5"/>
+        <EffectArray value="WZWeaponSecondaryUnset6"/>
+        <EffectArray value="WZWeaponSecondaryUnset7"/>
+        <EffectArray value="WZWeaponSecondaryUnset8"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondaryUnsetPart2">
+        <EffectArray value="WZWeaponSecondaryUnset9"/>
+        <EffectArray value="WZWeaponSecondaryUnset10"/>
+        <EffectArray value="WZWeaponSecondaryUnset11"/>
+        <EffectArray value="WZWeaponSecondaryUnset12"/>
+        <EffectArray value="WZWeaponSecondaryUnset13"/>
+    </CEffectSet>
+    <CEffectSet id="WZWeaponSecondarySet" default="1">
+        <EffectArray value="WZWeaponSecondaryUnsetPart1"/>
+        <EffectArray value="WZWeaponSecondaryUnsetPart2"/>
+    </CEffectSet>
+
+
+
+
+
+
+    <CEffectSet id="WZCyborgWeaponUnset1">
+        <EffectArray value="WZGrenadierWeaponRB"/>
+        <EffectArray value="WZLancerWeaponRB"/>
+        <EffectArray value="WZThermiteFlamerWeaponRB"/>
+        <EffectArray value="WZAssaultGunnerWeaponRB"/>
+        <EffectArray value="WZFlashlightGunnerWeaponRB"/>
+        <EffectArray value="WZNeedleGunnerWeaponRB"/>
+        <EffectArray value="WZSuperHeavyGunnerWeaponRB"/>
+        <EffectArray value="WZSuperAutoCannonWeaponRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZCyborgWeaponUnset2">
+        <EffectArray value="WZSuperHVCWeaponRB"/>
+        <EffectArray value="WZSuperTankKillerWeaponRB"/>
+        <EffectArray value="WZSuperScourgeWeaponRB"/>
+        <EffectArray value="WZSuperPulseLaserWeaponRB"/>
+        <EffectArray value="WZSuperRailGunnerWeaponRB"/>
+        <EffectArray value="WZHeavyGunnerWeaponRB"/>
+        <EffectArray value="WZMachinegunnerWeaponRB"/>
+        <EffectArray value="WZFlamerWeaponRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZCyborgWeaponSet" default="1">
+        <EffectArray value="WZCyborgWeaponUnset1"/>
+        <EffectArray value="WZCyborgWeaponUnset2"/>
+    </CEffectSet>
+
+    <CEffectSet id="WZCyborgSecondaryWeaponUnset1">
+        <EffectArray value="WZGrenadierWeaponSecondaryRB"/>
+        <EffectArray value="WZLancerWeaponSecondaryRB"/>
+        <EffectArray value="WZThermiteFlamerWeaponSecondaryRB"/>
+        <EffectArray value="WZAssaultGunnerWeaponSecondaryRB"/>
+        <EffectArray value="WZFlashlightGunnerWeaponSecondaryRB"/>
+        <EffectArray value="WZNeedleGunnerWeaponSecondaryRB"/>
+        <EffectArray value="WZSuperHeavyGunnerWeaponSecondaryRB"/>
+        <EffectArray value="WZSuperAutoCannonWeaponSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZCyborgSecondaryWeaponUnset2">
+        <EffectArray value="WZSuperHVCWeaponSecondaryRB"/>
+        <EffectArray value="WZSuperTankKillerWeaponSecondaryRB"/>
+        <EffectArray value="WZSuperScourgeWeaponSecondaryRB"/>
+        <EffectArray value="WZSuperPulseLaserWeaponSecondaryRB"/>
+        <EffectArray value="WZSuperRailGunnerWeaponSecondaryRB"/>
+        <EffectArray value="WZHeavyGunnerWeaponSecondaryRB"/>
+        <EffectArray value="WZMachinegunnerWeaponSecondaryRB"/>
+        <EffectArray value="WZFlamerWeaponSecondaryRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZCyborgWeaponSecondarySet" default="1">
+        <EffectArray value="WZCyborgSecondaryWeaponUnset1"/>
+        <EffectArray value="WZCyborgSecondaryWeaponUnset2"/>
+    </CEffectSet>
+
+    <CEffectSet parent="WZWeaponSet" id="WZTankLightMachinegunSet"><EffectArray value="WZTankLightMachinegunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankTwinMachinegunSet"><EffectArray value="WZTankTwinMachinegunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankHeavyMachinegunSet"><EffectArray value="WZTankHeavyMachinegunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankAssaultGunSet"><EffectArray value="WZTankAssaultGunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankTwinAssaultGunSet"><EffectArray value="WZTankTwinAssaultGunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankFlamerSet"><EffectArray value="WZTankFlamerAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankInfernoSet"><EffectArray value="WZTankInfernoAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankPlasmiteFlamerSet"><EffectArray value="WZTankPlasmiteFlamerAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankHeavyPlasmaLauncherSet"><EffectArray value="WZTankHeavyPlasmaLauncherAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankLightCannonSet"><EffectArray value="WZTankLightCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankMediumCannonSet"><EffectArray value="WZTankMediumCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankHyperVelocityCannonSet"><EffectArray value="WZTankHyperVelocityCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankAACycloneFlakCannonSet"><EffectArray value="WZTankAACycloneFlakCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankAssaultCannonSet"><EffectArray value="WZTankAssaultCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankHeavyCannonSet"><EffectArray value="WZTankHeavyCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankTwinAssaultCannonSet"><EffectArray value="WZTankTwinAssaultCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankPlasmaCannonSet"><EffectArray value="WZTankPlasmaCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankAATornadoFlakCannonSet"><EffectArray value="WZTankAATornadoFlakCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankMiniRocketPodSet"><EffectArray value="WZTankMiniRocketPodAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankMiniRocketArraySet"><EffectArray value="WZTankMiniRocketArrayAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankLancerSet"><EffectArray value="WZTankLancerAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankBunkerBusterSet"><EffectArray value="WZTankBunkerBusterAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankSunburstAASet"><EffectArray value="WZTankSunburstAAAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankRippleRocketsSet"><EffectArray value="WZTankRippleRocketsAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankHeavyRocketArraySet"><EffectArray value="WZTankHeavyRocketArrayAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankTankKillerSet"><EffectArray value="WZTankTankKillerAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankMortarSet"><EffectArray value="WZTankMortarAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankBombardSet"><EffectArray value="WZTankBombardAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankPepperpotSet"><EffectArray value="WZTankPepperpotAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankIncendiaryMortarSet"><EffectArray value="WZTankIncendiaryMortarAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankHurricaneAASet"><EffectArray value="WZTankHurricaneAAAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankWhirlwindAASet"><EffectArray value="WZTankWhirlwindAAAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankHowitzerSet"><EffectArray value="WZTankHowitzerAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankIncendiaryHowitzerSet"><EffectArray value="WZTankIncendiaryHowitzerAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankHellstormSet"><EffectArray value="WZTankHellstormAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankGroundShakerSet"><EffectArray value="WZTankGroundShakerAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankFlashlightSet"><EffectArray value="WZTankFlashlightAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankPulseLaserSet"><EffectArray value="WZTankPulseLaserAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankStormbringerAALaserSet"><EffectArray value="WZTankStormbringerAALaserAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankHeavyLaserSet"><EffectArray value="WZTankHeavyLaserAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankNeedleGunSet"><EffectArray value="WZTankNeedleGunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankRailGunSet"><EffectArray value="WZTankRailGunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankGaussCannonSet"><EffectArray value="WZTankGaussCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankScourgeMissileSet"><EffectArray value="WZTankScourgeMissileAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankAvengerSAMSet"><EffectArray value="WZTankAvengerSAMAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankSeraphMissileArraySet"><EffectArray value="WZTankSeraphMissileArrayAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankArchangelMissileSet"><EffectArray value="WZTankArchangelMissileAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankVindicatorSAMSet"><EffectArray value="WZTankVindicatorSAMAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankNexusLinkSet"><EffectArray value="WZTankNexusLinkAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankEMPCannonSet"><EffectArray value="WZTankEMPCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankEMPMortarSet"><EffectArray value="WZTankEMPMortarAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankSpadeSet"><EffectArray value="WZTankSpadeAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankCommandSet"><EffectArray value="WZTankCommandAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankCBRadarSet"><EffectArray value="WZTankCBRadarAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankRadarDetectorSet"><EffectArray value="WZTankRadarDetectorAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankSensorSet"><EffectArray value="WZTankSensorAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankVtolCBRadarSet"><EffectArray value="WZTankVtolCBRadarAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankVtolStrikeSet"><EffectArray value="WZTankVtolStrikeAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankWideSpectrumSensorSet"><EffectArray value="WZTankWideSpectrumSensorAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankHeavyRepairSet"><EffectArray value="WZTankHeavyRepairAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZTankRepairSet"><EffectArray value="WZTankRepairAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolClusterBombBaySet"><EffectArray value="WZVtolClusterBombBayAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolHeapBombBaySet"><EffectArray value="WZVtolHeapBombBayAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolEMPMissileLauncherSet"><EffectArray value="WZVtolEMPMissileLauncherAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolPlasmiteBombBaySet"><EffectArray value="WZVtolPlasmiteBombBayAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolPhosphorBombBaySet"><EffectArray value="WZVtolPhosphorBombBayAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolThermiteBombBaySet"><EffectArray value="WZVtolThermiteBombBayAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolSunburstAASet"><EffectArray value="WZVtolSunburstAAAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolMachinegunSet"><EffectArray value="WZVtolMachinegunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolCannonSet"><EffectArray value="WZVtolCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolTwinMachinegunSet"><EffectArray value="WZVtolTwinMachinegunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolMiniRocketSet"><EffectArray value="WZVtolMiniRocketAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolHeavyMachinegunSet"><EffectArray value="WZVtolHeavyMachinegunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolLancerSet"><EffectArray value="WZVtolLancerAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolHyperVelocityCannonSet"><EffectArray value="WZVtolHyperVelocityCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolBunkerBusterSet"><EffectArray value="WZVtolBunkerBusterAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolAssaultGunSet"><EffectArray value="WZVtolAssaultGunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolAssaultCannonSet"><EffectArray value="WZVtolAssaultCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolTankKillerSet"><EffectArray value="WZVtolTankKillerAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolFlashlightSet"><EffectArray value="WZVtolFlashlightAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolNeedleGunSet"><EffectArray value="WZVtolNeedleGunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolScourgeMissileSet"><EffectArray value="WZVtolScourgeMissileAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolPulseLaserSet"><EffectArray value="WZVtolPulseLaserAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolHeavyLaserSet"><EffectArray value="WZVtolHeavyLaserAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZVtolRailGunSet"><EffectArray value="WZVtolRailGunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="ScavMGSet"><EffectArray value="ScavMGAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="ScavCannonSet"><EffectArray value="ScavCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="ScavFlamerSet"><EffectArray value="ScavFlamerAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="ScavRocketSet"><EffectArray value="ScavRocketAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZFortressCannonSet"><EffectArray value="WZFortressCannonAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZFortressMassDriverSet"><EffectArray value="WZFortressMassDriverAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZFortressMissileSet"><EffectArray value="WZFortressMissileAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="ScavVtolMachinegunSet"><EffectArray value="ScavVtolMachinegunAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="ScavVtolMiniRocketSet"><EffectArray value="ScavVtolMiniRocketAB"/></CEffectSet>
+    <CEffectSet parent="WZWeaponSet" id="WZHeavyRocketBastionSet"><EffectArray value="WZHeavyRocketBastionAB"/></CEffectSet>
+
+
+    <CEffectRemoveBehavior id="WZTankLightMachinegunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankLightMachinegun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankTwinMachinegunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankTwinMachinegun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankHeavyMachinegunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankHeavyMachinegun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankAssaultGunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankAssaultGun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankTwinAssaultGunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankTwinAssaultGun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankFlamerRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankFlamer"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankInfernoRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankInferno"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankPlasmiteFlamerRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankPlasmiteFlamer"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankHeavyPlasmaLauncherRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankHeavyPlasmaLauncher"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankLightCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankLightCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankMediumCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankMediumCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankHyperVelocityCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankHyperVelocityCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankAACycloneFlakCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankAACycloneFlakCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankAssaultCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankAssaultCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankHeavyCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankHeavyCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankTwinAssaultCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankTwinAssaultCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankPlasmaCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankPlasmaCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankAATornadoFlakCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankAATornadoFlakCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankMiniRocketPodRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankMiniRocketPod"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankMiniRocketArrayRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankMiniRocketArray"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankLancerRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankLancer"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankBunkerBusterRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankBunkerBuster"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankSunburstAARB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankSunburstAA"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankRippleRocketsRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankRippleRockets"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankHeavyRocketArrayRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankHeavyRocketArray"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankTankKillerRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankTankKiller"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankMortarRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankMortar"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankBombardRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankBombard"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankPepperpotRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankPepperpot"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankIncendiaryMortarRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankIncendiaryMortar"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankHurricaneAARB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankHurricaneAA"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankWhirlwindAARB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankWhirlwindAA"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankHowitzerRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankHowitzer"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankIncendiaryHowitzerRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankIncendiaryHowitzer"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankHellstormRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankHellstorm"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankGroundShakerRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankGroundShaker"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankFlashlightRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankFlashlight"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankPulseLaserRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankPulseLaser"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankStormbringerAALaserRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankStormbringerAALaser"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankHeavyLaserRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankHeavyLaser"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankNeedleGunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankNeedleGun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankRailGunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankRailGun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankGaussCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankGaussCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankScourgeMissileRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankScourgeMissile"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankAvengerSAMRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankAvengerSAM"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankSeraphMissileArrayRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankSeraphMissileArray"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankArchangelMissileRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankArchangelMissile"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankVindicatorSAMRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankVindicatorSAM"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankNexusLinkRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankNexusLink"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankEMPCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankEMPCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankEMPMortarRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankEMPMortar"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankSpadeRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankSpade"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankCommandRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankCommand"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankCBRadarRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankCBRadar"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankRadarDetectorRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankRadarDetector"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankSensorRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankSensor"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankVtolCBRadarRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankVtolCBRadar"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankVtolStrikeRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankVtolStrike"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankWideSpectrumSensorRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankWideSpectrumSensor"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankHeavyRepairRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankHeavyRepair"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZTankRepairRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTankRepair"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolClusterBombBayRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolClusterBombBay"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolHeapBombBayRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolHeapBombBay"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolEMPMissileLauncherRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolEMPMissileLauncher"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolPlasmiteBombBayRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolPlasmiteBombBay"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolPhosphorBombBayRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolPhosphorBombBay"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolThermiteBombBayRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolThermiteBombBay"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolSunburstAARB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolSunburstAA"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolMachinegunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolMachinegun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolTwinMachinegunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolTwinMachinegun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolMiniRocketRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolMiniRocket"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolHeavyMachinegunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolHeavyMachinegun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolLancerRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolLancer"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolHyperVelocityCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolHyperVelocityCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolBunkerBusterRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolBunkerBuster"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolAssaultGunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolAssaultGun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolAssaultCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolAssaultCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolTankKillerRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolTankKiller"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolFlashlightRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolFlashlight"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolNeedleGunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolNeedleGun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolScourgeMissileRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolScourgeMissile"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolPulseLaserRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolPulseLaser"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolHeavyLaserRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolHeavyLaser"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZVtolRailGunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZVtolRailGun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZHeavyGunnerWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZHeavyGunnerWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZMachinegunnerWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZMachinegunnerWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZFlamerWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZFlamerWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZGrenadierWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZGrenadierWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZLancerWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZLancerWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZThermiteFlamerWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZThermiteFlamerWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZAssaultGunnerWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZAssaultGunnerWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZFlashlightGunnerWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZFlashlightGunnerWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZNeedleGunnerWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZNeedleGunnerWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZSuperHeavyGunnerWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZSuperHeavyGunnerWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZSuperAutoCannonWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZSuperAutoCannonWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZSuperHVCWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZSuperHVCWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZSuperTankKillerWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZSuperTankKillerWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZSuperScourgeWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZSuperScourgeWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZSuperPulseLaserWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZSuperPulseLaserWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZSuperRailGunnerWeaponRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZSuperRailGunnerWeapon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="ScavMGRB"><WhichUnit Value="Caster"/><BehaviorLink value="ScavMG"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="ScavCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="ScavCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="ScavFlamerRB"><WhichUnit Value="Caster"/><BehaviorLink value="ScavFlamer"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="ScavRocketRB"><WhichUnit Value="Caster"/><BehaviorLink value="ScavRocket"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZFortressCannonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZFortressCannon"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZFortressMassDriverRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZFortressMassDriver"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZFortressMissileRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZFortressMissile"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="ScavVtolMachinegunRB"><WhichUnit Value="Caster"/><BehaviorLink value="ScavVtolMachinegun"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="ScavVtolMiniRocketRB"><WhichUnit Value="Caster"/><BehaviorLink value="ScavVtolMiniRocket"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZHeavyRocketBastionRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZHeavyRocketBastion"/></CEffectRemoveBehavior>
+
+
+    <CEffectApplyBehavior id="WZTankLightMachinegunAB"><WhichUnit Value="Caster"/><Behavior value="WZTankLightMachinegun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankTwinMachinegunAB"><WhichUnit Value="Caster"/><Behavior value="WZTankTwinMachinegun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankHeavyMachinegunAB"><WhichUnit Value="Caster"/><Behavior value="WZTankHeavyMachinegun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankAssaultGunAB"><WhichUnit Value="Caster"/><Behavior value="WZTankAssaultGun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankTwinAssaultGunAB"><WhichUnit Value="Caster"/><Behavior value="WZTankTwinAssaultGun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankFlamerAB"><WhichUnit Value="Caster"/><Behavior value="WZTankFlamer"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankInfernoAB"><WhichUnit Value="Caster"/><Behavior value="WZTankInferno"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankPlasmiteFlamerAB"><WhichUnit Value="Caster"/><Behavior value="WZTankPlasmiteFlamer"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankHeavyPlasmaLauncherAB"><WhichUnit Value="Caster"/><Behavior value="WZTankHeavyPlasmaLauncher"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankLightCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZTankLightCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankMediumCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZTankMediumCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankHyperVelocityCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZTankHyperVelocityCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankAACycloneFlakCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZTankAACycloneFlakCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankAssaultCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZTankAssaultCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankHeavyCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZTankHeavyCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankTwinAssaultCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZTankTwinAssaultCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankPlasmaCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZTankPlasmaCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankAATornadoFlakCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZTankAATornadoFlakCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankMiniRocketPodAB"><WhichUnit Value="Caster"/><Behavior value="WZTankMiniRocketPod"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankMiniRocketArrayAB"><WhichUnit Value="Caster"/><Behavior value="WZTankMiniRocketArray"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankLancerAB"><WhichUnit Value="Caster"/><Behavior value="WZTankLancer"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankBunkerBusterAB"><WhichUnit Value="Caster"/><Behavior value="WZTankBunkerBuster"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankSunburstAAAB"><WhichUnit Value="Caster"/><Behavior value="WZTankSunburstAA"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankRippleRocketsAB"><WhichUnit Value="Caster"/><Behavior value="WZTankRippleRockets"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankHeavyRocketArrayAB"><WhichUnit Value="Caster"/><Behavior value="WZTankHeavyRocketArray"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankTankKillerAB"><WhichUnit Value="Caster"/><Behavior value="WZTankTankKiller"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankMortarAB"><WhichUnit Value="Caster"/><Behavior value="WZTankMortar"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankBombardAB"><WhichUnit Value="Caster"/><Behavior value="WZTankBombard"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankPepperpotAB"><WhichUnit Value="Caster"/><Behavior value="WZTankPepperpot"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankIncendiaryMortarAB"><WhichUnit Value="Caster"/><Behavior value="WZTankIncendiaryMortar"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankHurricaneAAAB"><WhichUnit Value="Caster"/><Behavior value="WZTankHurricaneAA"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankWhirlwindAAAB"><WhichUnit Value="Caster"/><Behavior value="WZTankWhirlwindAA"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankHowitzerAB"><WhichUnit Value="Caster"/><Behavior value="WZTankHowitzer"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankIncendiaryHowitzerAB"><WhichUnit Value="Caster"/><Behavior value="WZTankIncendiaryHowitzer"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankHellstormAB"><WhichUnit Value="Caster"/><Behavior value="WZTankHellstorm"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankGroundShakerAB"><WhichUnit Value="Caster"/><Behavior value="WZTankGroundShaker"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankFlashlightAB"><WhichUnit Value="Caster"/><Behavior value="WZTankFlashlight"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankPulseLaserAB"><WhichUnit Value="Caster"/><Behavior value="WZTankPulseLaser"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankStormbringerAALaserAB"><WhichUnit Value="Caster"/><Behavior value="WZTankStormbringerAALaser"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankHeavyLaserAB"><WhichUnit Value="Caster"/><Behavior value="WZTankHeavyLaser"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankNeedleGunAB"><WhichUnit Value="Caster"/><Behavior value="WZTankNeedleGun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankRailGunAB"><WhichUnit Value="Caster"/><Behavior value="WZTankRailGun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankGaussCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZTankGaussCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankScourgeMissileAB"><WhichUnit Value="Caster"/><Behavior value="WZTankScourgeMissile"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankAvengerSAMAB"><WhichUnit Value="Caster"/><Behavior value="WZTankAvengerSAM"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankSeraphMissileArrayAB"><WhichUnit Value="Caster"/><Behavior value="WZTankSeraphMissileArray"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankArchangelMissileAB"><WhichUnit Value="Caster"/><Behavior value="WZTankArchangelMissile"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankVindicatorSAMAB"><WhichUnit Value="Caster"/><Behavior value="WZTankVindicatorSAM"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankNexusLinkAB"><WhichUnit Value="Caster"/><Behavior value="WZTankNexusLink"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankEMPCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZTankEMPCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankEMPMortarAB"><WhichUnit Value="Caster"/><Behavior value="WZTankEMPMortar"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankSpadeAB"><WhichUnit Value="Caster"/><Behavior value="WZTankSpade"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankCommandAB"><WhichUnit Value="Caster"/><Behavior value="WZTankCommand"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankCBRadarAB"><WhichUnit Value="Caster"/><Behavior value="WZTankCBRadar"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankRadarDetectorAB"><WhichUnit Value="Caster"/><Behavior value="WZTankRadarDetector"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankSensorAB"><WhichUnit Value="Caster"/><Behavior value="WZTankSensor"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankVtolCBRadarAB"><WhichUnit Value="Caster"/><Behavior value="WZTankVtolCBRadar"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankVtolStrikeAB"><WhichUnit Value="Caster"/><Behavior value="WZTankVtolStrike"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankWideSpectrumSensorAB"><WhichUnit Value="Caster"/><Behavior value="WZTankWideSpectrumSensor"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankHeavyRepairAB"><WhichUnit Value="Caster"/><Behavior value="WZTankHeavyRepair"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZTankRepairAB"><WhichUnit Value="Caster"/><Behavior value="WZTankRepair"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolClusterBombBayAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolClusterBombBay"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolHeapBombBayAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolHeapBombBay"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolEMPMissileLauncherAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolEMPMissileLauncher"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolPlasmiteBombBayAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolPlasmiteBombBay"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolPhosphorBombBayAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolPhosphorBombBay"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolThermiteBombBayAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolThermiteBombBay"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolSunburstAAAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolSunburstAA"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolMachinegunAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolMachinegun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolTwinMachinegunAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolTwinMachinegun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolMiniRocketAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolMiniRocket"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolHeavyMachinegunAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolHeavyMachinegun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolLancerAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolLancer"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolHyperVelocityCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolHyperVelocityCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolBunkerBusterAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolBunkerBuster"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolAssaultGunAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolAssaultGun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolAssaultCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolAssaultCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolTankKillerAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolTankKiller"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolFlashlightAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolFlashlight"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolNeedleGunAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolNeedleGun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolScourgeMissileAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolScourgeMissile"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolPulseLaserAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolPulseLaser"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolHeavyLaserAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolHeavyLaser"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZVtolRailGunAB"><WhichUnit Value="Caster"/><Behavior value="WZVtolRailGun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZHeavyGunnerWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZHeavyGunnerWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZMachinegunnerWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZMachinegunnerWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZFlamerWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZFlamerWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZGrenadierWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZGrenadierWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZLancerWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZLancerWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZThermiteFlamerWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZThermiteFlamerWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZAssaultGunnerWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZAssaultGunnerWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZFlashlightGunnerWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZFlashlightGunnerWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZNeedleGunnerWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZNeedleGunnerWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZSuperHeavyGunnerWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZSuperHeavyGunnerWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZSuperAutoCannonWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZSuperAutoCannonWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZSuperHVCWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZSuperHVCWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZSuperTankKillerWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZSuperTankKillerWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZSuperScourgeWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZSuperScourgeWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZSuperPulseLaserWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZSuperPulseLaserWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZSuperRailGunnerWeaponAB"><WhichUnit Value="Caster"/><Behavior value="WZSuperRailGunnerWeapon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ScavMGAB"><WhichUnit Value="Caster"/><Behavior value="ScavMG"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ScavCannonAB"><WhichUnit Value="Caster"/><Behavior value="ScavCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ScavFlamerAB"><WhichUnit Value="Caster"/><Behavior value="ScavFlamer"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ScavRocketAB"><WhichUnit Value="Caster"/><Behavior value="ScavRocket"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZFortressCannonAB"><WhichUnit Value="Caster"/><Behavior value="WZFortressCannon"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZFortressMassDriverAB"><WhichUnit Value="Caster"/><Behavior value="WZFortressMassDriver"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZFortressMissileAB"><WhichUnit Value="Caster"/><Behavior value="WZFortressMissile"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ScavVtolMachinegunAB"><WhichUnit Value="Caster"/><Behavior value="ScavVtolMachinegun"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ScavVtolMiniRocketAB"><WhichUnit Value="Caster"/><Behavior value="ScavVtolMiniRocket"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZHeavyRocketBastionAB"><WhichUnit Value="Caster"/><Behavior value="WZHeavyRocketBastion"/></CEffectApplyBehavior>
+
+
+
+
+    <!--Cyborgs-->
+    <CEffectSet id="WZCyborgBodyUnset">
+        <EffectArray value="WZBHeavyCyborgRB"/>
+        <EffectArray value="WZBLightCyborgRB"/>
+    </CEffectSet>
+    <CEffectRemoveBehavior id="WZBHeavyCyborgRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBHeavyCyborg"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBLightCyborgRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBLightCyborg"/></CEffectRemoveBehavior>
+    <CEffectApplyBehavior id="WZBHeavyCyborgAB"><WhichUnit Value="Caster"/><Behavior value="WZBHeavyCyborg"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBLightCyborgAB"><WhichUnit Value="Caster"/><Behavior value="WZBLightCyborg"/></CEffectApplyBehavior>
+
+    <CEffectSet id="WZBodySet" default="1">
+        <EffectArray value="WZBodyUnsetLight"/>
+        <EffectArray value="WZBodyUnsetMedium"/>
+        <EffectArray value="WZBodyUnsetHeavy"/>
+        <EffectArray value="WZBodyUnsetMassive"/>
+    </CEffectSet>
+    <CEffectSet id="WZBodyUnsetLight">
+        <EffectArray value="WZBViperRB"/>
+        <EffectArray value="WZBBugRB"/>
+        <EffectArray value="WZBLeopardRB"/>
+        <EffectArray value="WZBRetaliationRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZBodyUnsetMedium">
+        <EffectArray value="WZBCobraRB"/>
+        <EffectArray value="WZBScorpionRB"/>
+        <EffectArray value="WZBPantherRB"/>
+        <EffectArray value="WZBRetributionRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZBodyUnsetHeavy">
+        <EffectArray value="WZBPythonRB"/>
+        <EffectArray value="WZBMantisRB"/>
+        <EffectArray value="WZBTigerRB"/>
+        <EffectArray value="WZBVengeanceRB"/>
+    </CEffectSet>
+    <CEffectSet id="WZBodyUnsetMassive">
+        <EffectArray value="WZBWyvernRB"/>
+        <EffectArray value="WZBDragonRB"/>
+    </CEffectSet>
+
+
+
+    <CEffectSet parent="WZBodySet" id="WZBViperSet"><EffectArray value="WZBViperAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBCobraSet"><EffectArray value="WZBCobraAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBPythonSet"><EffectArray value="WZBPythonAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBBugSet"><EffectArray value="WZBBugAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBPantherSet"><EffectArray value="WZBPantherAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBTigerSet"><EffectArray value="WZBTigerAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBLeopardSet"><EffectArray value="WZBLeopardAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBScorpionSet"><EffectArray value="WZBScorpionAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBMantisSet"><EffectArray value="WZBMantisAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBRetaliationSet"><EffectArray value="WZBRetaliationAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBRetributionSet"><EffectArray value="WZBRetributionAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBVengeanceSet"><EffectArray value="WZBVengeanceAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBWyvernSet"><EffectArray value="WZBWyvernAB"/></CEffectSet>
+    <CEffectSet parent="WZBodySet" id="WZBDragonSet"><EffectArray value="WZBDragonAB"/></CEffectSet>
+    <CEffectRemoveBehavior id="WZBViperRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBViper"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBCobraRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBCobra"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBPythonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBPython"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBBugRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBBug"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBPantherRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBPanther"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBTigerRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBTiger"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBLeopardRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBLeopard"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBScorpionRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBScorpion"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBMantisRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBMantis"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBRetaliationRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBRetaliation"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBRetributionRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBRetribution"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBVengeanceRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBVengeance"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBWyvernRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBWyvern"/></CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="WZBDragonRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZBDragon"/></CEffectRemoveBehavior>
+    <CEffectApplyBehavior id="WZBViperAB"><WhichUnit Value="Caster"/><Behavior value="WZBViper"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBCobraAB"><WhichUnit Value="Caster"/><Behavior value="WZBCobra"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBPythonAB"><WhichUnit Value="Caster"/><Behavior value="WZBPython"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBBugAB"><WhichUnit Value="Caster"/><Behavior value="WZBBug"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBPantherAB"><WhichUnit Value="Caster"/><Behavior value="WZBPanther"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBTigerAB"><WhichUnit Value="Caster"/><Behavior value="WZBTiger"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBLeopardAB"><WhichUnit Value="Caster"/><Behavior value="WZBLeopard"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBScorpionAB"><WhichUnit Value="Caster"/><Behavior value="WZBScorpion"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBMantisAB"><WhichUnit Value="Caster"/><Behavior value="WZBMantis"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBRetaliationAB"><WhichUnit Value="Caster"/><Behavior value="WZBRetaliation"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBRetributionAB"><WhichUnit Value="Caster"/><Behavior value="WZBRetribution"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBVengeanceAB"><WhichUnit Value="Caster"/><Behavior value="WZBVengeance"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBWyvernAB"><WhichUnit Value="Caster"/><Behavior value="WZBWyvern"/></CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WZBDragonAB"><WhichUnit Value="Caster"/><Behavior value="WZBDragon"/></CEffectApplyBehavior>
+
+
+    <CEffectSet id="WZLightCyborgSet">
+        <EffectArray value="WZCyborgPropulsionUnset"/>
+        <EffectArray value="WZCyborgBodyUnset"/>
+        <EffectArray value="WZBLightCyborgAB"/>
+        <EffectArray value="WZPLightCyborgAB"/>
+    </CEffectSet>
+    <CEffectSet id="WZHeavyCyborgSet">
+        <EffectArray value="WZCyborgPropulsionUnset"/>
+        <EffectArray value="WZCyborgBodyUnset"/>
+        <EffectArray value="WZBHeavyCyborgAB"/>
+        <EffectArray value="WZPHeavyCyborgAB"/>
+    </CEffectSet>
+
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZHeavyGunnerWeaponSet"      ><EffectArray value="WZHeavyGunnerWeaponAB"      /><EffectArray value="WZLightCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZMachinegunnerWeaponSet"    ><EffectArray value="WZMachinegunnerWeaponAB"    /><EffectArray value="WZLightCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZFlamerWeaponSet"           ><EffectArray value="WZFlamerWeaponAB"           /><EffectArray value="WZLightCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZGrenadierWeaponSet"        ><EffectArray value="WZGrenadierWeaponAB"        /><EffectArray value="WZLightCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZLancerWeaponSet"           ><EffectArray value="WZLancerWeaponAB"           /><EffectArray value="WZLightCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZThermiteFlamerWeaponSet"   ><EffectArray value="WZThermiteFlamerWeaponAB"   /><EffectArray value="WZLightCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZAssaultGunnerWeaponSet"    ><EffectArray value="WZAssaultGunnerWeaponAB"    /><EffectArray value="WZLightCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZFlashlightGunnerWeaponSet" ><EffectArray value="WZFlashlightGunnerWeaponAB" /><EffectArray value="WZLightCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZNeedleGunnerWeaponSet"     ><EffectArray value="WZNeedleGunnerWeaponAB"     /><EffectArray value="WZLightCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZSuperHeavyGunnerWeaponSet" ><EffectArray value="WZSuperHeavyGunnerWeaponAB" /><EffectArray value="WZHeavyCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZSuperAutoCannonWeaponSet"  ><EffectArray value="WZSuperAutoCannonWeaponAB"  /><EffectArray value="WZHeavyCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZSuperHVCWeaponSet"         ><EffectArray value="WZSuperHVCWeaponAB"         /><EffectArray value="WZHeavyCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZSuperTankKillerWeaponSet"  ><EffectArray value="WZSuperTankKillerWeaponAB"  /><EffectArray value="WZHeavyCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZSuperScourgeWeaponSet"     ><EffectArray value="WZSuperScourgeWeaponAB"     /><EffectArray value="WZHeavyCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZSuperPulseLaserWeaponSet"  ><EffectArray value="WZSuperPulseLaserWeaponAB"  /><EffectArray value="WZHeavyCyborgSet" /></CEffectSet>
+    <CEffectSet parent="WZCyborgWeaponSet" id="WZSuperRailGunnerWeaponSet"  ><EffectArray value="WZSuperRailGunnerWeaponAB"  /><EffectArray value="WZHeavyCyborgSet" /></CEffectSet>
+
+</Catalog>

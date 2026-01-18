@@ -1,0 +1,819 @@
+include "TriggerLibs/NativeLib"
+
+include "LibWRZN_h"
+
+//--------------------------------------------------------------------------------------------------
+// Library: Mods - Warzone
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void libWRZN_InitLibraries () {
+    libNtve_InitVariables();
+}
+
+// Variable Initialization
+bool libWRZN_InitVariables_completed = false;
+
+void libWRZN_InitVariables () {
+    if (libWRZN_InitVariables_completed) {
+        return;
+    }
+
+    libWRZN_InitVariables_completed = true;
+
+}
+
+// Functions
+void libWRZN_gf_UnitDesignEnd (unit lp_hq) {
+    // Variable Declarations
+    unit lv_hq;
+    int lv_player;
+    int lv_slot;
+    string lv_behavior;
+    string lv_bpropulsion;
+    string lv_bbody;
+    string lv_bprimary;
+    string lv_bsecondary;
+    string lv_bspeciality;
+    string lv_alias;
+
+    // Automatic Variable Declarations
+    int autoDED50C0F_ae;
+    int autoDED50C0F_var;
+    string autoB5DE1806_val;
+
+    // Variable Initialization
+    lv_hq = lp_hq;
+    lv_player = UnitGetOwner(lv_hq);
+    lv_slot = libWRZN_gv_activeDesign[lv_player];
+    lv_alias = "";
+
+    // Implementation
+    if ((lv_slot == 0)) {
+        return ;
+    }
+
+    autoDED50C0F_ae = UnitBehaviorCountAll(lv_hq);
+    autoDED50C0F_var = 1;
+    for ( ; autoDED50C0F_var <= autoDED50C0F_ae; autoDED50C0F_var += 1 ) {
+        lv_behavior = UnitBehaviorGet(lv_hq, autoDED50C0F_var);
+        if ((CatalogFieldValueCount(c_gameCatalogBehavior, lv_behavior, "TechAliasArray", c_playerAny) > 0)) {
+            lv_alias = CatalogFieldValueGet(c_gameCatalogBehavior, lv_behavior, "TechAliasArray[" + IntToString(0) + "]", c_playerAny);
+            autoB5DE1806_val = lv_alias;
+            if (autoB5DE1806_val == "WZBody") {
+                lv_bbody = lv_behavior;
+            }
+            else if (autoB5DE1806_val == "WZPropulsion") {
+                lv_bpropulsion = lv_behavior;
+            }
+            else if (autoB5DE1806_val == "WZTurretPrimary") {
+                lv_bprimary = lv_behavior;
+            }
+            else if (autoB5DE1806_val == "WZTurretSecondary") {
+                lv_bsecondary = lv_behavior;
+            }
+            else if (autoB5DE1806_val == "WZSpeciality") {
+                lv_bspeciality = lv_behavior;
+            }
+            else {
+            }
+        }
+
+    }
+    if ((lv_bbody != null) && (lv_bpropulsion != null) && (lv_bprimary != null)) {
+        libWRZN_gf_SetDesignByBehaviors(lv_player, lv_slot, lv_bprimary, lv_bsecondary, lv_bpropulsion, lv_bbody, lv_bspeciality);
+    }
+
+    libWRZN_gv_activeDesign[lv_player] = 0;
+    UnitBehaviorRemove(lv_hq, lv_bbody, 1);
+    UnitBehaviorRemove(lv_hq, lv_bpropulsion, 1);
+    UnitBehaviorRemove(lv_hq, lv_bprimary, 1);
+    UnitBehaviorRemove(lv_hq, lv_bsecondary, 1);
+    UnitBehaviorRemove(lv_hq, lv_bspeciality, 1);
+    UnitBehaviorRemove(lv_hq, "DesignUnit", 1);
+}
+
+void libWRZN_gf_UnitDesignStart (unit lp_hq, int lp_slot) {
+    // Variable Declarations
+    unit lv_hq;
+    int lv_player;
+    int lv_slot;
+    string lv_upropulsion;
+    string lv_ubody;
+    string lv_uprimary;
+    string lv_usecondary;
+    string lv_uspeciality;
+    string lv_bpropulsion;
+    string lv_bbody;
+    string lv_bprimary;
+    string lv_bsecondary;
+    string lv_bspeciality;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_hq = lp_hq;
+    lv_player = UnitGetOwner(lv_hq);
+    lv_slot = lp_slot;
+    lv_upropulsion = libWRZN_gv_designs[lv_player][lv_slot].lv_propulsion;
+    lv_ubody = libWRZN_gv_designs[lv_player][lv_slot].lv_body;
+    lv_uprimary = libWRZN_gv_designs[lv_player][lv_slot].lv_primary;
+    lv_usecondary = libWRZN_gv_designs[lv_player][lv_slot].lv_secondary;
+    lv_uspeciality = libWRZN_gv_designs[lv_player][lv_slot].lv_speciality;
+    lv_bpropulsion = UserDataGetGameLink("Propulsions", lv_upropulsion, "behavior", 1);
+    lv_bbody = UserDataGetGameLink("Bodies", lv_ubody, "behavior", 1);
+    lv_bprimary = UserDataGetGameLink("Weapons", lv_uprimary, "behavior", 1);
+    lv_bsecondary = UserDataGetGameLink("Weapons", lv_usecondary, "behavior", 1);
+    lv_bspeciality = UserDataGetGameLink("Specialities", lv_uspeciality, "behavior", 1);
+
+    // Implementation
+    libWRZN_gf_UnitDesignEnd(lv_hq);
+    libWRZN_gv_activeDesign[lv_player] = lv_slot;
+    UnitBehaviorAdd(lv_hq, "DesignUnit", lv_hq, 1);
+    UnitBehaviorAdd(lv_hq, lv_bpropulsion, lv_hq, 1);
+    UnitBehaviorAdd(lv_hq, lv_bprimary, lv_hq, 1);
+    UnitBehaviorAdd(lv_hq, lv_bbody, lv_hq, 1);
+    UnitBehaviorAdd(lv_hq, lv_bsecondary, lv_hq, 1);
+    UnitBehaviorAdd(lv_hq, lv_bspeciality, lv_hq, 1);
+}
+
+string libWRZN_gf_GetAvailableUnitType (int lp_player) {
+    // Variable Declarations
+    int lv_index;
+    bool lv_found;
+    string lv_unit;
+
+    // Automatic Variable Declarations
+    const int auto31B1BB71_ae = 50;
+    const int auto31B1BB71_ai = 1;
+    int auto9AD9B319_ae;
+    int auto9AD9B319_var;
+
+    // Variable Initialization
+
+    // Implementation
+    lv_index = 1;
+    for ( ; ( (auto31B1BB71_ai >= 0 && lv_index <= auto31B1BB71_ae) || (auto31B1BB71_ai < 0 && lv_index >= auto31B1BB71_ae) ) ; lv_index += auto31B1BB71_ai ) {
+        lv_unit = ("WZTank"+IntToString(lv_index));
+        if ((UnitGroupCount(UnitGroup(lv_unit, lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), c_unitCountAlive) == 0)) {
+            lv_found = false;
+            auto9AD9B319_ae = (CatalogFieldValueCount(c_gameCatalogAbil, "WZWarFactoryTrain", "InfoArray", c_playerAny) - 1);
+            auto9AD9B319_var = 0;
+            for ( ; auto9AD9B319_var <= auto9AD9B319_ae; auto9AD9B319_var += 1 ) {
+                if ((CatalogFieldValueGet(c_gameCatalogAbil, "WZWarFactoryTrain", "InfoArray[" + IntToString(auto9AD9B319_var) + "].Unit[" + IntToString(0) + "]", lp_player) == (lv_unit))) {
+                    lv_found = true;
+                    break;
+                }
+
+            }
+            if ((lv_found == false)) {
+                return lv_unit;
+            }
+
+        }
+
+    }
+    return null;
+}
+
+int libWRZN_gf_GetUnitSlot (int lp_player, string lp_unit) {
+    // Automatic Variable Declarations
+    const int auto9D21E888_ae = 30;
+    int auto9D21E888_var;
+
+    // Implementation
+    auto9D21E888_var = 1;
+    for ( ; auto9D21E888_var <= auto9D21E888_ae; auto9D21E888_var += 1 ) {
+        if ((libWRZN_gv_designs[lp_player][auto9D21E888_var].lv_unit == lp_unit)) {
+            return auto9D21E888_var;
+        }
+
+    }
+    return 0;
+}
+
+void libWRZN_gf_SetDesignByBehaviors (int lp_player, int lp_slot, string lp_primary, string lp_secondary, string lp_propulsion, string lp_body, string lp_speciality) {
+    // Variable Declarations
+    int lv_player;
+    int lv_slot;
+    string lv_bpropulsion;
+    string lv_bbody;
+    string lv_bprimary;
+    string lv_bsecondary;
+    string lv_bspeciality;
+    string lv_upropulsion;
+    string lv_ubody;
+    string lv_uprimary;
+    string lv_usecondary;
+    string lv_uspeciality;
+    string lv_alias;
+    string lv_imagePath;
+    string lv_buttonName;
+    string lv_button;
+
+    // Automatic Variable Declarations
+    int auto915551E1_ae;
+    int auto915551E1_var;
+    int auto666A1ED8_ae;
+    int auto666A1ED8_var;
+    int auto837F10E6_ae;
+    int auto837F10E6_var;
+    int auto5DEAB233_ae;
+    int auto5DEAB233_var;
+    int autoD26110B8_ae;
+    int autoD26110B8_var;
+
+    // Variable Initialization
+    lv_player = lp_player;
+    lv_slot = lp_slot;
+    lv_bpropulsion = lp_propulsion;
+    lv_bbody = lp_body;
+    lv_bprimary = lp_primary;
+    lv_bsecondary = lp_secondary;
+    lv_bspeciality = lp_speciality;
+    lv_alias = "";
+    lv_imagePath = "";
+    lv_buttonName = "";
+
+    // Implementation
+    auto915551E1_ae = UserDataInstanceCount("Weapons");
+    auto915551E1_var = 1;
+    for ( ; auto915551E1_var <= auto915551E1_ae; auto915551E1_var += 1 ) {
+        if ((UserDataGetGameLink("Weapons", UserDataInstance("Weapons", auto915551E1_var), "behavior", 1) == lv_bprimary)) {
+            lv_uprimary = UserDataInstance("Weapons", auto915551E1_var);
+            break;
+        }
+
+    }
+    if ((lv_bsecondary != null)) {
+        auto666A1ED8_ae = UserDataInstanceCount("Weapons");
+        auto666A1ED8_var = 1;
+        for ( ; auto666A1ED8_var <= auto666A1ED8_ae; auto666A1ED8_var += 1 ) {
+            if ((UserDataGetGameLink("Weapons", UserDataInstance("Weapons", auto666A1ED8_var), "behavior", 1) == lv_bsecondary)) {
+                lv_usecondary = UserDataInstance("Weapons", auto666A1ED8_var);
+            }
+
+        }
+    }
+
+    auto837F10E6_ae = UserDataInstanceCount("Propulsions");
+    auto837F10E6_var = 1;
+    for ( ; auto837F10E6_var <= auto837F10E6_ae; auto837F10E6_var += 1 ) {
+        if ((UserDataGetGameLink("Propulsions", UserDataInstance("Propulsions", auto837F10E6_var), "behavior", 1) == lv_bpropulsion)) {
+            lv_upropulsion = UserDataInstance("Propulsions", auto837F10E6_var);
+            break;
+        }
+
+    }
+    auto5DEAB233_ae = UserDataInstanceCount("Bodies");
+    auto5DEAB233_var = 1;
+    for ( ; auto5DEAB233_var <= auto5DEAB233_ae; auto5DEAB233_var += 1 ) {
+        if ((UserDataGetGameLink("Bodies", UserDataInstance("Bodies", auto5DEAB233_var), "behavior", 1) == lv_bbody)) {
+            lv_ubody = UserDataInstance("Bodies", auto5DEAB233_var);
+            break;
+        }
+
+    }
+    if ((lv_bspeciality != null)) {
+        autoD26110B8_ae = UserDataInstanceCount("Specialities");
+        autoD26110B8_var = 1;
+        for ( ; autoD26110B8_var <= autoD26110B8_ae; autoD26110B8_var += 1 ) {
+            if ((UserDataGetGameLink("Specialities", UserDataInstance("Specialities", autoD26110B8_var), "behavior", 1) == lv_bspeciality)) {
+                lv_uspeciality = UserDataInstance("Weapons", autoD26110B8_var);
+                break;
+            }
+
+        }
+    }
+
+    libWRZN_gf_SetDesignByUserInstances(lv_player, lv_slot, lv_uprimary, lv_usecondary, lv_upropulsion, lv_ubody, lv_uspeciality);
+}
+
+void libWRZN_gf_SetDesignByUserInstances (int lp_player, int lp_slot, string lp_primary, string lp_secondary, string lp_propulsion, string lp_body, string lp_speciality) {
+    // Variable Declarations
+    int lv_player;
+    int lv_slot;
+    string lv_upropulsion;
+    string lv_ubody;
+    string lv_uprimary;
+    string lv_usecondary;
+    string lv_uspeciality;
+    string lv_bpropulsion;
+    string lv_bbody;
+    string lv_bprimary;
+    string lv_bsecondary;
+    string lv_bspeciality;
+    string lv_alias;
+    string lv_imagePath;
+    string lv_buttonName;
+    string lv_button;
+    int lv_buildPoints;
+    int lv_buildPower;
+    string lv_unit;
+    int lv_summaryWeight;
+    int lv_unitLife;
+    int lv_powerOutput;
+    int lv_bodySize;
+    fixed lv_speed;
+    fixed lv_maxSpeed;
+    fixed lv_powerBonus;
+    string lv_actor;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_player = lp_player;
+    lv_slot = lp_slot;
+    lv_upropulsion = lp_propulsion;
+    lv_ubody = lp_body;
+    lv_uprimary = lp_primary;
+    lv_usecondary = lp_secondary;
+    lv_uspeciality = lp_speciality;
+    lv_bpropulsion = UserDataGetGameLink("Propulsions", lv_upropulsion, "behavior", 1);
+    lv_bbody = UserDataGetGameLink("Bodies", lv_ubody, "behavior", 1);
+    lv_bprimary = UserDataGetGameLink("Weapons", lv_uprimary, "behavior", 1);
+    lv_bsecondary = UserDataGetGameLink("Weapons", lv_usecondary, "behavior", 1);
+    lv_bspeciality = UserDataGetGameLink("Specialities", lv_uspeciality, "behavior", 1);
+    lv_alias = "";
+    lv_imagePath = "";
+    lv_buttonName = "";
+    lv_unit = (CatalogFieldValueGet(c_gameCatalogAbil, "WZWarFactoryTrain", "InfoArray[" + IntToString((lv_slot - 1)) + "].Button.Requirements", lp_player));
+    lv_speed = 0.5;
+    lv_powerBonus = 1.0;
+
+    // Implementation
+    if (((lv_unit == null) || (UnitGroupCount(UnitGroup(lv_unit, lv_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), 0), 0), c_unitCountAlive) == 1) || (libWRZN_gf_UnitIsQueued(lv_unit, lv_player) == true))) {
+        lv_unit = libWRZN_gf_GetAvailableUnitType(lv_player);
+    }
+
+    lv_actor = ((lv_unit));
+    libWRZN_gv_designs[lv_player][lv_slot].lv_primary = lv_uprimary;
+    libWRZN_gv_designs[lv_player][lv_slot].lv_secondary = lv_usecondary;
+    libWRZN_gv_designs[lv_player][lv_slot].lv_propulsion = lv_upropulsion;
+    libWRZN_gv_designs[lv_player][lv_slot].lv_body = lv_ubody;
+    libWRZN_gv_designs[lv_player][lv_slot].lv_speciality = lv_uspeciality;
+    libWRZN_gv_designs[lv_player][lv_slot].lv_unit = lv_unit;
+    lv_imagePath = (lv_imagePath + (lv_uprimary) + "-");
+    lv_buttonName = (lv_buttonName + (lv_uprimary) + " ");
+    lv_buildPoints = (lv_buildPoints + UserDataGetInt("Bodies", lv_ubody, "buildPoints", 1));
+    lv_buildPoints = (lv_buildPoints + UserDataGetInt("Propulsions", lv_upropulsion, "buildPoints", 1));
+    lv_buildPoints = (lv_buildPoints + UserDataGetInt("Weapons", lv_uprimary, "buildPoints", 1));
+    lv_buildPower = (lv_buildPower + UserDataGetInt("Bodies", lv_ubody, "buildPower", 1));
+    lv_buildPower = (lv_buildPower + UserDataGetInt("Propulsions", lv_upropulsion, "buildPower", 1));
+    lv_buildPower = (lv_buildPower + UserDataGetInt("Weapons", lv_uprimary, "buildPower", 1));
+    if ((lv_bsecondary != null)) {
+        libWRZN_gv_designs[lv_player][lv_slot].lv_secondary = lv_usecondary;
+        lv_imagePath = (lv_imagePath + (lv_usecondary) + "-");
+        lv_buttonName = (lv_buttonName + (lv_usecondary) + " ");
+        lv_buildPoints = (lv_buildPoints + UserDataGetInt("Weapons", lv_usecondary, "buildPoints", 1));
+        lv_buildPower = (lv_buildPower + UserDataGetInt("Weapons", lv_usecondary, "buildPower", 1));
+    }
+
+    libWRZN_gv_designs[lv_player][lv_slot].lv_propulsion = lv_upropulsion;
+    lv_imagePath = (lv_imagePath + (lv_upropulsion) + "-");
+    lv_buttonName = (lv_buttonName + (lv_upropulsion) + " ");
+    libWRZN_gv_designs[lv_player][lv_slot].lv_body = lv_ubody;
+    lv_imagePath = (lv_imagePath + (lv_ubody));
+    lv_buttonName = (lv_buttonName + (lv_ubody) + " ");
+    if ((lv_bspeciality != null)) {
+        libWRZN_gv_designs[lv_player][lv_slot].lv_speciality = lv_uspeciality;
+        lv_buttonName = (lv_buttonName + (lv_uspeciality) + " ");
+        lv_buildPoints = (lv_buildPoints + UserDataGetInt("Specialities", lv_uspeciality, "buildPoints", 1));
+        lv_buildPower = (lv_buildPower + UserDataGetInt("Specialities", lv_uspeciality, "buildPower", 1));
+    }
+
+    lv_button = ("WZTankDesigner" + IntToString(lv_slot));
+    CatalogFieldValueSet(c_gameCatalogButton, lv_button, "Icon", lv_player, ("Assets/Icons/designer/" + lv_imagePath + ".dds"));
+    CatalogFieldValueSet(c_gameCatalogActor, lv_actor, "UnitIcon", lv_player, ("Assets/Icons/designer/" + lv_imagePath + ".dds"));
+    CatalogFieldValueSet(c_gameCatalogActor, lv_actor, "Wireframe.Image[" + IntToString(0) + "]", lv_player, ("Assets/Icons/designer/" + lv_imagePath + ".dds"));
+    CatalogFieldValueSet(c_gameCatalogActor, lv_actor, "GroupIcon.Image[" + IntToString(0) + "]", lv_player, ("Assets/Icons/designer/" + lv_imagePath + ".dds"));
+    CatalogFieldValueSet(c_gameCatalogActor, lv_actor, "HeroIcon", lv_player, ("Assets/Icons/designer/" + lv_imagePath + ".dds"));
+    CatalogFieldValueSet(c_gameCatalogButton, lv_button, "Name", lv_player, lv_buttonName);
+    CatalogFieldValueSet(c_gameCatalogButton, lv_button, "Tooltip", lv_player, ("Construct " + lv_buttonName));
+    lv_alias = CatalogFieldValueGet(c_gameCatalogBehavior, lv_bbody, "TechAliasArray[" + IntToString(1) + "]", c_playerAny);
+    CatalogFieldValueSet(c_gameCatalogAbil, "WZWarFactoryTrain", "InfoArray[" + IntToString((lv_slot - 1)) + "].Button.Requirements", lv_player, (lv_alias + "Requirements"));
+    lv_buildPoints = (lv_buildPoints / 10);
+    CatalogFieldValueSet(c_gameCatalogAbil, "WZWarFactoryTrain", "InfoArray[" + IntToString((lv_slot - 1)) + "].Time", lv_player, FixedToString((lv_buildPoints / 10.0), c_fixedPrecisionAny));
+    CatalogFieldValueSet(c_gameCatalogAbil, "WZWarFactoryTrain", "InfoArray[" + IntToString((lv_slot - 1)) + "].Unit[" + IntToString(0) + "]", lv_player, (lv_unit));
+    CatalogFieldValueSet(c_gameCatalogUnit, lv_unit, "CostResource[" + IntToString(c_unitCostMinerals) + "]", lv_player, IntToString(lv_buildPower));
+    CatalogFieldValueSet(c_gameCatalogUnit, lv_unit, "Name", lv_player, lv_buttonName);
+    CatalogFieldValueSet(c_gameCatalogUnit, lv_unit, "Description", lv_player, "<c val=\"FFFF8A\"> can attack ground units.</c>");
+    lv_powerOutput = UserDataGetInt("Bodies", lv_ubody, "powerOutput", 1);
+    lv_powerOutput = FixedToInt((lv_powerOutput * UserDataGetFixed("Propulsions", lv_upropulsion, "powerOutputMultiplier", 1)));
+    lv_summaryWeight = (lv_summaryWeight + UserDataGetInt("Bodies", lv_ubody, "weight", 1));
+    lv_summaryWeight = (lv_summaryWeight + UserDataGetInt("Propulsions", lv_upropulsion, "weight", 1));
+    lv_summaryWeight = (lv_summaryWeight + UserDataGetInt("Weapons", lv_uprimary, "weight", 1));
+    if ((lv_usecondary != null)) {
+        lv_summaryWeight = (lv_summaryWeight + UserDataGetInt("Weapons", lv_usecondary, "weight", 1));
+    }
+
+    if ((lv_uspeciality != null)) {
+        lv_summaryWeight = (lv_summaryWeight + UserDataGetInt("Specialities", lv_uspeciality, "weight", 1));
+    }
+
+    lv_bodySize = UserDataGetInt("Bodies", lv_ubody, "size", 1);
+    lv_maxSpeed = UserDataGetInt("Propulsions", lv_upropulsion, "speed", 1);
+    lv_speed = lv_maxSpeed;
+    if ((lv_powerOutput > lv_summaryWeight)) {
+        lv_speed = (lv_speed * 1.5);
+    }
+
+    if ((lv_bodySize > 1)) {
+        if ((lv_bodySize > 2)) {
+            lv_speed = (lv_speed * 0.25);
+        }
+        else {
+            lv_speed = (lv_speed * 0.75);
+        }
+    }
+
+    lv_speed = MaxF(MinF(lv_maxSpeed, (lv_speed * (lv_powerOutput / lv_summaryWeight))), 0.5);
+    lv_speed = (lv_speed / 40.0);
+    CatalogFieldValueSet(c_gameCatalogUnit, lv_unit, "Speed", lv_player, FixedToString(lv_speed, c_fixedPrecisionAny));
+    lv_unitLife = FixedToInt((UserDataGetInt("Bodies", lv_ubody, "hitpoints", 1) * UserDataGetFixed("Propulsions", lv_upropulsion, "hitpointsMultiplier", 1)));
+    lv_unitLife = (lv_unitLife + UserDataGetInt("Weapons", lv_uprimary, "hitpoints", 1));
+    CatalogFieldValueSet(c_gameCatalogUnit, lv_unit, "LifeMax", lv_player, FixedToString(lv_unitLife, c_fixedPrecisionAny));
+    CatalogFieldValueSet(c_gameCatalogUnit, lv_unit, "LifeStart", lv_player, FixedToString(lv_unitLife, c_fixedPrecisionAny));
+}
+
+bool libWRZN_gf_UnitIsQueued (string lp_unitType, int lp_player) {
+    // Automatic Variable Declarations
+    unitgroup auto222DC26F_g;
+    int auto222DC26F_u;
+    unit auto222DC26F_var;
+    int auto4F2656D8_ae;
+    int auto4F2656D8_var;
+
+    // Implementation
+    auto222DC26F_g = UnitGroup(null, lp_player, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto222DC26F_u = UnitGroupCount(auto222DC26F_g, c_unitCountAll);
+    for (;; auto222DC26F_u -= 1) {
+        auto222DC26F_var = UnitGroupUnitFromEnd(auto222DC26F_g, auto222DC26F_u);
+        if (auto222DC26F_var == null) { break; }
+        if ((UnitAbilityExists(auto222DC26F_var, "WZWarFactoryTrain") == true)) {
+            auto4F2656D8_ae = UnitQueueItemCount(auto222DC26F_var, 1);
+            auto4F2656D8_var = 1;
+            for ( ; auto4F2656D8_var <= auto4F2656D8_ae; auto4F2656D8_var += 1 ) {
+                if ((libNtve_gf_QueuedUnitTypeInTrainingQueueSlot(auto222DC26F_var, 1, auto4F2656D8_var) == lp_unitType)) {
+                    return true;
+                }
+
+            }
+        }
+
+    }
+    return false;
+}
+
+// Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: Construction Animation
+//--------------------------------------------------------------------------------------------------
+bool libWRZN_gt_ConstructionAnimation_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_unit;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_unit = EventUnitProgressUnit();
+
+    // Conditions
+    if (testConds) {
+        if (!(((CatalogFieldValueGet(c_gameCatalogUnit, UnitGetType(lv_unit), "Race", c_playerAny)) == "WZ"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    while ((libNtve_gf_UnitIsUnderConstruction(lv_unit) == true)) {
+        UnitSetScale(EventUnitProgressUnit(), 100.0, 100.0, UnitGetProgressComplete(EventUnitProgressUnit(), 1));
+        Wait(0.1, c_timeGame);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libWRZN_gt_ConstructionAnimation_Init () {
+    libWRZN_gt_ConstructionAnimation = TriggerCreate("libWRZN_gt_ConstructionAnimation_Func");
+    TriggerAddEventUnitConstructProgress(libWRZN_gt_ConstructionAnimation, null, c_unitProgressStageStart);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Unit Design Button Clicked
+//--------------------------------------------------------------------------------------------------
+bool libWRZN_gt_UnitDesignButtonClicked_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_hq;
+    abilcmd lv_ability;
+    int lv_slot;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_hq = EventUnit();
+    lv_ability = EventUnitAbility();
+    lv_slot = (AbilityCommandGetCommand(lv_ability) + 1);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libWRZN_gf_UnitDesignStart(lv_hq, lv_slot);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libWRZN_gt_UnitDesignButtonClicked_Init () {
+    libWRZN_gt_UnitDesignButtonClicked = TriggerCreate("libWRZN_gt_UnitDesignButtonClicked_Func");
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 0), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 1), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 2), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 3), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 4), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 5), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 6), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 7), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 8), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 9), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 10), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 11), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 12), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignButtonClicked, null, AbilityCommand("UnitDesigner", 13), c_unitAbilStageAll, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Unit Designer Deselected
+//--------------------------------------------------------------------------------------------------
+bool libWRZN_gt_UnitDesignerDeselected_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((UnitHasBehavior2(EventUnit(), "DesignUnit") == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerDebugOutput(1, StringExternal("Param/Value/lib_WRZN_D1CCA7C6"), true);
+    libWRZN_gf_UnitDesignEnd(EventUnit());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libWRZN_gt_UnitDesignerDeselected_Init () {
+    libWRZN_gt_UnitDesignerDeselected = TriggerCreate("libWRZN_gt_UnitDesignerDeselected_Func");
+    TriggerAddEventUnitSelected(libWRZN_gt_UnitDesignerDeselected, null, c_playerAny, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Unit Design Cancel Clicked
+//--------------------------------------------------------------------------------------------------
+bool libWRZN_gt_UnitDesignCancelClicked_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_hq;
+    string lv_behavior;
+    int lv_player;
+    int lv_slot;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_hq = EventUnit();
+    lv_player = UnitGetOwner(EventUnit());
+    lv_slot = libWRZN_gv_activeDesign[lv_player];
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerDebugOutput(1, StringExternal("Param/Value/lib_WRZN_93A00659"), true);
+    libWRZN_gf_UnitDesignEnd(lv_hq);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libWRZN_gt_UnitDesignCancelClicked_Init () {
+    libWRZN_gt_UnitDesignCancelClicked = TriggerCreate("libWRZN_gt_UnitDesignCancelClicked_Func");
+    TriggerAddEventUnitAbility(libWRZN_gt_UnitDesignCancelClicked, null, AbilityCommand("DesignUnitCancel", 0), c_unitAbilStageExecute, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Unit Created
+//--------------------------------------------------------------------------------------------------
+bool libWRZN_gt_UnitCreated_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_droid;
+    int lv_player;
+    int lv_slot;
+    string lv_upropulsion;
+    string lv_ubody;
+    string lv_uprimary;
+    string lv_usecondary;
+    string lv_uspeciality;
+    string lv_bpropulsion;
+    string lv_bbody;
+    string lv_bprimary;
+    string lv_bsecondary;
+    string lv_bspeciality;
+    int lv_summaryWeight;
+    int lv_unitLife;
+    int lv_powerOutput;
+    int lv_bodySize;
+    fixed lv_speed;
+    fixed lv_maxSpeed;
+    fixed lv_powerBonus;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_droid = EventUnitCreatedUnit();
+    lv_player = UnitGetOwner(lv_droid);
+    lv_slot = libWRZN_gf_GetUnitSlot(lv_player, UnitGetType(lv_droid));
+    lv_upropulsion = libWRZN_gv_designs[lv_player][lv_slot].lv_propulsion;
+    lv_ubody = libWRZN_gv_designs[lv_player][lv_slot].lv_body;
+    lv_uprimary = libWRZN_gv_designs[lv_player][lv_slot].lv_primary;
+    lv_usecondary = libWRZN_gv_designs[lv_player][lv_slot].lv_secondary;
+    lv_uspeciality = libWRZN_gv_designs[lv_player][lv_slot].lv_speciality;
+    lv_bpropulsion = UserDataGetGameLink("Propulsions", lv_upropulsion, "behavior", 1);
+    lv_bbody = UserDataGetGameLink("Bodies", lv_ubody, "behavior", 1);
+    lv_bprimary = UserDataGetGameLink("Weapons", lv_uprimary, "behavior", 1);
+    lv_bsecondary = UserDataGetGameLink("Weapons", lv_usecondary, "behavior", 1);
+    lv_bspeciality = UserDataGetGameLink("Specialities", lv_uspeciality, "behavior", 1);
+    lv_powerBonus = 1.0;
+
+    // Conditions
+    if (testConds) {
+        if (!((StringSub((UnitGetType(EventUnitCreatedUnit())), 1, 6) == "WZTank"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitBehaviorAdd(lv_droid, lv_bpropulsion, lv_droid, 1);
+    UnitBehaviorAdd(lv_droid, lv_bspeciality, lv_droid, 1);
+    UnitBehaviorAdd(lv_droid, lv_bsecondary, lv_droid, 1);
+    UnitBehaviorAdd(lv_droid, lv_bprimary, lv_droid, 1);
+    UnitBehaviorAdd(lv_droid, lv_bbody, lv_droid, 1);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libWRZN_gt_UnitCreated_Init () {
+    libWRZN_gt_UnitCreated = TriggerCreate("libWRZN_gt_UnitCreated_Func");
+    TriggerAddEventUnitCreated(libWRZN_gt_UnitCreated, null, null, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Unit Design Modified
+//--------------------------------------------------------------------------------------------------
+bool libWRZN_gt_UnitDesignModified_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_hq;
+    string lv_behavior;
+    int lv_player;
+    int lv_slot;
+    string lv_alias;
+    string lv_partID;
+
+    // Automatic Variable Declarations
+    string autoFF745035_val;
+
+    // Variable Initialization
+    lv_hq = EventUnit();
+    lv_behavior = EventUnitBehavior();
+    lv_player = UnitGetOwner(EventUnit());
+    lv_slot = libWRZN_gv_activeDesign[lv_player];
+    lv_alias = "";
+    lv_partID = "";
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitHasBehavior2(EventUnit(), "DesignUnit") == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((CatalogFieldValueCount(c_gameCatalogBehavior, lv_behavior, "TechAliasArray", c_playerAny) > 0)) {
+        lv_alias = CatalogFieldValueGet(c_gameCatalogBehavior, lv_behavior, "TechAliasArray[" + IntToString(0) + "]", c_playerAny);
+        autoFF745035_val = lv_alias;
+        if (autoFF745035_val == "WZBody") {
+            lv_partID = StringSub((lv_behavior), 4, 100);
+            CatalogFieldValueSet(c_gameCatalogButton, "WZBody", "Icon", lv_player, ("Assets/icons/Bodies/" + lv_partID + ".dds"));
+            CatalogFieldValueSet(c_gameCatalogButton, "WZBody", "Name", lv_player, ("Assets/icons/Bodies/" + lv_partID + ".dds"));
+        }
+        else if (autoFF745035_val == "WZPropulsion") {
+            lv_partID = StringSub((lv_behavior), 4, 100);
+            CatalogFieldValueSet(c_gameCatalogButton, "WZPropulsion", "Icon", lv_player, ("Assets/icons/Propulsions/" + lv_partID + ".dds"));
+            CatalogFieldValueSet(c_gameCatalogButton, "WZPropulsion", "Name", lv_player, ("Assets/icons/Propulsions/" + lv_partID + ".dds"));
+        }
+        else if (autoFF745035_val == "WZTurretPrimary") {
+            lv_partID = StringSub((lv_behavior), 7, 100);
+            CatalogFieldValueSet(c_gameCatalogButton, "WZTurret", "Icon", lv_player, ("Assets/icons/Weapons/" + lv_partID + ".dds"));
+            CatalogFieldValueSet(c_gameCatalogButton, "WZTurret", "Name", lv_player, ("Assets/icons/Weapons/" + lv_partID + ".dds"));
+        }
+        else if (autoFF745035_val == "WZTurretSecondary") {
+        }
+        else if (autoFF745035_val == "WZSpeciality") {
+        }
+        else {
+        }
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libWRZN_gt_UnitDesignModified_Init () {
+    libWRZN_gt_UnitDesignModified = TriggerCreate("libWRZN_gt_UnitDesignModified_Func");
+    TriggerAddEventUnitBehaviorChange(libWRZN_gt_UnitDesignModified, null, null, c_unitBehaviorChangeAny);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Test
+//--------------------------------------------------------------------------------------------------
+bool libWRZN_gt_Test_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    string lv_instance;
+
+    // Automatic Variable Declarations
+    playergroup auto2B82A2E6_g;
+    int auto2B82A2E6_var;
+    int autoFC187A3B_ae;
+    int autoFC187A3B_var;
+
+    // Variable Initialization
+
+    // Conditions
+    if (testConds) {
+        if (!((GameIsTestMap(false) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto2B82A2E6_g = PlayerGroupAll();
+    auto2B82A2E6_var = -1;
+    while (true) {
+        auto2B82A2E6_var = PlayerGroupNextPlayer(auto2B82A2E6_g, auto2B82A2E6_var);
+        if (auto2B82A2E6_var < 0) { break; }
+        autoFC187A3B_ae = UserDataInstanceCount("Designs");
+        autoFC187A3B_var = 1;
+        for ( ; autoFC187A3B_var <= autoFC187A3B_ae; autoFC187A3B_var += 1 ) {
+            lv_instance = UserDataInstance("Designs", autoFC187A3B_var);
+            libWRZN_gf_SetDesignByUserInstances(auto2B82A2E6_var, autoFC187A3B_var, UserDataGetUserInstance("Designs", lv_instance, "primary", 1), UserDataGetUserInstance("Designs", lv_instance, "secondary", 1), UserDataGetUserInstance("Designs", lv_instance, "propulsion", 1), UserDataGetUserInstance("Designs", lv_instance, "body", 1), UserDataGetUserInstance("Designs", lv_instance, "speciality", 1));
+        }
+    }
+    PlayerSetRace(1, "WZ");
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libWRZN_gt_Test_Init () {
+    libWRZN_gt_Test = TriggerCreate("libWRZN_gt_Test_Func");
+    TriggerAddEventMapInit(libWRZN_gt_Test);
+}
+
+void libWRZN_InitTriggers () {
+    libWRZN_gt_ConstructionAnimation_Init();
+    libWRZN_gt_UnitDesignButtonClicked_Init();
+    libWRZN_gt_UnitDesignerDeselected_Init();
+    libWRZN_gt_UnitDesignCancelClicked_Init();
+    libWRZN_gt_UnitCreated_Init();
+    libWRZN_gt_UnitDesignModified_Init();
+    libWRZN_gt_Test_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool libWRZN_InitLib_completed = false;
+
+void libWRZN_InitLib () {
+    if (libWRZN_InitLib_completed) {
+        return;
+    }
+
+    libWRZN_InitLib_completed = true;
+
+    libWRZN_InitLibraries();
+    libWRZN_InitVariables();
+    libWRZN_InitTriggers();
+}
+

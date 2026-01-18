@@ -1,0 +1,62 @@
+include "TriggerLibs/NativeLib"
+
+include "LibNECR_h"
+
+//--------------------------------------------------------------------------------------------------
+// Library: Mod - WarHammer
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void libNECR_InitLibraries () {
+    libNtve_InitVariables();
+}
+
+// Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: Necron Incapacitated
+//--------------------------------------------------------------------------------------------------
+bool libNECR_gt_NecronIncapacitated_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    playergroup auto15236507_g;
+    int auto15236507_var;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto15236507_g = PlayerGroupAll();
+    auto15236507_var = -1;
+    while (true) {
+        auto15236507_var = PlayerGroupNextPlayer(auto15236507_g, auto15236507_var);
+        if (auto15236507_var < 0) { break; }
+        UnitSelect(EventUnit(), auto15236507_var, false);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libNECR_gt_NecronIncapacitated_Init () {
+    libNECR_gt_NecronIncapacitated = TriggerCreate("libNECR_gt_NecronIncapacitated_Func");
+    TriggerAddEventUnitBehaviorChange(libNECR_gt_NecronIncapacitated, null, "NecronWarriorIncapacitated", c_unitBehaviorChangeActivate);
+}
+
+void libNECR_InitTriggers () {
+    libNECR_gt_NecronIncapacitated_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool libNECR_InitLib_completed = false;
+
+void libNECR_InitLib () {
+    if (libNECR_InitLib_completed) {
+        return;
+    }
+
+    libNECR_InitLib_completed = true;
+
+    libNECR_InitLibraries();
+    libNECR_InitTriggers();
+}
+

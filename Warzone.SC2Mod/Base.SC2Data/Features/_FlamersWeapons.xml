@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+
+
+
+    <!--machinegun-->
+<!--    <CBehaviorBuff parent="WZWeapon" id="WZTLightMachinegun"/>-->
+<!--    <CEffectRemoveBehavior id="WZTLightMachinegunRB"><WhichUnit Value="Caster"/><BehaviorLink value="WZTLightMachinegun"/></CEffectRemoveBehavior>-->
+<!--    <CEffectApplyBehavior id="WZTLightMachinegunAB"><WhichUnit Value="Caster"/><Behavior value="WZTLightMachinegun"/></CEffectApplyBehavior>-->
+<!--    <CUnit id="WZTLightMachinegunMissile" parent="WZProjectile"/>-->
+<!--    <CActorMissile id="WZTLightMachinegunMissile" parent="WZProjectile"><Model value="WZFXTracer"/></CActorMissile>-->
+<!--    <CWeaponLegacy id="WZTLightMachinegun" parent="WZWeapon"><Range value="10"/><Period value="0.8608"/></CWeaponLegacy>-->
+<!--    <CEffectCreatePersistent id="WZTLightMachinegun" parent="WZWeapon"><PeriodCount value="2"/><PeriodicPeriodArray value="0.1"/><PeriodicPeriodArray value="0.1"/></CEffectCreatePersistent>-->
+<!--    <CActorAction id="WZTLightMachinegun" parent="WZWeapon">-->
+<!--        <Missile value="WZTLightMachinegunMissile"/>-->
+<!--        <ImpactMap index="None" Model="MarineAttackImpact" Sound="Marine_AttackImpact"/></CActorAction>-->
+<!--    <CEffectSwitch id="WZTLightMachinegunMiss" parent="WZWeaponMiss"/>-->
+<!--    <CEffectRandomPointInCircle id="WZTLightMachinegunMissi" parent="WZWeaponMissi"/>-->
+<!--    <CEffectRandomPointInCircle id="WZTLightMachinegunMissil" parent="WZWeaponMissil"/>-->
+<!--    <CEffectLaunchMissile id="WZTLightMachinegunMissile" parent="WZWeaponMissile"><Movers Link="D_15_0"/> <AmmoUnit value="WZTLightMachinegunMissile"/></CEffectLaunchMissile>-->
+<!--    <CEffectDamage id="WZTLightMachinegunMissileDamage" parent="WZWeaponMissileDamage"><Amount value="4"/></CEffectDamage>-->
+<!--    <CSound id="WZTLightMachinegunLaunch" parent="Combat"><AssetArray File="Assets\Sounds\sfx\weapons\mgbar2.ogg"/></CSound>-->
+
+
+
+
+<!--    <CUnit id="WZFolsomMissile" parent="WZProjectile"/>-->
+<!--    <CActorMissile id="WZFolsomMissile" parent="WZProjectile"/>-->
+<!--    <CModel id="WZFolsomMissile" parent="WZProjectile">-->
+<!--        &lt;!&ndash;        <Model value="Assets\Effects\Terran\Marauder_ConcussiveShell_MP_Missile\Marauder_ConcussiveShell_MP_Missile.m3"/>&ndash;&gt;-->
+<!--        <Model value="assets\effects\terran\mirahorner_hellion_basicgrenade_coop_missile\mirahorner_hellion_basicgrenade_coop_missile.m3"/>-->
+<!--        <ScaleMax value="0.3,0.3,0.3"/><ScaleMin value="0.3,0.3,0.3"/>-->
+<!--    </CModel>-->
+<!--    <CBehaviorBuff              id="WZTankZFolsom"                  parent="WZWeapon"              />-->
+<!--    <CBehaviorBuff              id="WZTankZFolsomSecondary"         parent="WZTankZFolsom"         />-->
+<!--    <CWeaponLegacy              id="WZTankZFolsom"                  parent="WZWeapon"              ><Range value="8"/><Period value="0.8608"/></CWeaponLegacy>-->
+<!--    <CWeaponLegacy              id="WZTankZFolsomTargeted"          parent="WZTankZFolsom"         ><Range value="15"/></CWeaponLegacy>-->
+<!--    <CWeaponLegacy              id="WZTankZFolsomSecondary"         parent="WZTankZFolsom"         />-->
+<!--    <CWeaponLegacy              id="WZTankZFolsomSecondaryTargeted" parent="WZTankZFolsomTargeted" />-->
+<!--    <CEffectCreatePersistent    id="WZTankZFolsom"                  parent="WZWeapon"              />-->
+<!--    <CActorAction               id="WZTankZFolsom"                  parent="WZWeapon"              ><LaunchAssets Sound="MissileTurret_AttackLaunch"/></CActorAction>-->
+<!--    <CEffectSwitch              id="WZTankZFolsomMiss"              parent="WZWeaponMiss"          />-->
+<!--    <CEffectRandomPointInCircle id="WZTankZFolsomMissi"             parent="WZWeaponMissi"         />-->
+<!--    <CEffectRandomPointInCircle id="WZTankZFolsomMissil"            parent="WZWeaponMissil"        />-->
+<!--    <CEffectLaunchMissile       id="WZTankZFolsomMissile"           parent="WZWeaponMissile"       ><AmmoUnit value="WZFolsomMissile"/> <Movers Link="D_15_0"/>    </CEffectLaunchMissile>-->
+<!--    <CEffectDamage              id="WZTankZFolsomMissileDamage"     parent="WZWeaponMissileDamage" />-->
+
+
+
+
+
+
+
+
+    <CEffectDamage default="1" id="WZSimpleWeapon" parent="DU_WEAP"><EditorCategories value="Race:WZ"/><Kind value="Ranged"/></CEffectDamage>
+
+
+
+    <!--Flamers-->
+    <CEffectSet id="WZXFlamerWeapon">
+        <EffectArray value="WZXFlamerWeaponImpactDamage"/>
+        <EffectArray value="WZXFlamerPeriodicDamageApplyBehavior"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="WZXFlamerPeriodicDamageApplyBehavior"><Behavior value="WZXFlamerPeriodicDamageBehavior"/></CEffectApplyBehavior>
+    <CEffectDamage id="WZXFlamerWeaponImpactDamage" parent="WZSimpleWeapon">           <Death value="Fire"/><Amount value="40"/></CEffectDamage>
+    <CEffectDamage id="WZXFlamerPeriodicDamage" parent="WZSimpleWeapon">          <AreaArray Radius="0.5" Fraction="1"/> <Death value="Fire"/><Amount value="20"/></CEffectDamage>
+    <CBehaviorBuff id="WZXFlamerPeriodicDamageBehavior">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-swann-irradiate.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:WZ"/>
+        <Duration value="4"/>
+        <Period value="1"/>
+        <PeriodicEffect value="WZXFlamerPeriodicDamage"/>
+        <BehaviorCategories index="Restorable" value="1"/>
+        <Modification><ModifyFlags index="Detected" value="1"/></Modification>
+    </CBehaviorBuff>
+
+    <CEffectSet id="WZXThermiteFlamerWeapon">
+        <EffectArray value="WZXThermiteFlamerWeaponImpactDamage"/>
+        <EffectArray value="WZXThermiteFlamerPeriodicDamageApplyBehavior"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="WZXThermiteFlamerPeriodicDamageApplyBehavior"><Behavior value="WZXThermiteFlamerPeriodicDamageBehavior"/></CEffectApplyBehavior>
+    <CEffectDamage id="WZXThermiteFlamerWeaponImpactDamage" parent="WZSimpleWeapon">   <Death value="Fire"/><Amount value="68"/></CEffectDamage>
+    <CEffectDamage id="WZXThermiteFlamerPeriodicDamage" parent="WZSimpleWeapon">  <AreaArray Radius="0.5" Fraction="1"/> <Death value="Fire"/><Amount value="26"/></CEffectDamage>
+    <CBehaviorBuff id="WZXThermiteFlamerPeriodicDamageBehavior">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-swann-irradiate.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:WZ"/>
+        <Duration value="4"/>
+        <Period value="1"/>
+        <PeriodicEffect value="WZXFlamerPeriodicDamage"/>
+        <BehaviorCategories index="Restorable" value="1"/>
+        <Modification><ModifyFlags index="Detected" value="1"/></Modification>
+    </CBehaviorBuff>
+
+</Catalog>

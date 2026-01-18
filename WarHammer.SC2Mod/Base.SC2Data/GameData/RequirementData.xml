@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <!--Hide Upgrade If Research Already Started-->
+    <CRequirement default="1" id="NODLearnUpgrade">
+        <?token id="upgrade" type="CUpgradeLink"  value="Bogus"?>
+        <EditorCategories value="Race:Necron,TechType:Upgrade"/>
+        <NodeArray index="Show" Link="RN_##upgrade##"/>
+    </CRequirement>
+    <!--Allow Ability if Upgrade Complete-->
+    <CRequirement default="1" id="NODRequireUpgrade">
+        <?token id="upgrade" type="CUpgradeLink"  value="Bogus"?>
+        <EditorCategories value="Race:Necron,TechType:Upgrade"/>
+        <NodeArray index="Use" Link="RC_##upgrade##"/>
+    </CRequirement>
+    <!--Unit Requirements-->
+    <CRequirement default="1" id="NODRequirementUnit">
+        <?token id="requirement" type="CRequirementLink" value="Bogus"?>
+        <EditorCategories value="Race:Necron,TechType:Unit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+        <NodeArray index="Use" Link="##requirement##"/>
+    </CRequirement>
+</Catalog>

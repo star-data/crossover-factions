@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUnit default="1" id="DOWUnit">
+        <FlagArray index="ArmySelect" value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
+        <Speed value="2.25"/>
+        <Acceleration value="1000"/>
+        <CostCategory value="Army"/>
+        <AttackTargetPriority value="20"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <CardLayouts>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+        </CardLayouts>
+        <CargoSize value="1"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:WarHammer"/>
+        <StationaryTurningRate value="990"/>
+        <TurningRate value="990"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="33"/>
+            <ChanceArray index="Idle" value="33"/>
+            <ChanceArray index="Turn" value="33"/>
+        </Fidget>
+        <GlossaryPriority value="21"/>
+        <Food value="-1"/>
+        <RepairTime value="20"/>
+        <KillXP value="10"/>
+        <Radius value="0.375"/>
+        <SeparationRadius value="0.375"/>
+        <ScoreMake value="50"/>
+        <ScoreKill value="50"/>
+        <SubgroupPriority value="78"/>
+        <MinimapRadius value="0.375"/>
+        <InnerRadius value="0.625"/>
+        <CostResource index="Minerals" value="50"/>
+        <Attributes index="Light" value="1"/>
+        <LifeStart value="45"/>
+        <LifeMax value="45"/>
+    </CUnit>
+    <CUnit default="1" id="DOWAir">
+        <FlagArray index="ArmySelect" value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/MechAirPlating"/>
+        <Speed value="2.75"/>
+        <CostCategory value="Army"/>
+        <AttackTargetPriority value="20"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <CardLayouts>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:WarHammer"/>
+        <StationaryTurningRate value="990"/>
+        <TurningRate value="990"/>
+        <PlaneArray index="Air" value="1"/>
+        <Collide index="Flying" value="1"/>
+        <Mover value="Fly"/>
+        <Height value="3.75"/>
+        <VisionHeight value="4"/>
+    </CUnit>
+    <CUnit default="1" id="DOWStructure">
+        <Facing value="45"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranBuildingPlating"/>
+        <LifeArmor value="1"/>
+        <CostCategory value="Technology"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="que5PassiveCancelToSelection"/>
+        <CardLayouts>
+            <LayoutButtons Face="Halt" Type="AbilCmd" AbilCmd="BuildInProgress,Halt" Row="2" Column="3"/>
+            <LayoutButtons Face="SelectBuilder" Type="SelectBuilder" Row="2" Column="2"/>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5PassiveCancelToSelection,CancelLast" Row="2" Column="4"/>
+        </CardLayouts>
+        <Footprint value="Footprint3x3Contour"/>
+        <PlacementFootprint value="Footprint3x3"/>
+        <MinimapRadius value="1.5"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:WarHammer"/>
+    </CUnit>
+    <CUnit default="1" id="Necron" parent="DOWUnit">
+        <Race value="Necron"/>
+        <GlossaryCategory value="Unit/Category/NecronUnits"/>
+        <HotkeyCategory value="Unit/Category/NecronUnits"/>
+    </CUnit>
+    <CUnit default="1" id="ChaosDaemons" parent="DOWUnit">
+        <Race value="WHCD"/>
+        <GlossaryCategory value="Unit/Category/ChaosDaemonsUnits"/>
+        <HotkeyCategory value="Unit/Category/ChaosDaemonsUnits"/>
+    </CUnit>
+    <CUnit default="1" id="ChaosMarines" parent="DOWUnit">
+        <Race value="WHCM"/>
+        <GlossaryCategory value="Unit/Category/ChaosMarinesUnits"/>
+        <HotkeyCategory value="Unit/Category/ChaosMarinesUnits"/>
+    </CUnit>
+    <CUnit default="1" id="DarkEldar" parent="DOWUnit">
+        <Race value="WHDE"/>
+        <GlossaryCategory value="Unit/Category/DarkEldarUnits"/>
+        <HotkeyCategory value="Unit/Category/DarkEldarUnits"/>
+    </CUnit>
+    <CUnit default="1" id="Eldar" parent="DOWUnit">
+        <Race value="WHEL"/>
+        <GlossaryCategory value="Unit/Category/EldarUnits"/>
+        <HotkeyCategory value="Unit/Category/EldarUnits"/>
+    </CUnit>
+    <CUnit default="1" id="Tau" parent="DOWUnit">
+        <Race value="WHTA"/>
+        <GlossaryCategory value="Unit/Category/TauUnits"/>
+        <HotkeyCategory value="Unit/Category/TauUnits"/>
+    </CUnit>
+    <CUnit default="1" id="WHCiv" parent="DOWUnit">
+        <GlossaryCategory value="Unit/Category/WHNeutralUnits"/>
+        <HotkeyCategory value="Unit/Category/WHNeutralUnits"/>
+    </CUnit>
+    <CUnit default="1" id="WHIG" parent="DOWUnit">
+        <Race value="WHIG"/>
+        <GlossaryCategory value="Unit/Category/WHImperialGuardsUnits"/>
+        <HotkeyCategory value="Unit/Category/WHImperialGuardsUnits"/>
+    </CUnit>
+    <CUnit default="1" id="WHOrc" parent="DOWUnit">
+        <Race value="WHOR"/>
+        <GlossaryCategory value="Unit/Category/WHOrcUnits"/>
+        <HotkeyCategory value="Unit/Category/WHOrcUnits"/>
+    </CUnit>
+    <CUnit default="1" id="WHSM" parent="DOWUnit">
+        <Race value="WHSM"/>
+        <GlossaryCategory value="Unit/Category/WHSpaceMarinesUnits"/>
+        <HotkeyCategory value="Unit/Category/WHSpaceMarinesUnits"/>
+    </CUnit>
+    <CUnit default="1" id="SOB" parent="DOWUnit">
+        <Race value="WHSB"/>
+        <GlossaryCategory value="Unit/Category/SistersOfBattleUnits"/>
+        <HotkeyCategory value="Unit/Category/SistersOfBattleUnits"/>
+    </CUnit>
+    <CUnit default="1" id="NecronAir" parent="DOWAir">
+        <Race value="Necron"/>
+        <GlossaryCategory value="Unit/Category/NecronUnits"/>
+        <HotkeyCategory value="Unit/Category/NecronUnits"/>
+    </CUnit>
+    <CUnit default="1" id="ChaosDaemonsAir" parent="DOWAir">
+        <Race value="WHCD"/>
+        <GlossaryCategory value="Unit/Category/ChaosDaemonsUnits"/>
+        <HotkeyCategory value="Unit/Category/ChaosDaemonsUnits"/>
+    </CUnit>
+    <CUnit default="1" id="ChaosMarinesAir" parent="DOWAir">
+        <Race value="WHCM"/>
+        <GlossaryCategory value="Unit/Category/ChaosMarinesUnits"/>
+        <HotkeyCategory value="Unit/Category/ChaosMarinesUnits"/>
+    </CUnit>
+    <CUnit default="1" id="DarkEldarAir" parent="DOWAir">
+        <Race value="WHDE"/>
+        <GlossaryCategory value="Unit/Category/DarkEldarUnits"/>
+        <HotkeyCategory value="Unit/Category/DarkEldarUnits"/>
+    </CUnit>
+    <CUnit default="1" id="EldarAir" parent="DOWAir">
+        <Race value="WHEL"/>
+        <GlossaryCategory value="Unit/Category/EldarUnits"/>
+        <HotkeyCategory value="Unit/Category/EldarUnits"/>
+    </CUnit>
+    <CUnit default="1" id="TauAir" parent="DOWAir">
+        <Race value="WHTA"/>
+        <GlossaryCategory value="Unit/Category/TauUnits"/>
+        <HotkeyCategory value="Unit/Category/TauUnits"/>
+    </CUnit>
+    <CUnit default="1" id="WHCivAir" parent="DOWAir">
+        <GlossaryCategory value="Unit/Category/WHNeutralUnits"/>
+        <HotkeyCategory value="Unit/Category/WHNeutralUnits"/>
+    </CUnit>
+    <CUnit default="1" id="WHIGAir" parent="DOWAir">
+        <Race value="WHIG"/>
+        <GlossaryCategory value="Unit/Category/WHImperialGuardsUnits"/>
+        <HotkeyCategory value="Unit/Category/WHImperialGuardsUnits"/>
+    </CUnit>
+    <CUnit default="1" id="WHOrcAir" parent="DOWAir">
+        <Race value="WHOR"/>
+        <GlossaryCategory value="Unit/Category/WHOrcUnits"/>
+        <HotkeyCategory value="Unit/Category/WHOrcUnits"/>
+    </CUnit>
+    <CUnit default="1" id="WHSMAir" parent="DOWAir">
+        <Race value="WHSM"/>
+        <GlossaryCategory value="Unit/Category/WHSpaceMarinesUnits"/>
+        <HotkeyCategory value="Unit/Category/WHSpaceMarinesUnits"/>
+    </CUnit>
+    <CUnit default="1" id="SOBAir" parent="DOWAir">
+        <Race value="WHSB"/>
+        <GlossaryCategory value="Unit/Category/SistersOfBattleUnits"/>
+        <HotkeyCategory value="Unit/Category/SistersOfBattleUnits"/>
+    </CUnit>
+    <CUnit default="1" id="DOWWorker" parent="DOWUnit">
+        <?token id="race" value="WHSM"?>
+        <LifeArmorName value="Unit/LifeArmorName/##race##InfantryArmor"/>
+        <FlagArray index="Worker" value="1"/>
+        <DefaultAcquireLevel value="Defensive"/>
+        <Response value="Flee"/>
+        <Acceleration value="2.5"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="8"/>
+        <CostCategory value="Economy"/>
+        <RepairTime value="16.667"/>
+        <AIOverideTargetPriority value="10"/>
+        <AbilArray Link="SCVHarvest"/>
+        <AbilArray Link="##race##Build"/>
+        <AbilArray Link="SprayDOW"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Repair" Type="AbilCmd" AbilCmd="Repair,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="GatherTerr" Type="AbilCmd" AbilCmd="SCVHarvest,0" Row="1" Column="0"/>
+            <LayoutButtons Face="ReturnCargo" Type="AbilCmd" AbilCmd="SCVHarvest,1" Row="1" Column="1"/>
+            <LayoutButtons Face="##race##Build" Type="Submenu" SubmenuCardId="TBl1" Row="2" Column="0"/>
+            <LayoutButtons Face="Halt" Type="AbilCmd" AbilCmd="##race##Build,30" Row="2" Column="4"/>
+            <LayoutButtons Face="Spray" Type="AbilCmd" AbilCmd="SprayDOW,0" Row="2" Column="3"/>
+        </CardLayouts>
+        <CardLayouts CardId="TBl1">
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <InnerRadius value="0.375"/>
+        <SubgroupPriority value="58"/>
+        <GlossaryPriority value="10"/>
+    </CUnit>
+    <CUnit default="1" id="NecronMissile" parent="MISSILE">
+        <Race value="Necron"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:WarHammer"/>
+    </CUnit>
+    <CUnit id="NecronBuilderScarab" parent="DOWWorker" race="Necron">
+        <WeaponArray Link="NecronFusionCutter"/>
+    </CUnit>
+    <CUnit id="NecronWarrior" parent="Necron">
+        <BehaviorArray Link="NecronWarriorDeathPrevention"/>
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <CUnit id="NecronBlackBuilderScarab" parent="DOWWorker" race="Necron">
+        <WeaponArray Link="NecronFusionCutter"/>
+    </CUnit>
+    <CUnit id="NecronTombSpyder" parent="Necron">
+        <WeaponArray Link="NecronFusionCutter"/>
+    </CUnit>
+    <CUnit id="NecronBlackWarrior" parent="Necron">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <CUnit id="NecronDeceiver" parent="Necron">
+        <WeaponArray Link="PsionicShockwave"/>
+    </CUnit>
+    <CUnit id="NecronDestroyer" parent="Necron">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <CUnit id="NecronFlayedOne" parent="Necron">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="NecronImmortal" parent="Necron">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <CUnit id="NecronNightBringer" parent="Necron">
+        <WeaponArray Link="PsionicShockwave"/>
+    </CUnit>
+    <CUnit id="NecronPariah" parent="Necron">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <CUnit id="NecronWraith" parent="Necron">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="NecronLord" parent="Necron">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <CUnit id="NecronLordDestroyer" parent="Necron">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <CUnit id="NecronOverlord" parent="Necron">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <CUnit id="NecronUnderlord" parent="Necron">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <CUnit id="NecronScarabs" parent="Necron">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="ChaosDaemonsLostSoul" parent="DOWWorker" race="WHCD">
+        <Race value="WHCD"/>
+        <WeaponArray Link="FusionCutter"/>
+    </CUnit>
+    <CUnit id="ChaosMarinesCultist" parent="ChaosMarines">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="ChaosMarinesDefiler" parent="ChaosMarines">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="ChaosMarinesHeretic" parent="DOWWorker" race="WHCM">
+        <Race value="WHCM"/>
+        <WeaponArray Link="Spines"/>
+    </CUnit>
+    <CUnit id="ChaosMarinesLord" parent="ChaosMarines">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="ChaosMarinesMarine" parent="ChaosMarines">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="ChaosMarinesSorcerer" parent="ChaosMarines">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <!--    <CUnit id="ChaosMarinesSorcererElite" parent="ChaosMarines"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="ChaosMarinesSorcererHero" parent="ChaosMarines"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="ChaosMarinesSorcererMerc" parent="ChaosMarines"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <CUnit id="DarkEldarTorturedSlave" parent="DOWWorker" race="WHDE">
+        <Race value="WHDE"/>
+        <WeaponArray Link="Spines"/>
+    </CUnit>
+    <CUnit id="EldarBanshee" parent="Eldar">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <!--    <CUnit id="EldarBansheeDoubleSwords" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarBansheeSwordAndGun" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarBansheeDoubleEnergySwords" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarBansheeEnergySwordAndGun" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarBansheeExarchDoubleEnergySwords" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarBansheeExarchDoubleSwords" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarBansheeExarchEnergySwordAndGun" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarBansheeExarchSwordAndGun" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarBansheeScreamerDoubleEnergySwords" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarBansheeScreamerDoubleSwords" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarBansheeScreamerEnergySwordAndGun" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarBansheeScreamerSwordAndGun" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <CUnit id="EldarBoneSinger" parent="Eldar">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="EldarFarseerElenwe" parent="Eldar">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="EldarFarseerTaldeer" parent="Eldar">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="EldarGravPlatformBrightlanceGun" parent="Eldar">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="EldarGravPlatformDCannonGun" parent="Eldar">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="EldarGravPlatformShurikenGun" parent="Eldar">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="EldarGuardianSquad" parent="Eldar">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="EldarGuardianSquadMerc" parent="Eldar">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="EldarRanger" parent="Eldar">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="EldarRangerMerc" parent="Eldar">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <CUnit id="SOBCanoness" parent="SOB">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <!--    <CUnit id="SOBCanonessBrazier" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessEnergySword" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessFlameSword" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpg" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgAlt" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgAltBrazier" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgAltEnergySword" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgAltFlameSword" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgAltNoCloth" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgAltNoClothBrazier" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgAltNoClothEnergySword" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgAltNoClothFlameSword" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgBrazier" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgEnergySword" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgFlameSword" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgNoCloth" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgNoClothBrazier" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgNoClothEnergySword" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="SOBCanonessUpgNoClothFlameSword" parent="SOB"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <CUnit id="SoBServitor" parent="DOWWorker" race="WHSB">
+        <Race value="WHSB"/>
+        <WeaponArray Link="FusionCutter"/>
+    </CUnit>
+    <CUnit id="TauBarracuda" parent="TauAir">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="TauBroadsideBattlesuit" parent="Tau">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <CUnit id="TauBuilder" parent="DOWWorker" race="WHTA">
+        <Race value="WHTA"/>
+        <WeaponArray Link="FusionCutter"/>
+    </CUnit>
+    <CUnit id="TauFireWarrior" parent="Tau">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <CUnit id="TauGreaterKnarloc" parent="Tau">
+        <WeaponArray Link="Spines"/>
+    </CUnit>
+    <CUnit id="TauShasvreStealthSuit" parent="Tau">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <CUnit id="EldarWarlock" parent="Eldar">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <!--    <CUnit id="EldarWarlockElite" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarWarlockExodite" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarWarlockSaimHann" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="EldarWarlockSeer" parent="Eldar"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <CUnit id="TauWraithGuard" parent="Tau">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <!--    <CUnit id="TauWraithGuardRanged" parent="Tau"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="TauWraithGuardDoubleEnergySwords" parent="Tau"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="TauWraithGuardDoubleSwords" parent="Tau"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <CUnit id="TauWraithLord" parent="Tau">
+        <WeaponArray Link="PsiBlades"/>
+    </CUnit>
+    <!--    <CUnit id="TauWraithLordEX" parent="Tau"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="TauWraithLordUpgrade" parent="Tau"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="TauWraithLordUpgradeAlt" parent="Tau"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="TauWraithLordUpgradeEx" parent="Tau"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="TauWraithLordUpgradeExAlt" parent="Tau"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <CUnit id="WHIGGuardsman" parent="WHIG">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHIGInquisitor" parent="WHIG">
+        <WeaponArray Link="NecronWarriorBlaster"/>
+    </CUnit>
+    <!--    <CUnit id="WHIGInquisitorBrazierAndCrossbow" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorBrazierAndCrossbowServoSkull" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorBrazierAndPlasmaGun" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorBrazierAndPlasmaGunServoSkull" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorEnergySwordAndPlasmaGun" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorGen" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorGenAlt" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorGenAltEnergySwordAndPlasmaGun" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorGenAltHat" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorGenEnergySwordAndPlasmaGun" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorGenEnergySwordAndPlasmaGunAltHat" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorSwordAndCrossbow" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorSwordAndCrossbowAndServoSkull" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorSwordAndPlasmaGun" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorSwordAndPlasmaGunAndServoSkull" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorDeathKorp" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorDeathKorpAlt" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorDeathKorpAltServoSkull" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <!--    <CUnit id="WHIGInquisitorDeathKorpServoSkull" parent="WHIG"><WeaponArray Link="PsiBlades"/></CUnit>-->
+    <CUnit id="WHIGOgryn" parent="WHIG">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHIGOgrynMerc" parent="WHIG">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHIGTechPriest" parent="WHIG">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHOrcGrots" parent="DOWWorker" race="WHOR">
+        <Race value="WHOR"/>
+        <WeaponArray Link="Spines"/>
+    </CUnit>
+    <CUnit id="WHOrcSith" parent="WHOrc">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHOrcSluggaboy" parent="WHOrc">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHOrcSluggaboyMerc" parent="WHOrc">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHOrcSluggaboyHero" parent="WHOrc">
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnought" parent="WHSM">
+        <WeaponArray Link="FusionCutter"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnoughtElite" parent="WHSM">
+        <WeaponArray Link="FusionCutter"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnoughtMerc" parent="WHSM">
+        <WeaponArray Link="FusionCutter"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnoughtDuelElite" parent="WHSM">
+        <Subtitle value="Dual Cannon"/>
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnoughtDuelHeavyBolter" parent="WHSM">
+        <Subtitle value="Dual Heavy Bolter"/>
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnoughtDuelLescannon" parent="WHSM">
+        <Subtitle value="Dual Laser Cannon"/>
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnoughtMercDuel" parent="WHSM">
+        <Subtitle value="Dual Cannon"/>
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnoughtMercDuelMissileLuncher" parent="WHSM">
+        <Subtitle value="Dual Missile Luncher"/>
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnoughtRangedAssultcannon" parent="WHSM">
+        <Subtitle value="Assoult Cannon"/>
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnoughtRangedElite" parent="WHSM">
+        <Subtitle value="Plasma Cannon"/>
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnoughtRangedInfernocannon" parent="WHSM">
+        <Subtitle value="Inferno Cannon"/>
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnoughtRangedMerc" parent="WHSM">
+        <Subtitle value="Assoult cannon"/>
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHSMDreadnoughtRangedMultiMeta" parent="WHSM">
+        <Subtitle value="Multi Meta"/>
+        <WeaponArray Link="GuassRifle"/>
+    </CUnit>
+    <CUnit id="WHSMServitor" parent="DOWWorker">
+        <Race value="WHSM"/>
+        <WeaponArray Link="FusionCutter"/>
+    </CUnit>
+    <!--    <CUnit id="WHCivChildBoyUpdated" parent="WHCiv"/>-->
+    <!--    <CUnit id="WHCivChildGirlUpdated" parent="WHCiv"/>-->
+    <CUnit id="WHCivBoy" parent="WHCiv"/>
+    <CUnit id="WHCivChildBoy" parent="WHCiv"/>
+    <CUnit id="WHCivChildGirl" parent="WHCiv"/>
+</Catalog>

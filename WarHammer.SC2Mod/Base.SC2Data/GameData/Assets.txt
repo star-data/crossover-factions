@@ -1,0 +1,11 @@
+// Army Management Buttons
+UI/ArmyButtonIcon_Necron=Assets\Textures\ui_console_helperbutton_icon_army_Necron.dds
+UI/IdleButtonIcon_Necron=Assets\Textures\ui_console_helperbutton_icon_worker_Necron.dds
+// Resource Buttons
+UI/ResourceFrameSupplyIcon_Necron=Assets\icons\necron.dds
+UI/ResourceFrameArmyIcon_Necron=Assets\icons\ArmedSquadIcon.dds
+UI/ResourceFrameWorkerIcon_Necron=Assets\icons\SlaveIcon.dds
+
+UI/ResourceIcon0_Necron=Assets\textures\icon-mineral-Necron.dds
+UI/ResourceIconNoBackground0_Necron=Assets\textures\icon-mineral-Necron_nobg.dds
+UI/LeaderPanelRaceIcon_Necron=Assets\icons\necron.dds

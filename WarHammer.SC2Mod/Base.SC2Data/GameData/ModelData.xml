@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CModel id="DOWUnit" default="1" parent="Unit">
+        <Occlusion value="Show"/>
+        <SelectionRadius value="0.468700"/>
+        <SquibTypeDefault value="Flesh"/>
+        <Tipability value="0.750000"/>
+        <TipabilityWidth value="0.400000"/>
+        <TipabilityLength value="0.400000"/>
+        <Radius value="0.450000"/>
+        <ShadowRadius value="0.468700"/>
+        <Model value="Assets\Models\##id##.m3"/>
+    </CModel>
+    <CModel id="DOWUnitPortrait" default="1"  parent="FXAPortrait">
+        <Model value="Assets\Models\Portraits\##id##Portrait.m3"/>
+    </CModel>
+    <CModel id="NecronUnitPortrait" default="1"  parent="DOWUnitPortrait">
+        <EditorCategories value="Race:Necron"/>
+    </CModel>
+    <CModel id="DOWUnitDeath" default="1"  parent="UnitDeath">
+        <Model value="Assets\Models\##id##.m3"/>
+        <Occlusion value="Show"/>
+    </CModel>
+    <CModel id="NecronUnitDeath" default="1"  parent="DOWUnitDeath">
+        <EditorCategories value="Race:Necron"/>
+    </CModel>
+    <CModel id="DOWUnitDeathRagdoll" default="1"  parent="UnitDeathRagdoll">
+        <Model value="Assets\Models\##id##.m3"/>
+    </CModel>
+    <CModel id="NecronUnitDeathRagdoll" default="1"  parent="DOWUnitDeathRagdoll">
+        <EditorCategories value="Race:Necron"/>
+    </CModel>
+
+    <CModel default="1" id="NecronUnit" parent="DOWUnit">
+        <ScaleMax value="1.25,1.25,1.25"/>
+        <ScaleMin value="1.25,1.25,1.25"/>
+        <EditorCategories value="Race:Necron"/>
+    </CModel>
+    <CModel default="1" id="ChaosDaemonsUnit" parent="DOWUnit">
+        <EditorCategories value="Race:ChaosDaemons"/>
+    </CModel>
+    <CModel default="1" id="ChaosMarinesUnit" parent="DOWUnit">
+        <EditorCategories value="Race:ChaosMarines"/>
+    </CModel>
+    <CModel default="1" id="DarkEldarUnit" parent="DOWUnit">
+        <EditorCategories value="Race:DarkEldar"/>
+    </CModel>
+    <CModel default="1" id="EldarUnit" parent="DOWUnit">
+        <EditorCategories value="Race:Eldar"/>
+    </CModel>
+    <CModel default="1" id="TauUnit" parent="DOWUnit">
+        <EditorCategories value="Race:Tau"/>
+    </CModel>
+    <CModel default="1" id="WHIGUnit" parent="DOWUnit">
+        <EditorCategories value="Race:WHIG"/>
+    </CModel>
+    <CModel default="1" id="WHOrcUnit" parent="DOWUnit">
+        <EditorCategories value="Race:WHOrc"/>
+    </CModel>
+    <CModel default="1" id="WHSMUnit" parent="DOWUnit">
+        <EditorCategories value="Race:WHSM"/>
+    </CModel>
+    <CModel default="1" id="SOBUnit" parent="DOWUnit">
+        <EditorCategories value="Race:SOB"/>
+    </CModel>
+    <CModel default="1" id="WHCivUnit" parent="DOWUnit">
+        <EditorCategories value="Race:WHCiv"/>
+    </CModel>
+    <!--Other-->
+    <CModel id="SprayDOW">
+        <Model value="Assets\Effects\Terran\DecalTagSplat_Terran\DecalTagSplat_Terran.m3"/>
+        <EditorCategories value="Race:Necron"/>
+    </CModel>
+    <!--Effects-->
+    <CModel id="NecronWarriorAttackBeam" parent="PersistentSpellFX">
+        <Model value="Assets\Models\Fx\Nec_FX_GaussFlayer_Beam.m3"/>
+        <LowQualityModel value="ArchonAttackBeamLow"/>
+        <AnimSpeed value="4.000000"/>
+        <EditorCategories value="Race:Necron"/>
+        <RadiusLoose value="1.000000"/>
+    </CModel>
+    <CModel id="NecronBuilderScarabAttackLaunch" parent="RaceImpactFX">
+        <Model value="Assets\Models\Fx\Nec_FX_Melee_Spark.m3"/>
+        <EditorCategories value="Race:Necron"/>
+    </CModel>
+    <!--Units-->
+    <CModel id="NecronBuilderScarab" parent="NecronUnit">
+        <ScaleMax value="1,1,1"/>
+        <ScaleMin value="1,1,1"/>
+    </CModel>
+    <CModel id="NecronWarrior" parent="NecronUnit">
+        <ScaleMax value="1,1,1"/>
+        <ScaleMin value="1,1,1"/>
+    </CModel>
+    <CModel id="NecronBlackBuilderScarab" parent="NecronUnit"/>
+    <CModel id="NecronBlackWarrior" parent="NecronUnit"/>
+    <CModel id="NecronDeceiver" parent="NecronUnit"/>
+    <CModel id="NecronDestroyer" parent="NecronUnit"/>
+    <CModel id="NecronDestroyerHeavy" parent="NecronUnit"/>
+    <CModel id="NecronFlayedOne" parent="NecronUnit"/>
+    <CModel id="NecronImmortal" parent="NecronUnit"/>
+    <CModel id="NecronNightBringer" parent="NecronUnit"/>
+    <CModel id="NecronPariah" parent="NecronUnit"/>
+    <CModel id="NecronTombSpyder" parent="NecronUnit"/>
+    <CModel id="NecronTombSpyderUpgraded" parent="NecronUnit"/>
+    <CModel id="NecronWraith" parent="NecronUnit"/>
+    <CModel id="NecronLord" parent="NecronUnit"/>
+    <CModel id="NecronLordDestroyer" parent="NecronUnit"/>
+    <CModel id="NecronOverlord" parent="NecronUnit"/>
+    <CModel id="NecronUnderlord" parent="NecronUnit"/>
+    <CModel id="NecronScarabs" parent="NecronUnit"/>
+
+    <CModel id="ChaosDaemonsLostSoul" parent="ChaosDaemonsUnit"/>
+    <CModel id="ChaosMarinesCultist" parent="ChaosMarinesUnit"/>
+    <CModel id="ChaosMarinesDefiler" parent="ChaosMarinesUnit"/>
+    <CModel id="ChaosMarinesHeretic" parent="ChaosMarinesUnit"/>
+    <CModel id="ChaosMarinesLord" parent="ChaosMarinesUnit"/>
+    <CModel id="ChaosMarinesMarine" parent="ChaosMarinesUnit"/>
+    <CModel id="ChaosMarinesSorcerer" parent="ChaosMarinesUnit"/>
+    <CModel id="ChaosMarinesSorcererElite" parent="ChaosMarinesUnit"/>
+    <CModel id="ChaosMarinesSorcererHero" parent="ChaosMarinesUnit"/>
+    <CModel id="ChaosMarinesSorcererMerc" parent="ChaosMarinesUnit"/>
+    <CModel id="DarkEldarTorturedSlave" parent="DarkEldarUnit"/>
+    <CModel id="EldarBansheeDoubleEnergySwords" parent="EldarUnit"/>
+    <CModel id="EldarBansheeDoubleSwords" parent="EldarUnit"/>
+    <CModel id="EldarBansheeEnergySwordAndGun" parent="EldarUnit"/>
+    <CModel id="EldarBansheeExarchDoubleEnergySwords" parent="EldarUnit"/>
+    <CModel id="EldarBansheeExarchDoubleSwords" parent="EldarUnit"/>
+    <CModel id="EldarBansheeExarchEnergySwordAndGun" parent="EldarUnit"/>
+    <CModel id="EldarBansheeExarchSwordAndGun" parent="EldarUnit"/>
+    <CModel id="EldarBansheeScreamerDoubleEnergySwords" parent="EldarUnit"/>
+    <CModel id="EldarBansheeScreamerDoubleSwords" parent="EldarUnit"/>
+    <CModel id="EldarBansheeScreamerEnergySwordAndGun" parent="EldarUnit"/>
+    <CModel id="EldarBansheeScreamerSwordAndGun" parent="EldarUnit"/>
+    <CModel id="EldarBansheeSwordAndGun" parent="EldarUnit"/>
+    <CModel id="EldarBoneSinger" parent="EldarUnit"/>
+    <CModel id="EldarFarseerElenwe" parent="EldarUnit"/>
+    <CModel id="EldarFarseerTaldeer" parent="EldarUnit"/>
+    <CModel id="EldarGravPlatformBrightlanceGun" parent="EldarUnit"/>
+    <CModel id="EldarGravPlatformDCannonGun" parent="EldarUnit"/>
+    <CModel id="EldarGravPlatformShurikenGun" parent="EldarUnit"/>
+    <CModel id="EldarGuardianSquad" parent="EldarUnit"/>
+    <CModel id="EldarGuardianSquadMerc" parent="EldarUnit"/>
+    <CModel id="EldarRanger" parent="EldarUnit"/>
+    <CModel id="EldarRangerMerc" parent="EldarUnit"/>
+    <CModel id="SOBCanoness" parent="SOBUnit"/>
+    <CModel id="SOBCanonessBrazier" parent="SOBUnit"/>
+    <CModel id="SOBCanonessEnergySword" parent="SOBUnit"/>
+    <CModel id="SOBCanonessFlameSword" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpg" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgAlt" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgAltBrazier" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgAltEnergySword" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgAltFlameSword" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgAltNoCloth" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgAltNoClothBrazier" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgAltNoClothEnergySword" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgAltNoClothFlameSword" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgBrazier" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgEnergySword" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgFlameSword" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgNoCloth" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgNoClothBrazier" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgNoClothEnergySword" parent="SOBUnit"/>
+    <CModel id="SOBCanonessUpgNoClothFlameSword" parent="SOBUnit"/>
+    <CModel id="SoBServitor" parent="SOBUnit"/>
+    <CModel id="TauBarracuda" parent="TauUnit"/>
+    <CModel id="TauBroadsideBattlesuit" parent="TauUnit"/>
+    <CModel id="TauBuilder" parent="TauUnit"/>
+    <CModel id="TauFireWarrior" parent="TauUnit"/>
+    <CModel id="TauGreaterKnarloc" parent="TauUnit"/>
+    <CModel id="TauShasvreStealthSuit" parent="TauUnit"/>
+    <CModel id="EldarWarlock" parent="EldarUnit"/>
+    <CModel id="EldarWarlockElite" parent="EldarUnit"/>
+    <CModel id="EldarWarlockExodite" parent="EldarUnit"/>
+    <CModel id="EldarWarlockSaimHann" parent="EldarUnit"/>
+    <CModel id="EldarWarlockSeer" parent="EldarUnit"/>
+    <CModel id="TauWraithGuardRanged" parent="TauUnit"/>
+    <CModel id="TauWraithGuardDoubleEnergySwords" parent="TauUnit"/>
+    <CModel id="TauWraithGuardDoubleSwords" parent="TauUnit"/>
+    <CModel id="TauWraithLord" parent="TauUnit"/>
+    <CModel id="TauWraithLordEX" parent="TauUnit"/>
+    <CModel id="TauWraithLordUpgrade" parent="TauUnit"/>
+    <CModel id="TauWraithLordUpgradeAlt" parent="TauUnit"/>
+    <CModel id="TauWraithLordUpgradeEx" parent="TauUnit"/>
+    <CModel id="TauWraithLordUpgradeExAlt" parent="TauUnit"/>
+    <CModel id="WHIGGuardsman" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorBrazierAndCrossbow" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorBrazierAndCrossbowServoSkull" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorBrazierAndPlasmaGun" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorBrazierAndPlasmaGunServoSkull" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorEnergySwordAndPlasmaGun" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorGen" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorGenAlt" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorGenAltEnergySwordAndPlasmaGun" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorGenAltHat" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorGenEnergySwordAndPlasmaGun" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorGenEnergySwordAndPlasmaGunAltHat" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorSwordAndCrossbow" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorSwordAndCrossbowAndServoSkull" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorSwordAndPlasmaGun" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorSwordAndPlasmaGunAndServoSkull" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorDeathKorp" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorDeathKorpAlt" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorDeathKorpAltServoSkull" parent="WHIGUnit"/>
+    <CModel id="WHIGInquisitorDeathKorpServoSkull" parent="WHIGUnit"/>
+    <CModel id="WHIGOgryn" parent="WHIGUnit"/>
+    <CModel id="WHIGOgrynMerc" parent="WHIGUnit"/>
+    <CModel id="WHIGTechPriest" parent="WHIGUnit"/>
+    <CModel id="WHOrcGrots" parent="WHOrcUnit"/>
+    <CModel id="WHOrcSith" parent="WHOrcUnit"/>
+    <CModel id="WHOrcSluggaboy" parent="WHOrcUnit"/>
+    <CModel id="WHOrcSluggaboyHero" parent="WHOrcUnit"/>
+    <CModel id="WHOrcSluggaboyMerc" parent="WHOrcUnit"/>
+    <CModel id="WHSMDreadnought" parent="WHSMUnit"/>
+    <CModel id="WHSMDreadnoughtDuelElite" parent="WHSMUnit"/>
+    <CModel id="WHSMDreadnoughtDuelHeavyBolter" parent="WHSMUnit"/>
+    <CModel id="WHSMDreadnoughtDuelLescannon" parent="WHSMUnit"/>
+    <CModel id="WHSMDreadnoughtElite" parent="WHSMUnit"/>
+    <CModel id="WHSMDreadnoughtMerc" parent="WHSMUnit"/>
+    <CModel id="WHSMDreadnoughtMercDuel" parent="WHSMUnit"/>
+    <CModel id="WHSMDreadnoughtMercDuelMissileLuncher" parent="WHSMUnit"/>
+    <CModel id="WHSMDreadnoughtRangedAssultcannon" parent="WHSMUnit"/>
+    <CModel id="WHSMDreadnoughtRangedElite" parent="WHSMUnit"/>
+    <CModel id="WHSMDreadnoughtRangedInfernocannon" parent="WHSMUnit"/>
+    <CModel id="WHSMDreadnoughtRangedMerc" parent="WHSMUnit"/>
+    <CModel id="WHSMDreadnoughtRangedMultiMeta" parent="WHSMUnit"/>
+    <CModel id="WHSMServitor" parent="WHSMUnit"/>
+    <CModel id="WHCivBoy" parent="WHCivUnit"/>
+    <CModel id="WHCivChildBoy" parent="WHCivUnit"/>
+    <CModel id="WHCivChildBoyUpdated" parent="WHCivUnit"/>
+    <CModel id="WHCivChildGirl" parent="WHCivUnit"/>
+    <CModel id="WHCivChildGirlUpdated" parent="WHCivUnit"/>
+    <!--Portraits-->
+    <CModel id="NecronBuilderScarabPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronWarriorPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronBlackBuilderScarabPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronBlackWarriorPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronDeceiverPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronDestroyerPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronDestroyerHeavyPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronFlayedOnePortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronImmortalPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronNightBringerPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronPariahPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronTombSpyderPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronWraithPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronLordPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronLordDestroyerPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronOverlordPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronUnderlordPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="NecronScarabsPortrait" parent="NecronUnitPortrait"/>
+    <CModel id="ChaosDaemonsLostSoulPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="ChaosMarinesCultistPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="ChaosMarinesDefilerPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="ChaosMarinesHereticPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="ChaosMarinesLordPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="ChaosMarinesMarinePortrait" parent="DOWUnitPortrait"/>
+    <CModel id="ChaosMarinesSorcererElitePortrait" parent="DOWUnitPortrait"/>
+    <CModel id="ChaosMarinesSorcererHeroPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="ChaosMarinesSorcererMercPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="ChaosMarinesSorcererPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="DarkEldarTorturedSlavePortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarBansheeExarchPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarBansheePortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarBansheeSceamerPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarBoneSingerPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarFarseerElenwePortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarFarseerTaldeerPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarGuardianSquadMercPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarGuardianSquadPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarRangerMercPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarRangerPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="SOBCanonessPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="SOBCanonessUpgAltPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="SOBCanonessUpgPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="SoBServitorPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="TauBroadsideBattlesuitPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="TauBuilderPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="TauFireWarriorPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="TauGreaterKnarlocPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="TauShasvreStealthSuitPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarWarlockElitePortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarWarlockExroditePortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarWarlockPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarWarlockSaimHannPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="EldarWarlockSeerPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="TauWraithGuardPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="TauWraithLordPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="TauWraithLordUpgradeAltPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="TauWraithLordUpgradePortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHCivBoyPortrait" parent="DOWUnitPortrait"/> Portrait
+    <CModel id="WHIGInquisitorDeathKorpAltPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHIGInquisitorDeathKorpPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHIGInquisitorGenAltHatPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHIGInquisitorGenAltPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHIGInquisitorGenPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHIGInquisitorPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHIGTechPriestPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHOrcGrotsPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHOrcSluggaboyHeroPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHOrcSluggaboyMercPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHOrcSluggaboyPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHSMDreadnoughtElitePortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHSMDreadnoughtMercPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHSMDreadnoughtPortrait" parent="DOWUnitPortrait"/>
+    <CModel id="WHSMServitorPortrait" parent="DOWUnitPortrait"/>
+    <!--Death-->
+    <CModel id="NecronWarriorDeath" parent="NecronUnitDeath">
+        <ScaleMax value="1.100000,1.100000,1.100000"/>
+        <ScaleMin value="1.100000,1.100000,1.100000"/>
+    </CModel>
+    <CModel id="NecronWarriorDeathRagdoll" parent="NecronUnitDeathRagdoll"/>
+    <CModel id="NecronBuilderScarabDeath" parent="NecronUnitDeath"/>
+    <CModel id="NecronBuilderScarabDeathRagdoll" parent="NecronUnitDeathRagdoll"/>
+    <CModel id="NecronBlackBuilderScarabDeath" parent="NecronUnitDeath"/>
+    <CModel id="NecronBlackBuilderScarabRagdollDeath" parent="NecronUnitDeathRagdoll"/>
+     <CModel id="ChaosDaemonsLostSoulDeath" parent="DOWUnitDeath"/>
+     <CModel id="ChaosDaemonsLostSoulDeathRagdoll" parent="DOWUnitDeathRagdoll"/>
+     <CModel id="ChaosMarinesCultistDeath" parent="DOWUnitDeath"/>
+     <CModel id="ChaosMarinesDefilerDeath" parent="DOWUnitDeath"/>
+     <CModel id="ChaosMarinesHereticDeath" parent="DOWUnitDeath"/>
+     <CModel id="ChaosMarinesHereticDeathRagdoll" parent="DOWUnitDeathRagdoll"/>
+     <CModel id="ChaosMarinesLordDeath" parent="DOWUnitDeath"/>
+     <CModel id="ChaosMarinesMarineDeath" parent="DOWUnitDeath"/>
+     <CModel id="TauBroadsideBattlesuitDeath" parent="DOWUnitDeath"/>
+     <CModel id="TauBuilderDeath" parent="DOWUnitDeath"/>
+     <CModel id="TauBuilderRagdollDeath" parent="DOWUnitDeathRagdoll"/>
+     <CModel id="TauGreaterKnarlocDeath" parent="DOWUnitDeath"/>
+     <CModel id="TauShasvreStealthSuitDeath" parent="DOWUnitDeath"/>
+</Catalog>

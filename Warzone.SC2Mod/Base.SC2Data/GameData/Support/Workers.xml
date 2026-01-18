@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CValidatorCombine id="IsWZRace">
+        <CombineArray value="isWZPRace"/>
+        <CombineArray value="isWZScavRace"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareField id="isWZPRace"><Field value="Race"/><Value value="WZ"/></CValidatorUnitCompareField>
+    <CValidatorUnitCompareField id="isWZScavRace"><Field value="Race"/><Value value="WZScav"/></CValidatorUnitCompareField>
+    <CValidatorCombine id="isWorker"><CombineArray value="isWZWorker"/></CValidatorCombine>
+    <CValidatorUnitType id="IsCombatEngineerCyborg"><Value value="CombatEngineerCyborg"/></CValidatorUnitType>
+    <CValidatorCombine id="isWZWorker">
+        <CombineArray value="IsCombatEngineerCyborg"/>
+    </CValidatorCombine>
+</Catalog>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CSound id="Alert_WZEconomyUnderAttack" parent="Alert">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Adjutant\Alert_TerranEconomyUnderAttack.ogg" FacialAnim="Alert_TerranEconomyUnderAttack"/>
+        <EditorCategories value="Race:Terran"/>
+    </CSound>
+
+
+    <CSound id="GameMusicWZearly" parent="MUSIC">
+        <AssetArray File="Assets\music\Martin Severn - Radar Dish.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\music\Martin Severn - Nuclear Silence.ogg" FacialGroup=""/>
+    </CSound>
+
+
+    <!--Weapons Sounds-->
+    <CSound default="1" id="WZWeaponLaunch" parent="Combat">
+        <?token id="sound" value="##id##"?>
+        <DupeDestroyCount value="5"/>
+        <OverlapTimeDelta value="100"/>
+        <Volume value="-6.000000,-6.000000"/>
+        <Pitch value="-2.000000,3.000000"/>
+        <DupeMaximumMethod value="Replace"/>
+        <AssetArray File="Assets\Sounds\sfx\weapons\##sound##.ogg"/>
+    </CSound>
+    <CSound id="WZasltmg" parent="WZWeaponLaunch" sound="asltmg"/>
+    <CSound id="WZbemlsr" parent="WZWeaponLaunch" sound="bemlsr"/>
+    <CSound id="WZbldloop" parent="WZWeaponLaunch" sound="bldloop"/>
+    <CSound id="WZbldstart" parent="WZWeaponLaunch" sound="bldstart"/>
+    <CSound id="WZbuild1" parent="WZWeaponLaunch" sound="build1"/>
+    <CSound id="WZbuild2" parent="WZWeaponLaunch" sound="build2"/>
+    <CSound id="WZbuild3" parent="WZWeaponLaunch" sound="build3"/>
+    <CSound id="WZbuild4" parent="WZWeaponLaunch" sound="build4"/>
+    <CSound id="WZflmthrow" parent="WZWeaponLaunch" sound="flmthrow"/>
+    <CSound id="WZgaussgun" parent="WZWeaponLaunch" sound="gaussgun"/>
+    <CSound id="WZhivelcan" parent="WZWeaponLaunch" sound="hivelcan"/>
+    <CSound id="WZhwtzflgt" parent="WZWeaponLaunch" sound="hwtzflgt"/>
+    <CSound id="WZlrgcan" parent="WZWeaponLaunch" sound="lrgcan"/>
+    <CSound id="WZmedcan" parent="WZWeaponLaunch" sound="medcan"/>
+    <CSound id="WZmgbar1" parent="WZWeaponLaunch" sound="mgbar1"/>
+    <CSound id="WZmgbar2" parent="WZWeaponLaunch" sound="mgbar2"/>
+    <CSound id="WZmgbar3" parent="WZWeaponLaunch" sound="mgbar3"/>
+    <CSound id="WZmgheavy" parent="WZWeaponLaunch" sound="mgheavy"/>
+    <CSound id="WZmgtower" parent="WZWeaponLaunch" sound="mgtower"/>
+    <CSound id="WZmortar" parent="WZWeaponLaunch" sound="mortar"/>
+    <CSound id="WZnxstower" parent="WZWeaponLaunch" sound="nxstower"/>
+    <CSound id="WZplslsr" parent="WZWeaponLaunch" sound="plslsr"/>
+    <CSound id="WZrapdcan" parent="WZWeaponLaunch" sound="rapdcan"/>
+    <CSound id="WZrocket" parent="WZWeaponLaunch" sound="rocket"/>
+    <CSound id="WZrotlsr" parent="WZWeaponLaunch" sound="rotlsr"/>
+    <CSound id="WZsmlcan" parent="WZWeaponLaunch" sound="smlcan"/>
+    <CSound id="WZsplash" parent="WZWeaponLaunch" sound="splash"/>
+    <CSound id="WZweld1" parent="WZWeaponLaunch" sound="weld1"/>
+    <CSound id="WZweld2" parent="WZWeaponLaunch" sound="weld2"/>
+
+    <CSound default="1" id="WZExplosion" parent="Combat">
+        <DupeDestroyCount value="5"/>
+        <OverlapTimeDelta value="100"/>
+        <Volume value="-6.000000,-6.000000"/>
+        <Pitch value="-2.000000,3.000000"/>
+        <DupeMaximumMethod value="Replace"/>
+        <AssetArray File="Assets\Sounds\sfx\impact\##id##.ogg"/>
+    </CSound>
+    <CSound id="WZatnkexpl" parent="WZExplosion"/>
+    <CSound id="WZbldfall" parent="WZExplosion"/>
+    <CSound id="WZlrgexpl" parent="WZExplosion"/>
+    <CSound id="WZlsrexpl" parent="WZExplosion"/>
+    <CSound id="WZmpodexpl" parent="WZExplosion"/>
+    <CSound id="WZnxsexpld" parent="WZExplosion"/>
+    <CSound id="WZrichet1" parent="WZExplosion"/>
+    <CSound id="WZrichet2" parent="WZExplosion"/>
+    <CSound id="WZrichet3" parent="WZExplosion"/>
+    <CSound id="WZsmlexpl" parent="WZExplosion"/>
+    <CSound id="WZsquish" parent="WZExplosion"/>
+
+
+    <CSound id="HalftrackedMove">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\tread.ogg"/>
+    </CSound>
+    <CSound id="HalftrackedStop">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\con-shut-down.ogg"/>
+    </CSound>
+    <CSound id="HoverMove">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\hovmove.ogg"/>
+    </CSound>
+    <CSound id="HoverStop">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\hovstop.ogg"/>
+    </CSound>
+    <CSound id="HoverStart">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\hovstart.ogg"/>
+    </CSound>
+    <CSound id="TrackedMove">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\tread.ogg"/>
+    </CSound>
+    <CSound id="VtolMove">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\vtol-move.ogg"/>
+    </CSound>
+    <CSound id="VtolStop">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\vtolland.ogg"/>
+    </CSound>
+    <CSound id="VtolStart">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\vtoloff.ogg"/>
+    </CSound>
+    <CSound id="WheeledMove">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\con-move.ogg"/>
+        <DupeDestroyCount value="3"/>
+        <Pitch value="-4.000000,-2.000000"/>
+        <Volume value="-4.000000,-2.000000"/>
+    </CSound>
+    <CSound id="CyberMove">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\cyber-move.ogg"/>
+        <DupeDestroyCount value="3"/>
+        <Pitch value="-4.000000,-2.000000"/>
+        <Volume value="-4.000000,-2.000000"/>
+    </CSound>
+    <CSound id="WheeledStop">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\con-shut-down.ogg"/>
+    </CSound>
+    <CSound id="WheeledStart">
+        <AssetArray File="Assets\Sounds\sfx\vehicle\con-move-off.ogg"/>
+    </CSound>
+
+
+    <CSound id="ResearchCompleted">
+        <AssetArray File="Assets\Sounds\memressp\research\pcv357.ogg"/>
+    </CSound>
+    <CSound id="NatureResearchCompleted">
+        <AssetArray File="Assets\Sounds\memressp\research\pcv358.ogg"/>
+    </CSound>
+    <CSound id="StructureResearchCompleted">
+        <AssetArray File="Assets\Sounds\memressp\research\pcv359.ogg"/>
+    </CSound>
+    <CSound id="ComputerResearchCompleted">
+        <AssetArray File="Assets\Sounds\memressp\research\pcv361.ogg"/>
+    </CSound>
+    <CSound id="VehicleResearchCompleted">
+        <AssetArray File="Assets\Sounds\memressp\research\pcv362.ogg"/>
+    </CSound>
+    <CSound id="SystemsResearchCompleted">
+        <AssetArray File="Assets\Sounds\memressp\research\pcv363.ogg"/>
+    </CSound>
+    <CSound id="WeaponResearchCompleted">
+        <AssetArray File="Assets\Sounds\memressp\research\pcv364.ogg"/>
+    </CSound>
+    <CSound id="CyborgResearchCompleted">
+        <AssetArray File="Assets\Sounds\memressp\research\pcv365.ogg"/>
+    </CSound>
+
+
+</Catalog>

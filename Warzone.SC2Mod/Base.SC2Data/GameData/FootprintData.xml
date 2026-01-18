@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CFootprint id="WZDefaultFootprint" deafult="1"/>
+    <CFootprint id="FootprintVGate">
+        <Layers index="Check" Area="-1,0,2,1">
+            <Rows value="xxx"/>
+        </Layers>
+        <Layers index="Place" Area="-1,0,2,1">
+            <Sets index="0">
+                <Positive index="GroundNoSpawn" value="0"/>
+            </Sets>
+            <Rows value="xxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="0.7072"/>
+            <Offsets value="-0.5,-0.5;0.5,-0.5;-0.5,0.5;0.5,0.5"/>
+            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="FootprintHGate">
+        <Layers index="Check" Area="0,-1,1,2">
+            <Rows value="x"/>
+            <Rows value="x"/>
+            <Rows value="x"/>
+        </Layers>
+        <Layers index="Place" Area="0,-1,1,2">
+            <Sets index="0">
+                <Positive index="GroundNoSpawn" value="0"/>
+            </Sets>
+            <Rows value="x"/>
+            <Rows value="x"/>
+            <Rows value="x"/>
+        </Layers>
+        <Shape>
+            <Radius value="0.7072"/>
+            <Offsets value="-0.5,-0.5;0.5,-0.5;-0.5,0.5;0.5,0.5"/>
+            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint3x2Contour" parent="WZDefaultFootprint">
+        <Layers index="Check" Area="-1,-1,2,1">
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+        </Layers>
+        <Layers index="Place" Area="-1,-1,2,1">
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="1.5812"/>
+            <Offsets value="-1,-1;1,-1;-1,1;1,1;-1.5,-0.5;-1.5,0.5;1.5,-0.5;1.5,0.5"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint3x2" parent="WZDefaultFootprint">
+        <Layers index="Check" Area="-1,-1,2,1">
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+        </Layers>
+        <Layers index="Place" Area="-1,-1,2,1">
+            <Rows value="xxx"/>
+            <Rows value="xxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="1.803"/>
+            <Offsets value="-1.5,-1;-1.5,1;1.5,1;1.5,-1"/>
+            <Borders value="3,0,2;0,1,2;1,2,2;2,3,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint2x3Contour" parent="WZDefaultFootprint">
+        <Layers index="Check" Area="-1,-1,1,2">
+            <Rows value="xx"/>
+            <Rows value="xx"/>
+            <Rows value="xx"/>
+        </Layers>
+        <Layers index="Place" Area="-1,-1,1,2">
+            <Rows value="xx"/>
+            <Rows value="xx"/>
+            <Rows value="xx"/>
+        </Layers>
+        <Shape>
+            <Radius value="1.5812"/>
+            <Offsets value="-0.5,-1.5;0.5,-1.5;-0.5,1.5;0.5,1.5;-1,-1;-1,1;1,-1;1,1"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
+        </Shape>
+    </CFootprint>
+    <CFootprint id="Footprint2x3" parent="WZDefaultFootprint">
+        <Layers index="Check" Area="-1,-1,1,2">
+            <Rows value="xx"/>
+            <Rows value="xx"/>
+            <Rows value="xx"/>
+        </Layers>
+        <Layers index="Place" Area="-1,-1,1,2">
+            <Rows value="xx"/>
+            <Rows value="xx"/>
+            <Rows value="xx"/>
+        </Layers>
+        <Shape>
+            <Radius value="1.803"/>
+            <Offsets value="-1,-1.5;1,-1.5;-1,1.5;1,1.5"/>
+            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
+        </Shape>
+    </CFootprint>
+</Catalog>

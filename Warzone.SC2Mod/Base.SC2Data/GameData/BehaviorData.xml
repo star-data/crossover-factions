@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CBehaviorBuff id="WZWall">
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WZWallEast"/>
+    <CBehaviorBuff id="WZWallWest"/>
+    <CBehaviorBuff id="WZWallNorth"/>
+    <CBehaviorBuff id="WZWallSouth"/>
+    <CBehaviorBuff id="WZMediumFactoryModule"/>
+    <CBehaviorBuff id="WZHeavyFactoryModule"/>
+
+    <!--    Scavengers-->
+    <CBehaviorBuff id="ScavInfantry"/>
+    <CBehaviorBuff id="ScavTrike"/>
+    <CBehaviorBuff id="ScavBuggy"/>
+    <CBehaviorBuff id="ScavJeep"/>
+    <CBehaviorBuff id="ScavBus"/>
+    <CBehaviorBuff id="ScavFireTruck"/>
+
+    <CBehaviorBuff id="WZTank"><InfoFlags index="Hidden" value="1"/></CBehaviorBuff>
+    <CBehaviorBuff id="WZMediumTank"><InfoFlags index="Hidden" value="1"/></CBehaviorBuff>
+    <CBehaviorBuff id="WZHeavyTank"><InfoFlags index="Hidden" value="1"/></CBehaviorBuff>
+    <CBehaviorBuff id="WZMassiveTank"><InfoFlags index="Hidden" value="1"/></CBehaviorBuff>
+    <CBehaviorBuff id="WZCyborg"><InfoFlags index="Hidden" value="1"/></CBehaviorBuff>
+    <CBehaviorBuff id="WZHeavyCyborg"><InfoFlags index="Hidden" value="1"/></CBehaviorBuff>
+    <CBehaviorBuff id="WZVtol"><InfoFlags index="Hidden" value="1"/></CBehaviorBuff>
+
+    <CBehaviorBuff default="1" id="WZPropulsion">
+        <?token id="icon" value="##id##"?>
+        <TechAliasArray value="WZPropulsion"/>
+        <InfoIcon value="Assets\Icons\Propulsions\##icon##.dds"/>
+        <EditorCategories value="Race:WZ,AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+
+    <!--Cyborgs-->
+
+    <CBehaviorBuff parent="WZPropulsion" id="WZPHeavyCyborg"/>
+    <CBehaviorBuff parent="WZPropulsion" id="WZPLightCyborg"/>
+
+
+    <!--Propulsions-->
+    <CBehaviorBuff parent="WZPropulsion" id="WZPWheels" icon="Wheels"/>
+    <CBehaviorBuff parent="WZPropulsion" id="WZPHalftracks" icon="Halftracks"/>
+    <CBehaviorBuff parent="WZPropulsion" id="WZPTracks" icon="Tracks"/>
+    <CBehaviorBuff parent="WZPropulsion" id="WZPHover" icon="Hover"/>
+    <CBehaviorBuff parent="WZPropulsion" id="WZPVtol" icon="Vtol"/>
+    <CBehaviorBuff parent="WZPropulsion" id="WZPHeli" icon="Heli"/>
+    <CBehaviorBuff parent="WZPropulsion" id="WZPNaval" icon="Naval"/>
+
+
+
+    <CBehaviorBuff default="1" id="WZBody">
+        <?token id="icon" value="##id##"?>
+        <?token id="type" value="Light"?>
+        <TechAliasArray value="WZBody"/>
+        <TechAliasArray value="WZ##type##Body"/>
+        <InfoIcon value="Assets\Icons\Bodies\##icon##.dds"/>
+        <EditorCategories value="Race:WZ,AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff parent="WZBody" id="WZBLightCyborg"  icon="LightCyborg"  type="Light"/>
+    <CBehaviorBuff parent="WZBody" id="WZBHeavyCyborg"  icon="HeavyCyborg"  type="Heavy"/>
+    <CBehaviorBuff parent="WZBody" id="WZBViper"        icon="Viper"        type="Light"/>
+    <CBehaviorBuff parent="WZBody" id="WZBCobra"        icon="Cobra"        type="Medium"/>
+    <CBehaviorBuff parent="WZBody" id="WZBPython"       icon="Python"       type="Heavy"/>
+    <CBehaviorBuff parent="WZBody" id="WZBBug"          icon="Bug"          type="Light"/>
+    <CBehaviorBuff parent="WZBody" id="WZBScorpion"     icon="Scorpion"     type="Medium"/>
+    <CBehaviorBuff parent="WZBody" id="WZBMantis"       icon="Mantis"       type="Heavy"/>
+    <CBehaviorBuff parent="WZBody" id="WZBLeopard"      icon="Leopard"      type="Light"/>
+    <CBehaviorBuff parent="WZBody" id="WZBPanther"      icon="Panther"      type="Medium"/>
+    <CBehaviorBuff parent="WZBody" id="WZBTiger"        icon="Tiger"        type="Heavy"/>
+    <CBehaviorBuff parent="WZBody" id="WZBRetaliation"  icon="Retaliation"  type="Light"/>
+    <CBehaviorBuff parent="WZBody" id="WZBRetribution"  icon="Retribution"  type="Medium"/>
+    <CBehaviorBuff parent="WZBody" id="WZBVengeance"    icon="Vengeance"    type="Heavy"/>
+    <CBehaviorBuff parent="WZBody" id="WZBWyvern"       icon="Wyvern"       type="Heavy"/>
+    <CBehaviorBuff parent="WZBody" id="WZBDragon"       icon="Dragon"       type="Massive"/>
+
+
+    <CBehaviorBuff id="WZBTransportHeavy"/>
+    <CBehaviorBuff id="WZBTransportLight"/>
+
+
+    <CBehaviorBuff id="DesignUnit"/>
+
+    <!--Weapons-->
+
+    <CBehaviorBuff default="1" id="WZWeapon">
+        <?token id="icon" value="##id##"?>
+        <TechAliasArray value="WZTurretPrimary"/>
+        <InfoIcon value="Assets\Icons\Weapons\##icon##.dds"/>
+        <EditorCategories value="Race:WZ,AbilityorEffectType:Units"/>
+        <Modification>
+            <WeaponArray Link="##id##" Turret="WZStaticTurret"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankLightMachinegun" icon="LightMachinegun"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankTwinMachinegun" icon="TwinMachinegun"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankHeavyMachinegun" icon="HeavyMachinegun"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankAssaultGun" icon="AssaultGun"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankTwinAssaultGun" icon="TwinAssaultGun"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankFlamer" icon="Flamer"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankInferno" icon="Inferno"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankPlasmiteFlamer" icon="PlasmiteFlamer"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankHeavyPlasmaLauncher" icon="HeavyPlasmaLauncher"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankLightCannon" icon="LightCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankMediumCannon" icon="MediumCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankHyperVelocityCannon" icon="HyperVelocityCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankAACycloneFlakCannon" icon="AACycloneFlakCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankAssaultCannon" icon="AssaultCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankHeavyCannon" icon="HeavyCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankTwinAssaultCannon" icon="TwinAssaultCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankPlasmaCannon" icon="PlasmaCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankAATornadoFlakCannon" icon="AATornadoFlakCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankMiniRocketPod" icon="MiniRocketPod"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankMiniRocketArray" icon="MiniRocketArray"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankLancer" icon="Lancer"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankBunkerBuster" icon="BunkerBuster"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankSunburstAA" icon="SunburstAA"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankRippleRockets" icon="RippleRockets"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankHeavyRocketArray" icon="HeavyRocketArray"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankTankKiller" icon="TankKiller"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankMortar" icon="Mortar"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankBombard" icon="Bombard"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankPepperpot" icon="Pepperpot"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankIncendiaryMortar" icon="IncendiaryMortar"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankHurricaneAA" icon="HurricaneAA"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankWhirlwindAA" icon="WhirlwindAA"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankHowitzer" icon="Howitzer"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankIncendiaryHowitzer" icon="IncendiaryHowitzer"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankHellstorm" icon="Hellstorm"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankGroundShaker" icon="GroundShaker"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankFlashlight" icon="Flashlight"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankPulseLaser" icon="PulseLaser"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankStormbringerAALaser" icon="StormbringerAALaser"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankHeavyLaser" icon="HeavyLaser"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankNeedleGun" icon="NeedleGun"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankRailGun" icon="RailGun"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankGaussCannon" icon="GaussCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankScourgeMissile" icon="ScourgeMissile"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankAvengerSAM" icon="AvengerSAM"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankSeraphMissileArray" icon="SeraphMissileArray"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankArchangelMissile" icon="ArchangelMissile"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankVindicatorSAM" icon="VindicatorSAM"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankNexusLink" icon="NexusLink"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankEMPCannon" icon="EMPCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankEMPMortar" icon="EMPMortar"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankSpade" icon="Spade"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankCommand" icon="Command"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankCBRadar" icon="CBRadar"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankRadarDetector" icon="RadarDetector"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankSensor" icon="Sensor"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankVtolCBRadar" icon="VtolCBRadar"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankVtolStrike" icon="VtolStrike"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankWideSpectrumSensor" icon="WideSpectrumSensor"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankHeavyRepair" icon="HeavyRepair"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZTankRepair" icon="Repair"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolClusterBombBay" icon="ClusterBombBay"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolHeapBombBay" icon="HeapBombBay"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolEMPMissileLauncher" icon="EMPMissileLauncher"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolPlasmiteBombBay" icon="PlasmiteBombBay"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolPhosphorBombBay" icon="PhosphorBombBay"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolThermiteBombBay" icon="ThermiteBombBay"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolSunburstAA" icon="SunburstAA"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolMachinegun" icon="Machinegun"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolCannon" icon="Cannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolTwinMachinegun" icon="TwinMachinegun"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolMiniRocket" icon="MiniRocket"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolHeavyMachinegun" icon="HeavyMachinegun"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolLancer" icon="Lancer"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolHyperVelocityCannon" icon="HyperVelocityCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolBunkerBuster" icon="BunkerBuster"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolAssaultGun" icon="AssaultGun"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolAssaultCannon" icon="AssaultCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolTankKiller" icon="TankKiller"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolFlashlight" icon="Flashlight"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolNeedleGun" icon="NeedleGun"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolScourgeMissile" icon="ScourgeMissile"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolPulseLaser" icon="PulseLaser"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolHeavyLaser" icon="HeavyLaser"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZVtolRailGun" icon="RailGun"/>
+    <CBehaviorBuff parent="WZWeapon" id="ScavVtolMachinegun"/>
+    <CBehaviorBuff parent="WZWeapon" id="ScavVtolMiniRocket"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZHeavyGunnerWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZMachinegunnerWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZFlamerWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZGrenadierWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZLancerWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZThermiteFlamerWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZAssaultGunnerWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZFlashlightGunnerWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZNeedleGunnerWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZSuperHeavyGunnerWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZSuperAutoCannonWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZSuperHVCWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZSuperTankKillerWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZSuperScourgeWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZSuperPulseLaserWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZSuperRailGunnerWeapon"/>
+    <CBehaviorBuff parent="WZWeapon" id="ScavMG"/>
+    <CBehaviorBuff parent="WZWeapon" id="ScavCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="ScavFlamer"/>
+    <CBehaviorBuff parent="WZWeapon" id="ScavRocket"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZFortressCannon"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZFortressMassDriver"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZFortressMissile"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZHeavyRocketBastion"/>
+
+    <CBehaviorBuff parent="WZWeapon" id="WZCyborgSpade"/>
+    <CBehaviorBuff parent="WZWeapon" id="WZCyborgRepair"/>
+
+    <!--    <CBehaviorBuff parent="WZWeapon" id="WZTankDozer"/>-->
+    <!--    <CBehaviorBuff parent="WZWeapon" id="WZLaserSatelliteCommandPost"/>-->
+
+    <!--    <CBehaviorBuff parent="WZTankDozer" id="WZTankDozerSecondary"/>-->
+    <CBehaviorBuff parent="WZTankLightMachinegun" id="WZTankLightMachinegunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankTwinMachinegun" id="WZTankTwinMachinegunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankHeavyMachinegun" id="WZTankHeavyMachinegunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankAssaultGun" id="WZTankAssaultGunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankTwinAssaultGun" id="WZTankTwinAssaultGunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankFlamer" id="WZTankFlamerSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankInferno" id="WZTankInfernoSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankPlasmiteFlamer" id="WZTankPlasmiteFlamerSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankHeavyPlasmaLauncher" id="WZTankHeavyPlasmaLauncherSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankLightCannon" id="WZTankLightCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankMediumCannon" id="WZTankMediumCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankHyperVelocityCannon" id="WZTankHyperVelocityCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankAACycloneFlakCannon" id="WZTankAACycloneFlakCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankAssaultCannon" id="WZTankAssaultCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankHeavyCannon" id="WZTankHeavyCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankTwinAssaultCannon" id="WZTankTwinAssaultCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankPlasmaCannon" id="WZTankPlasmaCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankAATornadoFlakCannon" id="WZTankAATornadoFlakCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankMiniRocketPod" id="WZTankMiniRocketPodSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankMiniRocketArray" id="WZTankMiniRocketArraySecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankLancer" id="WZTankLancerSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankBunkerBuster" id="WZTankBunkerBusterSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankSunburstAA" id="WZTankSunburstAASecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankRippleRockets" id="WZTankRippleRocketsSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankHeavyRocketArray" id="WZTankHeavyRocketArraySecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankTankKiller" id="WZTankTankKillerSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankMortar" id="WZTankMortarSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankBombard" id="WZTankBombardSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankPepperpot" id="WZTankPepperpotSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankIncendiaryMortar" id="WZTankIncendiaryMortarSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankHurricaneAA" id="WZTankHurricaneAASecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankWhirlwindAA" id="WZTankWhirlwindAASecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankHowitzer" id="WZTankHowitzerSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankIncendiaryHowitzer" id="WZTankIncendiaryHowitzerSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankHellstorm" id="WZTankHellstormSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankGroundShaker" id="WZTankGroundShakerSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankFlashlight" id="WZTankFlashlightSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankPulseLaser" id="WZTankPulseLaserSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankStormbringerAALaser" id="WZTankStormbringerAALaserSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankHeavyLaser" id="WZTankHeavyLaserSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankNeedleGun" id="WZTankNeedleGunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankRailGun" id="WZTankRailGunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankGaussCannon" id="WZTankGaussCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankScourgeMissile" id="WZTankScourgeMissileSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankAvengerSAM" id="WZTankAvengerSAMSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankSeraphMissileArray" id="WZTankSeraphMissileArraySecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankArchangelMissile" id="WZTankArchangelMissileSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankVindicatorSAM" id="WZTankVindicatorSAMSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankNexusLink" id="WZTankNexusLinkSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankEMPCannon" id="WZTankEMPCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankEMPMortar" id="WZTankEMPMortarSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankSpade" id="WZTankSpadeSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankCommand" id="WZTankCommandSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankCBRadar" id="WZTankCBRadarSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankRadarDetector" id="WZTankRadarDetectorSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankSensor" id="WZTankSensorSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankVtolCBRadar" id="WZTankVtolCBRadarSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankVtolStrike" id="WZTankVtolStrikeSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankWideSpectrumSensor" id="WZTankWideSpectrumSensorSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankHeavyRepair" id="WZTankHeavyRepairSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZTankRepair" id="WZTankRepairSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolClusterBombBay" id="WZVtolClusterBombBaySecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolHeapBombBay" id="WZVtolHeapBombBaySecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolEMPMissileLauncher" id="WZVtolEMPMissileLauncherSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolPlasmiteBombBay" id="WZVtolPlasmiteBombBaySecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolPhosphorBombBay" id="WZVtolPhosphorBombBaySecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolThermiteBombBay" id="WZVtolThermiteBombBaySecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolSunburstAA" id="WZVtolSunburstAASecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolMachinegun" id="WZVtolMachinegunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolCannon" id="WZVtolCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolTwinMachinegun" id="WZVtolTwinMachinegunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolMiniRocket" id="WZVtolMiniRocketSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolHeavyMachinegun" id="WZVtolHeavyMachinegunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolLancer" id="WZVtolLancerSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolHyperVelocityCannon" id="WZVtolHyperVelocityCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolBunkerBuster" id="WZVtolBunkerBusterSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolAssaultGun" id="WZVtolAssaultGunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolAssaultCannon" id="WZVtolAssaultCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolTankKiller" id="WZVtolTankKillerSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolFlashlight" id="WZVtolFlashlightSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolNeedleGun" id="WZVtolNeedleGunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolScourgeMissile" id="WZVtolScourgeMissileSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolPulseLaser" id="WZVtolPulseLaserSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolHeavyLaser" id="WZVtolHeavyLaserSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZVtolRailGun" id="WZVtolRailGunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <!--    <CBehaviorBuff parent="ScavVtolMachinegun" id="ScavVtolMachinegunSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>-->
+    <!--    <CBehaviorBuff parent="ScavVtolMiniRocket" id="ScavVtolMiniRocketSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>-->
+    <CBehaviorBuff parent="WZHeavyGunnerWeapon" id="WZHeavyGunnerWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZMachinegunnerWeapon" id="WZMachinegunnerWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZFlamerWeapon" id="WZFlamerWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZGrenadierWeapon" id="WZGrenadierWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZLancerWeapon" id="WZLancerWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZThermiteFlamerWeapon" id="WZThermiteFlamerWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZAssaultGunnerWeapon" id="WZAssaultGunnerWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZFlashlightGunnerWeapon" id="WZFlashlightGunnerWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZNeedleGunnerWeapon" id="WZNeedleGunnerWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZSuperHeavyGunnerWeapon" id="WZSuperHeavyGunnerWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZSuperAutoCannonWeapon" id="WZSuperAutoCannonWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZSuperHVCWeapon" id="WZSuperHVCWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZSuperTankKillerWeapon" id="WZSuperTankKillerWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZSuperScourgeWeapon" id="WZSuperScourgeWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <CBehaviorBuff parent="WZSuperPulseLaserWeapon" id="WZSuperPulseLaserWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+    <!--    <CBehaviorBuff parent="ScavMG" id="ScavMGSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>-->
+    <!--    <CBehaviorBuff parent="ScavCannon" id="ScavCannonSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>-->
+    <!--    <CBehaviorBuff parent="ScavFlamer" id="ScavFlamerSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>-->
+    <!--    <CBehaviorBuff parent="ScavRocket" id="ScavRocketSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>-->
+    <!--    <CBehaviorBuff parent="WZFortressCannon" id="WZFortressCannonSecondary"/>-->
+    <!--    <CBehaviorBuff parent="WZFortressMassDriver" id="WZFortressMassDriverSecondary"/>-->
+    <!--    <CBehaviorBuff parent="WZFortressMissile" id="WZFortressMissileSecondary"/>-->
+    <!--    <CBehaviorBuff parent="WZHeavyRocketBastion" id="WZHeavyRocketBastionSecondary"/>-->
+    <CBehaviorBuff parent="WZSuperRailGunnerWeapon" id="WZSuperRailGunnerWeaponSecondary"><TechAliasArray index="0" value="WZTurretSecondary"/></CBehaviorBuff>
+
+
+
+</Catalog>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Includes>
+    <Catalog path="GameData/Tyranid/AbilData.xml"/>
+    <Catalog path="GameData/Tyranid/ActorData.xml"/>
+    <Catalog path="GameData/Tyranid/BehaviorData.xml"/>
+    <Catalog path="GameData/Tyranid/ButtonData.xml"/>
+    <Catalog path="GameData/Tyranid/EffectData.xml"/>
+    <Catalog path="GameData/Tyranid/ModelData.xml"/>
+    <Catalog path="GameData/Tyranid/MoverData.xml"/>
+    <Catalog path="GameData/Tyranid/RequirementNodeData.xml"/>
+    <Catalog path="GameData/Tyranid/SoundData.xml"/>
+    <Catalog path="GameData/Tyranid/TextureData.xml"/>
+    <Catalog path="GameData/Tyranid/UnitData.xml"/>
+    <Catalog path="GameData/Tyranid/ValidatorData.xml"/>
+    <Catalog path="GameData/Tyranid/WeaponData.xml"/>
+    <Catalog path="GameData/Support/ChangelingData.xml"/>
+    <Catalog path="GameData/Support/Resurrection.xml"/>
+    <Catalog path="GameData/Support/ValidatorData.xml"/>
+</Includes>

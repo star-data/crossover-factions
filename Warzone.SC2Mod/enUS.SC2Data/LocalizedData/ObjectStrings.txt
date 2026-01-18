@@ -1,0 +1,12 @@
+﻿Actor/Name/TurretFix=TurretFix
+Unit/EditorPrefix/ScavGround=<Template>
+Unit/EditorPrefix/ScavStructure=<Template>
+Unit/EditorPrefix/WZAir=<Template>
+Unit/EditorPrefix/WZGround=<Template>
+Unit/EditorPrefix/WZHeavyCyborg=<Template>
+Unit/EditorPrefix/WZLightCyborg=<Template>
+Unit/EditorPrefix/WZMissile=<Template>
+Unit/EditorPrefix/WZStructure=<Template>
+Unit/EditorPrefix/WZVtolFactory=<Template>
+Unit/EditorPrefix/WZWarFactory=<Template>
+User/Name/Designs=Designs

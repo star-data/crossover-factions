@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CActorUnit default="1" id="DOWSmall" parent="GenericUnitStandard">
+        <?token id="icon" value="##id##"?>
+        <?token id="wireframe" value="##id##Wireframe"?>
+        <HeroIcon value="Assets\icons\##icon##.dds"/>
+        <UnitIcon value="Assets\icons\##icon##.dds"/>
+        <Wireframe>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </Wireframe>
+        <GroupIcon>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </GroupIcon>
+        <Aliases value="_UnitSmall"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="UnitDeath.##id##; AnimPlaying Cover" Target="_DeathModel" Send="AnimPlay Cover Cover PlayForever 0.000000"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="ModelEvent; ModelEventName SquibStart" Send="Create ##id##CheerSquib"/>
+        <On Terms="ModelEvent; ModelEventName SquibStop" Target="##id##CheerSquib" Send="Destroy"/>
+        <On Terms="ModelEvent; ModelEventName SquibStop" Target="##id##CheerSquibSound" Send="Destroy"/>
+        <On Terms="AnimDone; AnimName Cheer" Target="##id##CheerSquib" Send="Destroy"/>
+        <On Terms="AnimDone; AnimName Cheer" Target="##id##CheerSquibSound" Send="Destroy"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create ##id##_Land"/>
+        <On Terms="UnitDeathCustomize; PassChance 100.000000; ValidateUnit IsNotNeuralParasited" Send="Create ##id##_Death"/>
+        <On Terms="UnitDeathCustomize; PassChance 100.000000; !ValidateUnit IsNotNeuralParasited" Send="Create ##id##_Death_NP"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <DeathArray index="Normal" ModelLink="##id##Death" SoundLink="##id##_DeathFXBloodSpray"/>
+        <DeathArray index="Blast" ModelLink="##id##DeathBlast"/>
+        <DeathArray index="Disintegrate" ModelLink="##id##DeathAcid" SoundLink="Uni_DeathFXAcid"/>
+        <DeathArray index="Eat" AnimProps="Stand" ModelLink="##id##DeathEat" SoundLink="##id##_DeathFXEat"/>
+        <DeathArray index="Eviscerate" ModelLink="##id##DeathEviscerate" SoundLink="##id##_DeathFXEviscerate"/>
+        <DeathArray index="Fire" ModelLink="##id##DeathFire" SoundLink="##id##_DeathFXFire"/>
+        <DeathArray index="Silentkill" SoundLink="Uni_DeathFXSilentKill"/>
+        <DeathArray index="Squish" SoundLink="##id##_DeathFXBloodSpray"/>
+        <DeathCustoms ModelLink="TerranSmallBiologicalUnitDeathLow" Name="AntiGravTerran"/>
+        <DeathCustoms ModelLink="##id##DeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="None"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ActorModel="SpineCrawlerHurlDeathRagdollBloodPrevent" ModelLink="##id##DeathRagdoll" Name="RagdollSpineCrawlerHurl">
+            <BodySquibs Name="None"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PortraitModel value="##id##Portrait"/>
+        <StandAnimTurnTime value="4"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="0.600000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleSmall"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="2.25"/>
+        <BarOffset value="40"/>
+        <BarWidth value="36"/>
+        <GlossaryAnim value="Spell"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
+    </CActorUnit>
+    <CActorUnit default="1" id="DOWLarge" parent="GenericUnitStandard">
+        <?token id="icon" value="##id##"?>
+        <?token id="wireframe" value="##id##Wireframe"?>
+        <HeroIcon value="Assets\icons\##icon##.dds"/>
+        <UnitIcon value="Assets\icons\##icon##.dds"/>
+        <Wireframe>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </Wireframe>
+        <GroupIcon>
+            <Image value="Assets\icons\##wireframe##.dds"/>
+        </GroupIcon>
+        <Aliases value="_UnitLarge"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <Inherits index="ModelMaterials" value="1"/>
+        <AcceptedTransfers index="ModelMaterials" value="1"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create SiegeTank_Land"/>
+        <Model value="##id##"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <CreepHeightClass value="Tiny"/>
+        <BuildModel value="##id##"/>
+        <DeathArray index="Normal" ModelLink="##id##DeathRagdoll" SoundLink="SiegeTank_Explode"/>
+        <DeathCustomData Name="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="##id##"/>
+        <PortraitModel value="##id##Portrait"/>
+        <StandAnimTurnTime value="3.33"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleSiegeTank"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="1"/>
+        <BarOffset value="80"/>
+        <BarWidth value="102"/>
+        <ErrorArray Error="CantSeeBuildLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantSeeLandLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantBuildLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantLandLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CouldntReachTarget" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <HighlightTooltip value="Unit/Name/##id##"/>
+        <LifeArmorIcon value="Assets\textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+    </CActorUnit>
+    <CActorUnit default="1" id="NecronSmall" parent="DOWSmall"/>
+    <CActorUnit default="1" id="NecronLarge" parent="DOWLarge"/>
+    <CActorUnit default="1" id="ChaosDaemonsSmall" parent="DOWSmall"/>
+    <CActorUnit default="1" id="ChaosDaemonsLarge" parent="DOWLarge"/>
+    <CActorUnit default="1" id="ChaosMarinesSmall" parent="DOWSmall"/>
+    <CActorUnit default="1" id="ChaosMarinesLarge" parent="DOWLarge"/>
+    <CActorUnit default="1" id="DarkEldarSmall" parent="DOWSmall"/>
+    <CActorUnit default="1" id="DarkEldarLarge" parent="DOWLarge"/>
+    <CActorUnit default="1" id="EldarSmall" parent="DOWSmall"/>
+    <CActorUnit default="1" id="EldarLarge" parent="DOWLarge"/>
+    <CActorUnit default="1" id="TauSmall" parent="DOWSmall"/>
+    <CActorUnit default="1" id="TauLarge" parent="DOWLarge"/>
+    <CActorUnit default="1" id="WHIGSmall" parent="DOWSmall"/>
+    <CActorUnit default="1" id="WHIGLarge" parent="DOWLarge"/>
+    <CActorUnit default="1" id="WHOrcSmall" parent="DOWSmall"/>
+    <CActorUnit default="1" id="WHOrcLarge" parent="DOWLarge"/>
+    <CActorUnit default="1" id="WHSMSmall" parent="DOWSmall"/>
+    <CActorUnit default="1" id="WHSMLarge" parent="DOWLarge"/>
+    <CActorUnit default="1" id="SOBSmall" parent="DOWSmall"/>
+    <CActorUnit default="1" id="SOBLarge" parent="DOWLarge"/>
+    <CActorUnit default="1" id="WHCivSmall" parent="DOWSmall"/>
+    <CActorUnit default="1" id="WHCivLarge" parent="DOWLarge"/>
+
+    <CActorEventMacro id="ModelSwapRestartGlobalLoopsMacro">
+        <!-- Model swap can happen from AssetPreInit, animations cannot be started then however as the model wont be loaded, so we make sure the game has started before we do -->
+        <On Terms="ModelSwap; GameTime GT 0" Send="AnimBracketStart GL_BSD GLbirth GLstand GLdeath FullMatch"/>
+        <On Terms="ModelSwap; GameTime GT 0" Send="AnimBracketStart GL_BSD_A GLbirth,A GLstand,A GLdeath,A FullMatch"/>
+        <On Terms="ModelSwap; GameTime GT 0" Send="AnimBracketStart GL_BSD_B GLbirth,B GLstand,B GLdeath,B FullMatch"/>
+        <On Terms="ModelSwap; GameTime GT 0" Send="AnimBracketStart GL_BSD_C GLbirth,C GLstand,C GLdeath,C FullMatch"/>
+        <On Terms="ModelSwap; GameTime GT 0" Send="AnimBracketStart GL_BSD_D GLbirth,D GLstand,D GLdeath,D FullMatch"/>
+        <On Terms="ModelSwap; GameTime GT 0" Send="AnimBracketStart GL_BSD_E GLbirth,E GLstand,E GLdeath,E FullMatch"/>
+        <On Terms="ModelSwap; GameTime GT 0" Send="AnimBracketStart GL_BSD_F GLbirth,F GLstand,F GLdeath,F FullMatch"/>
+        <On Terms="ModelSwap; GameTime GT 0" Send="AnimBracketStart GL_BSD_G GLbirth,G GLstand,G GLdeath,G FullMatch"/>
+        <On Terms="ModelSwap; GameTime GT 0" Send="AnimBracketStart GL_BSD_H GLbirth,H GLstand,H GLdeath,H FullMatch"/>
+        <On Terms="ModelSwap; GameTime GT 0" Send="AnimBracketStart GL_BSD_I GLbirth,I GLstand,I GLdeath,I FullMatch"/>
+        <On Terms="ModelSwap; GameTime GT 0" Send="AnimBracketStart GL_BSD_J GLbirth,J GLstand,J GLdeath,J FullMatch"/>
+    </CActorEventMacro>
+    <CActorDoodad id="SprayDOW" parent="SprayBase">
+        <On Terms="Effect.SprayDOW.Start" Send="Create"/>
+        <On Terms="Effect.SprayDOW.Start" Send="Create Spray_Terran_ActorSound"/>
+        <On Terms="ActorCreation; PlayerHasReward SprayUseDecal_Off" Send="ModelSwap SprayGlobal"/>
+        <On Terms="ActorCreation; !PlayerHasReward SprayUseDecal_Off" Send="ModelSwap SprayTerranScaled"/>
+        <On Terms="TextureUpdate; TextureUpdateSlot decal; !PlayerHasReward SprayUseDecal_Off" Send="TextureSelectByUpdateLink background Replace Decal Background"/>
+    </CActorDoodad>
+
+
+
+    <CActorAction id="NecronWarriorAttack" parent="GenericAttack" effectAttack="NecronWarriorBlasterDamage">
+        <LaunchAssets Sound="NecronBlaster_AttackLaunch"/>
+        <BeamScope value="Caster"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeNoVizEnhance VoidRaySOpForwardLaunch"/>
+        <ImpactMap index="None" Model="" Sound="NecronBlaster_AttackImpact2"/>
+        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+    </CActorAction>
+    <CActorBeamSimple id="NecronWarriorAttackBeam" parent="BeamSimpleAnimationStyleOneShot">
+        <Macros value="ActionTargetTeleportDestroy"/>
+        <On Terms="ActorCreation; ValidateUnit NoDarkProtoss" Send="ModelSwap DarkArchonAttackBeam"/>
+        <On Terms="ActorCreation; ValidateUnit NoDarkProtoss" Send="AnimBracketStart BSDb Birth Stand Death ContentPlayOnce"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSDb" Send="Destroy"/>
+        <Scale value="0.500000"/>
+    </CActorBeamSimple>
+    <CActorModel id="NecronWarriorDeathEffect" parent="ModelAnimationStyleContinuous">
+        <!--        <On Terms="ActorCreation; ValidatePlayer BattlecruiserUpgraded" Send="ModelSwap BattlecruiserYamatoHyperjumpPlacement"/>-->
+        <!--        <On Terms="ActorCreation;ValidateUnit IsNecronWarriorIncapacitated00AB" Target="_Unit" Send="AnimPlay Resurrect Death,00"/>-->
+        <!--        <On Terms="ActorCreation;ValidateUnit IsNecronWarriorIncapacitated01AB" Target="_Unit" Send="AnimPlay Resurrect Death,A"/>-->
+        <!--        <On Terms="ActorCreation;ValidateUnit IsNecronWarriorIncapacitated02AB" Target="_Unit" Send="AnimPlay Resurrect Death,B"/>-->
+        <!--        <On Terms="ActorCreation;ValidateUnit IsNecronWarriorIncapacitated03AB" Target="_Unit" Send="AnimPlay Resurrect Death,C"/>-->
+        <Model value="NecronWarriorDeath"/>
+    </CActorModel>
+    <CActorSound id="NecronWarrior_Death" parent="SoundOneShot">
+        <On Terms="UnitDeath.NecronWarrior; PassChance 100.000000" Send="Create"/>
+    </CActorSound>
+    <CActorAction id="NecronBuilderScarabAttack" parent="GenericAttack" effectAttack="NecronFusionCutter">
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
+    <CActorUnit id="NecronBuilderScarab" parent="NecronSmall" unitName="NecronBuilderScarab">
+        <Macros value="CarryAnim"/>
+        <Macros value="MacroWorkerHat"/>
+        <On Terms="Abil.SCVHarvest.Start" Send="TimerSet 0.000000,0.300000 Gather"/>
+        <On Terms="Abil.SCVHarvest.Stop" Send="AnimClear Gather"/>
+        <On Terms="Abil.SCVHarvest.Stop" Send="TimerKill Gather"/>
+        <On Terms="AnimDone.*.Complete; AnimName Gather" Send="TimerSet 0.000000,0.300000 Gather"/>
+        <On Terms="TimerExpired; TimerName Gather" Send="AnimPlay Gather Work NonLooping"/>
+        <On Terms="TimerExpired; TimerName Gather" Send="Create NecronBuilderScarabGatherSound"/>
+        <On Terms="Abil.Repair.SourceChannelStart" Send="TimerSet 0.000000,0.300000 Repair"/>
+        <On Terms="Abil.Repair.SourceChannelStop" Send="TimerKill Repair"/>
+        <On Terms="Abil.Repair.SourceChannelStop" Send="AnimClear Repair"/>
+        <On Terms="AnimDone.*.Complete; AnimName Repair" Send="TimerSet 0.000000,0.300000 Repair"/>
+        <On Terms="TimerExpired; TimerName Repair" Send="AnimPlay Repair Work NonLooping"/>
+        <On Terms="TimerExpired; TimerName Repair" Send="Create NecronBuilderScarabRepairSound"/>
+        <On Terms="Abil.*.WorkerStart" Send="TimerSet 0.000000,0.300000 Build"/>
+        <On Terms="Abil.*.WorkerStop" Send="TimerKill Build"/>
+        <On Terms="Abil.*.WorkerStop" Send="AnimClear Build"/>
+        <On Terms="Abil.*.WorkerCancel" Send="TimerKill Build"/>
+        <On Terms="Abil.*.WorkerCancel" Send="AnimClear Build"/>
+        <On Terms="AnimDone.*.Complete; AnimName Build" Send="TimerSet 0.000000,0.300000 Build"/>
+        <On Terms="TimerExpired; TimerName Build" Send="AnimPlay Build Work NonLooping"/>
+        <On Terms="TimerExpired; TimerName Build" Send="Create NecronBuilderScarabBuildSound"/>
+        <On Terms="Abil.SCVHarvest.Start" Send="StatusSet CloakSound 1"/>
+        <On Terms="Behavior.CarryHarvestableVespeneGeyserGas.Create" Send="StatusSet CloakSound 1"/>
+        <On Terms="Confirmation.NecronBuilderScarab.Start" Send="StatusSet CloakSound 0"/>
+        <On Terms="Behavior.CloakFieldEffect.Create; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOn"/>
+        <On Terms="Behavior.CloakFieldEffect.Destroy; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOff"/>
+        <On Terms="Behavior.OracleCloakFieldEffect.Create; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOn"/>
+        <On Terms="Behavior.OracleCloakFieldEffect.Destroy; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOff"/>
+        <SoundArray index="Help" value="Alert_NecronEconomyUnderAttack"/>
+    </CActorUnit>
+    <CActorUnit id="NecronWarrior" parent="NecronSmall" unitName="NecronWarrior">
+        <On Terms="Behavior.NecronWarriorIncapacitated.On" Send="TimerSet 0.010000 XDelay"/>
+        <On Terms="Behavior.NecronWarriorIncapacitated.On" Send="TimerSet 5.000000 DeathDelay"/>
+        <On Terms="TimerExpired; TimerName XDelay" Send="SetOpacity"/>
+        <On Terms="TimerExpired; TimerName XDelay" Send="Create NecronWarriorDeathEffect"/>
+        <On Terms="TimerExpired; TimerName XDelay; ValidateUnit IsNecronWarriorIncapacitated00AB" Target="NecronWarriorDeathEffect" Send="AnimPlay Resurrect Custom,Death,Z"/>
+        <On Terms="TimerExpired; TimerName XDelay; ValidateUnit IsNecronWarriorIncapacitated01AB" Target="NecronWarriorDeathEffect" Send="AnimPlay Resurrect Death,00"/>
+        <On Terms="TimerExpired; TimerName XDelay; ValidateUnit IsNecronWarriorIncapacitated02AB" Target="NecronWarriorDeathEffect" Send="AnimPlay Resurrect Death,01"/>
+        <On Terms="TimerExpired; TimerName XDelay; ValidateUnit IsNecronWarriorIncapacitated03AB" Target="NecronWarriorDeathEffect" Send="AnimPlay Resurrect Death,02"/>
+        <!--        <On Terms="Behavior.NecronWarriorIncapacitated.On" Send="AnimPlay Resurrect Death"/>-->
+        <On Terms="TimerExpired; TimerName DeathDelay" Send="AnimClear Resurrect"/>
+        <On Terms="TimerExpired; TimerName DeathDelay" Send="SetOpacity 1.000000"/>
+        <On Terms="TimerExpired; TimerName DeathDelay" Target="NecronWarriorDeathEffect" Send="Destroy"/>
+        <On Terms="TimerExpired; TimerName DeathDelay; ValidateUnit IsNecronWarriorIncapacitated00AB" Send="AnimPlay Unpowered Stand,Unpowered,00 PlayForever 0.000000"/>
+        <On Terms="TimerExpired; TimerName DeathDelay; ValidateUnit IsNecronWarriorIncapacitated01AB" Send="AnimPlay Unpowered Stand,Unpowered,A PlayForever 0.000000"/>
+        <On Terms="TimerExpired; TimerName DeathDelay; ValidateUnit IsNecronWarriorIncapacitated02AB" Send="AnimPlay Unpowered Stand,Unpowered,B PlayForever 0.000000"/>
+        <On Terms="TimerExpired; TimerName DeathDelay; ValidateUnit IsNecronWarriorIncapacitated03AB" Send="AnimPlay Unpowered Stand,Unpowered,C PlayForever 0.000000"/>
+        <On Terms="Behavior.NecronWarriorIncapacitated.Off" Send="AnimClear Unpowered"/>
+        <On Terms="Behavior.NecronWarriorStandUp.On; ValidateUnit IsNecronWarriorIncapacitated00AB" Send="AnimPlay StandupAnim Standup,00"/>
+        <On Terms="Behavior.NecronWarriorStandUp.On; ValidateUnit IsNecronWarriorIncapacitated01AB" Send="AnimPlay StandupAnim Standup,A"/>
+        <On Terms="Behavior.NecronWarriorStandUp.On; ValidateUnit IsNecronWarriorIncapacitated02AB" Send="AnimPlay StandupAnim Standup,B"/>
+        <On Terms="Behavior.NecronWarriorStandUp.On; ValidateUnit IsNecronWarriorIncapacitated03AB" Send="AnimPlay StandupAnim Standup,C"/>
+        <On Terms="Behavior.NecronWarriorStandUp.Off" Send="AnimClear StandupAnim"/>
+        <!--        <On Terms="Behavior.NecronWarriorStandUp.Off" Send="AnimPlay Cover Cover PlayForever 0.000000"/>-->
+        <!--        <On Terms="Behavior.NWCloak.On" Send="AnimPlay Cover Cover PlayForever 0.000000"/>-->
+        <!--        <On Terms="Behavior.NWCloak.Off" Send="AnimPlay Cover"/>-->
+    </CActorUnit>
+
+    <CActorUnit id="NecronBlackBuilderScarab" parent="NecronSmall" unitName="NecronBlackBuilderScarab"/>
+    <CActorUnit id="NecronBlackWarrior" parent="NecronSmall" unitName="NecronBlackWarrior"/>
+    <CActorUnit id="NecronDeceiver" parent="NecronSmall" unitName="NecronDeceiver"/>
+    <CActorUnit id="NecronDestroyer" parent="NecronLarge" unitName="NecronDestroyer"/>
+    <CActorUnit id="NecronFlayedOne" parent="NecronSmall" unitName="NecronFlayedOne"/>
+    <CActorUnit id="NecronImmortal" parent="NecronSmall" unitName="NecronImmortal"/>
+    <CActorUnit id="NecronNightBringer" parent="NecronLarge" unitName="NecronNightBringer"/>
+    <CActorUnit id="NecronPariah" parent="NecronSmall" unitName="NecronPariah"/>
+    <CActorUnit id="NecronTombSpyder" parent="NecronLarge" unitName="NecronTombSpyder"/>
+    <CActorUnit id="NecronWraith" parent="NecronSmall" unitName="NecronWraith"/>
+    <CActorUnit id="NecronLord" parent="NecronSmall" unitName="NecronLord"/>
+    <CActorUnit id="NecronLordDestroyer" parent="NecronLarge" unitName="NecronLordDestroyer"/>
+    <CActorUnit id="NecronOverlord" parent="NecronSmall" unitName="NecronOverlord"/>
+    <CActorUnit id="NecronUnderlord" parent="NecronSmall" unitName="NecronUnderlord"/>
+    <CActorUnit id="NecronScarabs" parent="NecronSmall" unitName="NecronScarabs"/>
+
+
+
+    <CActorUnit id="ChaosDaemonsLostSoul" parent="ChaosDaemonsSmall" unitName="ChaosDaemonsLostSoul"/>
+    <CActorUnit id="ChaosMarinesCultist" parent="ChaosMarinesSmall" unitName="ChaosMarinesCultist"/>
+    <CActorUnit id="ChaosMarinesDefiler" parent="ChaosMarinesLarge" unitName="ChaosMarinesDefiler"/>
+    <CActorUnit id="ChaosMarinesHeretic" parent="ChaosMarinesSmall" unitName="ChaosMarinesHeretic"/>
+    <CActorUnit id="ChaosMarinesLord" parent="ChaosMarinesSmall" unitName="ChaosMarinesLord"/>
+    <CActorUnit id="ChaosMarinesMarine" parent="ChaosMarinesSmall" unitName="ChaosMarinesMarine"/>
+    <CActorUnit id="ChaosMarinesSorcerer" parent="ChaosMarinesSmall" unitName="ChaosMarinesSorcerer"/>
+<!--    <CActorUnit id="ChaosMarinesSorcererElite" parent="ChaosMarinesSmall" unitName="ChaosMarinesSorcererElite"/>-->
+    <CActorUnit id="ChaosMarinesSorcererHero" parent="ChaosMarinesSmall" unitName="ChaosMarinesSorcererHero"/>
+    <CActorUnit id="ChaosMarinesSorcererMerc" parent="ChaosMarinesSmall" unitName="ChaosMarinesSorcererMerc"/>
+    <CActorUnit id="DarkEldarTorturedSlave" parent="DarkEldarSmall" unitName="DarkEldarTorturedSlave"/>
+    <CActorUnit id="EldarBanshee" parent="EldarSmall" unitName="EldarBanshee">
+        <Model value="##id##DoubleSwords"/>
+        <Wireframe>
+            <Image value="Assets\icons\##id##DoubleSwordsWireframe.dds"/>
+        </Wireframe>
+        <GroupIcon>
+            <Image value="Assets\icons\##id##DoubleSwordsWireframe.dds"/>
+        </GroupIcon>
+    </CActorUnit>
+<!--    <CActorUnit id="EldarBansheeDoubleSwords" parent="EldarSmall" unitName="EldarBansheeDoubleSwords"/>-->
+<!--    <CActorUnit id="EldarBansheeDoubleEnergySwords" parent="EldarSmall" unitName="EldarBansheeDoubleEnergySwords"/>-->
+<!--    <CActorUnit id="EldarBansheeEnergySwordAndGun" parent="EldarSmall" unitName="EldarBansheeEnergySwordAndGun"/>-->
+<!--    <CActorUnit id="EldarBansheeExarchDoubleEnergySwords" parent="EldarSmall" unitName="EldarBansheeExarchDoubleEnergySwords"/>-->
+<!--    <CActorUnit id="EldarBansheeExarchDoubleSwords" parent="EldarSmall" unitName="EldarBansheeExarchDoubleSwords"/>-->
+<!--    <CActorUnit id="EldarBansheeExarchEnergySwordAndGun" parent="EldarSmall" unitName="EldarBansheeExarchEnergySwordAndGun"/>-->
+<!--    <CActorUnit id="EldarBansheeExarchSwordAndGun" parent="EldarSmall" unitName="EldarBansheeExarchSwordAndGun"/>-->
+<!--    <CActorUnit id="EldarBansheeScreamerDoubleEnergySwords" parent="EldarSmall" unitName="EldarBansheeScreamerDoubleEnergySwords"/>-->
+<!--    <CActorUnit id="EldarBansheeScreamerDoubleSwords" parent="EldarSmall" unitName="EldarBansheeScreamerDoubleSwords"/>-->
+<!--    <CActorUnit id="EldarBansheeScreamerEnergySwordAndGun" parent="EldarSmall" unitName="EldarBansheeScreamerEnergySwordAndGun"/>-->
+<!--    <CActorUnit id="EldarBansheeScreamerSwordAndGun" parent="EldarSmall" unitName="EldarBansheeScreamerSwordAndGun"/>-->
+<!--    <CActorUnit id="EldarBansheeSwordAndGun" parent="EldarSmall" unitName="EldarBansheeSwordAndGun"/>-->
+    <CActorUnit id="EldarBoneSinger" parent="EldarSmall" unitName="EldarBoneSinger"/>
+    <CActorUnit id="EldarFarseerElenwe" parent="EldarSmall" unitName="EldarFarseerElenwe" icon="EldarFarseer"/>
+    <CActorUnit id="EldarFarseerTaldeer" parent="EldarSmall" unitName="EldarFarseerTaldeer">
+        <HeroIcon value="Assets\icons\EldarFarseer.dds"/>
+        <UnitIcon value="Assets\icons\EldarFarseer.dds"/>
+    </CActorUnit>
+    <CActorUnit id="EldarGravPlatformBrightlanceGun" parent="EldarSmall" unitName="EldarGravPlatformBrightlanceGun"/>
+    <CActorUnit id="EldarGravPlatformDCannonGun" parent="EldarSmall" unitName="EldarGravPlatformDCannonGun"/>
+    <CActorUnit id="EldarGravPlatformShurikenGun" parent="EldarSmall" unitName="EldarGravPlatformShurikenGun"/>
+    <CActorUnit id="EldarGuardianSquad" parent="EldarSmall" unitName="EldarGuardianSquad"/>
+    <CActorUnit id="EldarGuardianSquadMerc" parent="EldarSmall" unitName="EldarGuardianSquadMerc" icon="EldarGuardianSquad"/>
+    <CActorUnit id="EldarRanger" parent="EldarSmall" unitName="EldarRanger"/>
+    <CActorUnit id="EldarRangerMerc" parent="EldarSmall" unitName="EldarRangerMerc" icon="EldarRanger"/>
+    <CActorUnit id="EldarWarlock" parent="EldarSmall" unitName="EldarWarlock"/>
+    <!--    <CActorUnit id="EldarWarlockElite" parent="EldarSmall" unitName="EldarWarlockElite"/>-->
+    <!--    <CActorUnit id="EldarWarlockExodite" parent="EldarSmall" unitName="EldarWarlockExodite"/>-->
+    <!--    <CActorUnit id="EldarWarlockSaimHann" parent="EldarSmall" unitName="EldarWarlockSaimHann"/>-->
+    <!--    <CActorUnit id="EldarWarlockSeer" parent="EldarSmall" unitName="EldarWarlockSeer"/>-->
+    <CActorUnit id="SOBCanoness" parent="SOBSmall" unitName="SOBCanoness"/>
+<!--    <CActorUnit id="SOBCanonessBrazier" parent="SOBSmall" unitName="SOBCanonessBrazier"/>-->
+<!--    <CActorUnit id="SOBCanonessEnergySword" parent="SOBSmall" unitName="SOBCanonessEnergySword"/>-->
+<!--    <CActorUnit id="SOBCanonessFlameSword" parent="SOBSmall" unitName="SOBCanonessFlameSword"/>-->
+<!--    <CActorUnit id="SOBCanonessUpg" parent="SOBSmall" unitName="SOBCanonessUpg"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgAlt" parent="SOBSmall" unitName="SOBCanonessUpgAlt"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgAltBrazier" parent="SOBSmall" unitName="SOBCanonessUpgAltBrazier"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgAltEnergySword" parent="SOBSmall" unitName="SOBCanonessUpgAltEnergySword"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgAltFlameSword" parent="SOBSmall" unitName="SOBCanonessUpgAltFlameSword"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgAltNoCloth" parent="SOBSmall" unitName="SOBCanonessUpgAltNoCloth"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgAltNoClothBrazier" parent="SOBSmall" unitName="SOBCanonessUpgAltNoClothBrazier"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgAltNoClothEnergySword" parent="SOBSmall" unitName="SOBCanonessUpgAltNoClothEnergySword"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgAltNoClothFlameSword" parent="SOBSmall" unitName="SOBCanonessUpgAltNoClothFlameSword"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgBrazier" parent="SOBSmall" unitName="SOBCanonessUpgBrazier"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgEnergySword" parent="SOBSmall" unitName="SOBCanonessUpgEnergySword"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgFlameSword" parent="SOBSmall" unitName="SOBCanonessUpgFlameSword"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgNoCloth" parent="SOBSmall" unitName="SOBCanonessUpgNoCloth"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgNoClothBrazier" parent="SOBSmall" unitName="SOBCanonessUpgNoClothBrazier"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgNoClothEnergySword" parent="SOBSmall" unitName="SOBCanonessUpgNoClothEnergySword"/>-->
+<!--    <CActorUnit id="SOBCanonessUpgNoClothFlameSword" parent="SOBSmall" unitName="SOBCanonessUpgNoClothFlameSword"/>-->
+    <CActorUnit id="SoBServitor" parent="SOBSmall" unitName="SoBServitor"/>
+    <CActorUnit id="TauBarracuda" parent="TauLarge" unitName="TauBarracuda"/>
+    <CActorUnit id="TauBroadsideBattlesuit" parent="TauLarge" unitName="TauBroadsideBattlesuit"/>
+    <CActorUnit id="TauBuilder" parent="TauSmall" unitName="TauBuilder"/>
+    <CActorUnit id="TauFireWarrior" parent="TauSmall" unitName="TauFireWarrior"/>
+    <CActorUnit id="TauGreaterKnarloc" parent="TauLarge" unitName="TauGreaterKnarloc"/>
+    <CActorUnit id="TauShasvreStealthSuit" parent="TauSmall" unitName="TauShasvreStealthSuit"/>
+    <CActorUnit id="TauWraithGuard" parent="TauSmall" unitName="TauWraithGuard">
+        <Model value="##id##DoubleSwords"/>
+    </CActorUnit>
+<!--    <CActorUnit id="TauWraithGuardRanged" parent="TauSmall" unitName="TauWraithGuardRanged"/>-->
+<!--    <CActorUnit id="TauWraithGuardDoubleEnergySwords" parent="TauSmall" unitName="TauWraithGuardDoubleEnergySwords"/>-->
+<!--    <CActorUnit id="TauWraithGuardDoubleSwords" parent="TauSmall" unitName="TauWraithGuardDoubleSwords"/>-->
+    <CActorUnit id="TauWraithLord" parent="TauSmall" unitName="TauWraithLord"/>
+<!--    <CActorUnit id="TauWraithLordEX" parent="TauSmall" unitName="TauWraithLordEX"/>-->
+<!--    <CActorUnit id="TauWraithLordUpgrade" parent="TauSmall" unitName="TauWraithLordUpgrade"/>-->
+<!--    <CActorUnit id="TauWraithLordUpgradeAlt" parent="TauSmall" unitName="TauWraithLordUpgradeAlt"/>-->
+<!--    <CActorUnit id="TauWraithLordUpgradeEx" parent="TauSmall" unitName="TauWraithLordUpgradeEx"/>-->
+<!--    <CActorUnit id="TauWraithLordUpgradeExAlt" parent="TauSmall" unitName="TauWraithLordUpgradeExAlt"/>-->
+    <CActorUnit id="WHIGGuardsman" parent="WHIGSmall" unitName="WHIGGuardsman"/>
+    <CActorUnit id="WHIGInquisitor" parent="WHIGSmall" unitName="WHIGInquisitor">
+        <Model value="##id##BrazierAndPlasmaGun"/>
+    </CActorUnit>
+<!--    <CActorUnit id="WHIGInquisitorBrazierAndCrossbow" parent="WHIGSmall" unitName="WHIGInquisitorBrazierAndCrossbow"/>-->
+<!--    <CActorUnit id="WHIGInquisitorBrazierAndCrossbowServoSkull" parent="WHIGSmall" unitName="WHIGInquisitorBrazierAndCrossbowServoSkull"/>-->
+<!--    <CActorUnit id="WHIGInquisitorBrazierAndPlasmaGun" parent="WHIGSmall" unitName="WHIGInquisitorBrazierAndPlasmaGun"/>-->
+<!--    <CActorUnit id="WHIGInquisitorBrazierAndPlasmaGunServoSkull" parent="WHIGSmall" unitName="WHIGInquisitorBrazierAndPlasmaGunServoSkull"/>-->
+<!--    <CActorUnit id="WHIGInquisitorEnergySwordAndPlasmaGun" parent="WHIGSmall" unitName="WHIGInquisitorEnergySwordAndPlasmaGun"/>-->
+<!--    <CActorUnit id="WHIGInquisitorGen" parent="WHIGSmall" unitName="WHIGInquisitorGen"/>-->
+<!--    <CActorUnit id="WHIGInquisitorGenAlt" parent="WHIGSmall" unitName="WHIGInquisitorGenAlt"/>-->
+<!--    <CActorUnit id="WHIGInquisitorGenAltEnergySwordAndPlasmaGun" parent="WHIGSmall" unitName="WHIGInquisitorGenAltEnergySwordAndPlasmaGun"/>-->
+<!--    <CActorUnit id="WHIGInquisitorGenAltHat" parent="WHIGSmall" unitName="WHIGInquisitorGenAltHat"/>-->
+<!--    <CActorUnit id="WHIGInquisitorGenEnergySwordAndPlasmaGun" parent="WHIGSmall" unitName="WHIGInquisitorGenEnergySwordAndPlasmaGun"/>-->
+<!--    <CActorUnit id="WHIGInquisitorGenEnergySwordAndPlasmaGunAltHat" parent="WHIGSmall" unitName="WHIGInquisitorGenEnergySwordAndPlasmaGunAltHat"/>-->
+<!--    <CActorUnit id="WHIGInquisitorSwordAndCrossbow" parent="WHIGSmall" unitName="WHIGInquisitorSwordAndCrossbow"/>-->
+<!--    <CActorUnit id="WHIGInquisitorSwordAndCrossbowAndServoSkull" parent="WHIGSmall" unitName="WHIGInquisitorSwordAndCrossbowAndServoSkull"/>-->
+<!--    <CActorUnit id="WHIGInquisitorSwordAndPlasmaGun" parent="WHIGSmall" unitName="WHIGInquisitorSwordAndPlasmaGun"/>-->
+<!--    <CActorUnit id="WHIGInquisitorSwordAndPlasmaGunAndServoSkull" parent="WHIGSmall" unitName="WHIGInquisitorSwordAndPlasmaGunAndServoSkull"/>-->
+<!--    <CActorUnit id="WHIGInquisitorDeathKorp" parent="WHIGSmall" unitName="WHIGInquisitorDeathKorp"/>-->
+<!--    <CActorUnit id="WHIGInquisitorDeathKorpAlt" parent="WHIGSmall" unitName="WHIGInquisitorDeathKorpAlt"/>-->
+<!--    <CActorUnit id="WHIGInquisitorDeathKorpAltServoSkull" parent="WHIGSmall" unitName="WHIGInquisitorDeathKorpAltServoSkull"/>-->
+<!--    <CActorUnit id="WHIGInquisitorDeathKorpServoSkull" parent="WHIGSmall" unitName="WHIGInquisitorDeathKorpServoSkull"/>-->
+    <CActorUnit id="WHIGOgryn" parent="WHIGSmall" unitName="WHIGOgryn"/>
+    <CActorUnit id="WHIGOgrynMerc" parent="WHIGSmall" unitName="WHIGOgrynMerc" icon="WHIGOgryn"/>
+    <CActorUnit id="WHIGTechPriest" parent="WHIGSmall" unitName="WHIGTechPriest"/>
+    <CActorUnit id="WHOrcGrots" parent="WHOrcSmall" unitName="WHOrcGrots"/>
+    <CActorUnit id="WHOrcSith" parent="WHOrcSmall" unitName="WHOrcSith"/>
+    <CActorUnit id="WHOrcSluggaboy" parent="WHOrcSmall" unitName="WHOrcSluggaboy"/>
+    <CActorUnit id="WHOrcSluggaboyHero" parent="WHOrcSmall" unitName="WHOrcSluggaboyHero" icon="WHOrcSluggaboy"/>
+    <CActorUnit id="WHOrcSluggaboyMerc" parent="WHOrcSmall" unitName="WHOrcSluggaboyMerc" icon="WHOrcSluggaboy"/>
+    <CActorUnit id="WHSMDreadnought" parent="WHSMLarge" unitName="WHSMDreadnought"/>
+    <CActorUnit id="WHSMDreadnoughtDuelElite" parent="WHSMLarge" unitName="WHSMDreadnoughtDuelElite" icon="WHSMDreadnought"/>
+    <CActorUnit id="WHSMDreadnoughtDuelHeavyBolter" parent="WHSMLarge" unitName="WHSMDreadnoughtDuelHeavyBolter" icon="WHSMDreadnought"/>
+    <CActorUnit id="WHSMDreadnoughtDuelLescannon" parent="WHSMLarge" unitName="WHSMDreadnoughtDuelLescannon" icon="WHSMDreadnought"/>
+    <CActorUnit id="WHSMDreadnoughtElite" parent="WHSMLarge" unitName="WHSMDreadnoughtElite" icon="WHSMDreadnought"/>
+    <CActorUnit id="WHSMDreadnoughtMerc" parent="WHSMLarge" unitName="WHSMDreadnoughtMerc" icon="WHSMDreadnought"/>
+    <CActorUnit id="WHSMDreadnoughtMercDuel" parent="WHSMLarge" unitName="WHSMDreadnoughtMercDuel" icon="WHSMDreadnought"/>
+    <CActorUnit id="WHSMDreadnoughtMercDuelMissileLuncher" parent="WHSMLarge" unitName="WHSMDreadnoughtMercDuelMissileLuncher" icon="WHSMDreadnought"/>
+    <CActorUnit id="WHSMDreadnoughtRangedAssultcannon" parent="WHSMLarge" unitName="WHSMDreadnoughtRangedAssultcannon" icon="WHSMDreadnought"/>
+    <CActorUnit id="WHSMDreadnoughtRangedElite" parent="WHSMLarge" unitName="WHSMDreadnoughtRangedElite" icon="WHSMDreadnought"/>
+    <CActorUnit id="WHSMDreadnoughtRangedInfernocannon" parent="WHSMLarge" unitName="WHSMDreadnoughtRangedInfernocannon" icon="WHSMDreadnought"/>
+    <CActorUnit id="WHSMDreadnoughtRangedMerc" parent="WHSMLarge" unitName="WHSMDreadnoughtRangedMerc" icon="WHSMDreadnought"/>
+    <CActorUnit id="WHSMDreadnoughtRangedMultiMeta" parent="WHSMLarge" unitName="WHSMDreadnoughtRangedMultiMeta" icon="WHSMDreadnought"/>
+    <CActorUnit id="WHSMServitor" parent="WHSMSmall" unitName="WHSMServitor"/>
+<!--    <CActorUnit id="WHCivChildBoyUpdated" parent="WHCivSmall" unitName="WHCivChildBoyUpdated"/>-->
+<!--    <CActorUnit id="WHCivChildGirlUpdated" parent="WHCivSmall" unitName="WHCivChildGirlUpdated"/>-->
+    <CActorUnit id="WHCivBoy" parent="WHCivSmall" unitName="WHCivBoy"/>
+    <CActorUnit id="WHCivChildBoy" parent="WHCivSmall" unitName="WHCivChildBoy"/>
+    <CActorUnit id="WHCivChildGirl" parent="WHCivSmall" unitName="WHCivChildGirl"/>
+
+
+</Catalog>

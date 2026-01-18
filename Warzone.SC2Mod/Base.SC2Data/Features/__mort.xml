@@ -1,0 +1,370 @@
+<Catalog>
+
+
+    <CEffectLaunchMissile id="MORTLaunchDirected">
+        <LaunchLocation Value="CasterUnit"/>
+        <!--        <LaunchEffect value="MORTDisableWeaponAB"/>-->
+        <ImpactEffect value="MORTLaunchDirectedImpactSet"/>
+        <AmmoUnit value="MORTMissile"/>
+        <ImpactOffset value="0,0,0.1"/>
+        <Movers Link="MORTMissileMoverClose" IfRangeLTE="4"/>
+        <Movers Link="MORTMissileMover" IfRangeLTE="1000"/>
+    </CEffectLaunchMissile>
+    <CEffectSwitch id="MORTLaunchSwitch">
+        <CaseArray Validator="MORTWeaponLaunchValidator" Effect="MORTLaunchDirected"/>
+        <CaseDefault value="MORTLaunch"/>
+    </CEffectSwitch>
+    <CEffectSet id="MORTLaunchImpactSet">
+        <!--        <EffectArray value="MORTDisableWeaponRB"/>-->
+        <EffectArray value="MORTDamage"/>
+        <TargetLocationType value="UnitOrPoint"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="MORTSetCooldown">
+        <ImpactUnit Value="Caster"/>
+        <Weapon Weapon="MORT" CooldownOperation="Set" CooldownFraction="0.1"/>
+    </CEffectModifyUnit>
+    <CEffectCreatePersistent id="MORTDelay">
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <TimeScaleSource Value="Caster"/>
+        <OffsetVectorEndLocation Value="TargetUnitOrPoint"/>
+        <Flags index="Channeled" value="1"/>
+        <InitialEffect value="MORTAttacking"/>
+        <ExpireEffect value="MORTExpire"/>
+        <FinalEffect value="MORTFinal"/>
+        <!--MODIFY THIS FOR DELAY-->
+        <PeriodCount value="4"/>
+        <PeriodicValidator value="MORTValidator"/>
+        <PeriodicEffectArray value="MORTPeriodicDummy"/>
+        <PeriodicPeriodArray value="0.1"/>
+    </CEffectCreatePersistent>
+    <CEffectApplyBehavior id="MORTAttacking">
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="MORTAttackingRB">
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="MORTAttacking"/>
+    </CEffectRemoveBehavior>
+    <CEffectDamage id="MORTPeriodicDummy"/>
+    <CEffectSet id="MORTFinal">
+        <EffectArray value="MORTRefundCooldown"/>
+        <EffectArray value="MORTAttackingRB"/>
+        <TargetLocationType value="UnitOrPoint"/>
+    </CEffectSet>
+    <CEffectSet id="MORTExpire">
+        <EffectArray value="MORTAttackingRB"/>
+        <EffectArray value="MORTLaunch"/>
+        <TargetLocationType value="UnitOrPoint"/>
+    </CEffectSet>
+    <CEffectSet id="MORTValidateSet">
+        <EffectArray value="MORTPeriodicDummy"/>
+        <EffectArray value="MORTValidate2"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="MORTRefundCooldown">
+        <ValidatorArray value="MORTAttacking"/>
+        <ImpactUnit Value="Caster"/>
+        <Weapon Weapon="MORT" CooldownOperation="Set" CooldownAmount="0.2"/>
+    </CEffectModifyUnit>
+    <CEffectDamage id="MORTLaunchDummy">
+        <SearchFlags index="OffsetAreaByAngle" value="1"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="MORTLaunch">
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="MORTLaunchImpactSet"/>
+        <AmmoUnit value="MORTMissile"/>
+        <!--        <LaunchEffect value="MORTDisableWeaponAB"/>-->
+        <ImpactOffset value="0,0,0.1"/>
+        <Movers Link="MORTMissileMoverClose" IfRangeLTE="4"/>
+        <Movers Link="MORTMissileMover" IfRangeLTE="1000"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="MORTTurn">
+        <EffectArray value="MORTTurnOrder"/>
+        <TargetLocationType value="UnitOrPoint"/>
+    </CEffectSet>
+    <CEffectIssueOrder id="MORTTurnOrder">
+        <WhichUnit Value="Caster"/>
+        <Abil value="move"/>
+        <AbilCmdIndex value="4"/>
+        <Player Value="Caster"/>
+        <Target Value="TargetUnitOrPoint"/>
+    </CEffectIssueOrder>
+    <CEffectDamage id="MORTDamage" parent="DU_WEAP_SPLASH">
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="4"/>
+        <Death value="Blast"/>
+        <AreaArray Radius="0.1" Fraction="1" Validator="MORTImpactTargetFilters"/>
+        <AreaArray Radius="0.2" Fraction="0.5" Validator="MORTImpactTargetFilters"/>
+        <AreaArray Radius="0.3" Fraction="0.25" Validator="MORTImpactTargetFilters"/>
+        <IncludeArray Effect="MORTLaunch" Value="Target"/>
+        <SearchFilters value="Ground;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+        <ImpactUnitValidator value="MORTImpactTargetFilters"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="MORTSearch">
+        <SearchFilters value="Ground;Player,Ally,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="0.4" Effect="MORTDamage"/>
+    </CEffectEnumArea>
+    <CValidatorUnitFilters id="MORTImpactTargetFilters">
+        <Filters value="Ground;Missile,Stasis,Hidden,Invulnerable"/>
+    </CValidatorUnitFilters>
+    <CValidatorUnitOrderTargetType id="MORTAttackTargetIsUnit">
+        <AbilLink value="attack"/>
+    </CValidatorUnitOrderTargetType>
+    <CValidatorCombine id="MORTWeaponTargetValidator">
+        <CombineArray value="MORTAttackTargetIsPoint"/>
+        <CombineArray value="MORTWeaponTargetUnitValidator"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="MORTWeaponTargetUnitValidator">
+        <Type value="And"/>
+        <CombineArray value="MORTAttackTargetIsUnit"/>
+        <CombineArray value="MORTImpactTargetFilters"/>
+    </CValidatorCombine>
+    <CValidatorUnitOrderTargetType id="MORTAttackTargetIsPoint">
+        <AbilLink value="attack"/>
+        <AbilCmdIndex value="2"/>
+        <Type value="Point"/>
+    </CValidatorUnitOrderTargetType>
+    <CValidatorCombine id="MORTWeaponLaunchValidator">
+        <Type value="And"/>
+        <CombineArray value="TargetCantMove"/>
+        <CombineArray value="TargetRadiusLarge"/>
+    </CValidatorCombine>
+    <CValidatorPlayerRequirement id="HaveMORTRangeUpgrade">
+        <Find value="1"/>
+        <Value value="HaveMORTRangeUpgrade"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="DoesNotHaveMORTRangeUpgrade">
+        <Value value="HaveMORTRangeUpgrade"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorCombine id="MORTWeaponInRange">
+        <CombineArray value="MORTWeaponInRangeNormal"/>
+        <CombineArray value="MORTWeaponInRangeUpgraded"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="MORTWeaponInRangeNormal">
+        <Type value="And"/>
+        <CombineArray value="DoesNotHaveMORTRangeUpgrade"/>
+        <CombineArray value="MORTWeaponRangeCheckNormal"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="MORTWeaponInRangeUpgraded">
+        <Type value="And"/>
+        <CombineArray value="HaveMORTRangeUpgrade"/>
+        <CombineArray value="MORTWeaponRangeCheckUpgraded"/>
+    </CValidatorCombine>
+    <CValidatorLocationCompareRange id="MORTWeaponRangeCheckNormal">
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <Compare value="LE"/>
+        <Range value="11.5"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorLocationCompareRange id="MORTWeaponRangeCheckUpgraded">
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <Compare value="LE"/>
+        <Range value="16.5"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorLocationArc id="MORTWeaponArc">
+        <WhichLocation Value="CasterUnit"/>
+        <Arc value="225"/>
+        <Value Value="TargetUnitOrPoint"/>
+    </CValidatorLocationArc>
+    <CValidatorCombine id="MORTValidator">
+        <Type value="And"/>
+        <!--        <CombineArray value="CasterNotDeadNotStunnedNotStasis"/>-->
+        <CombineArray value="MORTWeaponArc"/>
+        <CombineArray value="MORTWeaponInRange"/>
+        <CombineArray value="MORTWeaponTargetValidator"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="MORTAttacking">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="MORTAttacking"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitType id="IsMORT">
+        <Value value="MORT"/>
+    </CValidatorUnitType>
+
+
+
+
+    <CActorForceSphere id="MORTDamageAttackForce2">
+        <Magnitude value="23.000000,9.000000"/>
+        <Radius value="1.200000,0.200000"/>
+        <Duration value="0.150000"/>
+        <On Terms="ActorCreation" Send="Create MORTDamageAttackUpForce"/>
+        <HostSiteOps Ops="SOpTargetPoint SOpSplashDamagePositionVariance"/>
+    </CActorForceSphere>
+    <CActorAction id="MORTAttack" parent="GenericAttack" effectImpact="MORTDamage" effectLaunch="MORTLaunch">
+        <On Terms="Effect.MORTDamage.Start" Send="ActionDamage"/>
+        <On Terms="Effect.MORTDamage.Stop" Send="ActionDamagePhysics"/>
+        <LaunchSiteOps Ops="SOpAttachWeapon"/>
+        <LaunchAssets Model="MORTLaunch" Sound="MORT_Launch"/>
+        <Missile value="MORTMissile"/>
+        <ImpactMap index="None" Model="MORTImpact" Sound="MORT_Impact"/>
+    </CActorAction>
+    <CActorAction id="MORTAttackDirected" parent="GenericAttack" effectImpact="MORTDamageDirected" effectLaunch="MORTLaunchDirected">
+        <LaunchSiteOps Ops="SOpAttachWeapon"/>
+        <LaunchAssets Model="MORTLaunch" Sound="MORT_Launch"/>
+        <Missile value="MORTMissile"/>
+        <ImpactMap index="None" Model="MORTImpact" Sound="MORT_Impact"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeStandard SOpForwardLaunchGuide"/>
+        <ImpactPhysics Name="Explosion" MatchKeys="Basic" Physics="SiegeTankSiegedForce"/>
+    </CActorAction>
+    <CActorForceSphere id="MORTDamageAttackForce">
+        <Magnitude value="23.000000,9.000000"/>
+        <Radius value="1.200000,0.200000"/>
+        <Duration value="0.150000"/>
+        <On Terms="ActorCreation" Send="Create MORTDamageAttackUpForce"/>
+        <On Terms="Effect.MORTDamage.Start; At Effect" Send="Create"/>
+        <HostSiteOps Ops="SOpTargetPoint SOpSplashDamagePositionVariance"/>
+    </CActorForceSphere>
+    <CActorForceSphere id="MORTDamageAttackUpForce">
+        <Host Subject="::Creator"/>
+        <HostSiteOps Ops="SOpForwardLaunchGuide SOp2DRotation SOp180 SOpRotVariancerUp35 SOpPointDown1ByDot25 SOpRotationRandomPitch30"/>
+        <Magnitude value="20.000000,6.000000"/>
+        <Radius value="1.200000,0.200000"/>
+        <Duration value="0.150000"/>
+        <Field value="Directional"/>
+    </CActorForceSphere>
+    <CActorSiteOpLocalOffset id="MORTBuffOffset">
+        <LocalOffset value="0.000000,0.000000,0.300000"/>
+    </CActorSiteOpLocalOffset>
+    <CActorMissile id="MORTMissile" parent="GenericAttackMissile" unitName="MORTMissile">
+        <HighlightTooltip value="Unit/Name/MORTMissile"/>
+    </CActorMissile>
+    <CActorRange id="MORTRange" parent="RangeWeapon" weapon="MORT">
+        <!--        <On Terms="SelectionLocalUpdate.WZTank.Start" Send="Create"/>-->
+        <!--        <On Terms="SelectionLocalUpdate.WZTank.Stop" Send="Destroy"/>-->
+        <!--        <On Terms="Behavior.WZTank.On; Selected" Send="Create"/>-->
+        <!--        <On Terms="Behavior.WZTank.Off" Send="Destroy"/>-->
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+        <IconArcLength value="3.250000"/>
+    </CActorRange>
+    <CModel id="MORTLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\SiegeTankWeaponLaunch\SiegeTankWeaponLaunch.m3"/>
+        <AnimSpeed value="1.200000"/>
+        <Lighting value="MengskSiegeTankSiegedAttackLaunch"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="MORTImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\TankWeaponImpact\TankWeaponImpact.m3"/>
+        <LowQualityModel value="SiegeTankAttackImpactLow"/>
+        <AnimSpeed value="1.200000"/>
+        <Lighting value="SiegeTankAttackImpact"/>
+        <ScaleMax value="0.900000,0.900000,0.900000"/>
+        <ScaleMin value="0.900000,0.900000,0.900000"/>
+    </CModel>
+    <CModel id="MORTMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Terran\MagneticMineMissile\MagneticMineMissile.m3"/>
+        <ScaleMax value="1.100000,1.100000,1.100000"/>
+        <ScaleMin value="1.100000,1.100000,1.100000"/>
+    </CModel>
+    <CWeaponLegacy id="MORT">
+        <DisplayEffect value="MORTDamage"/>
+        <TargetFilters value="Ground;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="0.2"/>
+        <DamagePoint value="0.2"/>
+        <Effect value="MORTDelay"/>
+        <Icon value="Assets\Textures\btn-upgrades-upl-infantryweapons-lvl0.dds"/>
+        <MinScanRange value="10"/>
+        <RangeSlop value="2.5"/>
+        <Backswing value="0.1"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+        <Options index="DisplayCooldown" value="1"/>
+        <Options index="NeverMiss" value="0"/>
+        <ArcSlop value="214.9914"/>
+        <LegacyOptions index="FaceTargetWhileInCooldown" value="0"/>
+        <AcquirePrioritization value="ByAngle"/>
+        <MinimumRange value="1"/>
+    </CWeaponLegacy>
+    <CMoverMissile id="MORTMissileMoverUpgraded" parent="MissileDefault">
+        <MotionPhases index="0">
+            <Driver value="AdaptableParabola"/>
+            <Acceleration value="10"/>
+            <MinSpeed value="16"/>
+            <MaxSpeed value="22"/>
+            <ClearanceAcceleration value="75"/>
+            <ActorTracking value="Actual"/>
+            <Outro value="0"/>
+            <AdaptableParabolaClearance value="3,0.5"/>
+            <YawPitchRoll value="0"/>
+            <AdaptableParabolaDistances index="Launch" value="1"/>
+            <AdaptableParabolaDistances index="PreApex" value="0.3"/>
+            <AdaptableParabolaDistances index="PostApex" value="0.3"/>
+            <AdaptableParabolaDistances index="Land" value="1"/>
+            <AdaptableParabolaAccels index="Launch" value="0"/>
+            <AdaptableParabolaAccels index="Ascent" value="0"/>
+            <AdaptableParabolaAccels index="Apex" value="0"/>
+            <AdaptableParabolaAccels index="Descent" value="0"/>
+            <AdaptableParabolaAccels index="Land" value="0"/>
+        </MotionPhases>
+        <MotionPhases index="1" removed="1"/>
+    </CMoverMissile>
+    <CMoverMissile id="MORTMissileMoverClose" parent="MissileDefault">
+        <MotionPhases index="0">
+            <Driver value="AdaptableParabola"/>
+            <Acceleration value="10"/>
+            <MinSpeed value="12"/>
+            <MaxSpeed value="18"/>
+            <ClearanceAcceleration value="75"/>
+            <ActorTracking value="Actual"/>
+            <Outro value="0"/>
+            <AdaptableParabolaClearance value="1,0.2"/>
+            <YawPitchRoll value="0"/>
+            <AdaptableParabolaDistances index="Launch" value="0.5"/>
+            <AdaptableParabolaDistances index="PreApex" value="0.2"/>
+            <AdaptableParabolaDistances index="PostApex" value="0.2"/>
+            <AdaptableParabolaDistances index="Land" value="0.5"/>
+            <AdaptableParabolaAccels index="Launch" value="0"/>
+            <AdaptableParabolaAccels index="Ascent" value="0"/>
+            <AdaptableParabolaAccels index="Apex" value="0"/>
+            <AdaptableParabolaAccels index="Descent" value="0"/>
+            <AdaptableParabolaAccels index="Land" value="0"/>
+        </MotionPhases>
+        <MotionPhases index="1" removed="1"/>
+    </CMoverMissile>
+    <CMoverMissile id="MORTMissileMover" parent="MissileDefault">
+        <MotionPhases index="0">
+            <Driver value="AdaptableParabola"/>
+            <Acceleration value="10"/>
+            <MinSpeed value="12"/>
+            <MaxSpeed value="18"/>
+            <ClearanceAcceleration value="75"/>
+            <ActorTracking value="Actual"/>
+            <Outro value="0"/>
+            <AdaptableParabolaClearance value="3,0.5"/>
+            <YawPitchRoll value="0"/>
+            <AdaptableParabolaDistances index="Launch" value="1"/>
+            <AdaptableParabolaDistances index="PreApex" value="0.3"/>
+            <AdaptableParabolaDistances index="PostApex" value="0.3"/>
+            <AdaptableParabolaDistances index="Land" value="1"/>
+            <AdaptableParabolaAccels index="Launch" value="0"/>
+            <AdaptableParabolaAccels index="Ascent" value="0"/>
+            <AdaptableParabolaAccels index="Apex" value="0"/>
+            <AdaptableParabolaAccels index="Descent" value="0"/>
+            <AdaptableParabolaAccels index="Land" value="0"/>
+        </MotionPhases>
+        <MotionPhases index="1" removed="1"/>
+    </CMoverMissile>
+    <CSound id="MORT_Launch" parent="Combat">
+        <AssetArray File="Assets\Sounds\UPL\MORT\MORT_AttackLaunch00.ogg"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Volume value="-6.000000,-5.000000"/>
+    </CSound>
+    <CSound id="MORT_Impact" parent="Combat">
+        <AssetArray File="Assets\Sounds\UPL\MORT\MORT_AttackImpact00.ogg"/>
+        <AssetArray File="Assets\Sounds\UPL\MORT\MORT_AttackImpact01.ogg"/>
+        <AssetArray File="Assets\Sounds\UPL\MORT\MORT_AttackImpact02.ogg"/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Volume value="-6.000000,-5.000000"/>
+    </CSound>
+    <CUnit id="MORTMissile" parent="MISSILE_INVULNERABLE">
+        <Mover value="MORTMissileMover"/>
+    </CUnit>
+    <CBehaviorBuff id="MORTAttacking">
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+
+
+</Catalog>

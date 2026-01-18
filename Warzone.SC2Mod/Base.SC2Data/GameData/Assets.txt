@@ -1,0 +1,9 @@
+// Army Management Buttons
+UI/ArmyButtonIcon_WZ=Assets\Textures\ui_console_helperbutton_icon_army_WZ.dds
+UI/IdleButtonIcon_WZ=Assets\Textures\ui_console_helperbutton_icon_worker_WZ.dds
+// Resource Buttons
+UI/ResourceFrameSupplyIcon_WZ=Assets\icons\Structures2\Power.dds
+UI/ResourceFrameArmyIcon_WZ=Assets\icons\Cyborgs\Machinegunner.dds
+UI/ResourceFrameWorkerIcon_WZ=Assets\icons\Cyborgs\Engineer.dds
+
+UI/LeaderPanelRaceIcon_WZ=Assets\icons\Factions\expedition-white.dds

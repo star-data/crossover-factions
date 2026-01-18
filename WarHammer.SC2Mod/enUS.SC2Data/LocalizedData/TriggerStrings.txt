@@ -1,0 +1,2 @@
+﻿Library/Name/NECR=Mod - WarHammer
+Trigger/Name/lib_NECR_5F95D471=Necron Incapacitated

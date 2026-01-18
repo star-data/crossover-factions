@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRace id="WZScav">
+        <Icon value="Assets\Icons\Factions\Scavengers-white.dds"/>
+        <GameMusic value="Music_WZEarly"/>
+        <StartingUnitArray Unit="ScavResourcesHub">
+            <Flags index="ResourceSetRally" value="1"/>
+        </StartingUnitArray>
+    </CRace>
+    <CRace id="WZ">
+        <AttributeId value="WRZN"/>
+        <Icon value="Assets\Icons\Factions\expedition-white.dds"/>
+        <GameMusic value="Music_WZEarly"/>
+        <Flags index="Selectable" value="1"/>
+        <Flags index="TrialAllowed" value="1"/>
+        <StartingUnitArray Unit="WZResourcesHub">
+            <Flags index="ResourceSetRally" value="1"/>
+        </StartingUnitArray>
+        <StartingUnitArray Count="12" Unit="WZCyborgCombatEngineer">
+            <Flags index="ResourceRally" value="1"/>
+            <Offset value="0,-3"/>
+            <Offset value="1,-3"/>
+            <Offset value="2,-3"/>
+            <Offset value="3,-3"/>
+            <Offset value="3,-2"/>
+            <Offset value="3,-1"/>
+            <Offset value="3,0"/>
+            <Offset value="3,1"/>
+            <Offset value="3,2"/>
+            <Offset value="3,3"/>
+            <Offset value="2,3"/>
+            <Offset value="1,3"/>
+            <Offset value="0,3"/>
+            <Offset value="-1,3"/>
+            <Offset value="-2,3"/>
+            <Offset value="-3,3"/>
+            <Offset value="-3,2"/>
+            <Offset value="-3,1"/>
+            <Offset value="-3,0"/>
+            <Offset value="-3,-1"/>
+            <Offset value="-3,-2"/>
+            <Offset value="-3,-3"/>
+            <Offset value="-2,-3"/>
+            <Offset value="-1,-3"/>
+        </StartingUnitArray>
+        <StartingUnitArray>
+            <Offset value="0,-3"/>
+            <Offset value="1,-3"/>
+            <Offset value="2,-3"/>
+            <Offset value="3,-3"/>
+            <Offset value="3,-2"/>
+            <Offset value="3,-1"/>
+            <Offset value="3,0"/>
+            <Offset value="3,1"/>
+            <Offset value="3,2"/>
+            <Offset value="3,3"/>
+            <Offset value="2,3"/>
+            <Offset value="1,3"/>
+            <Offset value="0,3"/>
+            <Offset value="-1,3"/>
+            <Offset value="-2,3"/>
+            <Offset value="-3,3"/>
+            <Offset value="-3,2"/>
+            <Offset value="-3,1"/>
+            <Offset value="-3,0"/>
+            <Offset value="-3,-1"/>
+            <Offset value="-3,-2"/>
+            <Offset value="-3,-3"/>
+            <Offset value="-2,-3"/>
+            <Offset value="-1,-3"/>
+        </StartingUnitArray>
+        <StartingResource index="Minerals" value="50"/>
+        <GlossaryTeamColorIndex value="1"/>
+        <MiniMapBorderColor value="0,0,255,0"/>
+        <PlacementGridColorBlindColor value="0,0,255,64"/>
+        <VictorySound value="UI_MissionComplete"/>
+        <DefeatSound value="UI_MissionFailed"/>
+        <ExpansionOrder value="1"/>
+    </CRace>
+</Catalog>

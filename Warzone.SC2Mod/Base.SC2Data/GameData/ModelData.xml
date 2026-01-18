@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+<!--    Scale 0.023 Rotate 180degree-->
+    <CModel id="WZUnit" default="1" parent="Unit">
+        <Occlusion value="Show"/>
+        <SelectionRadius value="0.468700"/>
+        <SquibTypeDefault value="Flesh"/>
+        <Tipability value="0.750000"/>
+        <TipabilityWidth value="0.400000"/>
+        <TipabilityLength value="0.400000"/>
+        <Radius value="0.450000"/>
+        <ShadowRadius value="0.468700"/>
+        <Model value="Assets\Models\Units\##id##.m3"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+    <CModel id="WZPropulsion" default="1" parent="Unit">
+        <Occlusion value="Show"/>
+        <SelectionRadius value="0.468700"/>
+        <Tipability value="0.750000"/>
+        <TipabilityWidth value="0.400000"/>
+        <TipabilityLength value="0.400000"/>
+        <Radius value="0.450000"/>
+        <ShadowRadius value="0.468700"/>
+        <Model value="Assets\Models\Propulsions\##id##.m3"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+    <CModel id="WZBody" default="1" parent="Unit">
+        <Occlusion value="Show"/>
+        <SelectionRadius value="0.468700"/>
+        <Tipability value="0.750000"/>
+        <TipabilityWidth value="0.400000"/>
+        <TipabilityLength value="0.400000"/>
+        <Radius value="0.450000"/>
+        <ShadowRadius value="0.468700"/>
+        <Model value="Assets\Models\Bodies\##id##.m3"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+    <CModel id="WZTurret" default="1" parent="Unit">
+        <Occlusion value="Show"/>
+        <SelectionRadius value="0.468700"/>
+        <SquibTypeDefault value="Flesh"/>
+        <Tipability value="0.750000"/>
+        <TipabilityWidth value="0.400000"/>
+        <TipabilityLength value="0.400000"/>
+        <Radius value="0.450000"/>
+        <ShadowRadius value="0.468700"/>
+        <Model value="Assets\Models\Turrets\##id##.m3"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+    <CModel default="1" id="WZSplat" parent="Unit">
+        <Model value="Assets\Models\Splats\##id##.m3"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+    <CModel default="1" id="WZPlacement" parent="Placement">
+        <Model value="Assets\Models\Structures\##id##.m3"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+    <CModel id="WZStructure" default="1" parent="Unit">
+        <Occlusion value="Show"/>
+        <SelectionRadius value="0.468700"/>
+        <Tipability value="0.750000"/>
+        <TipabilityWidth value="0.400000"/>
+        <TipabilityLength value="0.400000"/>
+        <Radius value="0.450000"/>
+        <ShadowRadius value="0.468700"/>
+        <Model value="Assets\Models\Structures\##id##.m3"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+    <CModel id="WZUnitPortrait" default="1"  parent="FXAPortrait">
+        <Model value="Assets\Models\Portraits\##id##Portrait.m3"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+    <CModel id="WZUnitDeath" default="1"  parent="UnitDeath">
+        <Model value="Assets\Models\##id##.m3"/>
+        <Occlusion value="Show"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+    <CModel id="WZUnitDeathRagdoll" default="1"  parent="UnitDeathRagdoll">
+        <Model value="Assets\Models\##id##.m3"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+
+    <!--Scavs-->
+    <CModel id="ScavBus" parent="WZUnit"/>
+    <CModel id="ScavBuggy" parent="WZUnit"/>
+    <CModel id="ScavFireTruck" parent="WZUnit"/>
+    <CModel id="ScavJeep" parent="WZUnit"/>
+    <CModel id="ScavRocketBuggy" parent="WZUnit"/>
+    <CModel id="ScavRocketJeep" parent="WZUnit"/>
+    <CModel id="ScavTrike" parent="WZUnit"/>
+    <!--The Project-->
+    <CModel id="WZHeavyTransport" parent="WZUnit">
+        <ScaleMax value="1.1,1.1,1.1"/>
+        <ScaleMin value="1.1,1.1,1.1"/>
+    </CModel>
+    <!--Turrets-->
+    <CModel id="WZHQSensor" parent="WZTurret">
+        <Model value="Assets\Models\Weapons\WZTankSensor.m3"/>
+        <ScaleMax value="1.4,1.4,1.4"/>
+        <ScaleMin value="1.4,1.4,1.4"/>
+    </CModel>
+    <!--Splats-->
+    <CModel id="WZFactorySplat" parent="WZSplat"/>
+    <CModel id="WZGateSplat" parent="WZSplat"/>
+    <CModel id="WZCommandRelaySplat" parent="WZSplat"/>
+    <CModel id="WZCyborgFactorySplat" parent="WZSplat"/>
+    <CModel id="WZGeneric1x1Splat" parent="WZSplat"/>
+    <CModel id="WZGeneric2x2Splat" parent="WZSplat"/>
+    <CModel id="WZGeneric2x3Splat" parent="WZSplat"/>
+    <CModel id="WZGeneric3x2Splat" parent="WZSplat"/>
+    <CModel id="WZGeneric3x3Splat" parent="WZSplat"/>
+    <CModel id="WZGeneric5x5Splat" parent="WZSplat"/>
+    <CModel id="WZResourcesHubSplat" parent="WZSplat"/>
+    <CModel id="WZHeadquartersSplat" parent="WZSplat"/>
+    <CModel id="WZPowerNuclearSplat" parent="WZSplat"/>
+    <CModel id="WZPowerSplat" parent="WZSplat"/>
+    <CModel id="WZResearchFacilitySplat" parent="WZSplat"/>
+
+    <!--Placements-->
+    <CModel id="WZWarFactoryHeavyPM" parent="WZPlacement"/>
+    <CModel id="WZResearchFacilityModulePM" parent="WZPlacement"/>
+    <CModel id="WZVtolFactoryHeavyPM" parent="WZPlacement"/>
+    <CModel id="WZVtolFactoryMediumPM" parent="WZPlacement"/>
+    <CModel id="WZWarFactoryMediumPM" parent="WZPlacement"/>
+
+    <!--Scav Structures-->
+    <CModel id="ScavAATurret" parent="WZStructure"/>
+    <CModel id="ScavCommandPost" parent="WZStructure"/>
+    <CModel id="ScavCoolingTower" parent="WZStructure"/>
+    <CModel id="ScavFactory" parent="WZStructure"/>
+    <CModel id="ScavFortress" parent="WZStructure"/>
+    <CModel id="ScavGenerator" parent="WZStructure"/>
+    <CModel id="ScavGeneratorUpgraded" parent="WZStructure"/>
+    <CModel id="ScavGuard" parent="WZStructure"/>
+    <CModel id="ScavGuardSensor" parent="WZStructure"/>
+    <CModel id="ScavVtolFactory" parent="WZStructure"/>
+    <CModel id="ScavWallHor" parent="WZStructure"/>
+    <CModel id="ScavWallEdge" parent="WZStructure"/>
+    <CModel id="ScavWall" parent="WZStructure"/>
+    <CModel id="ScavWallTurret" parent="WZStructure"/>
+    <CModel id="ScavResourcesHub" parent="WZStructure"/>
+    <!--The Project Structures-->
+    <CModel id="WZCommandRelay" parent="WZStructure"/>
+    <CModel id="WZCyborgFactory" parent="WZStructure"/>
+    <CModel id="WZFortress" parent="WZStructure"/>
+    <CModel id="WZGuardTower" parent="WZStructure"/>
+    <CModel id="WZHardpoint" parent="WZStructure"/>
+    <CModel id="WZHeadquarters" parent="WZStructure"/>
+    <CModel id="WZMissileBunker" parent="WZStructure"/>
+    <CModel id="WZMissileSilo" parent="WZStructure"/>
+    <CModel id="WZOilDerrick" parent="WZStructure"/>
+    <CModel id="ScavOilDerrick" parent="WZStructure"><Model value="Assets\Models\Structures\WZOilDerrick.m3"/></CModel>
+    <CModel id="WZPower" parent="WZStructure"/>
+    <CModel id="WZPowerNuclear" parent="WZStructure"/>
+    <CModel id="WZPowerNuclearUpgraded" parent="WZStructure"/>
+    <CModel id="WZPowerUpgraded" parent="WZStructure"/>
+    <CModel id="WZRepairFacility" parent="WZStructure"/>
+    <CModel id="WZResearchFacility" parent="WZStructure"/>
+    <CModel id="WZResearchFacilityUpgraded" parent="WZStructure"/>
+    <CModel id="WZResourcesHub" parent="WZStructure"/>
+    <CModel id="WZLaserSatelliteControlPost" parent="WZStructure"/>
+    <CModel id="WZSatelliteUplinkCentre" parent="WZStructure"/>
+    <CModel id="WZVespeneDerrick" parent="WZStructure"/>
+    <CModel id="ScavVespeneDerrick" parent="WZStructure"><Model value="Assets\Models\Structures\WZVespeneDerrick.m3"/></CModel>
+    <CModel id="WZVtolFactoryHeavy" parent="WZStructure"/>
+    <CModel id="WZVtolFactoryLight" parent="WZStructure"/>
+    <CModel id="WZVtolFactoryMedium" parent="WZStructure"/>
+    <CModel id="WZWarFactoryHeavy" parent="WZStructure"/>
+    <CModel id="WZWarFactoryLight" parent="WZStructure"/>
+    <CModel id="WZWarFactoryMedium" parent="WZStructure"/>
+    <CModel id="WZTankTrap" parent="WZStructure"/>
+    <CModel id="WZVtolPad" parent="WZStructure"/>
+<!--    <CModel id="WZHardcreteWallHor" parent="WZStructure"/>-->
+<!--    <CModel id="WZHardcreteWallVer" parent="WZHardcreteWallHor"/>-->
+<!--    <CModel id="WZHardcreteWall" parent="WZStructure"/>-->
+<!--    <CModel id="WZHardcreteWallEdge" parent="WZStructure"/>-->
+    <CModel id="WZHardcreteGateV" parent="WZStructure"><Model value="Assets/Models/Walls/HardcreteGateV.m3"/></CModel>
+    <CModel id="WZHardcreteGateH" parent="WZStructure"><Model value="Assets/Models/Walls/HardcreteGateH.m3"/></CModel>
+    <CModel id="WZHardcreteTurret" parent="WZStructure"/>
+
+    <CModel id="WZHardCreateSENW" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateCross.m3"/></CModel>
+    <CModel id="WZHardCreateE" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateE.m3"/></CModel>
+    <CModel id="WZHardCreateEW" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateEW.m3"/></CModel>
+    <CModel id="WZHardCreateGuard" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateGuard.m3"/></CModel>
+    <CModel id="WZHardCreateN" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateN.m3"/></CModel>
+    <CModel id="WZHardCreateNE" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateNE.m3"/></CModel>
+    <CModel id="WZHardCreateNEW" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateNEW.m3"/></CModel>
+    <CModel id="WZHardCreateNW" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateNW.m3"/></CModel>
+    <CModel id="WZHardCreateS" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateS.m3"/></CModel>
+    <CModel id="WZHardCreateSE" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateSE.m3"/></CModel>
+    <CModel id="WZHardCreateSEW" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateSEW.m3"/></CModel>
+    <CModel id="WZHardCreateSN" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateSN.m3"/></CModel>
+    <CModel id="WZHardCreateSNE" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateSNE.m3"/></CModel>
+    <CModel id="WZHardCreateSNW" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateSNW.m3"/></CModel>
+    <CModel id="WZHardCreateSW" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateSW.m3"/></CModel>
+    <CModel id="WZHardCreateW" parent="WZStructure"><Model value="Assets/Models/Walls/HardCreateW.m3"/></CModel>
+
+
+
+    <!--weapons-->
+    <CModel id="WZTankLightMachinegun" parent="WZTurret"/>
+    <CModel id="WZTankTwinMachinegun" parent="WZTurret"/>
+    <CModel id="WZTankHeavyMachinegun" parent="WZTurret"/>
+    <CModel id="WZTankAssaultGun" parent="WZTurret"/>
+    <CModel id="WZTankTwinAssaultGun" parent="WZTurret"/>
+    <CModel id="WZTankFlamer" parent="WZTurret"/>
+    <CModel id="WZTankInferno" parent="WZTurret"/>
+    <CModel id="WZTankPlasmiteFlamer" parent="WZTurret"/>
+    <CModel id="WZTankHeavyPlasmaLauncher" parent="WZTurret"/>
+    <CModel id="WZTankLightCannon" parent="WZTurret"/>
+    <CModel id="WZTankMediumCannon" parent="WZTurret"/>
+    <CModel id="WZTankHyperVelocityCannon" parent="WZTurret"/>
+    <CModel id="WZTankAACycloneFlakCannon" parent="WZTurret"/>
+    <CModel id="WZTankAssaultCannon" parent="WZTurret"/>
+    <CModel id="WZTankHeavyCannon" parent="WZTurret"/>
+    <CModel id="WZTankTwinAssaultCannon" parent="WZTurret"/>
+    <CModel id="WZTankPlasmaCannon" parent="WZTurret"/>
+    <CModel id="WZTankAATornadoFlakCannon" parent="WZTurret"/>
+    <CModel id="WZTankMiniRocketPod" parent="WZTurret"/>
+    <CModel id="WZTankMiniRocketArray" parent="WZTurret"/>
+    <CModel id="WZTankLancer" parent="WZTurret"/>
+    <CModel id="WZTankBunkerBuster" parent="WZTurret"/>
+    <CModel id="WZTankSunburstAA" parent="WZTurret"/>
+    <CModel id="WZTankRippleRockets" parent="WZTurret"/>
+    <CModel id="WZTankHeavyRocketArray" parent="WZTurret"/>
+    <CModel id="WZTankTankKiller" parent="WZTurret"/>
+    <CModel id="WZTankMortar" parent="WZTurret"/>
+    <CModel id="WZTankBombard" parent="WZTurret"/>
+    <CModel id="WZTankPepperpot" parent="WZTurret"/>
+    <CModel id="WZTankIncendiaryMortar" parent="WZTurret"/>
+    <CModel id="WZTankHurricaneAA" parent="WZTurret"/>
+    <CModel id="WZTankWhirlwindAA" parent="WZTurret"/>
+    <CModel id="WZTankHowitzer" parent="WZTurret"/>
+    <CModel id="WZTankIncendiaryHowitzer" parent="WZTurret"/>
+    <CModel id="WZTankHellstorm" parent="WZTurret"/>
+    <CModel id="WZTankGroundShaker" parent="WZTurret"/>
+    <CModel id="WZTankFlashlight" parent="WZTurret"/>
+    <CModel id="WZTankPulseLaser" parent="WZTurret"/>
+    <CModel id="WZTankStormbringerAALaser" parent="WZTurret"/>
+    <CModel id="WZTankHeavyLaser" parent="WZTurret"/>
+    <CModel id="WZTankNeedleGun" parent="WZTurret"/>
+    <CModel id="WZTankRailGun" parent="WZTurret"/>
+    <CModel id="WZTankGaussCannon" parent="WZTurret"/>
+    <CModel id="WZTankScourgeMissile" parent="WZTurret"/>
+    <CModel id="WZTankAvengerSAM" parent="WZTurret"/>
+    <CModel id="WZTankSeraphMissileArray" parent="WZTurret"/>
+    <CModel id="WZTankArchangelMissile" parent="WZTurret"/>
+    <CModel id="WZTankVindicatorSAM" parent="WZTurret"/>
+    <CModel id="WZTankNexusLink" parent="WZTurret"/>
+    <CModel id="WZTankEMPCannon" parent="WZTurret"/>
+    <CModel id="WZTankEMPMortar" parent="WZTurret"/>
+    <CModel id="WZTankSpade" parent="WZTurret"/>
+    <CModel id="WZTankCommand" parent="WZTurret"/>
+    <CModel id="WZTankCBRadar" parent="WZTurret"/>
+    <CModel id="WZTankRadarDetector" parent="WZTurret"/>
+    <CModel id="WZTankSensor" parent="WZTurret"/>
+    <CModel id="WZTankVtolCBRadar" parent="WZTurret"/>
+    <CModel id="WZTankVtolStrike" parent="WZTurret"/>
+    <CModel id="WZTankWideSpectrumSensor" parent="WZTurret"/>
+    <CModel id="WZTankHeavyRepair" parent="WZTurret"/>
+    <CModel id="WZTankRepair" parent="WZTurret"/>
+    <CModel id="WZVtolClusterBombBay" parent="WZTurret"/>
+    <CModel id="WZVtolHeapBombBay" parent="WZTurret"/>
+    <CModel id="WZVtolEMPMissileLauncher" parent="WZTurret"/>
+    <CModel id="WZVtolPlasmiteBombBay" parent="WZTurret"/>
+    <CModel id="WZVtolPhosphorBombBay" parent="WZTurret"/>
+    <CModel id="WZVtolThermiteBombBay" parent="WZTurret"/>
+    <CModel id="WZVtolSunburstAA" parent="WZTurret"/>
+    <CModel id="WZVtolMachinegun" parent="WZTurret"/>
+    <CModel id="WZVtolCannon" parent="WZTurret"/>
+    <CModel id="WZVtolTwinMachinegun" parent="WZTurret"/>
+    <CModel id="WZVtolMiniRocket" parent="WZTurret"/>
+    <CModel id="WZVtolHeavyMachinegun" parent="WZTurret"/>
+    <CModel id="WZVtolLancer" parent="WZTurret"/>
+    <CModel id="WZVtolHyperVelocityCannon" parent="WZTurret"/>
+    <CModel id="WZVtolBunkerBuster" parent="WZTurret"/>
+    <CModel id="WZVtolAssaultGun" parent="WZTurret"/>
+    <CModel id="WZVtolAssaultCannon" parent="WZTurret"/>
+    <CModel id="WZVtolTankKiller" parent="WZTurret"/>
+    <CModel id="WZVtolFlashlight" parent="WZTurret"/>
+    <CModel id="WZVtolNeedleGun" parent="WZTurret"/>
+    <CModel id="WZVtolScourgeMissile" parent="WZTurret"/>
+    <CModel id="WZVtolPulseLaser" parent="WZTurret"/>
+    <CModel id="WZVtolHeavyLaser" parent="WZTurret"/>
+    <CModel id="WZVtolRailGun" parent="WZTurret"/>
+    <CModel id="WZTankDozer" parent="WZTurret"/>
+    <CModel id="WZTankZFolsom" parent="WZTurret"/>
+    <CModel id="WZTankZNull" parent="WZTurret"/>
+
+    <CModel id="WZCyborgWeapon" default="1" parent="Unit">
+        <?token id="model" value="##id##"?>
+        <Occlusion value="Show"/>
+        <SelectionRadius value="0.468700"/>
+        <SquibTypeDefault value="Flesh"/>
+        <Tipability value="0.750000"/>
+        <TipabilityWidth value="0.400000"/>
+        <TipabilityLength value="0.400000"/>
+        <Radius value="0.450000"/>
+        <ShadowRadius value="0.468700"/>
+        <Model value="Assets\Models\Cyborgs\##model##.m3"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+    <CModel id="WZHeavyGunnerWeapon" parent="WZCyborgWeapon" model="LightCannon"/>
+    <CModel id="WZMachinegunnerWeapon" parent="WZCyborgWeapon" model="Machinegun"/>
+    <CModel id="WZFlamerWeapon" parent="WZCyborgWeapon" model="Flamer"/>
+    <CModel id="WZGrenadierWeapon" parent="WZCyborgWeapon" model="Mortar"/>
+    <CModel id="WZLancerWeapon" parent="WZCyborgWeapon" model="Lancer"/>
+    <CModel id="WZThermiteFlamerWeapon" parent="WZCyborgWeapon" model="Inferno"/>
+    <CModel id="WZAssaultGunnerWeapon" parent="WZCyborgWeapon" model="AssaultGun"/>
+    <CModel id="WZFlashlightGunnerWeapon" parent="WZCyborgWeapon" model="Flashlight"/>
+    <CModel id="WZNeedleGunnerWeapon" parent="WZCyborgWeapon" model="NeedleGun"/>
+    <CModel id="WZSuperHeavyGunnerWeapon" parent="WZCyborgWeapon" model="HeavyCannon"/>
+    <CModel id="WZSuperAutoCannonWeapon" parent="WZCyborgWeapon" model="AssaultCannon"/>
+    <CModel id="WZSuperHVCWeapon" parent="WZCyborgWeapon" model="HyperVelocityCannon"/>
+    <CModel id="WZSuperTankKillerWeapon" parent="WZCyborgWeapon" model="TankKiller"/>
+    <CModel id="WZSuperScourgeWeapon" parent="WZCyborgWeapon" model="Scourge"/>
+    <CModel id="WZSuperPulseLaserWeapon" parent="WZCyborgWeapon" model="PulseLaser"/>
+    <CModel id="WZSuperRailGunnerWeapon" parent="WZCyborgWeapon" model="RailGun"/>
+    <CModel id="WZMechanicWeapon" parent="WZCyborgWeapon" model="Repair"/>
+    <CModel id="WZEngineerWeapon" parent="WZCyborgWeapon" model="Spade"/>
+
+
+    <CModel id="WZConstructionEffect" parent="LaunchFX">
+        <Model value="Assets\Models\FxSpade.m3"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+    <CModel id="WZFX" default="1" parent="LaunchFX">
+<!--        <Model value="Assets\Models\FX\##id##.m3"/>-->
+        <Model value="Assets\Effects\Terran\MarauderMissileLaunch\MarauderMissileLaunch.m3"/>
+        <EditorCategories value="Race:WZ"/>
+    </CModel>
+    <CModel id="WZFXATMiss" parent="WZFX"/>
+    <CModel id="WZFXCan20A" parent="WZFX"/>
+    <CModel id="WZFXCan20m" parent="WZFX"/>
+    <CModel id="WZFXCan40m" parent="WZFX"/>
+    <CModel id="WZFxCan75m" parent="WZFX"/>
+    <CModel id="WZFXHBLas" parent="WZFX"/>
+    <CModel id="WZFXHGauss" parent="WZFX"/>
+    <CModel id="WZFXHHowt" parent="WZFX"/>
+    <CModel id="WZFXHHowt2" parent="WZFX"/>
+    <CModel id="WZFXICBM" parent="WZFX"/>
+    <CModel id="WZFXLasRot" parent="WZFX"/>
+    <CModel id="WZFXLGauss" parent="WZFX"/>
+    <CModel id="WZFXLMgun" parent="WZFX"/>
+    <CModel id="WZFXLMgun2" parent="WZFX"/>
+    <CModel id="WZFXLRocPd" parent="WZFX"/>
+    <CModel id="WZFXMGauss" parent="WZFX"/>
+    <CModel id="WZFXMMort" parent="WZFX"/>
+    <CModel id="WZFXMRoc" parent="WZFX"/>
+    <CModel id="WZFXMRocAt" parent="WZFX"/>
+    <CModel id="WZFXSHcanM" parent="WZFX"/>
+    <CModel id="WZFXSHgssM" parent="WZFX"/>
+    <CModel id="WZFXVulCan" parent="WZFX"/>
+    <CModel id="WZFXMgnVic" parent="WZFX"/>
+    <CModel id="WZFXMgnVul" parent="WZFX"/>
+
+
+    <CModel id="WZProjectile" default="1" parent="MissileFX">
+        <Model value="assets\models\Missiles\##id##.m3"/>
+    </CModel>
+    <CModel parent="WZProjectile" id="WZFXAALSH2"      />
+    <CModel parent="WZProjectile" id="WZFXAALSHT"      />
+    <CModel parent="WZProjectile" id="WZFXBeam"        />
+    <CModel parent="WZProjectile" id="WZFXCAmmo"       />
+    <CModel parent="WZProjectile" id="WZFXGammoH"      />
+    <CModel parent="WZProjectile" id="WZFXGammoM"      />
+    <CModel parent="WZProjectile" id="WZFXGAmmo"       />
+    <CModel parent="WZProjectile" id="WZFXHPLME"       />
+    <CModel parent="WZProjectile" id="WZFXLFLSH"       />
+    <CModel parent="WZProjectile" id="WZFXLProj"       />
+    <CModel parent="WZProjectile" id="WZFXLThrow"      />
+    <CModel parent="WZProjectile" id="WZFXLBMBE2"      />
+    <CModel parent="WZProjectile" id="WZFXLBMBP2"      />
+    <CModel parent="WZProjectile" id="WZFXMFLARE"      />
+    <CModel parent="WZProjectile" id="WZFXMPLME"       />
+    <CModel parent="WZProjectile" id="WZFXPLAmmo"      />
+    <CModel parent="WZProjectile" id="WZFXSHcanA"      />
+    <CModel parent="WZProjectile" id="WZFXSHgssA"      />
+    <CModel parent="WZProjectile" id="WZFXSFlms"       />
+    <CModel parent="WZProjectile" id="WZFXSPLME"       />
+    <CModel parent="WZProjectile" id="WZFxlbmbi1"      />
+    <CModel parent="WZProjectile" id="WZFxlbmbx1"      />
+    <CModel parent="WZProjectile" id="WZFxmbmbi2"      />
+    <CModel parent="WZProjectile" id="WZFxmbmbx2"      />
+    <CModel parent="WZProjectile" id="WZFXTracer"      />
+    <CModel parent="WZProjectile" id="WZFXTracr2"      />
+    <CModel parent="WZProjectile" id="WZfxtracer_twin" />
+    <CModel parent="WZProjectile" id="WZfxtracerh"     />
+
+
+    <!--Bodies-->
+    <CModel id="WZBBug" parent="WZBody"/>
+    <CModel id="WZBCobra" parent="WZBody"/>
+    <CModel id="WZBDragon" parent="WZBody"/>
+    <CModel id="WZBMantis" parent="WZBody"/>
+    <CModel id="WZBNull" parent="WZBody"/>
+    <CModel id="WZBPanther" parent="WZBody"/>
+    <CModel id="WZBPython" parent="WZBody"/>
+    <CModel id="WZBRetaliation" parent="WZBody"/>
+    <CModel id="WZBRetribution" parent="WZBody"/>
+    <CModel id="WZBScorpion" parent="WZBody"/>
+    <CModel id="WZBTiger" parent="WZBody"/>
+    <CModel id="WZBVengeance" parent="WZBody"/>
+    <CModel id="WZBViper" parent="WZBody"/>
+    <CModel id="WZBLeopard" parent="WZBody"/>
+    <CModel id="WZBWyvern" parent="WZBody"/>
+    <CModel id="WZBHeavyCyborg" parent="WZBody"/>
+    <CModel id="WZBLightCyborg" parent="WZBody"/>
+
+
+    <!--Propulsions-->
+    <CModel id="WZPNull" parent="WZPropulsion"/>
+    <CModel id="WZPHalftracksLight" parent="WZPropulsion"/>
+    <CModel id="WZPHeliLight" parent="WZPropulsion"/>
+    <CModel id="WZPHoverLight" parent="WZPropulsion"/>
+    <CModel id="WZPTracksLight" parent="WZPropulsion"/>
+    <CModel id="WZPVtolLight" parent="WZPropulsion"/>
+    <CModel id="WZPWheelsLight" parent="WZPropulsion"/>
+    <CModel id="WZPNavalLight" parent="WZPropulsion"/>
+    <CModel id="WZPHeavyCyborg" parent="WZPropulsion"/>
+    <CModel id="WZPLightCyborg" parent="WZPropulsion"/>
+</Catalog>

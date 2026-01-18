@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRace id="DOW" default="1">
+        <?token id="icon"?>
+        <Icon value="Assets\Icons\Races\##icon##.dds"/>
+        <GameMusic value="Music_NecronEarly"/>
+        <Flags index="TrialAllowed" value="1"/>
+        <StartingUnitArray>
+            <Flags index="ResourceSetRally" value="1"/>
+        </StartingUnitArray>
+        <StartingUnitArray Count="12">
+            <Flags index="ResourceRally" value="1"/>
+            <Offset value="0,-3"/>
+            <Offset value="1,-3"/>
+            <Offset value="2,-3"/>
+            <Offset value="3,-3"/>
+            <Offset value="3,-2"/>
+            <Offset value="3,-1"/>
+            <Offset value="3,0"/>
+            <Offset value="3,1"/>
+            <Offset value="3,2"/>
+            <Offset value="3,3"/>
+            <Offset value="2,3"/>
+            <Offset value="1,3"/>
+            <Offset value="0,3"/>
+            <Offset value="-1,3"/>
+            <Offset value="-2,3"/>
+            <Offset value="-3,3"/>
+            <Offset value="-3,2"/>
+            <Offset value="-3,1"/>
+            <Offset value="-3,0"/>
+            <Offset value="-3,-1"/>
+            <Offset value="-3,-2"/>
+            <Offset value="-3,-3"/>
+            <Offset value="-2,-3"/>
+            <Offset value="-1,-3"/>
+        </StartingUnitArray>
+        <StartingUnitArray>
+            <Offset value="0,-3"/>
+            <Offset value="1,-3"/>
+            <Offset value="2,-3"/>
+            <Offset value="3,-3"/>
+            <Offset value="3,-2"/>
+            <Offset value="3,-1"/>
+            <Offset value="3,0"/>
+            <Offset value="3,1"/>
+            <Offset value="3,2"/>
+            <Offset value="3,3"/>
+            <Offset value="2,3"/>
+            <Offset value="1,3"/>
+            <Offset value="0,3"/>
+            <Offset value="-1,3"/>
+            <Offset value="-2,3"/>
+            <Offset value="-3,3"/>
+            <Offset value="-3,2"/>
+            <Offset value="-3,1"/>
+            <Offset value="-3,0"/>
+            <Offset value="-3,-1"/>
+            <Offset value="-3,-2"/>
+            <Offset value="-3,-3"/>
+            <Offset value="-2,-3"/>
+            <Offset value="-1,-3"/>
+        </StartingUnitArray>
+        <StartingResource index="Minerals" value="50"/>
+        <GlossaryTeamColorIndex value="1"/>
+        <MiniMapBorderColor value="100,255,0,0"/>
+        <PlacementGridColorBlindColor value="255,128,0,64"/>
+        <VictorySound value="UI_MissionComplete"/>
+        <DefeatSound value="UI_MissionFailed"/>
+        <ExpansionOrder value="1"/>
+        <DefaultConsoleSkin value="ConsoleProtoss_Forged"/>
+    </CRace>
+    <CRace id="Necron" parent="DOW" icon="Races_Necrons_Banner">
+        <Flags index="Selectable" value="1"/>
+        <AttributeId value="WHNE"/>
+        <StartingUnitArray index="1" Unit="NecronBuilderScarab" />
+    </CRace>
+
+    <CRace id="Tyranid" parent="DOW" icon="Races_Tyranids_Banner">
+        <Flags index="Selectable" value="1"/>
+        <AttributeId value="WHTY"/>
+        <GameMusic value="Music_ZergLow"/>
+        <StartingUnitArray index="0" Unit="NornQueensNest"/>
+        <StartingUnitArray index="1" Unit="Ripper"/>
+    </CRace>
+
+    <!--    <CRace id="WHAM" parent="DOW" icon="Races_AdMech_Banner"><AttributeId value="WHAM"/></CRace>-->
+    <!--    <CRace id="WHBT" parent="DOW" icon="Races_BlackTemplar_Banner"><AttributeId value="WHBT"/></CRace>-->
+    <!--    <CRace id="WHBA" parent="DOW" icon="Races_BloodAngels_Banner"><AttributeId value="WHBA"/></CRace>-->
+    <!--    <CRace id="WHDA" parent="DOW" icon="Races_DarkAngles_Banner"><AttributeId value="WHDA"/></CRace>-->
+    <!--    <CRace id="WHDG" parent="DOW" icon="Races_DeathGuard_Banner"><AttributeId value="WHDG"/></CRace>-->
+    <!--    <CRace id="WHEC" parent="DOW" icon="Races_EmperorsChildren_Banner"><AttributeId value="WHEC"/></CRace>-->
+    <!--    <CRace id="WHFA" parent="DOW" icon="Races_FallenAngels_Banner"><AttributeId value="WHFA"/></CRace>-->
+    <!--    <CRace id="WHFS" parent="DOW" icon="Races_Farsight_Banner"><AttributeId value="WHFS"/></CRace>-->
+    <!--    <CRace id="WHHA" parent="DOW" icon="Races_Harlequins_Banner"><AttributeId value="WHHA"/></CRace>-->
+    <!--    <CRace id="WHIF" parent="DOW" icon="Races_ImperialFists_Banner"><AttributeId value="WHIF"/></CRace>-->
+    <!--    <CRace id="WHKR" parent="DOW" icon="Races_Krieg_Banner"><AttributeId value="WHKR"/></CRace>-->
+    <!--    <CRace id="WHLD" parent="DOW" icon="Races_LegionDamned_Banner"><AttributeId value="WHLD"/></CRace>-->
+    <!--    <CRace id="WHMA" parent="DOW" icon="Races_Malleus_Banner"><AttributeId value="WHMA"/></CRace>-->
+    <!--    <CRace id="WHNL" parent="DOW" icon="Races_NightLords_Banner"><AttributeId value="WHNL"/></CRace>-->
+    <!--    <CRace id="WHPR" parent="DOW" icon="Races_Praetorians_Banner"><AttributeId value="WHPR"/></CRace>-->
+    <!--    <CRace id="WHRV" parent="DOW" icon="Races_RavenGuard_Banner"><AttributeId value="WHRV"/></CRace>-->
+    <!--    <CRace id="WHRN" parent="DOW" icon="Races_RenegadeGuard_Banner"><AttributeId value="WHRN"/></CRace>-->
+    <!--    <CRace id="WHSA" parent="DOW" icon="Races_Salamanders_Banner"><AttributeId value="WHSA"/></CRace>-->
+    <!--    <CRace id="WHSW" parent="DOW" icon="Races_SpaceWolves_Banner"><AttributeId value="WHSW"/></CRace>-->
+    <!--    <CRace id="WHST" parent="DOW" icon="Races_SteelLegion_Banner"><AttributeId value="WHST"/></CRace>-->
+    <!--    <CRace id="WHTK" parent="DOW" icon="Races_Tekarn_Banner"><AttributeId value="WHTK"/></CRace>-->
+    <!--    <CRace id="WHTS" parent="DOW" icon="Races_ThousandSons_Banner"><AttributeId value="WHTS"/></CRace>-->
+    <!--    <CRace id="WHVO" parent="DOW" icon="Races_Vostryan_Banner"><AttributeId value="WHVO"/></CRace>-->
+    <!--    <CRace id="WHWH" parent="DOW" icon="Races_WitchHunters_Banner"><AttributeId value="WHWH"/></CRace>-->
+    <!--    <CRace id="WHWE" parent="DOW" icon="Races_WorldEaters_Banner"><AttributeId value="WHWE"/></CRace>-->
+    <!--    <CRace id="WHYN" parent="DOW" icon="Races_Ynnari_Banner"><AttributeId value="WHYN"/></CRace>-->
+    <CRace id="WHCD" parent="DOW" icon="Races_ChaosDaemons_Banner"><AttributeId value="WHCD"/></CRace>
+    <CRace id="WHCM" parent="DOW" icon="Races_ChaosMarine_Banner"><AttributeId value="WHCM"/></CRace>
+    <CRace id="WHDE" parent="DOW" icon="Races_DarkEldar_Banner"><AttributeId value="WHDE"/></CRace>
+    <CRace id="WHEL" parent="DOW" icon="Races_Eldar_Banner"><AttributeId value="WHEL"/></CRace>
+    <CRace id="WHTA" parent="DOW" icon="Races_Tau_Banner"><AttributeId value="WHTA"/></CRace>
+    <CRace id="WHIG" parent="DOW" icon="Races_ImperialGuard_Banner"><AttributeId value="WHIG"/></CRace>
+    <CRace id="WHOR" parent="DOW" icon="Races_Orks_Banner"><AttributeId value="WHOR"/></CRace>
+    <CRace id="WHSM" parent="DOW" icon="Races_SpaceMarine_Banner"><AttributeId value="WHSM"/></CRace>
+    <CRace id="WHSB" parent="DOW" icon="Races_SOB_Banner"><AttributeId value="WHSB"/></CRace>
+</Catalog>

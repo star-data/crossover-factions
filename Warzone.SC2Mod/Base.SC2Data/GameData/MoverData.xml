@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CMoverMissile default="1" id="WZMissile">
+        <MotionPhases Driver="Guidance" Speed="10" MaxSpeed="10" ActorTracking="Actual" Outro="-4" YawPitchRoll="MAX"/>
+        <MotionPhases Acceleration="200" MaxSpeed="20"/>
+    </CMoverMissile>
+    <CMoverMissile id="I_4_0" parent="WZMissile"> <MotionPhases index="0" Speed="4.0" MaxSpeed="4.0"/></CMoverMissile>
+    <CMoverMissile id="D_4_8" parent="WZMissile"> <MotionPhases index="0" Speed="4.8" MaxSpeed="4.8"/></CMoverMissile>
+    <CMoverMissile id="D_7_0" parent="WZMissile"> <MotionPhases index="0" Speed="7.0" MaxSpeed="7.0"/></CMoverMissile>
+    <CMoverMissile id="H_12_5" parent="WZMissile"><MotionPhases index="0" Speed="12.5" MaxSpeed="12.5"/></CMoverMissile>
+    <CMoverMissile id="H_13_5" parent="WZMissile"><MotionPhases index="0" Speed="13.5" MaxSpeed="13.5"/></CMoverMissile>
+    <CMoverMissile id="H_14_0" parent="WZMissile"><MotionPhases index="0" Speed="14.0" MaxSpeed="14.0"/></CMoverMissile>
+    <CMoverMissile id="D_15_0" parent="WZMissile"><MotionPhases index="0" Speed="15.0" MaxSpeed="15.0"/></CMoverMissile>
+    <CMoverMissile id="H_15_0" parent="WZMissile"><MotionPhases index="0" Speed="15.0" MaxSpeed="15.0"/></CMoverMissile>
+    <CMoverMissile id="I_15_0" parent="WZMissile"><MotionPhases index="0" Speed="15.0" MaxSpeed="15.0"/></CMoverMissile>
+    <CMoverMissile id="D_16_0" parent="WZMissile"><MotionPhases index="0" Speed="16.0" MaxSpeed="16.0"/></CMoverMissile>
+    <CMoverMissile id="D_16_5" parent="WZMissile"><MotionPhases index="0" Speed="16.5" MaxSpeed="16.5"/></CMoverMissile>
+    <CMoverMissile id="D_17_0" parent="WZMissile"><MotionPhases index="0" Speed="17.0" MaxSpeed="17.0"/></CMoverMissile>
+    <CMoverMissile id="D_18_0" parent="WZMissile"><MotionPhases index="0" Speed="18.0" MaxSpeed="18.0"/></CMoverMissile>
+    <CMoverMissile id="I_20_0" parent="WZMissile"><MotionPhases index="0" Speed="20.0" MaxSpeed="20.0"/></CMoverMissile>
+    <CMoverMissile id="D_22_5" parent="WZMissile"><MotionPhases index="0" Speed="22.5" MaxSpeed="22.5"/></CMoverMissile>
+    <CMoverMissile id="H_22_5" parent="WZMissile"><MotionPhases index="0" Speed="22.5" MaxSpeed="22.5"/></CMoverMissile>
+    <CMoverMissile id="H_25_0" parent="WZMissile"><MotionPhases index="0" Speed="25.0" MaxSpeed="25.0"/></CMoverMissile>
+    <CMoverMissile id="H_32_0" parent="WZMissile"><MotionPhases index="0" Speed="32.0" MaxSpeed="32.0"/></CMoverMissile>
+    <CMoverMissile id="D_20_0" parent="WZMissile"><MotionPhases index="0" Speed="20.0" MaxSpeed="20.0"/></CMoverMissile>
+    <CMoverMissile id="D_12_0" parent="WZMissile"><MotionPhases index="0" Speed="12.0" MaxSpeed="12.0"/></CMoverMissile>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</Catalog>

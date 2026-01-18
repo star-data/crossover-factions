@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRequirement id="HaveHumanBarracks">
+        <EditorCategories value="Race:Human,TechType:Unit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+        <NodeArray index="Use" Link="CountUnithbarCompleteOnly789532539TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveHumanFarm">
+        <EditorCategories value="Race:Human,TechType:Unit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+        <NodeArray index="Use" Link="CountUnithhouCompleteOnly789532539TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="HaveHumanFactory">
+        <EditorCategories value="Race:Human,TechType:Unit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+        <NodeArray index="Use" Link="CountUnitharmCompleteOnly789532539TechTreeCheat"/>
+    </CRequirement>
+</Catalog>

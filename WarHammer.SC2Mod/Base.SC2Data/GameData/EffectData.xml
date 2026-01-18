@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectDamage id="NecronWarriorBlasterDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Necron"/>
+        <Kind value="Ranged"/>
+        <Amount value="10"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="NecronFusionCutter" parent="DU_WEAP">
+        <EditorCategories value="Race:Necron"/>
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CEffectSet id="SprayDOW">
+        <EditorCategories value="Race:Necron"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+</Catalog>
